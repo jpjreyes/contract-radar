@@ -52,6 +52,18 @@ or overturn a decision are added to the entry.
   confirmed: it stays). The weakest types were front-matter fields (Parties 0.34 hit@5: they live in the opening
   chunks) and clauses whose lawyer definitions don't use contract wording (Minimum Commitment 0.48). Routing the
   opening chunks for front-matter fields and adding contract phrasing per clause type closed most of the gap.
+- **Held-out test split (run once, 5,506 labeled clauses, 415 contracts never used for tuning):**
+
+| Method | hit@1 | hit@5 | hit@8 | span recall@8 | MRR |
+|---|---|---|---|---|---|
+| Keyword | 0.273 | 0.586 | 0.686 | 0.547 | 0.402 |
+| Vector | 0.325 | 0.618 | 0.717 | 0.573 | 0.446 |
+| Hybrid | 0.332 | 0.655 | 0.746 | 0.597 | 0.466 |
+| Hybrid + reranker | 0.465 | 0.769 | 0.839 | 0.698 | 0.592 |
+| **Planned** | **0.585** | **0.843** | **0.891** | **0.787** | **0.694** |
+
+  Test matches dev within 1–2 points at every k: the planning generalizes rather than overfitting the dev contracts.
+  Reranking costs ~0.4 s per question on the Mac's GPU.
 - **Honesty:** expansions are written from contract language, not fitted to examples; categories with 1–3 dev
   examples (Most Favored Nation, Price Restrictions) are reported, not tuned. The held-out test split is run once.
 
