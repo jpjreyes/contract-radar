@@ -39,8 +39,8 @@ def test_forbidden_text_is_unreachable_even_by_exact_search_and_id(conns):
     with as_user(app, "maria"):  # Procurement / North America only
         assert search(app, text[:300], method="keyword", k=8, contract_id=cid) == []
         assert all(h.contract_id != cid for h in search(app, text[:300], method="keyword", k=8))
-    with as_user(app, "legal_admin"):
-        assert any(h.contract_id == cid for h in search(app, text[:300], method="keyword", k=8))
+    with as_user(app, "legal_admin"):  # control: the same search reaches it for a user who may read it
+        assert search(app, text[:300], method="keyword", k=8, contract_id=cid)
 
 
 def test_setting_ends_with_the_transaction(conns):
