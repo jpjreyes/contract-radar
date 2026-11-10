@@ -76,3 +76,18 @@ or overturn a decision are added to the entry.
   over-call (non-exclusive licenses read as exclusivity). Both numbers are reported; labels are never edited.
 - **Open:** latency is above C4 (8 s) on the CLI backend (process start-up per call + long answers): re-measure on the
   API and cap answer length; run pass^k on the absent set for the inconsistency.
+
+## D8. Row-level security in practice: a non-superuser app role, deny by default
+- **Constraint:** C2.
+- **Finding while building:** the local Postgres user is a superuser, and superusers bypass row-level security even with
+  `FORCE ROW LEVEL SECURITY`. So the app connects as `cc_app` (login, not superuser, no BYPASSRLS); ingestion and
+  setup use the admin role. Tests assert the app role can't bypass RLS.
+- **Design:** `app.user` is set per transaction (`set_config(..., true)`), so it can't leak into the next request on a
+  pooled connection. Policies call `can_read(region, business_unit)` (SECURITY DEFINER over `app_users`, which the
+  app role can't read or change). No user, unknown user or no grant → no rows.
+- **Evidence (`eval_permissions`):** for 3 restricted users, 25 forbidden contracts each, a 300-character passage copied
+  verbatim from the forbidden contract was searched with keyword, vector, hybrid and planned retrieval, globally and
+  scoped to the forbidden id: **0 leaks in 2,122 returned chunks.** Control: the same attack on the user's own
+  contracts still finds them (10/10, 10/10, 7/10; the misses are boilerplate passages shared by many contracts).
+- **Visibility per demo user:** legal_admin 510 contracts · maria (Procurement, North America) 50 · kenji (Marketing,
+  EMEA + LATAM) 46 · analyst (Legal, all regions) 311 · no user / unknown user 0.
