@@ -1,0 +1,17 @@
+{
+ "note": "Cases where the answer disagreed with CUAD's label, reviewed by reading the cited contract text (2026-11-10).",
+ "cases": [
+  {"contract": "PareteumCorp_20081001_8-K_EX-99.1_2654808_EX-99.1_Hosting Agreement", "category": "Notice Period To Terminate Renewal",
+   "label": "absent", "model": "present", "verdict": "label_wrong",
+   "evidence": "Art. 17.2 termination notice before the end of the Initial Term; 'automatically extended' without it; elsewhere 'the twelve month termination notice in accordance with article 17.2'."},
+  {"contract": "MIDDLEBROOKPHARMACEUTICALS,INC_03_18_2010-EX-10.1-PROMOTION AGREEMENT", "category": "Termination For Convenience",
+   "label": "absent", "model": "present", "verdict": "label_wrong",
+   "evidence": "MBRK may terminate in the first year for any reason, paying an Early Termination Fee."},
+  {"contract": "MARSHALLHOLDINGSINTERNATIONAL,INC_04_14_2004-EX-10.15-ENDORSEMENT AGREEMENT", "category": "Minimum Commitment",
+   "label": "absent", "model": "present on run 1, absent on run 2", "verdict": "model_inconsistent",
+   "evidence": "Stock options tied to monthly sales volume, not a purchase obligation."},
+  {"contract": "INGEVITYCORP_05_16_2016-EX-10.5-INTELLECTUAL PROPERTY AGREEMENT", "category": "Exclusivity",
+   "label": "absent", "model": "present", "verdict": "model_wrong",
+   "evidence": "Both licenses are expressly non-exclusive; the only 'exclusive' language is a right to settle enforcement actions."}
+ ]
+}

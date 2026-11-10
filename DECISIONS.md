@@ -54,3 +54,25 @@ or overturn a decision are added to the entry.
   opening chunks for front-matter fields and adding contract phrasing per clause type closed most of the gap.
 - **Honesty:** expansions are written from contract language, not fitted to examples; categories with 1–3 dev
   examples (Most Favored Nation, Price Restrictions) are reported, not tuned. The held-out test split is run once.
+
+## D7. Answers: verified citations, an explicit "is it there?" field, and adjudicated disagreements
+- **Constraint:** C1, C5.
+- **Design:** the model must quote the words behind every claim; code locates each quote in the cited passage (exact,
+  whitespace-insensitive, or fuzzy ≥ 90 aligned on the raw text) and drops claims it can't verify. A separate
+  `clause_present` field separates "No, there isn't one" from a real answer: the first eval counted any reply as a
+  failed refusal, which mixed up a correct "no" with an over-call.
+- **Evidence (dev split, Haiku via the Claude CLI):**
+
+| Measure | Result |
+|---|---|
+| Answered when the lawyers labeled the clause | 27/30 |
+| A citation lands on the lawyers' span | 25/27 |
+| Says the clause is absent when the label says absent | 16/20 raw · **18/20 after adjudication** |
+| Claims dropped for unverifiable quotes | 3/148 (first run), 0/35 (second) |
+| Median latency · cost | 10–13 s · $0.0012–0.0013 per question |
+
+- **Adjudication** (`evals/adjudication.json`): of the 4 disagreements on "absent" clauses, 2 were label misses in
+  CUAD (Pareteum renewal notice; Middlebrook termination for convenience), 1 was run-to-run inconsistency, 1 a real
+  over-call (non-exclusive licenses read as exclusivity). Both numbers are reported; labels are never edited.
+- **Open:** latency is above C4 (8 s) on the CLI backend (process start-up per call + long answers): re-measure on the
+  API and cap answer length; run pass^k on the absent set for the inconsistency.
