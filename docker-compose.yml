@@ -1,0 +1,21 @@
+# Local Postgres + pgvector for development and evals. Run it through scripts/dev_db.sh (Colima engine, own project name).
+name: contractcopilot-p3
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: cc
+      POSTGRES_PASSWORD: cc
+      POSTGRES_DB: cc_p3
+    ports:
+      - "127.0.0.1:55435:5432"   # localhost only, high port
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cc -d cc_p3"]
+      interval: 2s
+      retries: 30
+
+volumes:
+  pgdata:

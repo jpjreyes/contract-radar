@@ -1,0 +1,84 @@
+"""Retrieval: keyword (Postgres full-text), vector (pgvector), hybrid (reciprocal rank fusion) and an optional
+cross-encoder rerank. Every method can be scoped to one contract (single-contract questions and field extraction)
+or run across the whole portfolio.
+"""
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass
+
+import psycopg
+
+from contract_copilot.embed import embed_query, rerank_scores
+
+RRF_K = 60
+STOP = set(["a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have", "if", "in", "into", "is", "it", "its", "of", "on", "or", "that", "the", "their", "this", "to", "was", "were", "will", "with", "any", "all", "such", "shall", "may", "must", "other", "should", "which", "what", "who", "whom", "whose", "there", "these", "those", "been", "being", "do", "does", "part", "parts", "contract", "agreement", "highlight", "reviewed", "lawyer", "details", "related"])
+
+
+@dataclass(frozen=True)
+class Hit:
+    chunk_id: int
+    contract_id: int
+    start: int
+    end: int
+    text: str
+    score: float
+
+
+def _or_query(text: str) -> str:
+    words = [w for w in re.findall(r"[a-z0-9]+", text.lower()) if len(w) > 2 and w not in STOP]
+    return " | ".join(dict.fromkeys(words)) or "contract"
+
+
+def _scope(contract_id: int | None) -> tuple[str, tuple]:
+    return ("AND contract_id = %s", (contract_id,)) if contract_id is not None else ("", ())
+
+
+def keyword(conn: psycopg.Connection, query: str, k: int = 50, contract_id: int | None = None) -> list[Hit]:
+    where, args = _scope(contract_id)
+    rows = conn.execute(
+        f"""SELECT id, contract_id, start_char, end_char, text, ts_rank_cd(tsv, q) AS s
+            FROM chunks, to_tsquery('english', %s) q
+            WHERE tsv @@ q {where} ORDER BY s DESC LIMIT %s""", (_or_query(query), *args, k)).fetchall()
+    return [Hit(*r) for r in rows]
+
+
+def vector(conn: psycopg.Connection, query: str, k: int = 50, contract_id: int | None = None) -> list[Hit]:
+    where, args = _scope(contract_id)
+    q = embed_query(query)
+    rows = conn.execute(
+        f"""SELECT id, contract_id, start_char, end_char, text, 1 - (embedding <=> %s) AS s
+            FROM chunks WHERE true {where} ORDER BY embedding <=> %s LIMIT %s""", (q, *args, q, k)).fetchall()
+    return [Hit(*r) for r in rows]
+
+
+def hybrid(conn: psycopg.Connection, query: str, k: int = 50, contract_id: int | None = None) -> list[Hit]:
+    """Reciprocal rank fusion: robust to the two methods' scores living on different scales."""
+    fused: dict[int, float] = {}
+    by_id: dict[int, Hit] = {}
+    for hits in (keyword(conn, query, k, contract_id), vector(conn, query, k, contract_id)):
+        for rank, h in enumerate(hits):
+            fused[h.chunk_id] = fused.get(h.chunk_id, 0.0) + 1.0 / (RRF_K + rank + 1)
+            by_id[h.chunk_id] = h
+    order = sorted(fused, key=fused.get, reverse=True)[:k]
+    return [Hit(**{**by_id[i].__dict__, "score": fused[i]}) for i in order]
+
+
+def rerank(query: str, hits: list[Hit], k: int) -> list[Hit]:
+    scores = rerank_scores(query, [h.text for h in hits])
+    ranked = sorted(zip(hits, scores), key=lambda x: x[1], reverse=True)[:k]
+    return [Hit(**{**h.__dict__, "score": s}) for h, s in ranked]
+
+
+def search(conn: psycopg.Connection, query: str, method: str = "hybrid+rerank", k: int = 8,
+           contract_id: int | None = None, pool: int = 50) -> list[Hit]:
+    if method == "keyword":
+        return keyword(conn, query, k, contract_id)
+    if method == "vector":
+        return vector(conn, query, k, contract_id)
+    if method == "hybrid":
+        return hybrid(conn, query, k, contract_id)
+    if method == "hybrid+rerank":
+        return rerank(query, hybrid(conn, query, pool, contract_id), k)
+    raise ValueError(f"unknown method {method!r}")
