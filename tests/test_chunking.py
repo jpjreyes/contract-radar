@@ -41,3 +41,10 @@ def test_label_category_and_query_helpers():
 def test_split_is_deterministic_and_overlap_is_half_open():
     assert split_of("ACME_SUPPLY_AGREEMENT") == split_of("ACME_SUPPLY_AGREEMENT")
     assert overlaps(0, 10, 9, 20) and not overlaps(0, 10, 10, 20)
+
+
+def test_planner_expands_and_routes_front_matter():
+    from contract_copilot import planner
+    assert "not less than" in planner.expand("Minimum Commitment", "Minimum Commitment: a minimum order size")
+    assert planner.expand(None, "q") == "q"
+    assert planner.is_front_matter("Parties") and not planner.is_front_matter("Cap On Liability")

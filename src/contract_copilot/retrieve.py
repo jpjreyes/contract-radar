@@ -10,6 +10,7 @@ from dataclasses import dataclass
 
 import psycopg
 
+from contract_copilot import planner
 from contract_copilot.embed import embed_query, rerank_scores
 
 RRF_K = 60
@@ -71,8 +72,28 @@ def rerank(query: str, hits: list[Hit], k: int) -> list[Hit]:
     return [Hit(**{**h.__dict__, "score": s}) for h, s in ranked]
 
 
+def first_chunks(conn: psycopg.Connection, contract_id: int, n: int) -> list[Hit]:
+    rows = conn.execute("SELECT id, contract_id, start_char, end_char, text, 0.0 FROM chunks "
+                        "WHERE contract_id = %s ORDER BY idx LIMIT %s", (contract_id, n)).fetchall()
+    return [Hit(*r) for r in rows]
+
+
+def planned(conn: psycopg.Connection, query: str, category: str | None, k: int, contract_id: int | None,
+            pool: int) -> list[Hit]:
+    """Expanded wording for recall, the original question for the reranker, and front matter routed to the
+    contract's opening chunks (D6)."""
+    hits = rerank(query, hybrid(conn, planner.expand(category, query), pool, contract_id), k)
+    if contract_id is not None and planner.is_front_matter(category):
+        front = first_chunks(conn, contract_id, planner.FRONT_CHUNKS)
+        seen = {h.chunk_id for h in front}
+        hits = (front + [h for h in hits if h.chunk_id not in seen])[:k]
+    return hits
+
+
 def search(conn: psycopg.Connection, query: str, method: str = "hybrid+rerank", k: int = 8,
-           contract_id: int | None = None, pool: int = 50) -> list[Hit]:
+           contract_id: int | None = None, pool: int = 50, category: str | None = None) -> list[Hit]:
+    if method == "planned":
+        return planned(conn, query, category, k, contract_id, pool)
     if method == "keyword":
         return keyword(conn, query, k, contract_id)
     if method == "vector":

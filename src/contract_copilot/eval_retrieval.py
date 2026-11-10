@@ -52,7 +52,8 @@ def run(split: str, methods: list[str], limit: int | None = None) -> dict:
         spans_total, rr = 0, 0.0
         per_cat: dict[str, list[int]] = defaultdict(lambda: [0, 0])
         for c, lab in cases:
-            hits = search(conn, query_for(lab), method=method, k=max(KS), contract_id=ids[c.name])
+            hits = search(conn, query_for(lab), method=method, k=max(KS), contract_id=ids[c.name],
+                          category=lab.category)
             first = next((r for r, h in enumerate(hits, 1)
                           if any(overlaps(h.start, h.end, s.start, s.end) for s in lab.spans)), None)
             rr += 1 / first if first else 0

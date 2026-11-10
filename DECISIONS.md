@@ -35,3 +35,22 @@ or overturn a decision are added to the entry.
 - **Choice:** the lawyers' labels carry character offsets into the JSON text, so ingesting that exact text lets the
   retrieval eval check overlap with labeled spans directly, with no fuzzy matching. PDF page numbers are mapped onto
   citations later, for display.
+
+## D6. Query planning: expansions in contract language + front-matter routing
+- **Constraint:** C1 (the right clause must be among what the model sees).
+- **Evidence (dev split, 1,196 labeled clauses, 95 contracts):**
+
+| Method | hit@1 | hit@5 | hit@8 | span recall@8 | MRR |
+|---|---|---|---|---|---|
+| Keyword (Postgres full-text) | 0.287 | 0.576 | 0.661 | 0.533 | 0.404 |
+| Vector (bge-small) | 0.364 | 0.625 | 0.706 | 0.587 | 0.471 |
+| Hybrid (RRF) | 0.357 | 0.648 | 0.746 | 0.621 | 0.478 |
+| Hybrid + reranker | 0.477 | 0.756 | 0.826 | 0.698 | 0.594 |
+| **Planned** (expansions + front matter + reranker) | **0.604** | **0.850** | **0.895** | **0.809** | **0.709** |
+
+- **Reading:** hybrid beats either method alone; the reranker adds +12 points at hit@1 for ~0.4 s per question (D3
+  confirmed: it stays). The weakest types were front-matter fields (Parties 0.34 hit@5: they live in the opening
+  chunks) and clauses whose lawyer definitions don't use contract wording (Minimum Commitment 0.48). Routing the
+  opening chunks for front-matter fields and adding contract phrasing per clause type closed most of the gap.
+- **Honesty:** expansions are written from contract language, not fitted to examples; categories with 1–3 dev
+  examples (Most Favored Nation, Price Restrictions) are reported, not tuned. The held-out test split is run once.
