@@ -52,7 +52,7 @@ jobs:
       - name: Terraform format and validate (no cloud credentials needed)
         run: |
           curl -fsSL https://releases.hashicorp.com/terraform/1.17.1/terraform_1.17.1_linux_amd64.zip -o tf.zip
-          unzip -q tf.zip -d /usr/local/bin
+          unzip -o -q tf.zip terraform -d /usr/local/bin
           terraform -chdir=infra/azure fmt -check -recursive
           terraform -chdir=infra/azure init -backend=false -input=false >/dev/null
           terraform -chdir=infra/azure validate
