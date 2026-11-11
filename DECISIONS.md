@@ -324,3 +324,37 @@ or overturn a decision are added to the entry.
 - **Images:** API 1.14 GB (CPU-only PyTorch on Linux; embedding model and reranker baked in; PII detection moved to
   an `ingest` dependency group the image skips); built and smoke-tested in CI, built for Azure with `az acr build`
   (nothing heavy builds on the laptop).
+
+## D17. M7: a small local model for clause presence, and a cascade with the LLM
+- **Question:** today the LLM decides, per contract, whether each of the 13 terms is there (~$0.0015 and ~15 s per
+  contract, and the contract text leaves the server). Can a small model running on our own hardware do part of that?
+- **Model:** bge-small (33M parameters, the same encoder the search uses), fine-tuned as a 13-label classifier on
+  every chunk's **masked** text (D9: no personal data in training); contract presence = the highest chunk probability
+  ≥ a per-field threshold. 2 epochs, max 256 tokens, positives weighted up (they're rare). Trains in ~17 min on a
+  laptop GPU; scores a contract in **0.44 s** locally, $0.
+- **Splits (contract level, fixed by hash):** train = half of the retrieval "test" contracts; thresholds and the
+  confidence band = the 95 dev contracts; **evaluation = the other half of test** (217 contracts), never seen by the
+  model or the thresholds. The LLM's numbers are recomputed on the same contracts, so the comparison is head to head.
+- **Two label sources, same model and data:** `gold` = chunks overlapping the lawyers' spans (what a client with
+  labeled data has); `llm` = chunks holding the quote our LLM extraction cited (no human labels at all: true
+  distillation).
+- **Cascade:** the small model decides when it's confident (probability inside a band chosen on dev so those
+  decisions are ≥ 95% right), otherwise the LLM's answer is used.
+
+| Mean presence F1 over 13 fields (eval half) | small model alone | LLM alone | cascade | LLM calls avoided |
+|---|---|---|---|---|
+| trained on lawyer labels | 0.779 | 0.843 | **0.858** | **31%** |
+| trained on the LLM's own answers (no human labels) | 0.723 | 0.843 | 0.846 | 26% |
+
+- **Where the small model wins:** minimum commitment (**0.736 vs the LLM's 0.531**), exclusivity (0.761 vs 0.747),
+  parties and agreement dates (≥ 0.95, on par). It decides governing law alone for 91% of contracts (0.94 vs 0.98).
+- **Where it loses badly:** renewal term, notice to stop renewal, termination for convenience (0.59–0.69 vs
+  0.87–0.92): these need reading conditions ("renews unless notice…"), which a chunk classifier doesn't do.
+- **What it's used for:** (1) the cascade is the cost/privacy story: a third of the per-contract model calls can be
+  skipped with no loss in F1 (+0.015); (2) the lawyer-label model finds clauses the search misses, so it now feeds
+  extraction's sources for the weakest fields (D18). Gold beats LLM labels by 0.056 on the small model alone; with
+  no labeled data, distillation from the LLM still gets a cascade at the LLM's level.
+- **Known limits:** one training run per label source (no seed variance reported); the eval half is 217 contracts,
+  so fields with < 60 positives move a few points between runs; presence only (values and quotes stay with the LLM).
+- Run: `uv run python -m contract_copilot.distill --labels gold|llm --epochs 2` (progress every 50 steps); results in
+  `runs/distill-*.json`; the trained model is saved to `data/models/m7-<labels>/` (not in git).

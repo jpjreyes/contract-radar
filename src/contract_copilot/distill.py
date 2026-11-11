@@ -28,6 +28,7 @@ import json
 import time
 from collections import defaultdict
 from datetime import datetime
+from functools import lru_cache
 
 import numpy as np
 import torch
@@ -41,6 +42,32 @@ from contract_copilot.extract import FIELDS
 
 NAMES = list(FIELDS)
 CATS = [FIELDS[n][0] for n in NAMES]
+MODELS = RUNS.parent / "data" / "models"
+
+
+@lru_cache(maxsize=2)
+def load_model(labels: str = "gold"):
+    """The saved small model (tokenizer, model), or None if it hasn't been trained on this machine."""
+    path = MODELS / f"m7-{labels}"
+    if not path.exists():
+        return None
+    from transformers import AutoModelForSequenceClassification, AutoTokenizer
+    model = AutoModelForSequenceClassification.from_pretrained(path).to(_device())
+    model.eval()
+    return AutoTokenizer.from_pretrained(path), model
+
+
+def chunk_scores(conn, contract_id: int, labels: str = "gold") -> dict[int, dict[str, float]]:
+    """Per chunk of one contract, the small model's probability that it holds each field (masked text only)."""
+    loaded = load_model(labels)
+    if loaded is None:
+        return {}
+    rows = [{"chunk": r[0], "text": r[1]} for r in conn.execute(
+        "SELECT id, text_masked FROM chunks WHERE contract_id = %s ORDER BY idx", (contract_id,))]
+    if not rows:
+        return {}
+    probs = predict(*loaded, rows)
+    return {r["chunk"]: dict(zip(NAMES, map(float, p))) for r, p in zip(rows, probs)}
 
 
 def m7_split(name: str) -> str:
@@ -140,6 +167,9 @@ def run(labels: str, epochs: int) -> dict:
     t0 = time.monotonic()
     tok, model = train(rows, labels, epochs)
     train_s = time.monotonic() - t0
+    MODELS.mkdir(parents=True, exist_ok=True)
+    model.save_pretrained(MODELS / f"m7-{labels}")
+    tok.save_pretrained(MODELS / f"m7-{labels}")
     gold = gold_rows()
     truth = {cid: [gold_present(gold_answer(gold[cuad._norm(c["name"])], cat)) for cat in CATS]
              for cid, c in contracts.items() if cuad._norm(c["name"]) in gold}
