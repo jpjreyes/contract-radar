@@ -1,5 +1,5 @@
 [project]
-name = "contract-copilot"
+name = "contract-radar"
 version = "0.1.0"
 description = "Permission-aware RAG over a contract portfolio, with verified citations and evals"
 requires-python = ">=3.12"
