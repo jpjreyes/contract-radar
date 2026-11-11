@@ -16,6 +16,7 @@ Run:  uv run python -m contract_copilot.extract --split dev --workers 5
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import time
@@ -71,8 +72,14 @@ FIELDS: dict[str, tuple[str, str]] = {
 }
 # Fields allowed to auto-accept: those whose auto-accepted precision on the DEV split was >= 95% (D11). The others
 # always go to a person, whatever the model's confidence. Re-derive from the dev eval when prompts or models change.
-TRUSTED = {"renewal_term", "notice_to_terminate_renewal_days", "governing_law", "exclusivity", "non_compete",
-           "cap_on_liability"}
+TRUSTED = {"renewal_term", "notice_to_terminate_renewal_days", "governing_law", "non_compete", "cap_on_liability"}
+# exclusivity was trusted on dev (0.957) but scored 0.924 on test: removed rather than tuned on the test set (D11).
+SPOT_CHECK = 20  # 1 in 20 auto-accepted values goes to a reviewer anyway: production keeps measuring its precision
+
+
+def spot_checked(contract_id: int, name: str) -> bool:
+    """Deterministic 5% sample (same answer on every run, so a re-extraction doesn't reshuffle the sample)."""
+    return int(hashlib.md5(f"{contract_id}:{name}".encode()).hexdigest()[:8], 16) % SPOT_CHECK == 0
 NEGATIVE = re.compile(r"^\s*(?:none|no\b|not\b|n/a|non-exclusive|nonexclusive)", re.IGNORECASE)
 PER_FIELD_K = 3
 MAX_SOURCES = 24
@@ -137,7 +144,7 @@ def parse_date(value: str) -> date | None:
         return None
 
 
-def validate(fields: dict[str, Field]) -> None:
+def validate(fields: dict[str, Field], contract_id: int | None = None) -> None:
     """Typed checks in code; every failed check is written down as an issue and sends the field to review."""
     for f in fields.values():
         if f.present and f.chunk_id is None:
@@ -165,6 +172,9 @@ def validate(fields: dict[str, Field]) -> None:
         exp.issues.append("expires before it takes effect")
     for f in fields.values():
         trusted = f.name in TRUSTED and not f.issues and f.confidence == "high"
+        if trusted and contract_id is not None and spot_checked(contract_id, f.name):
+            f.issues.append("spot check: random 5% of auto-accepted values")
+            trusted = False
         f.status = "auto_accepted" if trusted else "needs_review"
 
 
@@ -197,7 +207,7 @@ def extract(hits: list[Hit], backend: Backend) -> tuple[dict[str, Field], dict]:
         fields[name] = Field(name, present, str(raw.get("value", "")) if present else "",
                              h.text[loc[0]:loc[1]] if loc else "", h.chunk_id if loc else None, start, end,
                              str(raw.get("confidence", "low")))
-    validate(fields)
+    validate(fields, hits[0].contract_id if hits else None)
     return fields, {"tokens_in": res.input_tokens, "tokens_out": res.output_tokens, "seconds": round(res.latency_s, 1),
                     "model": res.model}
 

@@ -12,6 +12,7 @@ import psycopg
 
 from contract_copilot import planner
 from contract_copilot.embed import embed_query, rerank_scores
+from contract_copilot.tracing import span
 
 RRF_K = 60
 STOP = {"a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have", "if", "in", "into", "is", "it", "its", "of", "on", "or", "that", "the", "their", "this", "to", "was", "were", "will", "with", "any", "all", "such", "shall", "may", "must", "other", "should", "which", "what", "who", "whom", "whose", "there", "these", "those", "been", "being", "do", "does", "part", "parts", "contract", "agreement", "highlight", "reviewed", "lawyer", "details", "related"}
@@ -72,7 +73,9 @@ def hybrid(conn: psycopg.Connection, query: str, k: int = 50, contract_id: int |
 
 
 def rerank(query: str, hits: list[Hit], k: int) -> list[Hit]:
-    scores = rerank_scores(query, [h.text for h in hits])
+    with span("rerank", "RERANKER", **{"reranker.model_name": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+                                       "cc.candidates": len(hits), "reranker.top_k": k}):
+        scores = rerank_scores(query, [h.text for h in hits])
     ranked = sorted(zip(hits, scores), key=lambda x: x[1], reverse=True)[:k]
     return [Hit(**{**h.__dict__, "score": s}) for h, s in ranked]
 
@@ -107,6 +110,16 @@ def planned(conn: psycopg.Connection, query: str, category: str | None, k: int, 
 
 def search(conn: psycopg.Connection, query: str, method: str = "hybrid+rerank", k: int = 8,
            contract_id: int | None = None, pool: int = 50, category: str | None = None) -> list[Hit]:
+    with span("retrieve", "RETRIEVER", **{"cc.method": method, "cc.k": k, "cc.contract_id": contract_id,
+                                          "cc.category": category}) as s:
+        hits = _search(conn, query, method, k, contract_id, pool, category)
+        s.set_attribute("cc.hits", len(hits))
+        s.set_attribute("cc.chunk_ids", [h.chunk_id for h in hits])
+        return hits
+
+
+def _search(conn: psycopg.Connection, query: str, method: str, k: int, contract_id: int | None, pool: int,
+            category: str | None) -> list[Hit]:
     if method == "planned":
         return planned(conn, query, category, k, contract_id, pool)
     if method == "keyword":

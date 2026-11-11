@@ -16,6 +16,9 @@ dependencies = [
     "en-core-web-lg",
     "fastapi>=0.162.4",
     "uvicorn[standard]>=0.54.0",
+    "opentelemetry-sdk>=1.45.2",
+    "opentelemetry-exporter-otlp-proto-http>=1.45.2",
+    "opentelemetry-instrumentation-fastapi>=0.66b2",
 ]
 
 [dependency-groups]

@@ -21,6 +21,7 @@ from contract_copilot import audit
 from contract_copilot.extract import FIELDS
 from contract_copilot.llm import Backend, get_backend
 from contract_copilot.permissions import app_connect, as_user
+from contract_copilot.tracing import content_allowed, span
 
 OPS = {
     "present": "the contract has this term",
@@ -73,7 +74,8 @@ class PortfolioAnswer:
 
 
 def plan(question: str, backend: Backend | None = None) -> tuple[list[Condition], str]:
-    res = (backend or get_backend()).complete(SYSTEM, question, PLAN_SCHEMA)
+    with span("plan", "CHAIN"):
+        res = (backend or get_backend()).complete(SYSTEM, question, PLAN_SCHEMA)
     conds = [Condition(c["field"], c["op"], str(c.get("value", "")).strip()) for c in res.data.get("conditions", [])
              if c.get("field") in (*FIELDS, TYPE_FIELD) and c.get("op") in OPS]
     return conds, str(res.data.get("unsupported", ""))
@@ -113,7 +115,9 @@ def _int(v: str) -> int:
 
 def run_plan(conn: psycopg.Connection, conds: list[Condition]) -> list[Match]:
     sql, args = compile_sql(conds)
-    rows = conn.execute(sql, args).fetchall()
+    with span("sql", "TOOL", **{"db.system": "postgresql", "cc.conditions": len(conds)}) as s:
+        rows = conn.execute(sql, args).fetchall()
+        s.set_attribute("cc.rows", len(rows))
     names = [c.field for c in conds if c.field != TYPE_FIELD and c.op != "absent"]
     ev: dict[int, dict] = {r[0]: {} for r in rows}
     if rows and names:
@@ -128,7 +132,14 @@ def ask_portfolio(user: str, question: str, backend: Backend | None = None,
                   conn: psycopg.Connection | None = None) -> tuple[PortfolioAnswer, int]:
     conn = conn or app_connect()
     t0 = time.monotonic()
+    with span("portfolio", "CHAIN", **{"enduser.id": user, "cc.question_chars": len(question),
+                                       "input.value": question if content_allowed() else None}) as root:
+        return _ask_portfolio(conn, user, question, backend, t0, root)
+
+
+def _ask_portfolio(conn, user, question, backend, t0, root) -> tuple[PortfolioAnswer, int]:
     conds, unsupported = plan(question, backend)
+    root.set_attribute("cc.plan", [f"{c.field} {c.op} {c.value}".strip() for c in conds])
     with as_user(conn, user):
         matches = run_plan(conn, conds) if conds else []
         ans = PortfolioAnswer(question, conds, matches, unsupported,
@@ -137,6 +148,8 @@ def ask_portfolio(user: str, question: str, backend: Backend | None = None,
             "action": "portfolio", "question_sha256": hashlib.sha256(question.encode()).hexdigest(),
             "conditions": [c.__dict__ for c in conds], "matched_contracts": [m.contract_id for m in matches],
             "unreviewed_matches": ans.unreviewed, "seconds": round(time.monotonic() - t0, 1)})
+    root.set_attribute("cc.matches", len(ans.matches))
+    root.set_attribute("cc.audit_id", audit_id)
     return ans, audit_id
 
 

@@ -17,6 +17,7 @@ from rapidfuzz import fuzz
 from contract_copilot.llm import Backend, get_backend
 from contract_copilot.retrieve import Hit, search
 from contract_copilot.serve import contract_offsets, serve
+from contract_copilot.tracing import span
 
 FUZZY_MIN = 90
 
@@ -103,20 +104,11 @@ def _prompt(question: str, hits: list[Hit], names: dict[int, str]) -> str:
     return "\n".join(parts)
 
 
-def answer(conn: psycopg.Connection, question: str, contract_id: int | None = None, backend: Backend | None = None,
-           k: int = 8, category: str | None = None) -> Answer:
-    backend = backend or get_backend()
-    raw = search(conn, question, method="planned", k=k, contract_id=contract_id, category=category)
-    hits = serve(conn, raw)
-    revealed = [h.chunk_id for r, h in zip(raw, hits) if r.masks and not h.masks]
-    names = dict(conn.execute("SELECT id, name FROM contracts WHERE id = ANY(%s)",
-                              ([h.contract_id for h in hits],)).fetchall())
-    if not hits:
-        return Answer(question, False, [], 0, hits, clause_present=False)
-    res = backend.complete(SYSTEM, _prompt(question, hits, names), SCHEMA)
+def verify(raw_claims: list[dict], hits: list[Hit], names: dict[int, str]) -> tuple[list[Claim], int]:
+    """Keep a claim only if at least one of its quotes is found in the passage it cites."""
     by_id = {f"S{i}": h for i, h in enumerate(hits, 1)}
     claims, dropped = [], 0
-    for c in res.data.get("claims", []):
+    for c in raw_claims:
         cites = []
         for s in c.get("sources", []):
             h = by_id.get(str(s.get("id", "")).strip("[]"))
@@ -128,6 +120,24 @@ def answer(conn: psycopg.Connection, question: str, contract_id: int | None = No
             claims.append(Claim(c.get("text", ""), cites))
         else:
             dropped += 1
+    return claims, dropped
+
+
+def answer(conn: psycopg.Connection, question: str, contract_id: int | None = None, backend: Backend | None = None,
+           k: int = 8, category: str | None = None) -> Answer:
+    backend = backend or get_backend()
+    raw = search(conn, question, method="planned", k=k, contract_id=contract_id, category=category)
+    hits = serve(conn, raw)
+    revealed = [h.chunk_id for r, h in zip(raw, hits) if r.masks and not h.masks]
+    names = dict(conn.execute("SELECT id, name FROM contracts WHERE id = ANY(%s)",
+                              ([h.contract_id for h in hits],)).fetchall())
+    if not hits:
+        return Answer(question, False, [], 0, hits, clause_present=False)
+    res = backend.complete(SYSTEM, _prompt(question, hits, names), SCHEMA)
+    with span("verify_citations", "CHAIN") as vs:
+        claims, dropped = verify(res.data.get("claims", []), hits, names)
+        vs.set_attribute("cc.claims_kept", len(claims))
+        vs.set_attribute("cc.claims_dropped", dropped)
     answerable = bool(res.data.get("answerable")) and bool(claims)
     present = bool(res.data.get("clause_present")) and answerable
     return Answer(question, answerable, claims if answerable else [], dropped, hits,

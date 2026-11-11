@@ -13,16 +13,20 @@ from collections.abc import Iterator
 
 import psycopg
 from fastapi import Depends, FastAPI, Header, HTTPException
+from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from pydantic import BaseModel
 
 from contract_copilot import review as review_mod
+from contract_copilot import tracing
 from contract_copilot.ask import ask
 from contract_copilot.permissions import USERS, app_connect, as_user
 from contract_copilot.portfolio import ask_portfolio
 from contract_copilot.retrieve import _hit
 from contract_copilot.serve import serve
 
+tracing.setup()
 app = FastAPI(title="Contract Copilot", version="0.1")
+FastAPIInstrumentor.instrument_app(app, excluded_urls="healthz")
 KNOWN = {u[0] for u in USERS}
 
 

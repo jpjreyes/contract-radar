@@ -164,9 +164,10 @@ class AnthropicBackend:
 
 
 def get_backend(name: str | None = None) -> Backend:
+    from contract_copilot.tracing import TracedBackend  # every model call becomes an LLM span
     name = name or os.environ.get("CC_BACKEND", "claude-cli")
     if name == "claude-cli":
-        return ClaudeCLIBackend()
+        return TracedBackend(ClaudeCLIBackend(), name)
     if name == "anthropic":
-        return AnthropicBackend()
+        return TracedBackend(AnthropicBackend(), name)
     raise ValueError(f"unknown backend {name!r}; use claude-cli or anthropic")

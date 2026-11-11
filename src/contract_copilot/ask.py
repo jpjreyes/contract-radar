@@ -19,15 +19,21 @@ from contract_copilot import audit
 from contract_copilot.answer import Answer, answer
 from contract_copilot.llm import Backend
 from contract_copilot.permissions import app_connect, as_user
+from contract_copilot.tracing import content_allowed, span
 
 
 def ask(user: str, question: str, contract_id: int | None = None, category: str | None = None,
         backend: Backend | None = None, conn: psycopg.Connection | None = None) -> tuple[Answer, int]:
     conn = conn or app_connect()
     t0 = time.monotonic()
-    with as_user(conn, user):
+    with span("ask", "CHAIN", **{"enduser.id": user, "cc.contract_id": contract_id, "cc.question_chars": len(question),
+                                 "input.value": question if content_allowed() else None}) as root, \
+            as_user(conn, user):
         a = answer(conn, question, contract_id=contract_id, backend=backend, category=category)
-        audit_id = audit.append(conn, {
+        root.set_attribute("cc.answerable", a.answerable)
+        root.set_attribute("cc.claims", len(a.claims))
+        root.set_attribute("cc.pii_revealed_chunks", len(a.revealed))
+        audit_id = _audit(conn, {
             "action": "ask",
             "question_sha256": hashlib.sha256(question.encode()).hexdigest(),
             "question_chars": len(question),
@@ -42,7 +48,13 @@ def ask(user: str, question: str, contract_id: int | None = None, category: str 
             "tokens_out": a.tokens_out,
             "seconds": round(time.monotonic() - t0, 1),
         })
+        root.set_attribute("cc.audit_id", audit_id)
     return a, audit_id
+
+
+def _audit(conn: psycopg.Connection, payload: dict) -> int:
+    with span("audit", "TOOL"):
+        return audit.append(conn, payload)
 
 
 def main() -> None:

@@ -225,6 +225,11 @@ or overturn a decision are added to the entry.
   liability 0.978, non-compete 0.951, exclusivity 0.924 (the one trusted field under 95% on test → candidate to
   drop from TRUSTED). Weakest presence F1: minimum commitment 0.48, uncapped liability 0.65 (both review-only).
   Alternatives on test: "high, ignore checks" 0.94 / 39% review; "high or medium + checks" 0.879 / 5.8%.
+- **After the test run (Nov 10):** exclusivity removed from TRUSTED instead of tuning it on the test set
+  (the fix would be judged on the data that's supposed to stay unseen). And a deterministic **5% spot check**: one in
+  20 auto-accepted values goes to a reviewer anyway, so precision keeps being measured in production (reviewers'
+  verdicts on that sample are the live precision number). Test with both: auto-accepted precision **0.976**, 74.1%
+  of fields to review (spot checks included).
 - **Cost/speed (Haiku via CLI):** ~15–20 s per contract per model call, 5 in parallel; 415 contracts in ~25 min.
 
 ## D12. Portfolio questions: the model plans a filter, SQL finds the contracts
@@ -260,3 +265,18 @@ or overturn a decision are added to the entry.
   Next rewrites to the FastAPI service (one origin, no CORS).
 - **Tests (`test_api.py`):** unknown user 401, each user's contract count (510 / 50 / 46), the same contract masked for
   the analyst and revealed for legal_admin, 404 for maria, review refused (403) for kenji.
+
+## D14. Tracing: OpenTelemetry spans per step, no contract text in traces
+- **Why:** latency (C4) and cost need a per-stage breakdown to fix; an aggregate "9 s" doesn't say whether to cut the
+  reranker pool, the prompt or the model.
+- **Instrumentation (`tracing.py`):** OpenTelemetry SDK, one trace per request: `ask` → `retrieve` (method, k,
+  chunk ids) → `rerank` → `reveal` (chunks returned unmasked) → `llm` (GenAI conventions: model, input/output
+  tokens; plus cost in USD and model seconds) → `verify_citations` (kept/dropped) → `audit` (audit id); `portfolio`
+  → `plan` → `llm` → `sql` (rows). FastAPI requests are spans too. Every backend is wrapped (`TracedBackend`), so
+  extraction and evals are traced the same way. OpenInference span kinds (LLM / RETRIEVER / RERANKER / CHAIN /
+  TOOL) let LLM-aware viewers lay traces out; export is plain OTLP, so the backend is a deploy choice.
+- **Privacy rule:** spans carry ids, counts, tokens, cost and timing, never the question, contract text or model
+  output (a trace store would otherwise be an unmasked copy of personal data, outside RLS). `CC_TRACE_CONTENT=1`
+  adds them for local debugging only. Tested: a question's words never appear in any span attribute.
+- **Viewer:** Arize Phoenix locally (OSS, LLM-aware). Off unless `CC_TRACE_ENDPOINT` is set.
+- **Tracing as a reusable module:** the same spans work for any service with a model call.

@@ -14,12 +14,15 @@ import psycopg
 
 from contract_copilot.pii import to_original
 from contract_copilot.retrieve import Hit
+from contract_copilot.tracing import span
 
 
 def serve(conn: psycopg.Connection, hits: list[Hit]) -> list[Hit]:
     if not hits:
         return hits
-    originals = dict(conn.execute("SELECT id, text FROM reveal(%s)", ([h.chunk_id for h in hits],)).fetchall())
+    with span("reveal", "TOOL", **{"cc.requested": len(hits)}) as s:
+        originals = dict(conn.execute("SELECT id, text FROM reveal(%s)", ([h.chunk_id for h in hits],)).fetchall())
+        s.set_attribute("cc.revealed", len(originals))
     return [replace(h, text=originals[h.chunk_id], masks=()) if h.chunk_id in originals else h for h in hits]
 
 
