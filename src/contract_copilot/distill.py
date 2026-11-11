@@ -17,7 +17,7 @@ Cascade: on the eval set, the small model decides when it's confident (probabili
 chosen on dev so precision stays at the LLM's level); otherwise the LLM's answer is used. Reported: per-field F1 for
 small model, LLM and cascade; share of LLM calls avoided; cost and latency per contract.
 
-Run:  uv run python -m contract_copilot.distill --labels gold --epochs 3     (prints progress every 200 steps)
+Run:  uv run python -m contract_copilot.distill --labels gold --epochs 3     (prints progress every 50 steps)
 """
 
 from __future__ import annotations
@@ -93,14 +93,14 @@ def train(rows: list[dict], labels: str, epochs: int, batch: int = 16, lr: float
     model.train()
     for _ in range(epochs):
         for idx in np.array_split(rng.permutation(len(data)), max(1, len(data) // batch)):
-            enc = tok([data[i]["text"] for i in idx], truncation=True, max_length=384, padding=True,
+            enc = tok([data[i]["text"] for i in idx], truncation=True, max_length=256, padding=True,
                       return_tensors="pt").to(dev)
             loss = loss_fn(model(**enc).logits, y[idx].to(dev))
             opt.zero_grad()
             loss.backward()
             opt.step()
             step += 1
-            if step % 200 == 0 or step == steps:
+            if step % 50 == 0 or step == steps:
                 el = time.monotonic() - t0
                 print(f"  step {step}/{steps}  loss {loss.item():.3f}  {el:.0f}s, ~{el / step * (steps - step):.0f}s left",
                       flush=True)
@@ -113,7 +113,7 @@ def predict(tok, model, rows: list[dict], batch: int = 64) -> np.ndarray:
     dev = _device()
     out = []
     for i in range(0, len(rows), batch):
-        enc = tok([r["text"] for r in rows[i:i + batch]], truncation=True, max_length=384, padding=True,
+        enc = tok([r["text"] for r in rows[i:i + batch]], truncation=True, max_length=256, padding=True,
                   return_tensors="pt").to(dev)
         out.append(torch.sigmoid(model(**enc).logits).float().cpu().numpy())
     return np.concatenate(out)

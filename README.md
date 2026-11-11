@@ -9,6 +9,8 @@ a tamper-evident audit log.
 > Data: the 510 public commercial contracts of [CUAD](https://www.atticusprojectai.org/cuad) (CC BY 4.0), filed with
 > the SEC. The client, users and permissions are a demo scenario: see [CLIENT_BRIEF.md](CLIENT_BRIEF.md).
 
+![Act this quarter: non-renewal notice deadlines computed from the extracted terms, each with its clause and review status](docs/img/act-this-quarter.png)
+
 ![Portfolio question: the filter the model planned, matches with the evidence behind each one](docs/img/portfolio-question.png)
 
 ![Contract viewer as the analyst: personal data masked, the cited signature block highlighted, key terms with review status](docs/img/viewer-analyst.png)

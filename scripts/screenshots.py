@@ -22,6 +22,11 @@ def main(contract_id: str) -> None:
             ctx.add_init_script(f"localStorage.setItem('cc-user', '{user}')")
             return ctx.new_page()
 
+        pg = page_as("legal_admin")
+        pg.goto(f"{BASE}/")
+        pg.wait_for_selector("text=Notice deadlines", timeout=90_000)
+        pg.wait_for_timeout(1200)
+        pg.screenshot(path=OUT / "act-this-quarter.png")
         for user in ("analyst", "legal_admin"):
             pg = page_as(user)
             pg.goto(f"{BASE}/contracts/{contract_id}?hl=17054-17106")
