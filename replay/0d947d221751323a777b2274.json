@@ -1,25 +1,17 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 115,
- "seconds": 9.9,
+ "audit_id": 173,
+ "seconds": 7.5,
  "pii_revealed_chunks": [
   13540,
-  13513
+  13513,
+  13537
  ],
  "claims": [
   {
-   "text": "The signature block names Dr. Wendy Graham as the signatory for the Reseller, 2205925 Ontario Limited, with the title President.",
+   "text": "The signature block names Dr. Wendy Graham, President, as signatory for the Reseller, 2205925 Ontario Limited.",
    "citations": [
-    {
-     "source": "S5",
-     "chunk_id": 13540,
-     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "2205925 Ontario Limited  DIVERSINET CORP.",
-     "start": 46515,
-     "end": 46556,
-     "contract_id": 280
-    },
     {
      "source": "S5",
      "chunk_id": 13540,
@@ -37,11 +29,20 @@
      "start": 46701,
      "end": 46717,
      "contract_id": 280
+    },
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "2205925 Ontario Limited  DIVERSINET CORP.",
+     "start": 46515,
+     "end": 46556,
+     "contract_id": 280
     }
    ]
   },
   {
-   "text": "The signature block names Albert Wahbe as the signatory for Diversinet Corp., with the title CEO.",
+   "text": "The signature block names Albert Wahbe, CEO, as signatory for Diversinet Corp.",
    "citations": [
     {
      "source": "S5",
@@ -60,19 +61,28 @@
      "start": 46718,
      "end": 46728,
      "contract_id": 280
+    },
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "2205925 Ontario Limited  DIVERSINET CORP.",
+     "start": 46515,
+     "end": 46556,
+     "contract_id": 280
     }
    ]
   },
   {
-   "text": "The Parties signed through their duly authorized representatives.",
+   "text": "The agreement states that the Parties signed it by their duly authorized representatives.",
    "citations": [
     {
      "source": "S5",
      "chunk_id": 13540,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "by their duly authorized representatives",
-     "start": 46470,
-     "end": 46510,
+     "quote": "IN WITNESS WHEREOF the Parties have signed this Agreement, as of the date first written above, by their duly authorized representatives.",
+     "start": 46375,
+     "end": 46511,
      "contract_id": 280
     }
    ]
@@ -92,7 +102,7 @@
    ]
   },
   {
-   "text": "The copy provided shows blank signature lines and blank 'Date Signed' fields, so the text confirms the named signatories but does not show the actual signatures or signing dates.",
+   "text": "The copy provided shows printed names and titles, but the signature lines and 'Date Signed' fields are blank, so the text does not confirm that the individuals actually signed.",
    "citations": [
     {
      "source": "S5",

@@ -1,0 +1,75 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 178,
+ "seconds": 10.1,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "Yes, there is a cap on i-on's liability. It applies to damages for any cause, whether in contract or in tort, and is limited to one month's fees plus the remaining portion of any prepaid fees.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 135,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "i-on's liability for damages to the Customer for any cause whatsoever, regardless of the form of action, and whether in contract or in tort, including negligence, shall be limited to one (1) month's fees and the remaining portion of any prepaid fees.",
+     "start": 11443,
+     "end": 11693,
+     "contract_id": 4
+    }
+   ]
+  },
+  {
+   "text": "Separately from the cap, i-on will not be liable under any circumstances for lost profits or other consequential damages, even if it was advised of the possibility of such damages.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 135,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "i-on will not be liable under any circumstances for any lost profits or other consequential damages, even if i-on has been advised as to the possibility of such damages.",
+     "start": 11273,
+     "end": 11442,
+     "contract_id": 4
+    }
+   ]
+  },
+  {
+   "text": "The sources do not expressly state that any category of liability is carved out of the cap. The cap language itself contains no exceptions.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 135,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "shall be limited to one (1) month's fees and the remaining portion of any prepaid fees.",
+     "start": 11606,
+     "end": 11693,
+     "contract_id": 4
+    }
+   ]
+  },
+  {
+   "text": "The Customer agrees to hold i-on harmless for interruptions in service and for data loss, subject to stated conditions. The sources do not describe these hold-harmless provisions as exclusions from the cap.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 132,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "agrees to hold i-on harmless for any interruptions in service to the Hosted Site",
+     "start": 8321,
+     "end": 8401,
+     "contract_id": 4
+    },
+    {
+     "source": "S2",
+     "chunk_id": 132,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "agrees to hold i-on harmless for any such data loss for the Hosted Site, provided that i-on maintains reasonable steps as described in this Agreement to protect against such data loss.",
+     "start": 8745,
+     "end": 8929,
+     "contract_id": 4
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

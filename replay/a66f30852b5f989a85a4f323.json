@@ -1,36 +1,13 @@
 {
  "answerable": true,
  "clause_present": false,
- "audit_id": 129,
- "seconds": 12.1,
+ "audit_id": 187,
+ "seconds": 8.4,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "The provided sources contain no termination-for-convenience right for either party. The only termination mechanisms shown are non-renewal at the end of a term, automatic termination if no fee agreement is reached before a Renewal Term, and termination for uncured breach. These sources are excerpts, so the full agreement should be checked to confirm.",
+   "text": "The contract sets a 3-year initial term. Neither party gets a right to end it for convenience during that term, and the excerpts show no such right.",
    "citations": [
-    {
-     "source": "S1",
-     "chunk_id": 5095,
-     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "Either party hereto shall have the right to terminate this Agreement in the event of a breach by the other party of its obligations hereunder",
-     "start": 1581,
-     "end": 1722,
-     "contract_id": 117
-    }
-   ]
-  },
-  {
-   "text": "Either party may decline to renew. The Agreement starts with a 3-year Initial Term and renews automatically for one-year Renewal Terms unless a party gives written notice 30 days before expiration, at which point it terminates. This is a right to exit at the end of a term, not a mid-term termination for convenience.",
-   "citations": [
-    {
-     "source": "S1",
-     "chunk_id": 5095,
-     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "unless either Charterer or Owner elects not to renew this Agreement by providing the other party with written notice of such election 30 days prior to the expiration of the Initial Term or Renewal Term, as applicable, at which point this Agreement will automatically terminate.",
-     "start": 948,
-     "end": 1225,
-     "contract_id": 117
-    },
     {
      "source": "S1",
      "chunk_id": 5095,
@@ -43,21 +20,44 @@
    ]
   },
   {
-   "text": "Either party may terminate for breach. The non-breaching party must give 10 days prior written notice and the breaching party has an opportunity to cure during that period.",
+   "text": "Either party may terminate only for the other party's breach, and only after 10 days' prior written notice and an opportunity to cure during that 10-day period.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 5095,
      "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "subject to 10 days prior written notice of such breach given by the non-breaching party to the breaching party and the opportunity for such breaching party to cure such breach during such 10 day period.",
-     "start": 1724,
+     "quote": "Either party hereto shall have the right to terminate this Agreement in the event of a breach by the other party of its obligations hereunder, subject to 10 days prior written notice of such breach",
+     "start": 1581,
+     "end": 1778,
+     "contract_id": 117
+    },
+    {
+     "source": "S1",
+     "chunk_id": 5095,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "and the opportunity for such breaching party to cure such breach during such 10 day period.",
+     "start": 1835,
      "end": 1926,
      "contract_id": 117
     }
    ]
   },
   {
-   "text": "If the parties do not agree on a renegotiated fee by the start of a Renewal Term, the Agreement terminates automatically. This is tied to fee renegotiation, not convenience.",
+   "text": "Either Charterer or Owner may elect not to renew by written notice 30 days before expiration of the Initial Term or a Renewal Term. This is non-renewal, not termination for convenience, and it takes effect at the end of the current term.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 5095,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "unless either Charterer or Owner elects not to renew this Agreement by providing the other party with written notice of such election 30 days prior to the expiration of the Initial Term or Renewal Term, as applicable, at which point this Agreement will automatically terminate.",
+     "start": 948,
+     "end": 1225,
+     "contract_id": 117
+    }
+   ]
+  },
+  {
+   "text": "If the parties do not agree on a renegotiated fee by the start of a Renewal Term, the agreement terminates automatically. This is also not a termination-for-convenience right.",
    "citations": [
     {
      "source": "S1",

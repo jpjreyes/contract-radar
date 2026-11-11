@@ -13,7 +13,7 @@
  ],
  "unsupported": "",
  "unreviewed": 2,
- "audit_id": 136,
+ "audit_id": 194,
  "matches": [
   {
    "contract_id": 463,
@@ -21,13 +21,13 @@
    "evidence": {
     "governing_law": {
      "value": "Delaware",
-     "quote": "in accordance with the laws of the State of Delaware",
-     "start": 33593,
+     "quote": "shall be construed and enforced in accordance with the laws of the State of Delaware",
+     "start": 33561,
      "end": 33645,
      "status": "auto_accepted"
     },
     "uncapped_liability": {
-     "value": "Indemnification obligations under Section 6.3 are carved out of the consequential-damages exclusion; no monetary cap is stated",
+     "value": "Indemnification obligations under Section 6.3 (carved out of the damages exclusion in Section 7.4)",
      "quote": "EXCEPT AS SET FORTH IN SECTION 6.3",
      "start": 27255,
      "end": 27289,
@@ -39,19 +39,19 @@
    "contract_id": 289,
    "contract": "Loop Industries, Inc. - Marketing Agreement",
    "evidence": {
+    "uncapped_liability": {
+     "value": "Breach of Section 4 (Confidential Information); claims to the extent arising out of a Party's gross negligence, fraud, or willful misconduct",
+     "quote": "NONE OF THE FOREGOING LIMITATIONS OF LIABILITY SET FORTH IN THIS SECTION 3.1 SHALL BE AVAILABLE TO EITHER PARTY WITH RESPECT TO A BREACH OF SECTION 4, CONFIDENTIAL INFORMATION",
+     "start": 14595,
+     "end": 14770,
+     "status": "needs_review"
+    },
     "governing_law": {
      "value": "Delaware",
-     "quote": "governed by and interpreted in accordance with the laws of the State of Delaware, United States of America",
+     "quote": "governed by and interpreted in accordance with the laws of the State of Delaware",
      "start": 24974,
-     "end": 25080,
+     "end": 25054,
      "status": "auto_accepted"
-    },
-    "uncapped_liability": {
-     "value": "Breach of Section 4 (Confidential Information), and claims arising from a party's gross negligence, fraud, or willful misconduct",
-     "quote": "NONE OF THE FOREGOING LIMITATIONS OF LIABILITY SET FORTH IN THIS SECTION 3.1 SHALL BE AVAILABLE TO EITHER PARTY WITH RESPECT TO A BREACH OF SECTION 4, CONFIDENTIAL INFORMATION, OR FOR CLAIMS TO THE EXTENT THEY ARISE OUT OF A PARTY'S GROSS NEGLIGENCE, FRAUD, OR WILLFUL MISCONDUCT",
-     "start": 14595,
-     "end": 14874,
-     "status": "needs_review"
     }
    }
   }

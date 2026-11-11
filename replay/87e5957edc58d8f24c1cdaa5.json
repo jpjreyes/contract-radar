@@ -1,12 +1,12 @@
 {
  "answerable": true,
- "clause_present": false,
- "audit_id": 128,
- "seconds": 9.1,
+ "clause_present": true,
+ "audit_id": 186,
+ "seconds": 9.0,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "The sources do not contain a monetary cap on either party's liability. The only dollar figure is an insurance requirement for pollution coverage, which is a coverage obligation, not a limit on liability.",
+   "text": "The sources do not state a monetary cap on either party's liability. The only dollar figure is an insurance requirement for sudden and accidental pollution coverage, which is not a limit on liability.",
    "citations": [
     {
      "source": "S5",
@@ -20,7 +20,7 @@
    ]
   },
   {
-   "text": "The indemnities exclude consequential, punitive, special or similar damages, including lost profits.",
+   "text": "The indemnities exclude consequential, punitive, special, or similar damages, including lost profits. This exclusion applies to the indemnities in Section 4 only.",
    "citations": [
     {
      "source": "S1",
@@ -34,37 +34,46 @@
    ]
   },
   {
-   "text": "The force majeure clause separately excludes Owner, the vessels and their captains from responsibility for listed causes of loss, including fire unless caused by Owner's personal design or neglect, and any loss arising from 'any other cause of whatsoever kind arising without the actual fault of Owner.'",
+   "text": "Each party's indemnity is carved out to the extent the loss is caused by the other party's acts or omissions. Owner's indemnity excludes losses caused by Charterer, and Charterer's indemnity excludes losses caused by Owner.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 5102,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "except to the extent caused, directly or indirectly, by the acts or omissions of Charterer.",
+     "start": 9227,
+     "end": 9318,
+     "contract_id": 117
+    },
+    {
+     "source": "S1",
+     "chunk_id": 5102,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "except to the extent caused, directly or indirectly, by the acts or omissions of Owner.",
+     "start": 9849,
+     "end": 9936,
+     "contract_id": 117
+    }
+   ]
+  },
+  {
+   "text": "Under the force majeure clause, the vessels, their captains and Owner are not responsible for listed causes of loss, unless the Agreement expressly provides otherwise. Listed causes include loss arising from any other cause arising without the actual fault of Owner, and acts of God, war, terrorism, and strikes.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 5105,
      "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "fire, unless caused by the personal design or neglect of Owner",
-     "start": 12555,
-     "end": 12617,
+     "quote": "or from any other cause of whatsoever kind arising without the actual fault of Owner.",
+     "start": 13293,
+     "end": 13378,
      "contract_id": 117
     },
     {
      "source": "S2",
      "chunk_id": 5105,
      "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "or from any other cause of whatsoever kind arising without the actual fault of Owner",
-     "start": 13293,
-     "end": 13377,
-     "contract_id": 117
-    }
-   ]
-  },
-  {
-   "text": "The force majeure clause also excludes responsibility of both parties for listed events such as acts of God, acts of war, terrorism, and strikes, unless the agreement expressly provides otherwise.",
-   "citations": [
-    {
-     "source": "S2",
-     "chunk_id": 5105,
-     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "neither the vessels, their captains or Owner, nor the Charterer, shall, unless otherwise in this Agreement expressly provided, be responsible for any loss or damage or delay or failure in performing hereunder arising or resulting from; act of God, act of war; act of public enemies, pirates or assailing thieves; acts of terrorism",
-     "start": 13383,
+     "quote": "act of God, act of war; act of public enemies, pirates or assailing thieves; acts of terrorism",
+     "start": 13619,
      "end": 13713,
      "contract_id": 117
     }

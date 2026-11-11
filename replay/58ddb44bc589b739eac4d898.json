@@ -12,18 +12,31 @@
   }
  ],
  "unsupported": "",
- "unreviewed": 7,
- "audit_id": 125,
+ "unreviewed": 10,
+ "audit_id": 183,
  "matches": [
   {
    "contract_id": 494,
    "contract": "BLACKBOXSTOCKSINC_08_05_2014-EX-10.1-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Exclusive right to sell the Company's Products (including the Brand) in the Territory (South America), granted to Distributor (SMSA Ballinger Acquisition Corp.)",
+     "value": "Distributor is the exclusive seller of Company's Products in the Territory (South America), for Snotarator LLC",
      "quote": "the exclusive right to sell the products of the Company",
      "start": 678,
      "end": 733,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 261,
+   "contract": "ETELOS,INC_03_09_2004-EX-10.8-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "exclusivity": {
+     "value": "Distributor may not carry competitive products without Tripath's consent (in favor of Tripath); the appointment itself is non-exclusive",
+     "quote": "Distributor will not carry any competitive products without Tripath's consent",
+     "start": 3435,
+     "end": 3512,
      "status": "needs_review"
     }
    }
@@ -33,10 +46,10 @@
    "contract": "ImineCorp_20180725_S-1_EX-10.5_11275970_EX-10.5_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor may not, during the term, market or sell products competitive with iMine Products within the Territory (Taiwan) without JRVS's prior written consent, in favor of JRVS; the appointment itself is non-exclusive",
-     "quote": "The Distributor shall not, during the term of this Agreement, directly or indirectly market, sell, distribute, solicit orders within the Territory for any products which are competitive with the iMine Products",
+     "value": "Distributor (SUNWAI Technology) may not market, sell, distribute or solicit orders in Taiwan for products competitive with iMine Products during the term without JRVS's prior written consent; for JRVS. The grant itself is non-exclusive.",
+     "quote": "The Distributor shall not, during the term of this Agreement, directly or indirectly market, sell, distribute, solicit orders within the Territory for any products which are competitive with the iMine Products unless JRVS consents thereto in writing in advance",
      "start": 3793,
-     "end": 4002,
+     "end": 4053,
      "status": "needs_review"
     }
    }
@@ -46,10 +59,23 @@
    "contract": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Alfa Aesar (Johnson Matthey Catalog Company) is the exclusive distributor of Research Quantities of the Products within the Territory, granted by NTC; Alfa Aesar must also purchase all its requirements of the Products exclusively from NTC during the term",
-     "quote": "the exclusive right to market, sell and distribute Research Quantities of the Products within the Territory",
-     "start": 2999,
-     "end": 3106,
+     "value": "Alfa Aesar is the exclusive distributor of Research Quantities of the Products within the Territory (worldwide), and must buy all its requirements of the Products exclusively from NTC during the term; NTC is the exclusive supplier to Alfa Aesar",
+     "quote": "ALFA AESAR shall purchase all its requirements of the Products (including nanomaterials with physical or chemical properties substantially the same as the Products) exclusively from NTC during the term of this Agreement",
+     "start": 3682,
+     "end": 3901,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 367,
+   "contract": "NEOMEDIATECHNOLOGIESINC_12_15_2005-EX-16.1-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "exclusivity": {
+     "value": "Distributor has the exclusive right to sell the Products to Beijing Sino-US Jinche Yingang Auto Technological Services Limited (Auto Center); PPG Shanghai and its affiliates may not sell Products directly to the Auto Center without Distributor's written approval",
+     "quote": "DISTRIBUTOR shall have          the exclusive right for selling the Products to Beijing Sino-US Jinche          Yingang Auto Technological Services Limited",
+     "start": 2976,
+     "end": 3131,
      "status": "needs_review"
     }
    }
@@ -59,10 +85,23 @@
    "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_Amendment",
    "evidence": {
     "exclusivity": {
-     "value": "Licensee's distributorship and rights (including Sections 2.1, 2.2 and 2.8) are exclusive, for Licensee; Licensor may still license its Partitioned Database Facility product to International Business Machines Corporation for sublicensing and distribution",
+     "value": "The distributorship granted to Licensee (NEON Systems, Inc.) is exclusive; exception: Licensor may also license Partitioned Database Facility product to International Business Machines Corporation for sublicensing and distribution",
      "quote": "from a non-exclusive to an exclusive distributorship",
      "start": 8896,
      "end": 8948,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 341,
+   "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_New",
+   "evidence": {
+    "exclusivity": {
+     "value": "Licensee (Neon Systems, Inc.) holds an exclusive right in the Territory to make Sublicense Copies and to market and sublicense the Licensed Products",
+     "quote": "Licensor hereby grants to Licensee an exclusive in the Territory",
+     "start": 5564,
+     "end": 5628,
      "status": "needs_review"
     }
    }
@@ -72,7 +111,7 @@
    "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "During the initial one-year term only, Distributor is the only distributor appointed by NETGEAR in the Territory (United States); NETGEAR reserves the right to sell to non-distributor customers; non-exclusive after the initial term",
+     "value": "Ingram Micro is the only distributor NETGEAR may appoint in the Territory (United States), only during the initial one-year term; non-exclusive thereafter, and NETGEAR retains the right to sell to non-distributor customers",
      "quote": "Distributor shall be the only distributor appointed by NETGEAR in the Territory",
      "start": 3219,
      "end": 3298,
@@ -85,10 +124,10 @@
    "contract": "OPTIMIZEDTRANSPORTATIONMANAGEMENT,INC_07_26_2000-EX-6.6-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "COMWARE has the exclusive right to purchase and resell the Products (CircuiTest 2000S and CircuiTest 2100 Scanner Expansion) to potential customers in the 48 Contiguous United States during the Initial Distribution Period",
-     "quote": "COMWARE shall have the exclusive right to purchase, at the DISCOUNTS described below, and resell Products",
+     "value": "COMWARE has the exclusive right to purchase and resell Products in the exclusive territory of the 48 Contiguous United States during the Initial Distribution Period",
+     "quote": "COMWARE shall have the exclusive right to purchase",
      "start": 1535,
-     "end": 1640,
+     "end": 1585,
      "status": "needs_review"
     }
    }
@@ -98,10 +137,10 @@
    "contract": "ZogenixInc_20190509_10-Q_EX-10.2_11663313_EX-10.2_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Each party may not grant any Third Party rights that would conflict with the rights granted to the other party under the Agreement, during the Term (for the benefit of the other party)",
-     "quote": "has not, and will not during the Term, grant any right to any Third Party that would conflict with the rights granted to the other Party hereunder.",
-     "start": 123494,
-     "end": 123641,
+     "value": "Distributor (and its Affiliates) must purchase the Product only from Zogenix under the Supply Agreement and may not manufacture it; exclusive for Zogenix as supplier",
+     "quote": "Distributor agrees that in no event shall Distributor or its Affiliates manufacture or have manufactured the Product, or purchase the Product from any party other than Zogenix",
+     "start": 30675,
+     "end": 30850,
      "status": "needs_review"
     }
    }

@@ -1,40 +1,26 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 146,
- "seconds": 7.3,
+ "audit_id": 204,
+ "seconds": 6.8,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Notices go to the other Party's address or e-mail address as set out below its signature on the Agreement, or to any other address that Party has notified under the clause. The actual addresses are not in the provided sources.",
+   "text": "Notices must be sent to the other Party's address or e-mail address as set out below that Party's signature on the Agreement, unless a different address has been notified under the same provision.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 5262,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "sent to the address or e-mail address of the other Party as set out below its signature of this Agreement, or such other address or email address as shall have been notified to the other Party in accordance with this provision.",
+     "quote": "sent to the address or e-mail address of the other Party as set out below its signature of this Agreement, or such other address or email address as shall have been notified to the other Party in accordance with this provision",
      "start": 32639,
-     "end": 32866,
+     "end": 32865,
      "contract_id": 125
     }
    ]
   },
   {
-   "text": "Notices must be in writing and in English.",
-   "citations": [
-    {
-     "source": "S2",
-     "chunk_id": 5262,
-     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "Any notice required under this Agreement shall be given in writing, in the English language",
-     "start": 32543,
-     "end": 32634,
-     "contract_id": 125
-    }
-   ]
-  },
-  {
-   "text": "Permitted delivery methods are registered post or equivalent, facsimile, courier, or electronic transmission.",
+   "text": "Permitted delivery methods include registered post or equivalent, facsimile, courier, or electronic transmission.",
    "citations": [
     {
      "source": "S2",
@@ -48,29 +34,29 @@
    ]
   },
   {
-   "text": "A notice sent by post is deemed received five working days after posting, or ten working days after posting if the addressee is outside the sender's country.",
+   "text": "Notices must be given in writing and in the English language.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 5262,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "If posted, the notice shall be deemed to have been received five (5) working days after the date of posting or, in the case of a notice to an addressee not in the country of the sender, ten (10) working days after the date of posting.",
-     "start": 32973,
-     "end": 33207,
+     "quote": "Any notice required under this Agreement shall be given in writing, in the English language",
+     "start": 32543,
+     "end": 32634,
      "contract_id": 125
     }
    ]
   },
   {
-   "text": "A notice sent by facsimile or electronic transmission is deemed received when the intended receiving Party confirms complete receipt, and a couriered notice is deemed received on delivery.",
+   "text": "The actual notice addresses or e-mail addresses are not included in the provided excerpts; they are only referenced as appearing below each Party's signature.",
    "citations": [
     {
-     "source": "S1",
-     "chunk_id": 5263,
+     "source": "S2",
+     "chunk_id": 5262,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "If sent by facsimile or electronic transmission, notice shall be deemed received upon confirmation of complete receipt being given by the intended receiving Party. If couriered, notice will be deemed to have been received on delivery.",
-     "start": 33208,
-     "end": 33442,
+     "quote": "as set out below its signature of this Agreement",
+     "start": 32696,
+     "end": 32744,
      "contract_id": 125
     }
    ]

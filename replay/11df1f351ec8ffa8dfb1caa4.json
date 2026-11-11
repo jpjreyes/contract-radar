@@ -1,62 +1,61 @@
 {
  "answerable": true,
  "clause_present": false,
- "audit_id": 153,
- "seconds": 10.0,
+ "audit_id": 215,
+ "seconds": 9.2,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "The provided sources contain no termination-for-convenience clause. Termination under Section 8.2 is tied to listed grounds: a party may terminate if the other party commits an uncured breach, or on insolvency-type events.",
+   "text": "The sources contain no termination-for-convenience clause that lets either party end the agreement at any time without cause. The termination rights shown are tied to breach or insolvency-type events.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 10481,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "Either party may by notice in writing terminate this Agreement if (i) the other party breaches or fails to observe or perform any of its obligations set out in this Agreement",
+     "quote": "Either party may by notice in writing terminate this Agreement if (i) the other party breaches or fails to observe or perform any of its obligations",
      "start": 143748,
-     "end": 143922,
+     "end": 143896,
      "contract_id": 224
-    }
-   ]
-  },
-  {
-   "text": "Under Section 11.2, the non-breaching party may terminate after an uncured material breach, once the 60-day cure period has ended.",
-   "citations": [
+    },
     {
      "source": "S2",
      "chunk_id": 10404,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "the nonbreaching party\n\n\n\n\n\n         may terminate this Agreement on written notice at any time following          the end of such sixty (60) day period.",
-     "start": 58907,
-     "end": 59060,
+     "quote": "If either party breaches any material term or condition of",
+     "start": 58716,
+     "end": 58774,
      "contract_id": 224
-    }
-   ]
-  },
-  {
-   "text": "Under Section 11.2, either party may also terminate on insolvency-related events, such as becoming insolvent or unable to pay its debts.",
-   "citations": [
+    },
     {
      "source": "S2",
      "chunk_id": 10404,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "either party should become insolvent or unable to pay its debts as          they mature",
-     "start": 59779,
-     "end": 59866,
+     "quote": "To the extent permitted by applicable law, either party may terminate          this Agreement by",
+     "start": 59410,
+     "end": 59506,
      "contract_id": 224
     }
    ]
   },
   {
-   "text": "The only no-cause exit in the excerpts is non-renewal under Section 11.1. Either party may stop the automatic one-year renewals by giving written notice at least 30 days before the end of the current term. This is not a mid-term termination for convenience.",
+   "text": "The only no-cause exit right for either party is non-renewal. The agreement runs for an initial five-year term and then renews automatically for one-year periods unless either party gives written notice at least 30 days before the relevant expiration.",
    "citations": [
     {
      "source": "S3",
      "chunk_id": 10403,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "unless either party provides the other party with          written notification at least thirty (30) days prior to the expiration          of the initial five (5) year term or any one (1) year renewal thereof          of its intention to terminate this Agreement.",
-     "start": 58429,
-     "end": 58692,
+     "quote": "shall continue in          full force and effect for an initial period of five (5) years.",
+     "start": 58232,
+     "end": 58321,
+     "contract_id": 224
+    },
+    {
+     "source": "S3",
+     "chunk_id": 10403,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "written notification at least thirty (30) days prior to the expiration          of the initial five (5) year term or any one (1) year renewal thereof",
+     "start": 58488,
+     "end": 58637,
      "contract_id": 224
     }
    ]

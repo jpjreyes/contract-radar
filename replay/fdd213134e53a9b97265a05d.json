@@ -1,61 +1,102 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 118,
- "seconds": 7.4,
+ "audit_id": 176,
+ "seconds": 9.1,
  "pii_revealed_chunks": [
   13539,
   13540
  ],
  "claims": [
   {
-   "text": "Notices to Diversinet go to Diversinet Corp., attention Chief Financial Officer, at 2235 Sheppard Avenue East, Suite 1700, Toronto, Ontario, Canada M2J 5B5, with phone 416-756-2324 and fax 416-756-7346.",
+   "text": "Notices to Diversinet go to Diversinet Corp., Attention: Chief Financial Officer, at 2235 Sheppard Avenue East, Suite 1700, Toronto, Ontario, Canada M2J 5B5, phone 416-756-2324, fax 416-756-7346.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 13539,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "Diversinet Corp.  Attention: Chief Financial Officer  2235 Sheppard Avenue East, Suite 1700  Toronto, Ontario, Canada M2J 5B5  Phone: 416-756-2324 Fax: 416-756-7346",
-     "start": 45369,
-     "end": 45533,
+     "quote": "Address and contact information for Diversinet are as follows",
+     "start": 45304,
+     "end": 45365,
+     "contract_id": 280
+    },
+    {
+     "source": "S1",
+     "chunk_id": 13539,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Attention: Chief Financial Officer",
+     "start": 45387,
+     "end": 45421,
+     "contract_id": 280
+    },
+    {
+     "source": "S1",
+     "chunk_id": 13539,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "2235 Sheppard Avenue East, Suite 1700",
+     "start": 45423,
+     "end": 45460,
      "contract_id": 280
     }
    ]
   },
   {
-   "text": "Notices to the Reseller go to the address and contact information set out in Schedule 1, which lists 111 Main Street West, Suite 304, North Bay, ON, P1B 2T6, Canada, and the e-mail address drgraham@vianet.ca.",
+   "text": "Notices to the Reseller go to the address and contact information in Schedule 1, which lists 111 Main Street West, Suite 304, North Bay, ON, Canada, P1B 2T6.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 13539,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "Reseller's address and contact information are as set out in Schedule 1.",
+     "quote": "Reseller's address and contact information are as set out in Schedule 1",
      "start": 45231,
-     "end": 45303,
+     "end": 45302,
      "contract_id": 280
     },
     {
      "source": "S4",
      "chunk_id": 13540,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "Street Address 111 Main Street West, Suite 304",
-     "start": 46895,
+     "quote": "111 Main Street West, Suite 304",
+     "start": 46910,
      "end": 46941,
      "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "A notice is deemed given and received when personally delivered, when faxed with proof of transmittal, or five days after deposit with the postal service for registered or certified mail (properly addressed, postage prepaid).",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 13539,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "when personally delivered",
+     "start": 44884,
+     "end": 44909,
+     "contract_id": 280
     },
     {
-     "source": "S4",
-     "chunk_id": 13540,
+     "source": "S1",
+     "chunk_id": 13539,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "E-mail Address drgraham@vianet.ca",
-     "start": 47159,
-     "end": 47192,
+     "quote": "when  transmitted by facsimile with proof of transmittal",
+     "start": 44916,
+     "end": 44972,
+     "contract_id": 280
+    },
+    {
+     "source": "S1",
+     "chunk_id": 13539,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "five (5) days after deposit (properly addressed with postage prepaid) with the postal  service for registered/certified mail",
+     "start": 44983,
+     "end": 45107,
      "contract_id": 280
     }
    ]
   },
   {
-   "text": "Either party may change its notice address or contact information at any time by giving written notice under the notices section.",
+   "text": "Either party may change its notice address and contact information at any time by giving written notice under the notices section.",
    "citations": [
     {
      "source": "S1",

@@ -1,12 +1,12 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 154,
- "seconds": 6.6,
+ "audit_id": 216,
+ "seconds": 6.4,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Notices must be sent to the parties at the addresses on the first page of the Agreement, or at any other address a party specifies to the other in writing.",
+   "text": "Notices go to the parties at the addresses on the first page of the Agreement, unless a party has specified another address in writing.",
    "citations": [
     {
      "source": "S1",
@@ -20,7 +20,7 @@
    ]
   },
   {
-   "text": "The party addresses are set out at the beginning of the Agreement, and a change of address is not binding on the other party until written notice of the change is received at the address shown in the Agreement.",
+   "text": "The notice addresses are the ones set out at the beginning of the Agreement.",
    "citations": [
     {
      "source": "S2",
@@ -30,28 +30,33 @@
      "start": 146754,
      "end": 146846,
      "contract_id": 224
-    },
+    }
+   ]
+  },
+  {
+   "text": "A change of notice address is not binding on the other party until written notice of the change is received at the address shown in the Agreement.",
+   "citations": [
     {
      "source": "S2",
      "chunk_id": 10484,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "no change of address shall be binding upon the other party hereto until written notice thereof is received by such party at the address shown herein",
+     "quote": "no change of address shall be binding upon the other party hereto until written notice thereof is received by such party at the address shown herein.",
      "start": 146851,
-     "end": 146999,
+     "end": 147000,
      "contract_id": 224
     }
    ]
   },
   {
-   "text": "All notices must be in writing.",
+   "text": "The excerpts provided do not include the actual addresses themselves, so the specific addresses cannot be identified from these sources.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 10417,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "All notices, demands or consents required or permitted under          this Agreement shall be in writing.",
-     "start": 72415,
-     "end": 72520,
+     "quote": "Notice shall be sent to the parties          at the addresses set forth on the first page of this Agreement",
+     "start": 73130,
+     "end": 73237,
      "contract_id": 224
     }
    ]

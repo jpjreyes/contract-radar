@@ -1,0 +1,63 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 179,
+ "seconds": 7.3,
+ "pii_revealed_chunks": [
+  138
+ ],
+ "claims": [
+  {
+   "text": "Either party may terminate the Web Site Hosting Agreement for convenience (without cause) on 30 days' written notice.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 134,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "Either party may terminate this Agreement without cause at any time effective upon thirty (30) days' written notice.",
+     "start": 10880,
+     "end": 10996,
+     "contract_id": 4
+    }
+   ]
+  },
+  {
+   "text": "Termination does not release the Customer from paying amounts already due; the Customer must still make timely payments after termination for any reason.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 134,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "no termination of this Agreement for any reason whatsoever shall relieve the Customer of the obligation to pay all amounts due to i-on and to make such payments on a timely basis.",
+     "start": 11067,
+     "end": 11246,
+     "contract_id": 4
+    }
+   ]
+  },
+  {
+   "text": "Separately from termination, either party may also decline to renew the agreement by giving notice not less than fifteen days before the end of the current term.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 134,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "unless either the Customer or i-on gives notice to the other party of its intention not to renew the",
+     "start": 10647,
+     "end": 10747,
+     "contract_id": 4
+    },
+    {
+     "source": "S1",
+     "chunk_id": 134,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "which notice must be given not less than fifteen (15) days before the end of the respective initial or renewal term.",
+     "start": 10762,
+     "end": 10878,
+     "contract_id": 4
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

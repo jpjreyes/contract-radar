@@ -8,7 +8,7 @@
  ],
  "unsupported": "",
  "unreviewed": 0,
- "audit_id": 114,
+ "audit_id": 172,
  "matches": [
   {
    "contract_id": 76,
@@ -86,11 +86,6 @@
    "evidence": {}
   },
   {
-   "contract_id": 221,
-   "contract": "ArcaUsTreasuryFund_20200207_N-2_EX-99.K5_11971930_EX-99.K5_Development Agreement",
-   "evidence": {}
-  },
-  {
    "contract_id": 138,
    "contract": "ArcGroupInc_20171211_8-K_EX-10.1_10976103_EX-10.1_Sponsorship Agreement",
    "evidence": {}
@@ -143,11 +138,6 @@
   {
    "contract_id": 105,
    "contract": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
-   "evidence": {}
-  },
-  {
-   "contract_id": 436,
-   "contract": "BANUESTRAFINANCIALCORP_09_08_2006-EX-10.16-AGENCY AGREEMENT",
    "evidence": {}
   },
   {
@@ -206,11 +196,6 @@
    "evidence": {}
   },
   {
-   "contract_id": 26,
-   "contract": "BORROWMONEYCOM,INC_06_11_2020-EX-10.1-JOINT VENTURE AGREEMENT",
-   "evidence": {}
-  },
-  {
    "contract_id": 119,
    "contract": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement2",
    "evidence": {}
@@ -233,16 +218,6 @@
   {
    "contract_id": 316,
    "contract": "Cerus Corporation - FIRST AMEND TO SUPPLY AND MANUFACTURING AGREEMENT",
-   "evidence": {}
-  },
-  {
-   "contract_id": 297,
-   "contract": "CHAPARRALRESOURCESINC_03_30_2000-EX-10.66-TRANSPORTATION CONTRACT",
-   "evidence": {}
-  },
-  {
-   "contract_id": 365,
-   "contract": "CHEETAHMOBILEINC_04_22_2014-EX-10.43-Cooperation Agreement",
    "evidence": {}
   },
   {
@@ -283,11 +258,6 @@
   {
    "contract_id": 408,
    "contract": "COOLTECHNOLOGIES,INC_10_25_2017-EX-10.71-Strategic Alliance Agreement",
-   "evidence": {}
-  },
-  {
-   "contract_id": 49,
-   "contract": "CUROGROUPHOLDINGSCORP_05_04_2020-EX-10.3-SERVICING AGREEMENT",
    "evidence": {}
   },
   {
@@ -476,18 +446,8 @@
    "evidence": {}
   },
   {
-   "contract_id": 273,
-   "contract": "HPILHOLDING_01_07_2015-EX-99.1-COOPERATION AGREEMENT",
-   "evidence": {}
-  },
-  {
    "contract_id": 503,
    "contract": "HYDRONTECHNOLOGIESINC_03_31_1997-EX-10.47-SPONSORSHIP AGREEMENT",
-   "evidence": {}
-  },
-  {
-   "contract_id": 227,
-   "contract": "IDREAMSKYTECHNOLOGYLTD_07_03_2014-EX-10.39-Cooperation Agreement on Mobile Game Business",
    "evidence": {}
   },
   {
@@ -528,11 +488,6 @@
   {
    "contract_id": 160,
    "contract": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
-   "evidence": {}
-  },
-  {
-   "contract_id": 253,
-   "contract": "KENTUCKYUTILITIESCO_03_25_2003-EX-10.65-TRANSPORTATION AGREEMENT",
    "evidence": {}
   },
   {
@@ -616,6 +571,11 @@
    "evidence": {}
   },
   {
+   "contract_id": 257,
+   "contract": "MEDALISTDIVERSIFIEDREIT,INC_05_18_2020-EX-10.1-CONSULTING AGREEMENT",
+   "evidence": {}
+  },
+  {
    "contract_id": 388,
    "contract": "MEETGROUP,INC_06_29_2017-EX-10.1-COOPERATION AGREEMENT",
    "evidence": {}
@@ -628,11 +588,6 @@
   {
    "contract_id": 394,
    "contract": "MFAFINANCIAL,INC_07_06_2020-EX-99.D-JOINT FILING AGREEMENT",
-   "evidence": {}
-  },
-  {
-   "contract_id": 226,
-   "contract": "MJBIOTECH,INC_12_06_2018-EX-99.01-JOINT VENTURE AGREEMENT",
    "evidence": {}
   },
   {
@@ -688,11 +643,6 @@
   {
    "contract_id": 502,
    "contract": "NOVOINTEGRATEDSCIENCES,INC_12_23_2019-EX-10.1-JOINT VENTURE AGREEMENT",
-   "evidence": {}
-  },
-  {
-   "contract_id": 94,
-   "contract": "NUVEEN - REMARKETING AGREEMENT",
    "evidence": {}
   },
   {
@@ -846,16 +796,6 @@
    "evidence": {}
   },
   {
-   "contract_id": 74,
-   "contract": "RareElementResourcesLtd_20171019_SC 13D_EX-99.4_10897534_EX-99.4_Intellectual Property Agreement",
-   "evidence": {}
-  },
-  {
-   "contract_id": 313,
-   "contract": "Reinsurance Group of America, Incorporated - A_R REMARKETING  AGREEMENT",
-   "evidence": {}
-  },
-  {
    "contract_id": 98,
    "contract": "REWALKROBOTICSLTD_07_10_2014-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
    "evidence": {}
@@ -996,6 +936,11 @@
    "evidence": {}
   },
   {
+   "contract_id": 132,
+   "contract": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+   "evidence": {}
+  },
+  {
    "contract_id": 439,
    "contract": "TEARDROPGOLFCO_10_23_1996-EX-10.12-ENDORSEMENT AGREEMENT",
    "evidence": {}
@@ -1018,6 +963,11 @@
   {
    "contract_id": 191,
    "contract": "TRANSPHORM,INC_02_14_2020-EX-10.12(1)-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 321,
+   "contract": "TURNKEYCAPITAL,INC_07_20_2017-EX-1.1-Strategic Alliance Agreement",
    "evidence": {}
   },
   {

@@ -1,26 +1,40 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 145,
- "seconds": 6.4,
+ "audit_id": 203,
+ "seconds": 7.3,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Yes. Either party may terminate for convenience under Section 14.2, but only after Contract Year 2, and only by giving written notice at least 60 calendar days before the termination takes effect.",
+   "text": "Either party may terminate the agreement for convenience, but only after Contract Year 2.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 5257,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "Each Party may also terminate the Agreement for convenience after Contract Year 2 (as defined in Section 14.4) by providing written notice to the other Party at least sixty (60) calendar days prior to the effective date of such termination",
+     "quote": "Each Party may also terminate the Agreement for convenience after Contract Year 2",
      "start": 25735,
+     "end": 25816,
+     "contract_id": 125
+    }
+   ]
+  },
+  {
+   "text": "Termination for convenience requires written notice to the other party at least sixty (60) calendar days before the effective date of termination.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 5257,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "by providing written notice to the other Party at least sixty (60) calendar days prior to the effective date of such termination",
+     "start": 25846,
      "end": 25974,
      "contract_id": 125
     }
    ]
   },
   {
-   "text": "Contract Year 2 is defined as February 1, 2020 through January 31, 2021, so the convenience termination right becomes available after that period.",
+   "text": "Contract Year 2 runs from February 1, 2020 through January 31, 2021.",
    "citations": [
     {
      "source": "S8",

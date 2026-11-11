@@ -1,21 +1,21 @@
 {
  "answerable": true,
  "clause_present": false,
- "audit_id": 117,
- "seconds": 8.2,
+ "audit_id": 175,
+ "seconds": 12.0,
  "pii_revealed_chunks": [
   13539
  ],
  "claims": [
   {
-   "text": "The termination provision lists specific grounds on which either party may terminate, and none is termination for convenience. It is framed as breach-based or payment-based termination: the reseller's failure to pay, an audit revealing under-payment, or a material breach not cured within the cure period.",
+   "text": "The sources show no general right for either party to terminate for convenience. The termination rights in Section 4(a) are tied to specific events, such as non-payment, uncured material breach, or the Reseller's sales-target conditions.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 13516,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "(a) Either Party may terminate this Agreement:",
-     "start": 5470,
+     "quote": "Either Party may terminate this Agreement:",
+     "start": 5474,
      "end": 5516,
      "contract_id": 280
     },
@@ -23,15 +23,29 @@
      "source": "S1",
      "chunk_id": 13516,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "providing thirty (60) days' written notice to the other Party if the other Party breaches any material term or condition of this Agreement,  and fails to cure such breach within the 60 day period",
-     "start": 5828,
+     "quote": "if the other Party breaches any material term or condition of this Agreement,  and fails to cure such breach within the 60 day period",
+     "start": 5890,
      "end": 6023,
      "contract_id": 280
     }
    ]
   },
   {
-   "text": "The only other termination right in the excerpts is one held by the Reseller alone, tied to the Initial Term and renewals. The Reseller may terminate by giving notice within 60 days before expiration. This is a non-renewal right, not a right to terminate for convenience during the term, and Diversinet has no equivalent.",
+   "text": "The only termination right tied to a business condition is available to the Reseller alone, and only if the Reseller terminates the Annual Minimum Commitment provisions and fails to meet the sales targets in Schedule 3.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 13516,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "upon providing thirty (30) days' written notice to Reseller if Reseller terminates the provisions of the Annual Minimum Commitment  and fails to meet the sales targets as set out in Schedule 3.",
+     "start": 6032,
+     "end": 6225,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The Reseller alone may end the agreement at renewal by giving notice within 60 days before the end of the Initial Term or a renewal term. This is a non-renewal right tied to the term, not a general termination for convenience.",
    "citations": [
     {
      "source": "S7",
@@ -45,15 +59,15 @@
    ]
   },
   {
-   "text": "The excerpts provided are partial, and they do not contain a termination-for-convenience clause for either party. This answer is based only on the excerpts provided.",
+   "text": "The agreement runs for an Initial Term of five years and then renews automatically, so it is not terminable at will during the term.",
    "citations": [
     {
-     "source": "S1",
-     "chunk_id": 13516,
+     "source": "S7",
+     "chunk_id": 13515,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "(b) This Agreement shall terminate automatically without notice and without further action by Diversinet in the event that:",
-     "start": 6229,
-     "end": 6352,
+     "quote": "continue in effect for a period of five (5) years (the \"Initial Term\"), unless sooner  terminated in accordance with the provisions set out herein.",
+     "start": 4753,
+     "end": 4900,
      "contract_id": 280
     }
    ]
