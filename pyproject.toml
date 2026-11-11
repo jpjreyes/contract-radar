@@ -12,17 +12,21 @@ dependencies = [
     "python-dotenv>=1.0",
     "numpy>=1.26",
     "anthropic>=0.70",
-    "presidio-analyzer>=2.2.362",
-    "spacy>=3.8.18",
-    "en-core-web-lg",
     "fastapi>=0.162.4",
     "uvicorn[standard]>=0.54.0",
     "opentelemetry-sdk>=1.45.2",
     "opentelemetry-exporter-otlp-proto-http>=1.45.2",
     "opentelemetry-instrumentation-fastapi>=0.66b2",
+    "pyjwt[crypto]>=2.9",
 ]
 
 [dependency-groups]
+# Personal-data detection runs at ingest only; the serving container skips this group.
+ingest = [
+    "presidio-analyzer>=2.2.362",
+    "spacy>=3.8.18",
+    "en-core-web-lg",
+]
 dev = [
     "httpx>=0.28.1",
     "pytest>=8",
@@ -54,3 +58,6 @@ extend-immutable-calls = ["fastapi.Depends", "fastapi.Header"]
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
 explicit = true
+
+[tool.uv]
+default-groups = ["dev", "ingest"]

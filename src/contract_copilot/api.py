@@ -9,16 +9,18 @@ Run:  uv run uvicorn contract_copilot.api:app --port 8071
 
 from __future__ import annotations
 
+import os
 from collections.abc import Iterator
 from datetime import date
 
 import psycopg
-from fastapi import Depends, FastAPI, Header, HTTPException
+from fastapi import Depends, FastAPI, Header, HTTPException, Request
+from fastapi.responses import JSONResponse
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from pydantic import BaseModel
 
+from contract_copilot import auth, limits, tracing
 from contract_copilot import review as review_mod
-from contract_copilot import tracing
 from contract_copilot.ask import ask
 from contract_copilot.permissions import USERS, app_connect, as_user
 from contract_copilot.portfolio import ask_portfolio
@@ -29,6 +31,15 @@ from contract_copilot.serve import serve
 tracing.setup()
 app = FastAPI(title="Contract Radar", version="0.1")
 FastAPIInstrumentor.instrument_app(app, excluded_urls="healthz")
+
+
+@app.exception_handler(limits.LimitExceeded)
+def _limit(_: Request, exc: limits.LimitExceeded) -> JSONResponse:
+    return JSONResponse({"detail": exc.message}, status_code=exc.status)
+
+
+def _cost(tokens_in: int, tokens_out: int) -> float:
+    return tracing.cost_usd(os.environ.get("CC_MODEL", "haiku"), tokens_in, tokens_out) or 0.0
 KNOWN = {u[0] for u in USERS}
 
 
@@ -40,7 +51,16 @@ def conn() -> Iterator[psycopg.Connection]:
         c.close()
 
 
-def user(x_user: str = Header(...)) -> str:
+def user(x_user: str | None = Header(None), authorization: str | None = Header(None),
+         db: psycopg.Connection = Depends(conn)) -> str:
+    """Demo: the X-User header. OIDC: a verified bearer token, mapped to an app user inside Postgres (auth.py)."""
+    if auth.mode() == "oidc":
+        if not authorization or not authorization.lower().startswith("bearer "):
+            raise HTTPException(401, "sign in required")
+        try:
+            return auth.resolve(db, auth.verify(authorization.split(" ", 1)[1]))
+        except auth.AuthError as e:
+            raise HTTPException(401, str(e)) from e
     if x_user not in KNOWN:
         raise HTTPException(401, "unknown user")
     return x_user
@@ -106,7 +126,13 @@ class AskIn(BaseModel):
 
 @app.post("/ask")
 def ask_endpoint(body: AskIn, who: str = Depends(user), db: psycopg.Connection = Depends(conn)) -> dict:
+    if limits.mode() == "replay":
+        return limits.replay_get(who, "ask", body.question, body.contract_id)
+    with as_user(db, who):
+        limits.check(db, who)
     a, audit_id = ask(who, body.question, contract_id=body.contract_id, conn=db)
+    with as_user(db, who):
+        limits.record(db, who, "ask", a.tokens_in, a.tokens_out, _cost(a.tokens_in, a.tokens_out))
     owner = {h.chunk_id: h.contract_id for h in a.sources}
     return {"answerable": a.answerable, "clause_present": a.clause_present, "audit_id": audit_id,
             "seconds": a.seconds, "pii_revealed_chunks": a.revealed,
@@ -120,7 +146,13 @@ class PortfolioIn(BaseModel):
 
 @app.post("/portfolio")
 def portfolio_endpoint(body: PortfolioIn, who: str = Depends(user), db: psycopg.Connection = Depends(conn)) -> dict:
+    if limits.mode() == "replay":
+        return limits.replay_get(who, "portfolio", body.question, None)
+    with as_user(db, who):
+        limits.check(db, who)
     ans, audit_id = ask_portfolio(who, body.question, conn=db)
+    with as_user(db, who):
+        limits.record(db, who, "portfolio", ans.tokens_in, ans.tokens_out, _cost(ans.tokens_in, ans.tokens_out))
     return {"conditions": [c.__dict__ for c in ans.conditions], "unsupported": ans.unsupported,
             "unreviewed": ans.unreviewed, "audit_id": audit_id,
             "matches": [{"contract_id": m.contract_id, "contract": m.contract, "evidence": m.evidence}

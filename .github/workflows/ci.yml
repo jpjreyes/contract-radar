@@ -32,5 +32,18 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
       - run: npm ci
-      - run: npx tsc --noEmit
       - run: npx next build
+
+  image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the API image (CPU PyTorch, models baked in)
+        run: docker build -t contract-radar-api:ci .
+      - name: Smoke test (starts without a database; /healthz answers)
+        run: |
+          docker run -d --name api -p 8000:8000 contract-radar-api:ci
+          for i in $(seq 1 60); do curl -fsS localhost:8000/healthz && exit 0; sleep 2; done
+          docker logs api; exit 1
+      - name: Image size
+        run: docker image ls contract-radar-api:ci

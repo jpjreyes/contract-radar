@@ -71,14 +71,21 @@ class PortfolioAnswer:
     matches: list[Match] = field(default_factory=list)
     unsupported: str = ""
     unreviewed: int = 0        # matches resting on at least one value nobody has reviewed yet
+    tokens_in: int = 0
+    tokens_out: int = 0
 
 
 def plan(question: str, backend: Backend | None = None) -> tuple[list[Condition], str]:
+    conds, unsupported, _, _ = plan_with_usage(question, backend)
+    return conds, unsupported
+
+
+def plan_with_usage(question: str, backend: Backend | None = None) -> tuple[list[Condition], str, int, int]:
     with span("plan", "CHAIN"):
         res = (backend or get_backend()).complete(SYSTEM, question, PLAN_SCHEMA)
     conds = [Condition(c["field"], c["op"], str(c.get("value", "")).strip()) for c in res.data.get("conditions", [])
              if c.get("field") in (*FIELDS, TYPE_FIELD) and c.get("op") in OPS]
-    return conds, str(res.data.get("unsupported", ""))
+    return conds, str(res.data.get("unsupported", "")), res.input_tokens, res.output_tokens
 
 
 def compile_sql(conds: list[Condition]) -> tuple[str, list]:
@@ -138,12 +145,13 @@ def ask_portfolio(user: str, question: str, backend: Backend | None = None,
 
 
 def _ask_portfolio(conn, user, question, backend, t0, root) -> tuple[PortfolioAnswer, int]:
-    conds, unsupported = plan(question, backend)
+    conds, unsupported, tin, tout = plan_with_usage(question, backend)
     root.set_attribute("cc.plan", [f"{c.field} {c.op} {c.value}".strip() for c in conds])
     with as_user(conn, user):
         matches = run_plan(conn, conds) if conds else []
         ans = PortfolioAnswer(question, conds, matches, unsupported,
-                              sum(any(v["status"] == "needs_review" for v in m.evidence.values()) for m in matches))
+                              sum(any(v["status"] == "needs_review" for v in m.evidence.values()) for m in matches),
+                              tin, tout)
         audit_id = audit.append(conn, {
             "action": "portfolio", "question_sha256": hashlib.sha256(question.encode()).hexdigest(),
             "conditions": [c.__dict__ for c in conds], "matched_contracts": [m.contract_id for m in matches],

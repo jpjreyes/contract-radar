@@ -23,7 +23,7 @@ def h(user):
 
 def test_unknown_user_is_rejected(client):
     assert client.get("/contracts", headers=h("mallory")).status_code == 401
-    assert client.get("/contracts").status_code == 422  # no identity at all
+    assert client.get("/contracts").status_code == 401  # no identity at all
 
 
 def test_each_user_lists_only_their_contracts(client):
@@ -62,3 +62,27 @@ def test_radar_respects_permissions(client):
     days = [i["days_left"] for i in admin["sections"]["notice_deadlines"]]
     assert days == sorted(days) and all(0 <= d <= 90 for d in days)
     assert client.get("/radar?as_of=not-a-date", headers=h("maria")).status_code == 422
+
+
+def test_spend_cap_and_rate_limit_stop_live_questions_before_any_model_call(client, monkeypatch):
+    monkeypatch.setenv("CC_MONTHLY_BUDGET_USD", "0")
+    r = client.post("/portfolio", headers=h("analyst"), json={"question": "Which contracts have exclusivity?"})
+    assert r.status_code == 402 and "budget" in r.json()["detail"]
+    monkeypatch.setenv("CC_MONTHLY_BUDGET_USD", "1000")
+    monkeypatch.setenv("CC_RATE_PER_HOUR", "0")
+    r = client.post("/ask", headers=h("analyst"), json={"question": "Who signed?", "contract_id": 1})
+    assert r.status_code == 429
+    assert client.get("/radar", headers=h("analyst")).status_code == 200  # no model needed: unaffected
+
+
+def test_replay_mode_serves_recorded_answers_only(client, monkeypatch, tmp_path):
+    from contract_copilot import limits
+    monkeypatch.setenv("CC_MODE", "replay")
+    monkeypatch.setattr(limits, "REPLAY_DIR", tmp_path)
+    q = "Which contracts have exclusivity?"
+    assert client.post("/portfolio", headers=h("maria"), json={"question": q}).status_code == 409
+    limits.replay_put("maria", "portfolio", q, None, {"conditions": [], "matches": [], "unreviewed": 0})
+    r = client.post("/portfolio", headers=h("maria"), json={"question": q})
+    assert r.status_code == 200 and r.json()["replayed"] is True
+    # a recording is per user: another user can't read maria's recorded answer
+    assert client.post("/portfolio", headers=h("kenji"), json={"question": q}).status_code == 409
