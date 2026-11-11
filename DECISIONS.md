@@ -402,6 +402,9 @@ or overturn a decision are added to the entry.
 | all 415: field accuracy | 0.860 | 0.875 |
 | all 415: auto-accepted correct / sent to a person | 97.6% / 74.1% | 97.8% / 72.5% |
 
+- **Knock-on effect, portfolio questions (D12, re-run):** set F1 **0.84 → 0.865** (planner still 40/40; the oracle
+  plan scores the same, so the gain is all extraction). Act this quarter (legal_admin): uncapped liability 189 → 153
+  contracts (fewer false alarms), 57 sent to a person; notice deadlines unchanged at 18.
 - **Noise:** dev runs of the same configuration move single fields by up to ±0.1 (non-compete has 14 positives), so
   only the held-out test numbers are reported; trusted fields stayed ≥ 95% precise on dev in the shipped setup.
 - **Cost:** the small model adds ~0.5 s per contract on a laptop GPU and $0; the LLM prompt grows by ≤ 4 passages.

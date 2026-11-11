@@ -27,9 +27,10 @@ Held-out numbers unless marked dev; model Claude Haiku. How each was produced an
 | **Permission leaks** (exact-text attacks on forbidden contracts, every retrieval method) | **0** in 2,090 returned chunks |
 | **Personal data shown to users without access** | **0** in 3,912 served texts (every retrieval path + fetch by id); the app role cannot even select the original column |
 | **Personal-data detector** (fresh labeled sample, never inspected before scoring) | recall 0.83, precision 0.94; emails and phones ≥ 0.95 |
-| **Key-term extraction** (13 terms × 415 unseen contracts) | field accuracy **0.86**; auto-accepted values **97.0% correct**, 69.5% sent to a person |
-| **Portfolio questions** (40 "which contracts…?" questions, answers from the lawyers' labels) | the planner picks the right filter **40/40**; the contract set matches the lawyers' answer at F1 **0.84** (all remaining error is extraction: a perfect plan scores the same); plain RAG on the same questions: F1 0.15 |
-| **Act this quarter** (as of 2026-11-11, all 510 contracts) | 18 non-renewal notice deadlines in the next 90 days computed from extracted terms (renewals rolled forward to the current term), 189 contracts with uncapped liability, 59 sent to a person instead of guessed |
+| **Key-term extraction** (13 terms × 415 unseen contracts) | field accuracy **0.875**; auto-accepted values **97.8% correct**, 72.5% sent to a person. Weakest fields fixed with the small model below (held-out half: minimum commitment F1 0.53 → 0.71, uncapped liability 0.69 → 0.77, non-compete 0.68 → 0.75) |
+| **Small local model vs the LLM** (bge-small fine-tuned on masked clauses; 217 contracts it never saw) | presence F1: small model 0.78, LLM 0.84, **cascade 0.86 with 31% of LLM calls skipped**; 0.5 s per contract on a laptop, $0, no text leaves the server. Trained on the LLM's own answers instead of lawyer labels: cascade 0.85 |
+| **Portfolio questions** (40 "which contracts…?" questions, answers from the lawyers' labels) | the planner picks the right filter **40/40**; the contract set matches the lawyers' answer at F1 **0.865** (all remaining error is extraction: a perfect plan scores the same); plain RAG on the same questions: F1 0.15 |
+| **Act this quarter** (as of 2026-11-11, all 510 contracts) | 18 non-renewal notice deadlines in the next 90 days computed from extracted terms (renewals rolled forward to the current term), 153 contracts with uncapped liability, 57 sent to a person instead of guessed |
 | **Cost / latency** | ~$0.0013 per answered question, median 8.8 s (CLI backend; the 8 s target is re-measured on the API) |
 
 ## How it works
