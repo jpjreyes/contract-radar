@@ -1,0 +1,100 @@
+{
+ "conditions": [
+  {
+   "field": "renewal_term",
+   "op": "present",
+   "value": ""
+  },
+  {
+   "field": "notice_to_terminate_renewal_days",
+   "op": "lte",
+   "value": "60"
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 2,
+ "audit_id": 135,
+ "matches": [
+  {
+   "contract_id": 157,
+   "contract": "EcoScienceSolutionsInc_20171117_8-K_EX-10.1_10956472_EX-10.1_Endorsement Agreement",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "unless either party provides a thirty-day notice of written termination",
+     "start": 629,
+     "end": 700,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "automatically renewing annually thereafter",
+     "start": 585,
+     "end": 627,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 136,
+   "contract": "MIDDLEBROOKPHARMACEUTICALS,INC_03_18_2010-EX-10.1-PROMOTION AGREEMENT",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "within 60 days of the then current anniversary date of its intent not to renew",
+     "start": 43350,
+     "end": 43428,
+     "status": "needs_review"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this Agreement shall automatically renew for each subsequent one-year  term",
+     "start": 8780,
+     "end": 8855,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 101,
+   "contract": "TodosMedicalLtd_20190328_20-F_EX-4.10_11587157_EX-4.10_Marketing Agreement_ Reseller Agreement",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days prior to the expiration of the then-current term",
+     "start": 22394,
+     "end": 22467,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 5 years (if Annual Milestones achieved), then automatic successive 2 years",
+     "quote": "shall be automatically renewed for an additional five (5) years",
+     "start": 22143,
+     "end": 22206,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 48,
+   "contract": "Zounds Hearing, Inc. - MANUFACTURING DESIGN MARKETING AGREEMENT",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "with at least sixty (60) days written notice",
+     "start": 2090,
+     "end": 2134,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "renew automatically thereafter for successive one-year terms",
+     "start": 1968,
+     "end": 2028,
+     "status": "auto_accepted"
+    }
+   }
+  }
+ ],
+ "replayed": true
+}

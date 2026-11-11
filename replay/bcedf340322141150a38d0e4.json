@@ -1,0 +1,11 @@
+{
+ "answerable": false,
+ "clause_present": false,
+ "audit_id": 119,
+ "seconds": 6.0,
+ "pii_revealed_chunks": [
+  10350
+ ],
+ "claims": [],
+ "replayed": true
+}

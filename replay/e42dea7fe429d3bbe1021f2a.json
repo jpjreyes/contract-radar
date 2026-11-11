@@ -1,0 +1,38 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 157,
+ "seconds": 5.6,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "Either party may terminate the agreement for convenience, without cause, on 30 days' written notice.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 134,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "Either party may terminate this Agreement without cause at any time effective upon thirty (30) days' written notice.",
+     "start": 10880,
+     "end": 10996,
+     "contract_id": 4
+    }
+   ]
+  },
+  {
+   "text": "Termination does not release the Customer from paying amounts already due to i-on.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 134,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "no termination of this Agreement for any reason whatsoever shall relieve the Customer of the obligation to pay all amounts due to i-on and to make such payments on a timely basis.",
+     "start": 11067,
+     "end": 11246,
+     "contract_id": 4
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

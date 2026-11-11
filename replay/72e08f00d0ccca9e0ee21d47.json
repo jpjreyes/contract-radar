@@ -1,0 +1,70 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 143,
+ "seconds": 6.3,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "The signature block for Newegg Inc. is signed by [PERSON_1], whose title is VP, Marketing.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 5267,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "By /s/ [PERSON_1]",
+     "start": 37206,
+     "end": 37225,
+     "contract_id": 125
+    },
+    {
+     "source": "S3",
+     "chunk_id": 5267,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "Name: [PERSON_1] Name: [PERSON_2] Title: VP, Marketing",
+     "start": 37250,
+     "end": 37311,
+     "contract_id": 125
+    }
+   ]
+  },
+  {
+   "text": "The signature block for Allied Esports International, Inc. is signed by [PERSON_2], whose title is CEO.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 5267,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "By: /s/ [PERSON_2]",
+     "start": 37226,
+     "end": 37249,
+     "contract_id": 125
+    },
+    {
+     "source": "S3",
+     "chunk_id": 5267,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "Title: CEO",
+     "start": 37312,
+     "end": 37322,
+     "contract_id": 125
+    }
+   ]
+  },
+  {
+   "text": "The signatures are given under the statement that the Parties executed the Agreement through their duly authorized representatives.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 5267,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "IN WITNESS WHEREOF, the Parties have executed this Agreement acting through their duly authorized representatives as of the Effective Date.",
+     "start": 37001,
+     "end": 37140,
+     "contract_id": 125
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

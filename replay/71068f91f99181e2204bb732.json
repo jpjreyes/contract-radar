@@ -1,0 +1,102 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 134,
+ "seconds": 7.6,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "Notices must be in writing and delivered to the party being notified at the address listed in the Notices section, by mail, telefax, courier, or other delivery.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "All notices given under the Agreement are to be in writing and may be sent by mail, telefax, courier service or otherwise delivered to the party to be notified at the following address",
+     "start": 1208,
+     "end": 1392,
+     "contract_id": 156
+    }
+   ]
+  },
+  {
+   "text": "Notices to Distributor (Ingram Micro) go to the Santa Ana, California address listed under 'To Distributor', which the source shows with placeholder lines. The source also contains an unclear '(???)' entry in that block.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "To Distributor:",
+     "start": 1477,
+     "end": 1492,
+     "contract_id": 156
+    },
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "SANTA ANA, CA 92799-5125",
+     "start": 1669,
+     "end": 1693,
+     "contract_id": 156
+    },
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "(???)",
+     "start": 1742,
+     "end": 1747,
+     "contract_id": 156
+    }
+   ]
+  },
+  {
+   "text": "Notices to NETGEAR go to the Santa Clara, California address listed under 'To NETGEAR'. The street address and the attention line appear only as placeholders ([ADDRESS_2], [ADDRESS_5], [PERSON_1]), so the full address cannot be determined from the sources.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "To NETGEAR:",
+     "start": 1514,
+     "end": 1525,
+     "contract_id": 156
+    },
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "Santa Clara, CA 95052-8185",
+     "start": 1706,
+     "end": 1732,
+     "contract_id": 156
+    },
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "[PERSON_1]",
+     "start": 1779,
+     "end": 1800,
+     "contract_id": 156
+    }
+   ]
+  },
+  {
+   "text": "A party can change its notice address by written notice to the other party.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "or to such other address as may have been substituted by written notice",
+     "start": 1394,
+     "end": 1465,
+     "contract_id": 156
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

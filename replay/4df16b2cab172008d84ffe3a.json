@@ -1,0 +1,61 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 154,
+ "seconds": 6.6,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "Notices must be sent to the parties at the addresses on the first page of the Agreement, or at any other address a party specifies to the other in writing.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10417,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "Notice shall be sent to the parties          at the addresses set forth on the first page of this Agreement or at          such other address as shall be specified by either party to the          other in writing.",
+     "start": 73130,
+     "end": 73343,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "The party addresses are set out at the beginning of the Agreement, and a change of address is not binding on the other party until written notice of the change is received at the address shown in the Agreement.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 10484,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "the addresses of the respective parties have been set out at the beginning of this Agreement",
+     "start": 146754,
+     "end": 146846,
+     "contract_id": 224
+    },
+    {
+     "source": "S2",
+     "chunk_id": 10484,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "no change of address shall be binding upon the other party hereto until written notice thereof is received by such party at the address shown herein",
+     "start": 146851,
+     "end": 146999,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "All notices must be in writing.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10417,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "All notices, demands or consents required or permitted under          this Agreement shall be in writing.",
+     "start": 72415,
+     "end": 72520,
+     "contract_id": 224
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

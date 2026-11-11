@@ -1,0 +1,102 @@
+{
+ "answerable": true,
+ "clause_present": false,
+ "audit_id": 121,
+ "seconds": 9.8,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "The sources do not contain a termination-for-convenience clause. Each termination right they describe is tied to a breach, an insolvency event, or the end of a term. Termination for breach is available only if the other party fails to cure within a set period.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10481,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "Either party may by notice in writing terminate this Agreement if (i) the other party breaches or fails to observe or perform any of its obligations set out in this Agreement",
+     "start": 143748,
+     "end": 143922,
+     "contract_id": 224
+    },
+    {
+     "source": "S1",
+     "chunk_id": 10481,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "and fails to cure such breach or failure within thirty (30) days after written notice",
+     "start": 143981,
+     "end": 144066,
+     "contract_id": 224
+    },
+    {
+     "source": "S2",
+     "chunk_id": 10404,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "If either party breaches any material term or condition of          this Agreement and fails to cure such breach within sixty (60) days          after receiving written notice of the breach, the nonbreaching party",
+     "start": 58716,
+     "end": 58929,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "Insolvency-related events also allow either party to terminate by written notice.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10481,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "or (ii) either party becomes insolvent, or makes an assignment for the general benefit of creditors",
+     "start": 144068,
+     "end": 144167,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "The agreement has an initial five-year term and then renews automatically for one-year periods. Either party can stop renewal by written notice at least thirty days before the end of the current term. This is a non-renewal mechanism, not a mid-term termination right.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 10403,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "shall continue in          full force and effect for an initial period of five (5) years.",
+     "start": 58232,
+     "end": 58321,
+     "contract_id": 224
+    },
+    {
+     "source": "S3",
+     "chunk_id": 10403,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "this Agreement shall automatically renew for subsequent one          (1) year periods unless either party provides the other party with          written notification at least thirty (30) days prior to the expiration          of the initial five (5) year term or any one (1) year renewal thereof",
+     "start": 58343,
+     "end": 58637,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "The sources give two different cure periods for breach termination: 30 days in Section 8.2 and 60 days in Section 11.2. The sources do not say which controls.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10481,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "fails to cure such breach or failure within thirty (30) days after written notice",
+     "start": 143985,
+     "end": 144066,
+     "contract_id": 224
+    },
+    {
+     "source": "S2",
+     "chunk_id": 10404,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "fails to cure such breach within sixty (60) days          after receiving written notice of the breach",
+     "start": 58803,
+     "end": 58905,
+     "contract_id": 224
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

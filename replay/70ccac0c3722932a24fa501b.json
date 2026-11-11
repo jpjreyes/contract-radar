@@ -1,0 +1,75 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 144,
+ "seconds": 12.1,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "The sources contain no dollar-amount or other monetary cap on liability. The only limitation on liability is a waiver of certain categories of damages in Section 12.2.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 5252,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "IN NO EVENT WILL EITHER PARTY BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, EXEMPLARY, PUNITIVE OR CONSEQUENTIAL DAMAGES OF ANY KIND",
+     "start": 20748,
+     "end": 20883,
+     "contract_id": 125
+    }
+   ]
+  },
+  {
+   "text": "Section 12.2 excludes indirect, special, incidental, exemplary, punitive and consequential damages, expressly including lost profits, lost revenues and lost savings, arising out of or in connection with the Agreement and/or the Products.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 5252,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "INCLUDING ANY LOST PROFITS, LOST REVENUES OR LOST SAVINGS, ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT AND/OR THE PRODUCTS",
+     "start": 20885,
+     "end": 21015,
+     "contract_id": 125
+    }
+   ]
+  },
+  {
+   "text": "The damages exclusion applies whether the claim is in contract, tort, strict liability or otherwise, and even if the party was advised of or aware of the possibility of such damages.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 5252,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "WHETHER IN CONTRACT, TORT, STRICT LIABILITY OR OTHERWISE, EVEN IF THE PARTY HAS BEEN ADVISED, KNOWS OR SHOULD KNOW, OR IS OTHERWISE AWARE OF THE POSSIBILITY OF SUCH DAMAGES",
+     "start": 21017,
+     "end": 21189,
+     "contract_id": 125
+    }
+   ]
+  },
+  {
+   "text": "The exclusion in Section 12.2 does not apply to claims made under Section 12.1 (the indemnity clause), which covers claims for breach of obligations, personal injury or property damage caused by the Indemnitor's fault or negligence, and third-party IP infringement claims.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 5252,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "EXCEPTING ONLY CLAIMS MADE PURSUANT TO SECTION 12.1",
+     "start": 20695,
+     "end": 20746,
+     "contract_id": 125
+    },
+    {
+     "source": "S1",
+     "chunk_id": 5252,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "(c) a claim of infringement or misappropriation of any patent, trademark, copyright or other proprietary right held by any third party",
+     "start": 20554,
+     "end": 20688,
+     "contract_id": 125
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

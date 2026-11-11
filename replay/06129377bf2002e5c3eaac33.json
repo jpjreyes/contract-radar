@@ -1,0 +1,33 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 133,
+ "seconds": 5.8,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "Either party can terminate the Agreement for convenience (without cause) on ninety days' written notice to the other party.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 7101,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "This Agreement may be canceled at any time without cause, by either party upon ninety (90) days written notice to the other party.",
+     "start": 31087,
+     "end": 31217,
+     "contract_id": 156
+    },
+    {
+     "source": "S1",
+     "chunk_id": 7101,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "This Agreement may be terminated at any time without cause by either party upon ninety (90) days written notice to the other party.",
+     "start": 31729,
+     "end": 31860,
+     "contract_id": 156
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

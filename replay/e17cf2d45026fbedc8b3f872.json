@@ -1,0 +1,79 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 127,
+ "seconds": 8.3,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "The agreement was signed on behalf of Owner Martin Operating Partnership L.P. by an individual shown only as the placeholder [PERSON_3], whose title is Chief Executive Officer and President. The signature block is signed with an /s/ mark. The sources do not give the individual's actual name.",
+   "citations": [
+    {
+     "source": "S6",
+     "chunk_id": 5099,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "By: /s/ [PERSON_3]",
+     "start": 6261,
+     "end": 6284,
+     "contract_id": 117
+    },
+    {
+     "source": "S6",
+     "chunk_id": 5099,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "Chief Executive Officer and President",
+     "start": 6313,
+     "end": 6350,
+     "contract_id": 117
+    }
+   ]
+  },
+  {
+   "text": "The agreement was also signed on behalf of Charterer Midstream Fuel Service LLC, through its Sole Member Martin Resource Management Corporation, by the same placeholder [PERSON_3], shown with the title Chief Executive Officer and President.",
+   "citations": [
+    {
+     "source": "S6",
+     "chunk_id": 5099,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "MIDSTREAM FUEL SERVICE LLC",
+     "start": 6365,
+     "end": 6391,
+     "contract_id": 117
+    },
+    {
+     "source": "S6",
+     "chunk_id": 5099,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "By:   Martin Resource Management Corporation, its Sole Member",
+     "start": 6406,
+     "end": 6467,
+     "contract_id": 117
+    },
+    {
+     "source": "S6",
+     "chunk_id": 5099,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "Name: [PERSON_3]                 Title: Chief Executive Officer and President",
+     "start": 6525,
+     "end": 6607,
+     "contract_id": 117
+    }
+   ]
+  },
+  {
+   "text": "The parties to the agreement are Martin Operating Partnership L.P. (Owner) and Midstream Fuel Service LLC (Charterer).",
+   "citations": [
+    {
+     "source": "S4",
+     "chunk_id": 5094,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "by and between Martin Operating Partnership L.P., a Delaware limited partnership (\"Owner\"), and Midstream Fuel Service LLC, an Alabama limited liability company (\"Charterer\")",
+     "start": 150,
+     "end": 324,
+     "contract_id": 117
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

@@ -1,0 +1,108 @@
+{
+ "answerable": true,
+ "clause_present": false,
+ "audit_id": 141,
+ "seconds": 10.7,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "Section 7.2 lets either party terminate, but only in the listed circumstances. Its lead-in reads \"Either party may terminate this Agreement without penalty and without prejudice to any claims arising prior to termination as follows,\" and the list that follows is limited to the cases below. No unconditional termination-for-convenience right appears in the sources.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 17869,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "Either party may terminate this Agreement without penalty and without prejudice to any claims arising prior to termination as follows:",
+     "start": 21643,
+     "end": 21777,
+     "contract_id": 393
+    }
+   ]
+  },
+  {
+   "text": "The first listed ground is mutual agreement of both parties.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 17869,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "(a) Upon the written agreement of both parties.",
+     "start": 21794,
+     "end": 21841,
+     "contract_id": 393
+    }
+   ]
+  },
+  {
+   "text": "The second ground is the other party's uncured breach. The terminating party must give written notice specifying the breach and the cure action, and the breach must remain uncured after a cure period of five business days (for NPC's failure to fund merchant payments) or thirty business days (for any other breach).",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 17869,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "the terminating party has given written notice of the breach to the          other party specifying the breach, the action necessary to cure the          breach and the breaching party has not cured the breach within five          business days after notice is given of any failure by NPC to provide          any funds required hereunder to be provided by NPC to pay Merchants or          within thirty business days after notice is given of any other breach.",
+     "start": 21928,
+     "end": 22387,
+     "contract_id": 393
+    }
+   ]
+  },
+  {
+   "text": "The third listed ground is available only to NCB, upon NPC's bankruptcy-related filings.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 17869,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "(c) By NCB immediately upon NPC's voluntary filing of any          petition or complaint seeking relief under any federal or state          bankruptcy or other debt relief statute",
+     "start": 22404,
+     "end": 22583,
+     "contract_id": 393
+    }
+   ]
+  },
+  {
+   "text": "NPC has a separate immediate termination right if NCB's Visa/MasterCard agreements or membership are terminated or materially limited in a way that impairs NPC's processing ability. This right belongs only to NPC.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 17870,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "(d) By NPC immediately in the event that any agreements          between NCB and Visa and/or MasterCard or NCB's membership in either          such bankcard association shall be terminated or materially limited",
+     "start": 22759,
+     "end": 22969,
+     "contract_id": 393
+    }
+   ]
+  },
+  {
+   "text": "Section 6.2 gives either party a termination right, but only if the parties cannot agree on Compliance Modifications. It requires prior written notice, effective at the later of the Visa/MasterCard compliance deadline or 120 days after actual notice to NPC.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 17868,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "If NPC does not request any Compliance Modifications or the parties cannot agree upon the terms of any Compliance Modifications, then either party may terminate this Agreement upon prior written notice to the other party",
+     "start": 20572,
+     "end": 20792,
+     "contract_id": 393
+    }
+   ]
+  },
+  {
+   "text": "Section 7.1 allows either party to stop automatic renewal by giving non-renewal notice at least six months before renewal. This is an expiration mechanism, not a termination for convenience.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 17868,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "This Agreement shall automatically renew for successive one-year terms unless one party gives the other party written notice of non-renewal at least six months prior to automatic renewal.",
+     "start": 21374,
+     "end": 21561,
+     "contract_id": 393
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

@@ -1,0 +1,240 @@
+{
+ "conditions": [
+  {
+   "field": "governing_law",
+   "op": "contains",
+   "value": "Delaware"
+  },
+  {
+   "field": "uncapped_liability",
+   "op": "present",
+   "value": "true"
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 11,
+ "audit_id": 148,
+ "matches": [
+  {
+   "contract_id": 419,
+   "contract": "BERKELEYLIGHTS,INC_06_26_2020-EX-10.12-COLLABORATION AGREEMENT",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "the laws of the State of Delaware",
+     "start": 192935,
+     "end": 192968,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Breach of Article 10 (Confidentiality); fraud, gross negligence or willful misconduct; indemnification obligations under Article 12; one additional redacted category",
+     "quote": "(I) A PARTY'S BREACH OF ARTICLE 10 (CONFIDENTIALITY)",
+     "start": 163860,
+     "end": 163912,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 130,
+   "contract": "DigitalCinemaDestinationsCorp_20111220_S-1_EX-10.10_7346719_EX-10.10_Affiliate Agreement",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "governed by the internal laws of the State of Delaware",
+     "start": 97902,
+     "end": 97956,
+     "status": "needs_review"
+    },
+    "uncapped_liability": {
+     "value": "Indemnification obligations of the parties under Article X; liability for breach of Article XIV",
+     "quote": "INDEMNIFICATION OBLIGATIONS OF THE PARTIES UNDER ARTICLE X",
+     "start": 80258,
+     "end": 80316,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 129,
+   "contract": "HarpoonTherapeuticsInc_20200312_10-K_EX-10.18_12051356_EX-10.18_Development Agreement",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware, United States",
+     "quote": "the laws of the State of Delaware, United States",
+     "start": 233489,
+     "end": 233537,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Carved out of the consequential-damages exclusion: fraud, willful misconduct or gross negligence; breach of Article 9 (Confidentiality) or Section 5.8; damages payable to a third party under the Article 11 indemnity; and items under a bracketed clause (C) that is redacted",
+     "quote": "EXCEPT (A) FOR FRAUD, WILLFUL MISCONDUCT OR GROSS NEGLIGENCE, (B) FOR A PARTY'S BREACH OF ITS OBLIGATIONS UNDER [ARTICLE 9 OR SECTION 5.8]",
+     "start": 207487,
+     "end": 207625,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 151,
+   "contract": "IGENEBIOTECHNOLOGYINC_05_13_2003-EX-1-JOINT VENTURE AGREEMENT",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "the laws of the State of Delaware, without reference to the conflicts of laws principles",
+     "start": 57601,
+     "end": 57689,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Igene's indemnity to T&L and other Indemnified Parties for third-party IP infringement claims under Article 13.1; the excerpts contain no cap on this indemnity, so it appears uncapped (inferred from absence of a cap)",
+     "quote": "arising from any actual or alleged infringement of any patent, trademark, trade name, trade dress, copyright, trade secret or other proprietary right",
+     "start": 46204,
+     "end": 46353,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 43,
+   "contract": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "governed by and interpreted under the laws of the State of Delaware",
+     "start": 39484,
+     "end": 39551,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Excluded from the Section 9.3 damages exclusion: breach by either party of Article 7 (Confidentiality) or Section 8.1.5(v); Impresse's indemnification obligations under Section 9.4(i)(d); and VerticalNet's indemnification obligations under Section 9.5(i)(d). Claims under Sections 9.4 and 9.5 are also excluded from the two-year limitation in Section 6.5.",
+     "quote": "EXCEPT IN CONNECTION WITH A BREACH BY EITHER PARTY OF ARTICLE 7",
+     "start": 32811,
+     "end": 32874,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 211,
+   "contract": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part1",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "This Agreement is governed in all respects by the laws of the State of Delaware",
+     "start": 20089,
+     "end": 20168,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Liability for indemnification and liability for breach of confidentiality are carved out of the damages exclusion",
+     "quote": "EXCEPT WITH RESPECT TO THE PARTIES' LIABILITY FOR INDEMNIFICATION, OR LIABILITY FOR BREACH OF CONFIDENTIALITY",
+     "start": 8449,
+     "end": 8558,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 268,
+   "contract": "Microgenics Corporation - Collaborative Development and Commercialization Agreement",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "governed by the laws of the State of Delaware, U.S.A.",
+     "start": 156645,
+     "end": 156698,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Damages arising from breach of confidentiality (Article 12) and indemnification obligations (Article 11) are excluded from the liability cap and the consequential-damages exclusion",
+     "quote": "BREACH OF CONFIDENTIALITY (ARTICLE 12)",
+     "start": 114959,
+     "end": 114997,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 244,
+   "contract": "OTISWORLDWIDECORP_04_03_2020-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT by and among UNITED TECHNOLOGIES CORPORATION, OTIS WORLDWIDE CORPORATION and CARRIER ~1",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "the laws of the State of Delaware",
+     "start": 46004,
+     "end": 46037,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Willful and intentional breach of the Agreement and fraud (carved out of the consequential/indirect damages exclusion)",
+     "quote": "Except in connection with a Party's willful and intentional breach of this Agreement or fraud",
+     "start": 44687,
+     "end": 44780,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 178,
+   "contract": "PhasebioPharmaceuticalsInc_20200330_10-K_EX-10.21_12086810_EX-10.21_Development Agreement",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "governed by the internal laws of the State of Delaware, USA",
+     "start": 276156,
+     "end": 276215,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "PB's obligation to pay SFJ the amounts set forth in Article 6 or Section 14.2 is not limited by Section 15.11 (no general dollar cap is stated)",
+     "quote": "THIS SECTION 15.11 IS NOT MEANT TO LIMIT PB'S OBLIGATION TO PAY SFJ THE AMOUNTS SET FORTH IN ARTICLE 6 OR SECTION 14.2",
+     "start": 285113,
+     "end": 285231,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 332,
+   "contract": "UAGHINC_04_14_2004-EX-10.18-MAINTENANCE AGREEMENT",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "SHALL BE CONSTRUED ACCORDING TO AND GOVERNED BY THE SUBSTANTIVE LAWS OF THE STATE OF DELAWARE",
+     "start": 13481,
+     "end": 13574,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "The Company's obligation to pay the Service Fees (the cap limitations do not apply to it)",
+     "quote": "The foregoing limitations do not apply to the Company's obligation to pay the Service Fees.",
+     "start": 10493,
+     "end": 10584,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 440,
+   "contract": "VIRTUALSCOPICS,INC_11_12_2010-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "the laws of the State of Delaware",
+     "start": 37675,
+     "end": 37708,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Breach of Section 9 (confidentiality), gross negligence, willful misconduct, and indemnification obligations for third-party claims under Section 12",
+     "quote": "EXCEPT WITH REGARD TO A PARTY'S BREACH OF SECTION 9, GROSS NEGLIGENCE, WILLFUL MISCONDUCT AND INDEMNIFICATION OBLIGATIONS RELATED TO THIRD PARTY CLAIMS PURSUANT TO SECTION 12",
+     "start": 33252,
+     "end": 33426,
+     "status": "needs_review"
+    }
+   }
+  }
+ ],
+ "replayed": true
+}

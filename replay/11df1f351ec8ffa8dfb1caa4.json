@@ -1,0 +1,66 @@
+{
+ "answerable": true,
+ "clause_present": false,
+ "audit_id": 153,
+ "seconds": 10.0,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "The provided sources contain no termination-for-convenience clause. Termination under Section 8.2 is tied to listed grounds: a party may terminate if the other party commits an uncured breach, or on insolvency-type events.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10481,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "Either party may by notice in writing terminate this Agreement if (i) the other party breaches or fails to observe or perform any of its obligations set out in this Agreement",
+     "start": 143748,
+     "end": 143922,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "Under Section 11.2, the non-breaching party may terminate after an uncured material breach, once the 60-day cure period has ended.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 10404,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "the nonbreaching party\n\n\n\n\n\n         may terminate this Agreement on written notice at any time following          the end of such sixty (60) day period.",
+     "start": 58907,
+     "end": 59060,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "Under Section 11.2, either party may also terminate on insolvency-related events, such as becoming insolvent or unable to pay its debts.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 10404,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "either party should become insolvent or unable to pay its debts as          they mature",
+     "start": 59779,
+     "end": 59866,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "The only no-cause exit in the excerpts is non-renewal under Section 11.1. Either party may stop the automatic one-year renewals by giving written notice at least 30 days before the end of the current term. This is not a mid-term termination for convenience.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 10403,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "unless either party provides the other party with          written notification at least thirty (30) days prior to the expiration          of the initial five (5) year term or any one (1) year renewal thereof          of its intention to terminate this Agreement.",
+     "start": 58429,
+     "end": 58692,
+     "contract_id": 224
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

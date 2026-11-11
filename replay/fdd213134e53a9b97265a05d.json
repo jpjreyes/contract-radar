@@ -1,0 +1,73 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 118,
+ "seconds": 7.4,
+ "pii_revealed_chunks": [
+  13539,
+  13540
+ ],
+ "claims": [
+  {
+   "text": "Notices to Diversinet go to Diversinet Corp., attention Chief Financial Officer, at 2235 Sheppard Avenue East, Suite 1700, Toronto, Ontario, Canada M2J 5B5, with phone 416-756-2324 and fax 416-756-7346.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 13539,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Diversinet Corp.  Attention: Chief Financial Officer  2235 Sheppard Avenue East, Suite 1700  Toronto, Ontario, Canada M2J 5B5  Phone: 416-756-2324 Fax: 416-756-7346",
+     "start": 45369,
+     "end": 45533,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "Notices to the Reseller go to the address and contact information set out in Schedule 1, which lists 111 Main Street West, Suite 304, North Bay, ON, P1B 2T6, Canada, and the e-mail address drgraham@vianet.ca.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 13539,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Reseller's address and contact information are as set out in Schedule 1.",
+     "start": 45231,
+     "end": 45303,
+     "contract_id": 280
+    },
+    {
+     "source": "S4",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Street Address 111 Main Street West, Suite 304",
+     "start": 46895,
+     "end": 46941,
+     "contract_id": 280
+    },
+    {
+     "source": "S4",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "E-mail Address drgraham@vianet.ca",
+     "start": 47159,
+     "end": 47192,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "Either party may change its notice address or contact information at any time by giving written notice under the notices section.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 13539,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "The addresses and contact information may be changed at any time by giving written notice as allowed under  this section.",
+     "start": 45109,
+     "end": 45230,
+     "contract_id": 280
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

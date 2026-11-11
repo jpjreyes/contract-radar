@@ -1,0 +1,960 @@
+{
+ "conditions": [
+  {
+   "field": "renewal_term",
+   "op": "present",
+   "value": ""
+  },
+  {
+   "field": "notice_to_terminate_renewal_days",
+   "op": "lte",
+   "value": "60"
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 19,
+ "audit_id": 111,
+ "matches": [
+  {
+   "contract_id": 450,
+   "contract": "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "the term of this Agreement shall be automatically renewed for another one (1) year.",
+     "start": 15584,
+     "end": 15667,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "A party wishing to renew this Agreement shall give the other party notice thereof no less than thirty (30) days before the expiration of the term then in effect.",
+     "start": 15363,
+     "end": 15524,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 443,
+   "contract": "ASIANDRAGONGROUPINC_08_11_2005-EX-10.5-Reseller Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this agreement will renew automatically from year to year",
+     "start": 22775,
+     "end": 22832,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "a minimum of 60 days before the end of the then current term",
+     "start": 22930,
+     "end": 22990,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 386,
+   "contract": "BLACKSTONEGSOLONG-SHORTCREDITINCOMEFUND_05_11_2020-EX-99.(K)(1)-SERVICE AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 3 year",
+     "quote": "this Agreement shall automatically renew for successive additional three-year terms",
+     "start": 1271,
+     "end": 1354,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least 60 days prior to the end of the Initial Term",
+     "start": 1181,
+     "end": 1234,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 38,
+   "contract": "BNCMORTGAGEINC_05_17_1999-EX-10.4-LICENSING AND WEB SITE HOSTING AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "This Agreement shall renew automatically thereafter for successive one year periods",
+     "start": 24777,
+     "end": 24860,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "no later than thirty (30) days prior to the end of said year",
+     "start": 25003,
+     "end": 25063,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 4,
+   "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 month",
+     "quote": "shall automatically be renewed for one (1) or more one (1) month periods",
+     "start": 10574,
+     "end": 10646,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "15",
+     "quote": "which notice must be given not less than fifteen (15) days before the end of the respective initial or renewal term",
+     "start": 10762,
+     "end": 10877,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 224,
+   "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "shall automatically renew for subsequent one          (1) year periods",
+     "start": 58358,
+     "end": 58428,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least thirty (30) days prior to the expiration",
+     "start": 58509,
+     "end": 58558,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 408,
+   "contract": "COOLTECHNOLOGIES,INC_10_25_2017-EX-10.71-Strategic Alliance Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "shall be automatically renewed for successive one year periods",
+     "start": 4002,
+     "end": 4064,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least thirty (30) days prior to the date of expiration",
+     "start": 4140,
+     "end": 4197,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 32,
+   "contract": "CORIOINC_07_20_2000-EX-10.5-LICENSE AND HOSTING AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "shall automatically renew for         subsequent one (1) year periods",
+     "start": 35684,
+     "end": 35753,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "written notification at least thirty (30) days prior to the         expiration of the initial five (5) year term",
+     "start": 35812,
+     "end": 35924,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 375,
+   "contract": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "shall be automatically renewed for successive one (1) year periods",
+     "start": 1589,
+     "end": 1655,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "upon thirty (30) days written notice to the other party",
+     "start": 22165,
+     "end": 22220,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 159,
+   "contract": "DataCallTechnologies_20060918_SB-2A_EX-10.9_944510_EX-10.9_Content License Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 6 months",
+     "quote": "The Initial Term shall automatically be           extended",
+     "start": 7558,
+     "end": 7616,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at  least 60 days prior to end of such period",
+     "start": 7794,
+     "end": 7839,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 280,
+   "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this Agreement shall automatically renew for  consecutive one (1) year periods",
+     "start": 4938,
+     "end": 5016,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "unless terminated by Reseller within sixty (60) days prior to the expiration of the Initial Term",
+     "start": 5018,
+     "end": 5114,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 157,
+   "contract": "EcoScienceSolutionsInc_20171117_8-K_EX-10.1_10956472_EX-10.1_Endorsement Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "automatically renewing annually thereafter",
+     "start": 585,
+     "end": 627,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "unless either party provides a thirty-day notice of written termination",
+     "start": 629,
+     "end": 700,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 181,
+   "contract": "EdietsComInc_20001030_10QSB_EX-10.4_2606646_EX-10.4_Co-Branding Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "This agreement shall automatically renew for additional successive terms of twelve (12) months each",
+     "start": 24987,
+     "end": 25086,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days prior to the end of the Initial Term",
+     "start": 25187,
+     "end": 25248,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 423,
+   "contract": "ENTERPRISEPRODUCTSPARTNERSLP_07_08_1998-EX-10.3-TRANSPORTATION CONTRACT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, continuing until terminated",
+     "quote": "thereafter, it shall automatically continue until terminated by either party",
+     "start": 2353,
+     "end": 2429,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "upon not less than thirty (30) days prior written notice to the other party",
+     "start": 2430,
+     "end": 2505,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 261,
+   "contract": "ETELOS,INC_03_09_2004-EX-10.8-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "will be automatically renewed on each anniversary of the effective date, for a renewal term of one year",
+     "start": 18518,
+     "end": 18621,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least one month prior to the expiration of the initial or any renewal terms",
+     "start": 18717,
+     "end": 18795,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 380,
+   "contract": "EUROPEANMICROHOLDINGSINC_03_06_1998-EX-10.6-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "The Term will automatically renew for successive additional periods of one (1) year each",
+     "start": 12137,
+     "end": 12225,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least thirty (30) days prior to any year's Expiration Date",
+     "start": 12647,
+     "end": 12708,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 161,
+   "contract": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "annual continuation (year to year) for registered investment company Accounts only if specifically approved at least annually by the Board; no automatic renewal term",
+     "quote": "shall continue from year to year thereafter",
+     "start": 5957,
+     "end": 6000,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "by either party on not less than 60 days' written notice to the other party hereto",
+     "start": 5263,
+     "end": 5345,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 12,
+   "contract": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, month-to-month until terminated",
+     "quote": "this Agreement shall continue on a month to month basis until terminated by either party",
+     "start": 1676,
+     "end": 1764,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "upon thirty (30) days prior written notice to the other",
+     "start": 1765,
+     "end": 1820,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 434,
+   "contract": "HfEnterprisesInc_20191223_S-1_EX-10.22_11931299_EX-10.22_Development Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 month",
+     "quote": "The Initial Term shall automatically renew for one-month periods thereafter",
+     "start": 2484,
+     "end": 2559,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "unless either party provides 30- days advance notice of termination",
+     "start": 2560,
+     "end": 2627,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 473,
+   "contract": "IMAGEWARESYSTEMSINC_12_20_1999-EX-10.22-MAINTENANCE AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "shall automatically renew for consecutive one (1) year terms",
+     "start": 4772,
+     "end": 4832,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days prior written notice      of the non-renewal of this Agreement",
+     "start": 4940,
+     "end": 5027,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 300,
+   "contract": "IpassInc_20181203_8-K_EX-99.1_11445874_EX-99.1_Reseller Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "The Agreement shall automatically renew for successive one (1) year terms",
+     "start": 27759,
+     "end": 27832,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "no later than sixty (60) days prior to the end of the then applicable term",
+     "start": 27964,
+     "end": 28038,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 263,
+   "contract": "LEGACYTECHNOLOGYHOLDINGS,INC_12_09_2005-EX-10.2-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "automatic  annual  renewals  thereafter",
+     "start": 4056,
+     "end": 4095,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "sixty (60) days  notice of  termination",
+     "start": 4147,
+     "end": 4186,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 117,
+   "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "This Agreement will automatically renew for successive one year terms",
+     "start": 805,
+     "end": 874,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "written notice of such election 30 days prior to the expiration of the Initial Term or Renewal Term",
+     "start": 1050,
+     "end": 1149,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 136,
+   "contract": "MIDDLEBROOKPHARMACEUTICALS,INC_03_18_2010-EX-10.1-PROMOTION AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this Agreement shall automatically renew for each subsequent one-year  term",
+     "start": 8780,
+     "end": 8855,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "within 60 days of the then current anniversary date of its intent not to renew",
+     "start": 43350,
+     "end": 43428,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 187,
+   "contract": "MphaseTechnologiesInc_20030911_10-K_EX-10.15_1560667_EX-10.15_Co-Branding Agreement",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "Either party wishing to terminate          the Agreement must give written notice to the other party at least          thirty (30) days prior to the desired date of termination.",
+     "start": 4564,
+     "end": 4741,
+     "status": "needs_review"
+    },
+    "renewal_term": {
+     "value": "consent-based, successive 1 year (mPhase may renew annually with Lucent's written consent, not to be unreasonably withheld)",
+     "quote": "mPhase shall have the right to          annually renew this agreement for a period of one year upon each annual          expiration with the written consent of Lucent",
+     "start": 4329,
+     "end": 4495,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 212,
+   "contract": "NeoformaInc_19991202_S-1A_EX-10.26_5224521_EX-10.26_Co-Branding Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "will automatically renew at the end of the Initial Term or a subsequent renewal term on a year to year basis",
+     "start": 52566,
+     "end": 52674,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least 30 days prior to the end of the Initial Term",
+     "start": 52740,
+     "end": 52793,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 90,
+   "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_Amendment",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this Agreement will renew automatically for           successive terms of one (1) year each",
+     "start": 7451,
+     "end": 7542,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days prior           to the end of the original or any renewal term",
+     "start": 7677,
+     "end": 7764,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 341,
+   "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_New",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this Agreement will renew automatically for successive terms of one (1) year each",
+     "start": 47952,
+     "end": 48033,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "delivers written notice of termination to the other party to this Agreement at least sixty (60) days prior to the end of the original or any renewal term",
+     "start": 48067,
+     "end": 48220,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 113,
+   "contract": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 3 year",
+     "quote": "automatically renewed for successive additional 3~year periods",
+     "start": 9323,
+     "end": 9385,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "not less than sixty (60) days prior to the end of a Term",
+     "start": 9487,
+     "end": 9543,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 323,
+   "contract": "PaperexchangeComInc_20000322_S-1A_EX-10.4_5202103_EX-10.4_Co-Branding Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "on a year to year basis",
+     "start": 43331,
+     "end": 43354,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least 30 days prior to the end of the Initial Term",
+     "start": 43420,
+     "end": 43473,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 99,
+   "contract": "PenntexMidstreamPartnersLp_20150416_S-1A_EX-10.4_9042833_EX-10.4_Transportation Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive until terminated by either Party on 30 calendar days' prior written notice",
+     "quote": "shall continue in full force and effect thereafter until terminated by either Party by providing thirty (30) calendar days' prior written notice of termination",
+     "start": 49426,
+     "end": 49585,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "thirty (30) calendar days' prior written notice of termination",
+     "start": 49523,
+     "end": 49585,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 458,
+   "contract": "PFSFUNDS_06_26_2020-EX-99.H OTH MAT CONT-SERVICES AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "from year to year, if approved at least annually by a majority of the Trustees who are not interested persons (not automatic)",
+     "quote": "shall continue in effect from year to year thereafter, subject to termination as hereinafter provided, if such continuance is approved at least annually",
+     "start": 12313,
+     "end": 12465,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "upon sixty (60) days' written notice to the other party",
+     "start": 12648,
+     "end": 12703,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 215,
+   "contract": "RaeSystemsInc_20001114_10-Q_EX-10.57_2631790_EX-10.57_Co-Branding Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "shall be automatically renewed for successive periods of one (1) year",
+     "start": 16538,
+     "end": 16607,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "upon sixty (60) days prior written",
+     "start": 16819,
+     "end": 16853,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 296,
+   "contract": "RangeResourcesLouisianaInc_20150417_8-K_EX-10.5_9045501_EX-10.5_Transportation Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, indefinite (continues after initial term until terminated by either Party on 30 calendar days' notice)",
+     "quote": "shall continue in full force and effect thereafter until terminated by either Party by providing thirty (30) calendar days' prior written notice of termination to the other Party",
+     "start": 11724,
+     "end": 11902,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "thirty (30) calendar days' prior written notice of termination to the other Party",
+     "start": 11821,
+     "end": 11902,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 126,
+   "contract": "SLOVAKWIRELESSFINANCECOBV_03_28_2001-EX-4.(B)(II).3-Maintenance and support contract for SICAP(R) modules",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "automatically renewed for a period of one year on each       renewal date",
+     "start": 30123,
+     "end": 30196,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "42",
+     "quote": "at least six (6) weeks       prior to the renewal date",
+     "start": 30390,
+     "end": 30444,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 422,
+   "contract": "SPHERE3DCORP_06_24_2020-EX-10.12-CONSULTING AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, 1 month extension",
+     "quote": "the contract will automatically extend for an additional month of service",
+     "start": 4676,
+     "end": 4749,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "5",
+     "quote": "The company must notify the consultant within 5 days of the conclusion of the 12 month term.",
+     "start": 4562,
+     "end": 4654,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 484,
+   "contract": "SPIENERGYCO,LTD_03_09_2011-EX-99.5-OPERATIONS AND MAINTENANCE AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "subject to an automatic extension for consecutive one (1) year periods",
+     "start": 13112,
+     "end": 13182,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "upon thirty (30) days' written notice by either Party to the other Party",
+     "start": 13331,
+     "end": 13403,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 124,
+   "contract": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "shall automatically renew from year-to-year thereafter",
+     "start": 4072,
+     "end": 4126,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "unless terminated by a Party upon sixty (60) days' written notice after the end of the term",
+     "start": 4127,
+     "end": 4218,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 101,
+   "contract": "TodosMedicalLtd_20190328_20-F_EX-4.10_11587157_EX-4.10_Marketing Agreement_ Reseller Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 5 years (if Annual Milestones achieved), then automatic successive 2 years",
+     "quote": "shall be automatically renewed for an additional five (5) years",
+     "start": 22143,
+     "end": 22206,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days prior to the expiration of the then-current term",
+     "start": 22394,
+     "end": 22467,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 186,
+   "contract": "TomOnlineInc_20060501_20-F_EX-4.46_749700_EX-4.46_Co-Branding Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, single 3 year extension",
+     "quote": "shall automatically continue following the Initial Term, for an additional period of three (3) years",
+     "start": 63988,
+     "end": 64088,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days prior to the expiration of the Initial Term",
+     "start": 64183,
+     "end": 64251,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 332,
+   "contract": "UAGHINC_04_14_2004-EX-10.18-MAINTENANCE AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 month",
+     "quote": "will extend automatically for monthly periods",
+     "start": 1412,
+     "end": 1457,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least thirty (30) days before the expiration of the then current term",
+     "start": 1532,
+     "end": 1604,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 166,
+   "contract": "UsioInc_20040428_SB-2_EX-10.11_1723988_EX-10.11_Affiliate Agreement 2",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "This Agreement will automatically renew for successive  one-year  terms",
+     "start": 16121,
+     "end": 16192,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "30  days  written notice that this Agreement will not be renewed",
+     "start": 16259,
+     "end": 16323,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 440,
+   "contract": "VIRTUALSCOPICS,INC_11_12_2010-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this Agreement shall be renewed for additional, successive periods of one (1) year each",
+     "start": 2249,
+     "end": 2336,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least 30 days prior to the expiration of the then-current term",
+     "start": 2182,
+     "end": 2247,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 82,
+   "contract": "WEBHELPCOMINC_03_22_2000-EX-10.8-HOSTING AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "thereafter shall renew automatically for successive one (1) year periods",
+     "start": 14463,
+     "end": 14535,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least thirty (30) days prior written notice of its intent not to renew the Agreement",
+     "start": 14578,
+     "end": 14665,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 223,
+   "contract": "XACCT Technologies, Inc.SUPPORT AND MAINTENANCE AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "The Agreement will be automatically          renewed for additional one (1) year terms",
+     "start": 9162,
+     "end": 9248,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "thirty (30) days prior to the anniversary of the          Effective Date Licensee gives written notice to XACCT of its intention          not to renew",
+     "start": 9305,
+     "end": 9455,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 411,
+   "contract": "XpresspaGroupInc_20190401_10-K_EX-10.28_11599457_EX-10.28_Marketing Agreement",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 6 months",
+     "quote": "shall automatically renew for successive terms of six (6) months",
+     "start": 1761,
+     "end": 1825,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "unless written notice is given by either Party no later than thirty (30) days in advance",
+     "start": 1898,
+     "end": 1986,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 48,
+   "contract": "Zounds Hearing, Inc. - MANUFACTURING DESIGN MARKETING AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "renew automatically thereafter for successive one-year terms",
+     "start": 1968,
+     "end": 2028,
+     "status": "auto_accepted"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "with at least sixty (60) days written notice",
+     "start": 2090,
+     "end": 2134,
+     "status": "auto_accepted"
+    }
+   }
+  }
+ ],
+ "replayed": true
+}

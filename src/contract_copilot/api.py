@@ -9,6 +9,7 @@ Run:  uv run uvicorn contract_copilot.api:app --port 8071
 
 from __future__ import annotations
 
+import json
 import os
 from collections.abc import Iterator
 from datetime import date
@@ -91,6 +92,16 @@ def me(who: str = Depends(user)) -> dict:
             return {"name": n, "description": d, "pii_access": pii, "can_review": n in review_mod.REVIEWERS,
                     "auth": auth.mode()}
     raise HTTPException(401, "unknown user")
+
+
+@app.get("/mode")
+def demo_mode(who: str = Depends(user)) -> dict:
+    """What the UI may offer: in replay mode, only the recorded example questions and contracts."""
+    if limits.mode() != "replay":
+        return {"mode": "live"}
+    idx = limits.REPLAY_DIR / "index.json"
+    rec = json.loads(idx.read_text()).get(who, {}) if idx.exists() else {}
+    return {"mode": "replay", **rec}
 
 
 @app.get("/users")

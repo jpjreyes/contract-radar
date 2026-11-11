@@ -1,0 +1,63 @@
+{
+ "answerable": true,
+ "clause_present": false,
+ "audit_id": 117,
+ "seconds": 8.2,
+ "pii_revealed_chunks": [
+  13539
+ ],
+ "claims": [
+  {
+   "text": "The termination provision lists specific grounds on which either party may terminate, and none is termination for convenience. It is framed as breach-based or payment-based termination: the reseller's failure to pay, an audit revealing under-payment, or a material breach not cured within the cure period.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 13516,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "(a) Either Party may terminate this Agreement:",
+     "start": 5470,
+     "end": 5516,
+     "contract_id": 280
+    },
+    {
+     "source": "S1",
+     "chunk_id": 13516,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "providing thirty (60) days' written notice to the other Party if the other Party breaches any material term or condition of this Agreement,  and fails to cure such breach within the 60 day period",
+     "start": 5828,
+     "end": 6023,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The only other termination right in the excerpts is one held by the Reseller alone, tied to the Initial Term and renewals. The Reseller may terminate by giving notice within 60 days before expiration. This is a non-renewal right, not a right to terminate for convenience during the term, and Diversinet has no equivalent.",
+   "citations": [
+    {
+     "source": "S7",
+     "chunk_id": 13515,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "unless terminated by Reseller within sixty (60) days prior to the expiration of the Initial Term or any renewal term",
+     "start": 5018,
+     "end": 5134,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The excerpts provided are partial, and they do not contain a termination-for-convenience clause for either party. This answer is based only on the excerpts provided.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 13516,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "(b) This Agreement shall terminate automatically without notice and without further action by Diversinet in the event that:",
+     "start": 6229,
+     "end": 6352,
+     "contract_id": 280
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

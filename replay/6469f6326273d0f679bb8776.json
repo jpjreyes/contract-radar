@@ -1,0 +1,780 @@
+{
+ "conditions": [
+  {
+   "field": "cap_on_liability",
+   "op": "absent",
+   "value": ""
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 0,
+ "audit_id": 150,
+ "matches": [
+  {
+   "contract_id": 76,
+   "contract": "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 416,
+   "contract": "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 6,
+   "contract": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 390,
+   "contract": "ADAPTIMMUNETHERAPEUTICSPLC_04_06_2017-EX-10.11-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 374,
+   "contract": "ADUROBIOTECH,INC_06_02_2020-EX-10.7-CONSULTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 368,
+   "contract": "ADUROBIOTECH,INC_06_02_2020-EX-10.7-CONSULTING AGREEMENT(1)",
+   "evidence": {}
+  },
+  {
+   "contract_id": 495,
+   "contract": "ALCOSTORESINC_12_14_2005-EX-10.26-AGENCY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 410,
+   "contract": "ALLIANCEBANCORPINCOFPENNSYLVANIA_10_18_2006-EX-1.2-AGENCY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 204,
+   "contract": "ALLISONTRANSMISSIONHOLDINGSINC_12_15_2014-EX-99.1-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 162,
+   "contract": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 106,
+   "contract": "AMERICANPHYSICIANSCAPITALINC_03_31_2003-EX-10.26-AGENCY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 158,
+   "contract": "AMERICASSHOPPINGMALLINC_12_10_1999-EX-10.2-SITE DEVELOPMENT AND HOSTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 221,
+   "contract": "ArcaUsTreasuryFund_20200207_N-2_EX-99.K5_11971930_EX-99.K5_Development Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 95,
+   "contract": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 333,
+   "contract": "ARMSTRONGFLOORING,INC_01_07_2019-EX-10.2-INTELLECTUAL PROPERTY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 457,
+   "contract": "ArmstrongFlooringInc_20190107_8-K_EX-10.2_11471795_EX-10.2_Intellectual Property Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 318,
+   "contract": "ATENTOSA_07_06_2020-EX-99.1-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 60,
+   "contract": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 190,
+   "contract": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+   "evidence": {}
+  },
+  {
+   "contract_id": 105,
+   "contract": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 436,
+   "contract": "BANUESTRAFINANCIALCORP_09_08_2006-EX-10.16-AGENCY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 79,
+   "contract": "BICYCLETHERAPEUTICSPLC_03_10_2020-EX-10.11-SERVICE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 222,
+   "contract": "BIOAMBERINC_04_10_2013-EX-10.34-DEVELOPMENT AGREEMENT - First Amendment",
+   "evidence": {}
+  },
+  {
+   "contract_id": 203,
+   "contract": "BLACKROCKMUNIHOLDINGSINVESTMENTQUALITYFUND_04_07_2020-EX-99.01-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 304,
+   "contract": "BOLIVARMININGCORP_05_23_2003-EX-2.1-VISP WEB SITE BUILDING AND HOSTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 22,
+   "contract": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 26,
+   "contract": "BORROWMONEYCOM,INC_06_11_2020-EX-10.1-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 119,
+   "contract": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 134,
+   "contract": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement3",
+   "evidence": {}
+  },
+  {
+   "contract_id": 185,
+   "contract": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement4",
+   "evidence": {}
+  },
+  {
+   "contract_id": 365,
+   "contract": "CHEETAHMOBILEINC_04_22_2014-EX-10.43-Cooperation Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 45,
+   "contract": "CHERRYHILLMORTGAGEINVESTMENTCORP_09_26_2013-EX-10.1-Strategic Alliance Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 28,
+   "contract": "ChinaRealEstateInformationCorp_20090929_F-1_EX-10.32_4771615_EX-10.32_Content License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 210,
+   "contract": "CHINARECYCLINGENERGYCORP_11_14_2013-EX-10.6-Cooperation Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 145,
+   "contract": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 366,
+   "contract": "ClickstreamCorp_20200330_1-A_EX1A-6 MAT CTRCT_12089935_EX1A-6 MAT CTRCT_Development Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 398,
+   "contract": "CnsPharmaceuticalsInc_20200326_8-K_EX-10.1_12079626_EX-10.1_Development Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 408,
+   "contract": "COOLTECHNOLOGIES,INC_10_25_2017-EX-10.71-Strategic Alliance Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 49,
+   "contract": "CUROGROUPHOLDINGSCORP_05_04_2020-EX-10.3-SERVICING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 159,
+   "contract": "DataCallTechnologies_20060918_SB-2A_EX-10.9_944510_EX-10.9_Content License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 426,
+   "contract": "DYNTEKINC_07_30_1999-EX-10-ONLINE HOSTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 128,
+   "contract": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 412,
+   "contract": "ElPolloLocoHoldingsInc_20200306_10-K_EX-10.16_12041700_EX-10.16_Development Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 361,
+   "contract": "EmeraldHealthBioceuticalsInc_20200218_1-A_EX1A-6 MAT CTRCT_11987205_EX1A-6 MAT CTRCT_Development Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 489,
+   "contract": "EMERALDHEALTHTHERAPEUTICSINC_06_10_2020-EX-4.5-CONSULTING AGREEMENT - DR. GAETANO MORELLO N.D. INC.",
+   "evidence": {}
+  },
+  {
+   "contract_id": 286,
+   "contract": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT_AMENDMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 59,
+   "contract": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT_SECONDAMENDMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 330,
+   "contract": "FIBROGENINC_10_01_2014-EX-10.11-COLLABORATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 24,
+   "contract": "Freecook_20180605_S-1_EX-10.3_11233807_EX-10.3_Hosting Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 12,
+   "contract": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 231,
+   "contract": "FulucaiProductionsLtd_20131223_10-Q_EX-10.9_8368347_EX-10.9_Content License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 47,
+   "contract": "GALACTICOMMTECHNOLOGIESINC_11_07_1997-EX-10.46-WEB HOSTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 306,
+   "contract": "GALERATHERAPEUTICS,INC_02_14_2020-EX-99.A-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 245,
+   "contract": "GIGGLESN_HUGS,INC_06_23_2016-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 30,
+   "contract": "GLOBALTECHNOLOGIESLTD_06_08_2020-EX-10.16-CONSULTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 399,
+   "contract": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 389,
+   "contract": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement3",
+   "evidence": {}
+  },
+  {
+   "contract_id": 470,
+   "contract": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement4",
+   "evidence": {}
+  },
+  {
+   "contract_id": 288,
+   "contract": "GOLDRESOURCECORP_12_11_2008-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 147,
+   "contract": "GpaqAcquisitionHoldingsInc_20200123_S-4A_EX-10.6_11951677_EX-10.6_License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 249,
+   "contract": "GpaqAcquisitionHoldingsInc_20200123_S-4A_EX-10.8_11951679_EX-10.8_Service Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 107,
+   "contract": "GULFSOUTHMEDICALSUPPLYINC_12_24_1997-EX-4-AFFILIATE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 406,
+   "contract": "HC2HOLDINGS,INC_05_14_2020-EX-10.1-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 29,
+   "contract": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 434,
+   "contract": "HfEnterprisesInc_20191223_S-1_EX-10.22_11931299_EX-10.22_Development Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 292,
+   "contract": "HOLIDAYRVSUPERSTORESINC_04_15_2002-EX-10.13-ENDORSEMENT AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 273,
+   "contract": "HPILHOLDING_01_07_2015-EX-99.1-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 227,
+   "contract": "IDREAMSKYTECHNOLOGYLTD_07_03_2014-EX-10.39-Cooperation Agreement on Mobile Game Business",
+   "evidence": {}
+  },
+  {
+   "contract_id": 151,
+   "contract": "IGENEBIOTECHNOLOGYINC_05_13_2003-EX-1-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 464,
+   "contract": "IMPCOTECHNOLOGIESINC_04_15_2003-EX-10.65-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 500,
+   "contract": "INGEVITYCORP_05_16_2016-EX-10.5-INTELLECTUAL PROPERTY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 18,
+   "contract": "IntegrityFunds_20200121_485BPOS_EX-99.E UNDR CONTR_11948727_EX-99.E UNDR CONTR_Service Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 339,
+   "contract": "IntegrityMediaInc_20010329_10-K405_EX-10.17_2373875_EX-10.17_Co-Branding Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 111,
+   "contract": "INTELLIGENTHIGHWAYSOLUTIONS,INC_01_18_2018-EX-10.1-Strategic Alliance Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 160,
+   "contract": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 488,
+   "contract": "KIROMICBIOPHARMA,INC_04_08_2020-EX-10.28-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 7,
+   "contract": "KIROMICBIOPHARMA,INC_05_11_2020-EX-10.23-CONSULTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 331,
+   "contract": "KNOWLABS,INC_08_15_2005-EX-10-INTELLECTUAL PROPERTY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 180,
+   "contract": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 183,
+   "contract": "LECLANCHE\u0301 S.A. - JOINT DEVELOPMENT AND MARKETING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 385,
+   "contract": "LEJUHOLDINGSLTD_03_12_2014-EX-10.34-INTERNET CHANNEL COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 369,
+   "contract": "LejuHoldingsLtd_20140121_DRS (on F-1)_EX-10.26_8473102_EX-10.26_Content License Agreement1",
+   "evidence": {}
+  },
+  {
+   "contract_id": 328,
+   "contract": "LejuHoldingsLtd_20140121_DRS (on F-1)_EX-10.26_8473102_EX-10.26_Content License Agreement2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 197,
+   "contract": "LIGHTBRIDGECORP_11_23_2015-EX-10.26-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 455,
+   "contract": "MACY_S,INC_05_11_2020-EX-99.4-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 376,
+   "contract": "MANAKOASERVICESCORP_11_21_2007-EX-7.5-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 492,
+   "contract": "MARSHALLHOLDINGSINTERNATIONAL,INC_04_14_2004-EX-10.15-ENDORSEMENT AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 388,
+   "contract": "MEETGROUP,INC_06_29_2017-EX-10.1-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 394,
+   "contract": "MFAFINANCIAL,INC_07_06_2020-EX-99.D-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 226,
+   "contract": "MJBIOTECH,INC_12_06_2018-EX-99.01-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 359,
+   "contract": "MOVADOGROUPINC_04_30_2003-EX-10.28-ENDORSEMENT AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 356,
+   "contract": "MusclepharmCorp_20170208_10-KA_EX-10.38_9893581_EX-10.38_Co-Branding Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 5,
+   "contract": "NELNETINC_04_08_2020-EX-1-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 281,
+   "contract": "NmfSlfIInc_20200115_10-12GA_EX-10.5_11946987_EX-10.5_Trademark License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 502,
+   "contract": "NOVOINTEGRATEDSCIENCES,INC_12_23_2019-EX-10.1-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 123,
+   "contract": "NYLIACVARIABLEANNUITYSEPARATEACCOUNTIII_04_10_2020-EX-99.8.KK-SERVICE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 104,
+   "contract": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 317,
+   "contract": "OLDAPIWIND-DOWNLTD_01_08_2016-EX-1.3-AGENCY AGREEMENT2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 23,
+   "contract": "ON2TECHNOLOGIES,INC_11_17_2006-EX-10.3-SUPPORT AND MAINTENANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 232,
+   "contract": "ONEMAINHOLDINGS,INC_02_20_2020-EX-99.D-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 62,
+   "contract": "ORBSATCORP_08_17_2007-EX-7.3-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 113,
+   "contract": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 164,
+   "contract": "PalmerSquareCapitalBdcInc_20200116_10-12GA_EX-10.6_11949289_EX-10.6_Trademark License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 378,
+   "contract": "PANDIONTHERAPEUTICSHOLDCOLLC_05_22_2020-EX-10.17-CONSULTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 454,
+   "contract": "PcquoteComInc_19990721_S-1A_EX-10.11_6377149_EX-10.11_Co-Branding Agreement2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 469,
+   "contract": "PcquoteComInc_19990721_S-1A_EX-10.11_6377149_EX-10.11_Co-Branding Agreement3",
+   "evidence": {}
+  },
+  {
+   "contract_id": 61,
+   "contract": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement1",
+   "evidence": {}
+  },
+  {
+   "contract_id": 88,
+   "contract": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 446,
+   "contract": "PlayboyEnterprisesInc_20090220_10-QA_EX-10.2_4091580_EX-10.2_Content License Agreement_ Marketing Agreement_ Sales-Purchase Agreement2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 486,
+   "contract": "PRECIGEN,INC_01_22_2020-EX-99.1-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 19,
+   "contract": "PREMIERBIOMEDICALINC_05_14_2020-EX-10.2-INTELLECTUAL PROPERTY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 219,
+   "contract": "PRIMEENERGYRESOURCESCORP_04_02_2007-EX-10.28-COMPLETION AND LIQUIDITY MAINTENANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 216,
+   "contract": "QBIOMEDINC_04_08_2020-EX-99.1-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 396,
+   "contract": "QIWI_06_16_2017-EX-99.(D)(2)-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 247,
+   "contract": "Quaker Chemical Corporation - NON COMPETITION AND NON SOLICITATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 74,
+   "contract": "RareElementResourcesLtd_20171019_SC 13D_EX-99.4_10897534_EX-99.4_Intellectual Property Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 98,
+   "contract": "REWALKROBOTICSLTD_07_10_2014-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 326,
+   "contract": "RISEEDUCATIONCAYMANLTD_04_17_2020-EX-4.23-SERVICE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 208,
+   "contract": "RMRGROUPINC_01_22_2020-EX-99.1-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 461,
+   "contract": "SCOUTCAMINC_05_12_2020-EX-10.22-SERVICES AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 96,
+   "contract": "SECURIANFUNDSTRUST_05_01_2012-EX-99.28.H.9-NET INVESTMENT INCOME MAINTENANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 64,
+   "contract": "SEPARATEACCOUNTIIOFAGL_05_02_2011-EX-99.(J)(4)-UNCONDITIONAL CAPITAL MAINTENANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 20,
+   "contract": "SIBANNAC,INC_12_04_2017-EX-2.1-Strategic Alliance Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 149,
+   "contract": "SLINGERBAGINC_05_27_2020-EX-10.7-CONSULTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 310,
+   "contract": "SOLUTIONSVENDINGINTERNATIONAL,INC_03_31_2020-EX1A-1 UNDR AGMT-SERVICES AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 422,
+   "contract": "SPHERE3DCORP_06_24_2020-EX-10.12-CONSULTING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 484,
+   "contract": "SPIENERGYCO,LTD_03_09_2011-EX-99.5-OPERATIONS AND MAINTENANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 334,
+   "contract": "SPIENERGYCO,LTD_07_10_2014-EX-10-Cooperation Agreement of 50MWp Photovoltaic Grid-connected Power Generation Project in Yangqiao of~1",
+   "evidence": {}
+  },
+  {
+   "contract_id": 205,
+   "contract": "SPOKHOLDINGS,INC_06_19_2020-EX-10.1-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 275,
+   "contract": "SPORTHALEYINC_09_29_1997-EX-10.2-10-ENDORSEMENT AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 265,
+   "contract": "SPRINGBANKPHARMACEUTICALS,INC_04_08_2020-EX-99.A-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 124,
+   "contract": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 508,
+   "contract": "TALLGRASSENERGY,LP_02_20_2020-EX-99.26-JOINT FILING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 439,
+   "contract": "TEARDROPGOLFCO_10_23_1996-EX-10.12-ENDORSEMENT AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 236,
+   "contract": "THERAVANCEBIOPHARMA,INC_05_08_2020-EX-10.2-SERVICE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 407,
+   "contract": "TRANSMONTAIGNEPARTNERSLLC_03_13_2020-EX-10.9-SERVICES AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 191,
+   "contract": "TRANSPHORM,INC_02_14_2020-EX-10.12(1)-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 420,
+   "contract": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 146,
+   "contract": "URSCORPNEW_03_17_2014-EX-99-COOPERATION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 166,
+   "contract": "UsioInc_20040428_SB-2_EX-10.11_1723988_EX-10.11_Affiliate Agreement 2",
+   "evidence": {}
+  },
+  {
+   "contract_id": 75,
+   "contract": "VARIABLESEPARATEACCOUNT_04_30_2014-EX-13.C-UNCONDITIONAL CAPITAL MAINTENANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 8,
+   "contract": "VEONEER,INC_02_21_2020-EX-10.11-JOINT VENTURE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 301,
+   "contract": "VERSOTECHNOLOGIESINC_12_28_2007-EX-99.3-INTELLECTUAL PROPERTY AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 270,
+   "contract": "VgrabCommunicationsInc_20200129_10-K_EX-10.33_11958828_EX-10.33_Development Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 67,
+   "contract": "VIRGINGALACTICHOLDINGS,INC_04_08_2020-EX-99.1-JOINT FILING STATEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 143,
+   "contract": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 57,
+   "contract": "WASTE2ENERGYHOLDINGS,INC_06_03_2010-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 344,
+   "contract": "WatchitMediaInc_20061201_8-K_EX-10.1_4148672_EX-10.1_Content License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 182,
+   "contract": "WESTERN COPPER - NON-COMPETITION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 56,
+   "contract": "WPPPLC_04_30_2020-EX-4.28-SERVICE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 506,
+   "contract": "XinhuaSportsEntertainmentLtd_20070221_F-1_EX-99.4_645553_EX-99.4_Content License Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 198,
+   "contract": "XLITECHNOLOGIES,INC_12_02_2015-EX-10.02-STRATEGIC ALLIANCE AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 476,
+   "contract": "ZONDWINDSYSTEMPARTNERSLTDSERIES85-B_04_03_2006-EX-10-MANAGEMENT AND MAINTENANCE AGREEMENT",
+   "evidence": {}
+  }
+ ],
+ "replayed": true
+}

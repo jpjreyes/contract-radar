@@ -1,0 +1,111 @@
+{
+ "conditions": [
+  {
+   "field": "contract_type",
+   "op": "contains",
+   "value": "Distributor"
+  },
+  {
+   "field": "exclusivity",
+   "op": "present",
+   "value": "true"
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 7,
+ "audit_id": 125,
+ "matches": [
+  {
+   "contract_id": 494,
+   "contract": "BLACKBOXSTOCKSINC_08_05_2014-EX-10.1-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "exclusivity": {
+     "value": "Exclusive right to sell the Company's Products (including the Brand) in the Territory (South America), granted to Distributor (SMSA Ballinger Acquisition Corp.)",
+     "quote": "the exclusive right to sell the products of the Company",
+     "start": 678,
+     "end": 733,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 266,
+   "contract": "ImineCorp_20180725_S-1_EX-10.5_11275970_EX-10.5_Distributor Agreement",
+   "evidence": {
+    "exclusivity": {
+     "value": "Distributor may not, during the term, market or sell products competitive with iMine Products within the Territory (Taiwan) without JRVS's prior written consent, in favor of JRVS; the appointment itself is non-exclusive",
+     "quote": "The Distributor shall not, during the term of this Agreement, directly or indirectly market, sell, distribute, solicit orders within the Territory for any products which are competitive with the iMine Products",
+     "start": 3793,
+     "end": 4002,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 86,
+   "contract": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "exclusivity": {
+     "value": "Alfa Aesar (Johnson Matthey Catalog Company) is the exclusive distributor of Research Quantities of the Products within the Territory, granted by NTC; Alfa Aesar must also purchase all its requirements of the Products exclusively from NTC during the term",
+     "quote": "the exclusive right to market, sell and distribute Research Quantities of the Products within the Territory",
+     "start": 2999,
+     "end": 3106,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 90,
+   "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_Amendment",
+   "evidence": {
+    "exclusivity": {
+     "value": "Licensee's distributorship and rights (including Sections 2.1, 2.2 and 2.8) are exclusive, for Licensee; Licensor may still license its Partitioned Database Facility product to International Business Machines Corporation for sublicensing and distribution",
+     "quote": "from a non-exclusive to an exclusive distributorship",
+     "start": 8896,
+     "end": 8948,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 156,
+   "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "exclusivity": {
+     "value": "During the initial one-year term only, Distributor is the only distributor appointed by NETGEAR in the Territory (United States); NETGEAR reserves the right to sell to non-distributor customers; non-exclusive after the initial term",
+     "quote": "Distributor shall be the only distributor appointed by NETGEAR in the Territory",
+     "start": 3219,
+     "end": 3298,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 472,
+   "contract": "OPTIMIZEDTRANSPORTATIONMANAGEMENT,INC_07_26_2000-EX-6.6-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "exclusivity": {
+     "value": "COMWARE has the exclusive right to purchase and resell the Products (CircuiTest 2000S and CircuiTest 2100 Scanner Expansion) to potential customers in the 48 Contiguous United States during the Initial Distribution Period",
+     "quote": "COMWARE shall have the exclusive right to purchase, at the DISCOUNTS described below, and resell Products",
+     "start": 1535,
+     "end": 1640,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 217,
+   "contract": "ZogenixInc_20190509_10-Q_EX-10.2_11663313_EX-10.2_Distributor Agreement",
+   "evidence": {
+    "exclusivity": {
+     "value": "Each party may not grant any Third Party rights that would conflict with the rights granted to the other party under the Agreement, during the Term (for the benefit of the other party)",
+     "quote": "has not, and will not during the Term, grant any right to any Third Party that would conflict with the rights granted to the other Party hereunder.",
+     "start": 123494,
+     "end": 123641,
+     "status": "needs_review"
+    }
+   }
+  }
+ ],
+ "replayed": true
+}

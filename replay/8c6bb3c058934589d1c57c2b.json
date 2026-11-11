@@ -1,0 +1,70 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 151,
+ "seconds": 8.3,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "The agreement has signature blocks for both parties, but the copy provided does not name who signed it. The signature, name, and title fields are blank.",
+   "citations": [
+    {
+     "source": "S7",
+     "chunk_id": 10422,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.",
+     "start": 77257,
+     "end": 77343,
+     "contract_id": 224
+    },
+    {
+     "source": "S7",
+     "chunk_id": 10422,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "Name: _____________________________",
+     "start": 77491,
+     "end": 77526,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "The signature blocks are for Corio, Inc. and Changepoint, Inc., the two parties to the agreement.",
+   "citations": [
+    {
+     "source": "S7",
+     "chunk_id": 10422,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "CORIO, INC.                                   CHANGEPOINT, INC.",
+     "start": 77345,
+     "end": 77408,
+     "contract_id": 224
+    },
+    {
+     "source": "S6",
+     "chunk_id": 10350,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "by and between Corio Inc., a Delaware corporation",
+     "start": 277,
+     "end": 326,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "The Changepoint signature block on the earlier page is also blank, so no individual signer is identified in the sources.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 10497,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "Signature ________________________",
+     "start": 160636,
+     "end": 160670,
+     "contract_id": 224
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

@@ -29,12 +29,12 @@ export type ContractDetail = {
 export type Citation = { source: string; chunk_id: number; contract: string; contract_id: number; quote: string; start: number; end: number };
 export type AskResult = {
   answerable: boolean; clause_present: boolean | null; audit_id: number; seconds: number;
-  pii_revealed_chunks: number[]; claims: { text: string; citations: Citation[] }[];
+  pii_revealed_chunks: number[]; claims: { text: string; citations: Citation[] }[]; replayed?: boolean;
 };
 
 export type Condition = { field: string; op: string; value: string };
 export type PortfolioResult = {
-  conditions: Condition[]; unsupported: string; unreviewed: number; audit_id: number;
+  conditions: Condition[]; unsupported: string; unreviewed: number; audit_id: number; replayed?: boolean;
   matches: { contract_id: number; contract: string;
     evidence: Record<string, { value: string; quote: string; start: number | null; end: number | null; status: string }> }[];
 };

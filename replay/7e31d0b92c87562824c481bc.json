@@ -1,0 +1,60 @@
+{
+ "conditions": [
+  {
+   "field": "governing_law",
+   "op": "contains",
+   "value": "Delaware"
+  },
+  {
+   "field": "uncapped_liability",
+   "op": "present",
+   "value": "true"
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 2,
+ "audit_id": 136,
+ "matches": [
+  {
+   "contract_id": 463,
+   "contract": "DRKOOPCOMINC_04_21_1999-EX-10.28-SPONSORSHIP AGREEMENT",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "in accordance with the laws of the State of Delaware",
+     "start": 33593,
+     "end": 33645,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Indemnification obligations under Section 6.3 are carved out of the consequential-damages exclusion; no monetary cap is stated",
+     "quote": "EXCEPT AS SET FORTH IN SECTION 6.3",
+     "start": 27255,
+     "end": 27289,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 289,
+   "contract": "Loop Industries, Inc. - Marketing Agreement",
+   "evidence": {
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "governed by and interpreted in accordance with the laws of the State of Delaware, United States of America",
+     "start": 24974,
+     "end": 25080,
+     "status": "auto_accepted"
+    },
+    "uncapped_liability": {
+     "value": "Breach of Section 4 (Confidential Information), and claims arising from a party's gross negligence, fraud, or willful misconduct",
+     "quote": "NONE OF THE FOREGOING LIMITATIONS OF LIABILITY SET FORTH IN THIS SECTION 3.1 SHALL BE AVAILABLE TO EITHER PARTY WITH RESPECT TO A BREACH OF SECTION 4, CONFIDENTIAL INFORMATION, OR FOR CLAIMS TO THE EXTENT THEY ARISE OUT OF A PARTY'S GROSS NEGLIGENCE, FRAUD, OR WILLFUL MISCONDUCT",
+     "start": 14595,
+     "end": 14874,
+     "status": "needs_review"
+    }
+   }
+  }
+ ],
+ "replayed": true
+}

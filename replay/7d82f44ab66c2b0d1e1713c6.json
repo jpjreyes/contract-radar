@@ -1,0 +1,19 @@
+{
+ "conditions": [
+  {
+   "field": "contract_type",
+   "op": "contains",
+   "value": "Distributor"
+  },
+  {
+   "field": "exclusivity",
+   "op": "present",
+   "value": "true"
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 0,
+ "audit_id": 137,
+ "matches": [],
+ "replayed": true
+}

@@ -35,11 +35,14 @@ export default function AskPage() {
   const [error, setError] = useState("");
   const [single, setSingle] = useState<AskResult | null>(null);
   const [portfolio, setPortfolio] = useState<PortfolioResult | null>(null);
+  const [replay, setReplay] = useState<{ mode: string; contracts?: number[] }>({ mode: "live" });
 
   useEffect(() => {
     setSingle(null); setPortfolio(null); setContractId(null);
     api<ContractRow[]>("/contracts").then(setContracts).catch(() => setContracts([]));
+    api<{ mode: string; contracts?: number[] }>("/mode").then(setReplay).catch(() => setReplay({ mode: "live" }));
   }, [user]);
+  const replaying = replay.mode === "replay";
 
   async function submit(q = question) {
     if (!q.trim() || (mode === "contract" && contractId === null)) return;
@@ -54,7 +57,8 @@ export default function AskPage() {
     }
   }
 
-  const shown = contracts.filter((c) => c.name.toLowerCase().includes(filter.toLowerCase())).slice(0, 60);
+  const pool = replaying ? contracts.filter((c) => replay.contracts?.includes(c.id)) : contracts;
+  const shown = pool.filter((c) => c.name.toLowerCase().includes(filter.toLowerCase())).slice(0, 60);
   const chosen = contracts.find((c) => c.id === contractId);
 
   return (
@@ -62,6 +66,8 @@ export default function AskPage() {
       <PageHeader eyebrow="Northline Distribution · Legal operations" title="Ask the contract portfolio">
         Portfolio questions run as filters over key terms extracted from every contract you can see. Questions about
         one contract are answered from its text, and every claim carries a quote checked against the source.
+        {replaying && <span className="mt-2 block text-sm text-warn">Public demo: answers to the example questions were
+          recorded from the live system (same permissions and masking); free-text questions are off to keep it at $0.</span>}
       </PageHeader>
 
       <Card className="p-4 sm:p-5">
@@ -96,8 +102,8 @@ export default function AskPage() {
         )}
 
         <form onSubmit={(e) => { e.preventDefault(); submit(); }} className="flex gap-2">
-          <input value={question} onChange={(e) => setQuestion(e.target.value)}
-            placeholder={mode === "portfolio" ? "Which contracts…?" : "Ask about this contract…"}
+          <input value={question} onChange={(e) => setQuestion(e.target.value)} disabled={replaying}
+            placeholder={replaying ? "Pick one of the example questions below" : mode === "portfolio" ? "Which contracts…?" : "Ask about this contract…"}
             className="min-w-0 flex-1 rounded-lg border border-line bg-surface px-3 py-2 text-[15px] outline-none focus:border-line-strong" />
           <Button disabled={busy || (mode === "contract" && contractId === null)}>
             {busy ? <Loader2 className="size-4 animate-spin" /> : <ArrowRight className="size-4" />}Ask
@@ -133,6 +139,7 @@ export default function AskPage() {
             <span className="text-lg font-semibold">{portfolio.matches.length}</span> contracts match
             {portfolio.unreviewed > 0 && <span className="text-warn"> · {portfolio.unreviewed} rest on values nobody has reviewed yet</span>}
             <span className="text-faint"> · audit #{portfolio.audit_id}</span>
+            {portfolio.replayed && <span className="text-faint"> · recorded answer</span>}
           </p>
           <Card>
             {portfolio.matches.slice(0, 100).map((m) => (
@@ -161,6 +168,7 @@ export default function AskPage() {
         <section className="mt-6 space-y-3">
           <p className="flex flex-wrap items-center gap-2 text-sm text-muted">
             {single.answerable ? <Badge tone="ok" dot>answered from the contract</Badge> : <Badge tone="warn" dot>not found in this contract</Badge>}
+            {single.replayed && <Badge tone="accent">recorded answer</Badge>}
             {single.pii_revealed_chunks.length > 0 && <Badge tone="accent"><ShieldAlert className="size-3" />personal data shown ({single.pii_revealed_chunks.length})</Badge>}
             <span className="text-faint">{single.seconds}s · audit #{single.audit_id}</span>
           </p>

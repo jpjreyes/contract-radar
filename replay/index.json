@@ -1,0 +1,74 @@
+{
+ "legal_admin": {
+  "portfolio": [
+   "Which contracts auto-renew and need 60 days or less notice to stop it?",
+   "Which Delaware-law contracts have uncapped liability?",
+   "Which distributor agreements have exclusivity?",
+   "Which contracts have no cap on liability at all?"
+  ],
+  "contract": [
+   "Who signed this agreement?",
+   "Is there a cap on liability, and what is excluded from it?",
+   "Can either party terminate for convenience?",
+   "Where should notices be sent?"
+  ],
+  "contracts": [
+   280,
+   224
+  ]
+ },
+ "maria": {
+  "portfolio": [
+   "Which contracts auto-renew and need 60 days or less notice to stop it?",
+   "Which Delaware-law contracts have uncapped liability?",
+   "Which distributor agreements have exclusivity?",
+   "Which contracts have no cap on liability at all?"
+  ],
+  "contract": [
+   "Who signed this agreement?",
+   "Is there a cap on liability, and what is excluded from it?",
+   "Can either party terminate for convenience?",
+   "Where should notices be sent?"
+  ],
+  "contracts": [
+   117,
+   156
+  ]
+ },
+ "kenji": {
+  "portfolio": [
+   "Which contracts auto-renew and need 60 days or less notice to stop it?",
+   "Which Delaware-law contracts have uncapped liability?",
+   "Which distributor agreements have exclusivity?",
+   "Which contracts have no cap on liability at all?"
+  ],
+  "contract": [
+   "Who signed this agreement?",
+   "Is there a cap on liability, and what is excluded from it?",
+   "Can either party terminate for convenience?",
+   "Where should notices be sent?"
+  ],
+  "contracts": [
+   393,
+   125
+  ]
+ },
+ "analyst": {
+  "portfolio": [
+   "Which contracts auto-renew and need 60 days or less notice to stop it?",
+   "Which Delaware-law contracts have uncapped liability?",
+   "Which distributor agreements have exclusivity?",
+   "Which contracts have no cap on liability at all?"
+  ],
+  "contract": [
+   "Who signed this agreement?",
+   "Is there a cap on liability, and what is excluded from it?",
+   "Can either party terminate for convenience?",
+   "Where should notices be sent?"
+  ],
+  "contracts": [
+   224,
+   4
+  ]
+ }
+}

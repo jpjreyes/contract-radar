@@ -1,0 +1,119 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 115,
+ "seconds": 9.9,
+ "pii_revealed_chunks": [
+  13540,
+  13513
+ ],
+ "claims": [
+  {
+   "text": "The signature block names Dr. Wendy Graham as the signatory for the Reseller, 2205925 Ontario Limited, with the title President.",
+   "citations": [
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "2205925 Ontario Limited  DIVERSINET CORP.",
+     "start": 46515,
+     "end": 46556,
+     "contract_id": 280
+    },
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Print Name: Dr. Wendy Graham",
+     "start": 46646,
+     "end": 46674,
+     "contract_id": 280
+    },
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Title: President",
+     "start": 46701,
+     "end": 46717,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The signature block names Albert Wahbe as the signatory for Diversinet Corp., with the title CEO.",
+   "citations": [
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Print Name: Albert Wahbe",
+     "start": 46675,
+     "end": 46699,
+     "contract_id": 280
+    },
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Title: CEO",
+     "start": 46718,
+     "end": 46728,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The Parties signed through their duly authorized representatives.",
+   "citations": [
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "by their duly authorized representatives",
+     "start": 46470,
+     "end": 46510,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "Schedule 1 also lists Dr. Wendy Graham as the 'Person Signing Contract' for the Reseller.",
+   "citations": [
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Person Signing Contract Dr. Wendy Graham",
+     "start": 47117,
+     "end": 47157,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The copy provided shows blank signature lines and blank 'Date Signed' fields, so the text confirms the named signatories but does not show the actual signatures or signing dates.",
+   "citations": [
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Signature:__________________________________    Signature:__________________________",
+     "start": 46560,
+     "end": 46644,
+     "contract_id": 280
+    },
+    {
+     "source": "S5",
+     "chunk_id": 13540,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Date Signed_________________________________ Date Signed________________________",
+     "start": 46783,
+     "end": 46863,
+     "contract_id": 280
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

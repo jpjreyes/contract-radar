@@ -1,0 +1,180 @@
+{
+ "conditions": [
+  {
+   "field": "renewal_term",
+   "op": "present",
+   "value": ""
+  },
+  {
+   "field": "notice_to_terminate_renewal_days",
+   "op": "lte",
+   "value": "60"
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 3,
+ "audit_id": 123,
+ "matches": [
+  {
+   "contract_id": 443,
+   "contract": "ASIANDRAGONGROUPINC_08_11_2005-EX-10.5-Reseller Agreement",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "a minimum of 60 days before the end of the then current term",
+     "start": 22930,
+     "end": 22990,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this agreement will renew automatically from year to year",
+     "start": 22775,
+     "end": 22832,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 423,
+   "contract": "ENTERPRISEPRODUCTSPARTNERSLP_07_08_1998-EX-10.3-TRANSPORTATION CONTRACT",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "upon not less than thirty (30) days prior written notice to the other party",
+     "start": 2430,
+     "end": 2505,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, continuing until terminated",
+     "quote": "thereafter, it shall automatically continue until terminated by either party",
+     "start": 2353,
+     "end": 2429,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 261,
+   "contract": "ETELOS,INC_03_09_2004-EX-10.8-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least one month prior to the expiration of the initial or any renewal terms",
+     "start": 18717,
+     "end": 18795,
+     "status": "needs_review"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "will be automatically renewed on each anniversary of the effective date, for a renewal term of one year",
+     "start": 18518,
+     "end": 18621,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 380,
+   "contract": "EUROPEANMICROHOLDINGSINC_03_06_1998-EX-10.6-DISTRIBUTOR AGREEMENT",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "at least thirty (30) days prior to any year's Expiration Date",
+     "start": 12647,
+     "end": 12708,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "The Term will automatically renew for successive additional periods of one (1) year each",
+     "start": 12137,
+     "end": 12225,
+     "status": "needs_review"
+    }
+   }
+  },
+  {
+   "contract_id": 300,
+   "contract": "IpassInc_20181203_8-K_EX-99.1_11445874_EX-99.1_Reseller Agreement",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "no later than sixty (60) days prior to the end of the then applicable term",
+     "start": 27964,
+     "end": 28038,
+     "status": "needs_review"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "The Agreement shall automatically renew for successive one (1) year terms",
+     "start": 27759,
+     "end": 27832,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 117,
+   "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "written notice of such election 30 days prior to the expiration of the Initial Term or Renewal Term",
+     "start": 1050,
+     "end": 1149,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "This Agreement will automatically renew for successive one year terms",
+     "start": 805,
+     "end": 874,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 90,
+   "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_Amendment",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days prior           to the end of the original or any renewal term",
+     "start": 7677,
+     "end": 7764,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this Agreement will renew automatically for           successive terms of one (1) year each",
+     "start": 7451,
+     "end": 7542,
+     "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 341,
+   "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_New",
+   "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "delivers written notice of termination to the other party to this Agreement at least sixty (60) days prior to the end of the original or any renewal term",
+     "start": 48067,
+     "end": 48220,
+     "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "this Agreement will renew automatically for successive terms of one (1) year each",
+     "start": 47952,
+     "end": 48033,
+     "status": "auto_accepted"
+    }
+   }
+  }
+ ],
+ "replayed": true
+}

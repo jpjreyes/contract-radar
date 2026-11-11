@@ -1,0 +1,110 @@
+{
+ "conditions": [
+  {
+   "field": "cap_on_liability",
+   "op": "absent",
+   "value": ""
+  }
+ ],
+ "unsupported": "",
+ "unreviewed": 0,
+ "audit_id": 138,
+ "matches": [
+  {
+   "contract_id": 157,
+   "contract": "EcoScienceSolutionsInc_20171117_8-K_EX-10.1_10956472_EX-10.1_Endorsement Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 468,
+   "contract": "EcoScienceSolutionsInc_20180406_8-K_EX-10.1_11135398_EX-10.1_Sponsorship Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 80,
+   "contract": "FreezeTagInc_20180411_8-K_EX-10.1_11139603_EX-10.1_Sponsorship Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 65,
+   "contract": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 503,
+   "contract": "HYDRONTECHNOLOGIESINC_03_31_1997-EX-10.47-SPONSORSHIP AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 467,
+   "contract": "LegacyEducationAllianceInc_20141110_8-K_EX-10.9_8828866_EX-10.9_Endorsement Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 409,
+   "contract": "Monsanto Company - SECOND A_R EXCLUSIVE AGENCY AND MARKETING AGREEMENT ",
+   "evidence": {}
+  },
+  {
+   "contract_id": 474,
+   "contract": "NakedBrandGroupInc_20150731_POS AM (on S-1)_EX-10.75_9196027_EX-10.75_Endorsement Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 393,
+   "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 94,
+   "contract": "NUVEEN - REMARKETING AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 432,
+   "contract": "ON4COMMUNICATIONSINC_07_02_2009-EX-10.1-PROMOTION AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 85,
+   "contract": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 510,
+   "contract": "PerformanceSportsBrandsInc_20110909_S-1_EX-10.10_7220214_EX-10.10_Endorsement Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 52,
+   "contract": "Principal Life Insurance Company - Broker Dealer Marketing and Servicing Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 417,
+   "contract": "PrudentialBancorpInc_20170606_8-K_EX-10.4_10474434_EX-10.4_Endorsement Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 313,
+   "contract": "Reinsurance Group of America, Incorporated - A_R REMARKETING  AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 293,
+   "contract": "WOMENSGOLFUNLIMITEDINC_03_29_2000-EX-10.13-ENDORSEMENT AGREEMENT",
+   "evidence": {}
+  },
+  {
+   "contract_id": 421,
+   "contract": "WOMENSGOLFUNLIMITEDINC_03_29_2000-EX-10.13-ENDORSEMENT AGREEMENT - Intellectual Property Rights                 Confidentiality and Non-Use Obligations Agreement",
+   "evidence": {}
+  },
+  {
+   "contract_id": 120,
+   "contract": "XLITECHNOLOGIES,INC_12_11_2015-EX-10.1-Sponsorship Agreement",
+   "evidence": {}
+  }
+ ],
+ "replayed": true
+}

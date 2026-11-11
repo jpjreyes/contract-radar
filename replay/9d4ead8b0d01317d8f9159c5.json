@@ -1,0 +1,119 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 120,
+ "seconds": 19.7,
+ "pii_revealed_chunks": [
+  10398
+ ],
+ "claims": [
+  {
+   "text": "Yes, the contract caps liability. Section 9 limits either party's liability to the amount actually paid for the transaction the liability relates to during the twelve months before the cause of action. The excerpt is cut off mid-sentence.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10400,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "IN NO EVENT SHALL EITHER PARTY'S LIABILITY ARISING OUT OF OR          RELATED TO THIS AGREEMENT OR THE USE OR PERFORMANCE OF THE SOFTWARE          EXCEED THE TOTAL AMOUNT ACTUALLY PAID BY CORIO HEREUNDER FOR THE          TRANSACTION WHICH THE LIABILITY RELATES TO DURING THE TWELVE (12)          MONTHS IMMEDIATELY PRIOR TO THE CAUSE OF",
+     "start": 55060,
+     "end": 55396,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "A second, differently worded aggregate cap appears in the same Section 9 excerpt. It limits liability for all claims related to the agreement to the total amount actually paid under the agreement. The two formulations differ, and the excerpts do not show how they fit together.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 10401,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "THE TOTAL AMOUNT ACTUALLY PAID BY CORIO UNDER THIS          AGREEMENT TO CHANGEPOINT",
+     "start": 55615,
+     "end": 55699,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "Changepoint's own liability is capped in a separate provision. Its entire liability, for breaches or claims under the agreement, may not exceed the aggregate amount paid by the customer under the agreement, among other amounts.",
+   "citations": [
+    {
+     "source": "S7",
+     "chunk_id": 10471,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "(IV) IN THE AGGREGATE WITH RESPECT TO ALL CLAIMS UNDER OR RELATED TO THIS AGREEMENT, THE AMOUNT PAID BY CUSTOMER UNDER THIS AGREEMENT.",
+     "start": 135352,
+     "end": 135486,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "Exclusions from the Section 9 cap: liability arising under Sections 2.7, 8, 10 and 12.3 is carved out. The sources do not include the text of those sections, so their subject matter cannot be determined from the sources.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10400,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "EXCEPT FOR LIABILITY ARISING UNDER SECTIONS 2.7, 8, 10 AND 12.3 OF THIS          AGREEMENT",
+     "start": 54968,
+     "end": 55058,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "Exclusions from Changepoint's entire-liability cap: any claim for breach of Section 5.2 (unauthorized disclosure of confidential information) and any claim for breach of Section 6.4(A) (intellectual property indemnity) are not subject to that cap.",
+   "citations": [
+    {
+     "source": "S7",
+     "chunk_id": 10471,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "EXCEPT FOR ANY CLAIM FOR BREACH OF SECTION 5.2 (UNAUTHORIZED DISCLOSURE OF CONFIDENTIAL INFORMATION), OR FOR BREACH OF SECTION 6.4(A) (INTELLECTUAL PROPERTY INDEMNITY)",
+     "start": 134506,
+     "end": 134673,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "The same carve-out for Sections 2.7, 8, 10 and 12.3 also applies to the exclusion of lost profits and consequential damages in Section 9. Separately, Changepoint is excluded from liability for lost profits, lost data and consequential or indirect loss, which operates as a damages exclusion rather than a cap.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 10401,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "EXCEPT FOR LIABILITY ARISING UNDER          SECTIONS 2.7, 8, 10 AND 12.3 OF THIS AGREEMENT, IN NO EVENT SHALL          EITHER PARTY HAVE ANY LIABILITY TO THE OTHER PARTY FOR ANY LOST          PROFITS OR COSTS OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, OR          FOR ANY INDIRECT, INCIDENTIAL, SPECIAL OR CONSEQUENTIAL DAMAGES",
+     "start": 55701,
+     "end": 56033,
+     "contract_id": 224
+    },
+    {
+     "source": "S2",
+     "chunk_id": 10472,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "IN NO EVENT WILL CHANGEPOINT BE LIABLE FOR SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL LOSS OR DAMAGE, LOST BUSINESS REVENUE, LOSS OF PROFITS, LOSS OF DATA",
+     "start": 135497,
+     "end": 135656,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "A different excerpt, apparently from a related end-user agreement, sets its own cap. Changepoint's liability under that agreement for direct and consequential damages may not exceed the fee paid by the end user under that agreement. The excerpt does not establish that this cap applies to the agreement under review.",
+   "citations": [
+    {
+     "source": "S5",
+     "chunk_id": 10432,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "CHANGEPOINT'S, LIABILITY UNDER SUCH AGREEMENT FOR DIRECT,       INDIRECT, SPECIAL, INCIDENTAL AND/OR CONSEQUENTIAL DAMAGES OF ANY KIND,       INCLUDING, WITHOUT LIMITATION, RESTITUTION, WILL NOT, IN ANY EVENT, EXCEED       THE FEE PAID BY END USER TO CHANGEPOINT UNDER SUCH AGREEMENT.",
+     "start": 86668,
+     "end": 86952,
+     "contract_id": 224
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

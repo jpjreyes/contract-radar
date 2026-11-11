@@ -1,0 +1,56 @@
+{
+ "answerable": true,
+ "clause_present": true,
+ "audit_id": 155,
+ "seconds": 6.8,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "The agreement was signed for Centrack International, Inc. by [PERSON_1], whose title is President & CEO. The source gives the signer's name only as a placeholder.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "CENTRACK INTERNATIONAL, INC.",
+     "start": 14853,
+     "end": 14881,
+     "contract_id": 4
+    },
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "Title: President & CEO",
+     "start": 15114,
+     "end": 15136,
+     "contract_id": 4
+    }
+   ]
+  },
+  {
+   "text": "The agreement was signed for i-on Interactive, Inc. by [PERSON_2], whose title is Vice President. The source gives the signer's name only as a placeholder.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "I-ON INTERACTIVE, INC.",
+     "start": 14893,
+     "end": 14915,
+     "contract_id": 4
+    },
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "Vice President",
+     "start": 15162,
+     "end": 15176,
+     "contract_id": 4
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}

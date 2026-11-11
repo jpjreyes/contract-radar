@@ -1,0 +1,75 @@
+{
+ "answerable": true,
+ "clause_present": false,
+ "audit_id": 128,
+ "seconds": 9.1,
+ "pii_revealed_chunks": [],
+ "claims": [
+  {
+   "text": "The sources do not contain a monetary cap on either party's liability. The only dollar figure is an insurance requirement for pollution coverage, which is a coverage obligation, not a limit on liability.",
+   "citations": [
+    {
+     "source": "S5",
+     "chunk_id": 5103,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "Owner covenants that it will maintain at all times during the Term of this Agreement insurance coverage for sudden and accidental pollution of $500,000,000.",
+     "start": 10474,
+     "end": 10630,
+     "contract_id": 117
+    }
+   ]
+  },
+  {
+   "text": "The indemnities exclude consequential, punitive, special or similar damages, including lost profits.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 5102,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "The foregoing indemnities shall expressly exclude any liability for consequential, punitive, special or similar damages, including, without limitation, lost profits.",
+     "start": 9938,
+     "end": 10103,
+     "contract_id": 117
+    }
+   ]
+  },
+  {
+   "text": "The force majeure clause separately excludes Owner, the vessels and their captains from responsibility for listed causes of loss, including fire unless caused by Owner's personal design or neglect, and any loss arising from 'any other cause of whatsoever kind arising without the actual fault of Owner.'",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 5105,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "fire, unless caused by the personal design or neglect of Owner",
+     "start": 12555,
+     "end": 12617,
+     "contract_id": 117
+    },
+    {
+     "source": "S2",
+     "chunk_id": 5105,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "or from any other cause of whatsoever kind arising without the actual fault of Owner",
+     "start": 13293,
+     "end": 13377,
+     "contract_id": 117
+    }
+   ]
+  },
+  {
+   "text": "The force majeure clause also excludes responsibility of both parties for listed events such as acts of God, acts of war, terrorism, and strikes, unless the agreement expressly provides otherwise.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 5105,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "neither the vessels, their captains or Owner, nor the Charterer, shall, unless otherwise in this Agreement expressly provided, be responsible for any loss or damage or delay or failure in performing hereunder arising or resulting from; act of God, act of war; act of public enemies, pirates or assailing thieves; acts of terrorism",
+     "start": 13383,
+     "end": 13713,
+     "contract_id": 117
+    }
+   ]
+  }
+ ],
+ "replayed": true
+}
