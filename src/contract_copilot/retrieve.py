@@ -14,7 +14,7 @@ from contract_copilot import planner
 from contract_copilot.embed import embed_query, rerank_scores
 
 RRF_K = 60
-STOP = set(["a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have", "if", "in", "into", "is", "it", "its", "of", "on", "or", "that", "the", "their", "this", "to", "was", "were", "will", "with", "any", "all", "such", "shall", "may", "must", "other", "should", "which", "what", "who", "whom", "whose", "there", "these", "those", "been", "being", "do", "does", "part", "parts", "contract", "agreement", "highlight", "reviewed", "lawyer", "details", "related"])
+STOP = {"a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have", "if", "in", "into", "is", "it", "its", "of", "on", "or", "that", "the", "their", "this", "to", "was", "were", "will", "with", "any", "all", "such", "shall", "may", "must", "other", "should", "which", "what", "who", "whom", "whose", "there", "these", "those", "been", "being", "do", "does", "part", "parts", "contract", "agreement", "highlight", "reviewed", "lawyer", "details", "related"}
 
 
 @dataclass(frozen=True)
@@ -23,8 +23,13 @@ class Hit:
     contract_id: int
     start: int
     end: int
-    text: str
+    text: str            # masked text; serve.serve() swaps in the original for users allowed to see it
     score: float
+    masks: tuple = ()    # [[masked_start, masked_end, orig_start, orig_end], ...]; empty once revealed
+
+
+def _hit(row) -> Hit:
+    return Hit(*row[:6], masks=tuple(tuple(m) for m in row[6]))
 
 
 def _or_query(text: str) -> str:
@@ -39,19 +44,19 @@ def _scope(contract_id: int | None) -> tuple[str, tuple]:
 def keyword(conn: psycopg.Connection, query: str, k: int = 50, contract_id: int | None = None) -> list[Hit]:
     where, args = _scope(contract_id)
     rows = conn.execute(
-        f"""SELECT id, contract_id, start_char, end_char, text, ts_rank_cd(tsv, q) AS s
+        f"""SELECT id, contract_id, start_char, end_char, text_masked, ts_rank_cd(tsv, q) AS s, mask_map
             FROM chunks, to_tsquery('english', %s) q
             WHERE tsv @@ q {where} ORDER BY s DESC LIMIT %s""", (_or_query(query), *args, k)).fetchall()
-    return [Hit(*r) for r in rows]
+    return [_hit(r) for r in rows]
 
 
 def vector(conn: psycopg.Connection, query: str, k: int = 50, contract_id: int | None = None) -> list[Hit]:
     where, args = _scope(contract_id)
     q = embed_query(query)
     rows = conn.execute(
-        f"""SELECT id, contract_id, start_char, end_char, text, 1 - (embedding <=> %s) AS s
+        f"""SELECT id, contract_id, start_char, end_char, text_masked, 1 - (embedding <=> %s) AS s, mask_map
             FROM chunks WHERE true {where} ORDER BY embedding <=> %s LIMIT %s""", (q, *args, q, k)).fetchall()
-    return [Hit(*r) for r in rows]
+    return [_hit(r) for r in rows]
 
 
 def hybrid(conn: psycopg.Connection, query: str, k: int = 50, contract_id: int | None = None) -> list[Hit]:
@@ -73,9 +78,9 @@ def rerank(query: str, hits: list[Hit], k: int) -> list[Hit]:
 
 
 def first_chunks(conn: psycopg.Connection, contract_id: int, n: int) -> list[Hit]:
-    rows = conn.execute("SELECT id, contract_id, start_char, end_char, text, 0.0 FROM chunks "
+    rows = conn.execute("SELECT id, contract_id, start_char, end_char, text_masked, 0.0, mask_map FROM chunks "
                         "WHERE contract_id = %s ORDER BY idx LIMIT %s", (contract_id, n)).fetchall()
-    return [Hit(*r) for r in rows]
+    return [_hit(r) for r in rows]
 
 
 def planned(conn: psycopg.Connection, query: str, category: str | None, k: int, contract_id: int | None,

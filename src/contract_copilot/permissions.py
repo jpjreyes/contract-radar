@@ -63,8 +63,27 @@ CREATE POLICY read_chunks ON chunks FOR SELECT TO {role}
     USING (EXISTS (SELECT 1 FROM contracts c WHERE c.id = chunks.contract_id));
 
 GRANT USAGE ON SCHEMA public TO {role};
-GRANT SELECT ON contracts, chunks TO {role};
+GRANT SELECT ON contracts TO {role};
 REVOKE ALL ON app_users FROM {role};
+
+-- Personal data (D9): the app role can read every chunk column EXCEPT the original text. Masked text, offsets and
+-- the indexes built on masked text are all it gets; a query that names `text` fails with a privilege error.
+REVOKE SELECT ON chunks FROM {role};
+GRANT SELECT (id, contract_id, idx, start_char, end_char, heading, text_masked, mask_map, embedding, tsv)
+    ON chunks TO {role};
+
+-- The only way back to the original: for the current user, only if they have pii_access AND may read the contract.
+-- SECURITY DEFINER runs as the owner (who bypasses RLS), so both checks are explicit here.
+CREATE OR REPLACE FUNCTION reveal(ids integer[]) RETURNS TABLE (id integer, text text)
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path = public AS $$
+    SELECT k.id, k.text
+    FROM chunks k
+    JOIN contracts c ON c.id = k.contract_id
+    JOIN app_users u ON u.name = current_setting('app.user', true)
+    WHERE k.id = ANY (ids) AND u.pii_access AND can_read(c.region, c.business_unit)
+$$;
+REVOKE ALL ON FUNCTION reveal(integer[]) FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION reveal(integer[]) TO {role};
 """
 
 

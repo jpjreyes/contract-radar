@@ -11,6 +11,9 @@ dependencies = [
     "python-dotenv>=1.0",
     "numpy>=1.26",
     "anthropic>=0.70",
+    "presidio-analyzer>=2.2.362",
+    "spacy>=3.8.18",
+    "en-core-web-lg",
 ]
 
 [dependency-groups]
@@ -28,3 +31,6 @@ line-length = 120
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+
+[tool.uv.sources]
+en-core-web-lg = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" }

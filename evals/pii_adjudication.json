@@ -1,0 +1,8 @@
+{
+ "9281": {"remove_in": ["Nantz Communications"],
+          "why": "the labeler tagged 'Nantz' everywhere, including inside the company name Nantz Communications; only the bare surname (the individual) is personal data"},
+ "13669": {"remove_in": ["David Duval Enterprises"],
+           "why": "company name (payee of a check), not the individual"},
+ "20904": {"add": [{"type": "PERSON", "text": "Maimon"}],
+           "why": "'Maimon' is the defined short name of the individual Idan Maimon; the labeler tagged only the full name"}
+}

@@ -103,3 +103,60 @@ or overturn a decision are added to the entry.
   contracts still finds them (10/10, 10/10, 7/10; the misses are boilerplate passages shared by many contracts).
 - **Visibility per demo user:** legal_admin 510 contracts · maria (Procurement, North America) 50 · kenji (Marketing,
   EMEA + LATAM) 46 · analyst (Legal, all regions) 311 · no user / unknown user 0.
+
+## D9. Personal data: mask at ingest, lock the original column, reveal only through the database
+- **Constraint:** C3 (personal data masked for roles without access to it).
+- **Policy (what counts):** names of individual people (signatories, notice recipients, employees, attorneys, defined
+  short names like "Maimon"), emails, phone/fax numbers, street-level addresses. Company and law-firm names, job
+  titles, defined terms ("Licensee") and city/state/country stay visible: they decide jurisdiction and party
+  questions and identify no one.
+- **Detection (`pii.py`):** Microsoft Presidio + spaCy `en_core_web_lg` for names, emails and phones, plus rules for
+  what contracts do: signature and notice fields ("Name:", "/s/", "By:", "Attention:"), street addresses, and
+  filters for what a general NER model gets wrong on contracts (company names, departments, defined terms, words the
+  contract also uses in lowercase). Every other occurrence of a found name in the contract is masked too, including
+  the bare surname when it's the person's defined alias ("Nantz") but not when it's a company's ("Rogers" for Rogers
+  Cable Inc.).
+- **Masking:** typed placeholders, stable per contract (`[PERSON_1]` is the same person throughout), so answers stay
+  readable ("[PERSON_1] signed for the Licensee"). Each chunk stores a masked→original offset map, so citations on
+  masked text still point at the exact characters of the original contract (eval offsets unchanged).
+- **Mask at ingest, not at serve time:** the keyword index and the embeddings are built from masked text, so a user
+  without PII access can't find a chunk by searching for a person's name (a serve-time mask would still rank it).
+  Trade-off: a user WITH access can't search by name either; acceptable for clause questions, revisit if the client
+  needs "every contract John Smith signed".
+- **Enforcement in Postgres, not Python:** the app role has column-level SELECT on every chunk column except `text`
+  (a query naming it fails with a privilege error). The only way back is `reveal(ids)`, SECURITY DEFINER, which
+  returns originals only when the current user has `pii_access` AND may read that contract. `serve()` swaps in what
+  reveal returns; a connection with no user keeps the masked text. Masking is versioned (`pii_version`): a better
+  detector re-masks in place and re-embeds only chunks whose masked text changed.
+- **Detector quality (`eval_pii detector`, labels by Sonnet on a stratified sample, half likely-PII chunks, half
+  random, adjudicated in `evals/pii_adjudication.json`; a label item counts as protected only if ≥ 90% of its
+  letters/digits are masked):**
+
+| Labeled set | Chunks | Items | Recall | Precision |
+|---|---|---|---|---|
+| dev (tuned on) | 121 | 180 | 0.956 | 0.994 |
+| test, first run (v1) | 119 | 272 | 0.871 | 0.895 |
+| test, after fixing errors seen on it | 119 | 272 | 0.926 | 0.965 |
+| **test2, fresh, never inspected before scoring (v2)** | **120** | **254** | **0.831** | **0.936** |
+
+  Test2 is the honest number (test stopped being held out once its errors drove fixes). Emails and phones: 0.95–1.0
+  everywhere. The misses are mostly name lists in "Surname, Given" order (one patent table = 25 of test2's 44 misses),
+  non-US addresses without a street suffix, and bare celebrity surnames. Reported, not hidden: residual exposure
+  risk ≈ 1 − recall on items the detector doesn't know about.
+- **Enforcement (`eval_pii exposure`, the number that must be 0):** for 3 users without PII access, personal data in
+  contracts they CAN read was searched with keyword, vector, hybrid and planned retrieval, globally and scoped, and
+  the chunk was fetched by id: **0 enforcement leaks in 3,912 served texts** (every served text equals the stored
+  masked text); the app role cannot select the original column; control: legal_admin gets originals 23/23. Reported
+  apart: the probed string sometimes also appears unmasked elsewhere (mostly detector false positives like
+  "Miltenyi", masked once as a surname but visible in "Miltenyi Product"; two real names found unmasked in other
+  contracts where the detector missed them → v3 idea: a corpus-wide registry of found names).
+- **Answers (`eval_pii answers`):** asking for exactly the personal data ("who signed, where do notices go, emails,
+  phones") on 10 Legal contracts: the analyst got placeholders in every answer (2–15 per contract) and 0 real values;
+  legal_admin got the real values (2–16 per contract). The one hit in v1 was the word "Email" masked by a detector
+  bug ("Mario Cibelli Email" read as a name) → v2 cuts field labels from model-found names.
+- **Corpus after masking (v2):** 8,022 values masked in 2,293 of 22,706 chunks (1,959 people, 1,312 addresses,
+  717 phone numbers, 294 emails); detection over 510 contracts takes ~6 min on 4 processes.
+- **Regression:** row-level security leak test after masking: still 0 leaks in 2,090 returned chunks. Retrieval:
+  22.6% of test clauses sit in a chunk that masking changed (front matter and signature blocks); planned hit@8 on
+  the first 800 test clauses after masking is 0.911 (full test set before masking: 0.891). Not a same-set A/B (the
+  earlier run kept only totals), but no sign of damage; per-query results are worth saving next time.
