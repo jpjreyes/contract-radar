@@ -38,7 +38,7 @@ export function Nav() {
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:gap-6 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5 font-semibold tracking-tight">
           <Logo />
-          <span className="hidden sm:inline">Contract Copilot</span>
+          <span className="hidden sm:inline">Contract Radar</span>
         </Link>
         <nav className="flex items-center gap-1 overflow-x-auto text-sm">
           {LINKS.map((l) => (

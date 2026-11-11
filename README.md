@@ -1,4 +1,4 @@
-# Contract Copilot
+# Contract Radar
 
 Ask questions across a portfolio of 510 real commercial contracts and get answers a lawyer can check: every claim
 carries a quote that code verified against the contract, each user sees only the contracts they're allowed to, and

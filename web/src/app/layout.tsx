@@ -7,7 +7,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Contract Copilot", template: "%s · Contract Copilot" },
+  title: { default: "Contract Radar", template: "%s · Contract Radar" },
   description:
     "Ask questions across a contract portfolio with verified citations, per-user permissions, masked personal data, extracted key terms and an audit log.",
 };

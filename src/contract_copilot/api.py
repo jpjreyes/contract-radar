@@ -25,7 +25,7 @@ from contract_copilot.retrieve import _hit
 from contract_copilot.serve import serve
 
 tracing.setup()
-app = FastAPI(title="Contract Copilot", version="0.1")
+app = FastAPI(title="Contract Radar", version="0.1")
 FastAPIInstrumentor.instrument_app(app, excluded_urls="healthz")
 KNOWN = {u[0] for u in USERS}
 
