@@ -70,6 +70,7 @@ class Answer:
     tokens_out: int = 0
     seconds: float = 0.0
     clause_present: bool | None = None
+    revealed: list[int] = field(default_factory=list)  # chunks shown with personal data unmasked (for the audit log)
 
 
 def _norm(s: str) -> str:
@@ -105,7 +106,9 @@ def _prompt(question: str, hits: list[Hit], names: dict[int, str]) -> str:
 def answer(conn: psycopg.Connection, question: str, contract_id: int | None = None, backend: Backend | None = None,
            k: int = 8, category: str | None = None) -> Answer:
     backend = backend or get_backend()
-    hits = serve(conn, search(conn, question, method="planned", k=k, contract_id=contract_id, category=category))
+    raw = search(conn, question, method="planned", k=k, contract_id=contract_id, category=category)
+    hits = serve(conn, raw)
+    revealed = [h.chunk_id for r, h in zip(raw, hits) if r.masks and not h.masks]
     names = dict(conn.execute("SELECT id, name FROM contracts WHERE id = ANY(%s)",
                               ([h.contract_id for h in hits],)).fetchall())
     if not hits:
@@ -128,4 +131,5 @@ def answer(conn: psycopg.Connection, question: str, contract_id: int | None = No
     answerable = bool(res.data.get("answerable")) and bool(claims)
     present = bool(res.data.get("clause_present")) and answerable
     return Answer(question, answerable, claims if answerable else [], dropped, hits,
-                  res.input_tokens, res.output_tokens, round(res.latency_s, 1), clause_present=present)
+                  res.input_tokens, res.output_tokens, round(res.latency_s, 1), clause_present=present,
+                  revealed=revealed)

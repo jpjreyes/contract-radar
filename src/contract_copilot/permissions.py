@@ -19,6 +19,7 @@ import psycopg.sql
 from dotenv import load_dotenv
 from pgvector.psycopg import register_vector
 
+from contract_copilot import audit
 from contract_copilot.db import connect
 
 APP_ROLE = "cc_app"
@@ -124,8 +125,10 @@ def main() -> None:
     pw = os.environ.get("APP_DB_PASSWORD")
     if not pw:
         raise SystemExit("Set APP_DB_PASSWORD in .env first")
-    setup(connect(), pw)
-    print(f"role {APP_ROLE} + RLS policies + {len(USERS)} demo users ready")
+    admin = connect()
+    setup(admin, pw)
+    audit.setup(admin, APP_ROLE)
+    print(f"role {APP_ROLE} + RLS policies + {len(USERS)} demo users + audit log ready")
 
 
 if __name__ == "__main__":

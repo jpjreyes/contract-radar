@@ -159,4 +159,29 @@ or overturn a decision are added to the entry.
 - **Regression:** row-level security leak test after masking: still 0 leaks in 2,090 returned chunks. Retrieval:
   22.6% of test clauses sit in a chunk that masking changed (front matter and signature blocks); planned hit@8 on
   the first 800 test clauses after masking is 0.911 (full test set before masking: 0.891). Not a same-set A/B (the
-  earlier run kept only totals), but no sign of damage; per-query results are worth saving next time.
+  earlier run kept only totals), but no sign of damage; the retrieval eval now saves per-query ranks. Answers
+  (same 50 dev questions, model sees masked text): answered when present 27/30 (was 27/30), citation on the
+  lawyers' span 25/27 (was 25/27), says absent 17/20 raw (was 16/20), claims dropped 2/128 (was 3/148), median
+  8.8 s, $0.00135/question: masking cost no answer quality.
+
+## D10. Answers run as the user; the audit log is append-only and hash-chained
+- **Constraints:** C2, C3, C5 (every question auditable: who, when, what they were shown).
+- **One front door (`ask.py`):** `ask(user, question)` runs on the app role inside one transaction with `app.user`
+  set, so row-level security (D8) and masking (D9) apply to retrieval, to what the model sees and to what comes back.
+  A contract name the user can't read gets the same reply as one that doesn't exist (no existence leak).
+- **Audit log (`audit.py`):** the app role has no privilege on the table (can't read, update or delete it, or run the
+  verifier); it can only call `audit_append(payload)`, SECURITY DEFINER, which stamps the user from `app.user` and the
+  time from the database (a client can't log as someone else; tested: a forged `app_user` in the payload is ignored).
+  Each row stores sha256(previous hash | time | user | payload); `audit_verify()` returns the first row whose link or
+  hash fails. Tested: editing a past row (even as admin) is caught at exactly that row.
+- **What's logged:** question hash and length (not the text: a question can itself contain personal data), contract,
+  retrieved and cited chunk ids, answered or not, claims kept/dropped, tokens, seconds, and **which chunks were shown
+  with personal data unmasked** (empty for users without PII access). No answer text, so the log isn't a second copy
+  of personal data. If the client wants question text, store it masked by the same detector.
+- **Known limit:** a chain alone can't detect deletion of the newest rows (truncating the tail leaves a valid chain).
+  Fix at deploy: anchor the latest hash outside the database on a schedule (e.g. S3 with Object Lock), and verify
+  against the anchor.
+- **Signature questions:** free-text questions about who signed route the contract's last 3 chunks into the pool, the
+  same way front-matter fields route the first 3 (D6): signature blocks share no words with "who signed".
+  Demo, same question, same contract: the analyst sees "/s/ [PERSON_2] … [PERSON_1]", legal_admin sees the names;
+  both cite identical character offsets in the original. Not yet measured as an eval.

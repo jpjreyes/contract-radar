@@ -51,11 +51,17 @@ def run(split: str, methods: list[str], limit: int | None = None) -> dict:
         span_cov = {k: 0 for k in KS}
         spans_total, rr = 0, 0.0
         per_cat: dict[str, list[int]] = defaultdict(lambda: [0, 0])
-        for c, lab in cases:
+        per_query = []
+        for i, (c, lab) in enumerate(cases, 1):
             hits = search(conn, query_for(lab), method=method, k=max(KS), contract_id=ids[c.name],
                           category=lab.category)
             first = next((r for r, h in enumerate(hits, 1)
                           if any(overlaps(h.start, h.end, s.start, s.end) for s in lab.spans)), None)
+            per_query.append([c.name, lab.category, first])  # kept so later changes get a same-set A/B
+            if i % 250 == 0 or i == len(cases):
+                el = time.monotonic() - t0
+                print(f"  {method}: {i}/{len(cases)} queries, {el:.0f}s elapsed, ~{el / i * (len(cases) - i):.0f}s left",
+                      flush=True)
             rr += 1 / first if first else 0
             for k in KS:
                 top = hits[:k]
@@ -72,6 +78,7 @@ def run(split: str, methods: list[str], limit: int | None = None) -> dict:
             "mrr": round(rr / n, 3),
             "seconds": round(time.monotonic() - t0, 1),
             "hit@5_by_category": {cat: round(h / t, 3) for cat, (h, t) in sorted(per_cat.items())},
+            "per_query_first_hit_rank": per_query,
         }
         m = report["methods"][method]
         print(f"{method:<15} hit@1 {m['hit@1']:.3f}  hit@5 {m['hit@5']:.3f}  hit@8 {m['hit@8']:.3f}  "

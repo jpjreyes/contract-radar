@@ -4,12 +4,18 @@ Two kinds of help, both measured in the retrieval eval (D6):
   front matter  fields that sit in the opening of a contract (title, parties, dates): the first chunks always join
                 the candidate pool before reranking
   expansions    how contracts actually word a clause, added to the question for keyword and vector search
+  back matter   free-text questions about who signed: signature blocks sit in the last chunks, which rarely share
+                words with the question, so those chunks join the pool the same way
 """
 
 from __future__ import annotations
 
+import re
+
 FRONT_MATTER = {"Document Name", "Parties", "Agreement Date", "Effective Date"}
 FRONT_CHUNKS = 3
+BACK_CHUNKS = 3
+BACK_MATTER = re.compile(r"\b(?:sign(?:s|ed|er|ers|ature|atures|atory|atories)?|executed)\b", re.IGNORECASE)
 
 EXPANSIONS = {
     "Document Name": "agreement title heading",
@@ -54,3 +60,7 @@ def expand(category: str | None, question: str) -> str:
 
 def is_front_matter(category: str | None) -> bool:
     return category in FRONT_MATTER
+
+
+def is_back_matter(question: str) -> bool:
+    return bool(BACK_MATTER.search(question))

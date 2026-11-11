@@ -83,6 +83,12 @@ def first_chunks(conn: psycopg.Connection, contract_id: int, n: int) -> list[Hit
     return [_hit(r) for r in rows]
 
 
+def last_chunks(conn: psycopg.Connection, contract_id: int, n: int) -> list[Hit]:
+    rows = conn.execute("SELECT id, contract_id, start_char, end_char, text_masked, 0.0, mask_map FROM chunks "
+                        "WHERE contract_id = %s ORDER BY idx DESC LIMIT %s", (contract_id, n)).fetchall()
+    return [_hit(r) for r in reversed(rows)]
+
+
 def planned(conn: psycopg.Connection, query: str, category: str | None, k: int, contract_id: int | None,
             pool: int) -> list[Hit]:
     """Expanded wording for recall, the original question for the reranker, and front matter routed to the
@@ -92,6 +98,10 @@ def planned(conn: psycopg.Connection, query: str, category: str | None, k: int, 
         front = first_chunks(conn, contract_id, planner.FRONT_CHUNKS)
         seen = {h.chunk_id for h in front}
         hits = (front + [h for h in hits if h.chunk_id not in seen])[:k]
+    elif contract_id is not None and category is None and planner.is_back_matter(query):
+        back = last_chunks(conn, contract_id, planner.BACK_CHUNKS)
+        seen = {h.chunk_id for h in back}
+        hits = (back + [h for h in hits if h.chunk_id not in seen])[:k]
     return hits
 
 
