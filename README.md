@@ -27,6 +27,7 @@ Held-out numbers unless marked dev; model Claude Haiku. How each was produced an
 | **Personal-data detector** (fresh labeled sample, never inspected before scoring) | recall 0.83, precision 0.94; emails and phones ≥ 0.95 |
 | **Key-term extraction** (13 terms × 415 unseen contracts) | field accuracy **0.86**; auto-accepted values **97.0% correct**, 69.5% sent to a person |
 | **Portfolio questions** (40 "which contracts…?" questions, answers from the lawyers' labels) | the planner picks the right filter **40/40**; the contract set matches the lawyers' answer at F1 **0.84** (all remaining error is extraction: a perfect plan scores the same); plain RAG on the same questions: F1 0.15 |
+| **Act this quarter** (as of 2026-11-11, all 510 contracts) | 18 non-renewal notice deadlines in the next 90 days computed from extracted terms (renewals rolled forward to the current term), 189 contracts with uncapped liability, 59 sent to a person instead of guessed |
 | **Cost / latency** | ~$0.0013 per answered question, median 8.8 s (CLI backend; the 8 s target is re-measured on the API) |
 
 ## How it works
@@ -87,6 +88,22 @@ cd web && npm install && npx next dev -p 3072          # http://localhost:3072, 
 Evals: `eval_retrieval`, `eval_answers`, `eval_permissions`, `eval_pii`, `eval_extract`, `eval_portfolio` (each
 `uv run python -m contract_copilot.<name> --help`). Tests: `uv run pytest` (needs the database for the
 permission, audit, review and API suites).
+
+## Deploy on Azure
+
+`infra/azure` (Terraform) creates everything: Container Apps for the API and the web (scale to zero), PostgreSQL
+Flexible with no public access, Key Vault read by a managed identity, Container Registry, Microsoft Entra ID sign-in
+with one security group per role, Application Insights, an immutable blob for the audit-chain anchor, and a budget
+alert. Then:
+
+```bash
+az login
+cp infra/azure/terraform.tfvars.example infra/azure/terraform.tfvars   # subscription id + alert email
+scripts/azure_deploy.sh          # images built in Azure, apps rolled out, data loaded inside the VNet
+```
+
+The public demo runs in replay mode (recorded answers to the example questions, no model calls) with a monthly
+spend cap for live mode. Design and the reasons: DECISIONS D15–D16.
 
 ## Stack
 

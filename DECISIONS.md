@@ -280,3 +280,47 @@ or overturn a decision are added to the entry.
   adds them for local debugging only. Tested: a question's words never appear in any span attribute.
 - **Viewer:** Arize Phoenix locally (OSS, LLM-aware). Off unless `CC_TRACE_ENDPOINT` is set.
 - **Tracing as a reusable module:** the same spans work for any service with a model call.
+
+## D15. "Act this quarter": deadlines computed from the extracted terms, never guessed
+- **Why:** a question box reads as a chatbot; the client's real job is "what do we have to act on, by when?".
+  The app now opens on that view; Ask moves to a tab.
+- **The computation:** CUAD's contracts date from 1999–2020, but auto-renewing ones are still alive. For each,
+  the end date is rolled forward term by term (respecting limited renewals: "one additional 3-year period",
+  "up to 2 renewal terms") until it passes the as-of date; the deadline is that term's end minus the notice period.
+  `parse_renewal` reads the extracted value into automatic / evergreen / not automatic / unclear (15 unit tests on
+  real values). Unclear terms, a missing expiration or a missing notice period go to "Need a person", never guessed.
+- **Every row shows its evidence:** the values it was computed from, each with its review status and a link to the
+  clause. Expiration dates are review-only fields (D11), so every deadline visibly rests on an unreviewed date until
+  someone reviews it: that is the honest state, and it tells the reviewer where to start.
+- **On the data, as of 2026-11-11:** legal_admin sees 18 notice deadlines in the next 90 days (the first one 1 day
+  out), 18 renewals whose window already closed, 189 contracts with uncapped liability, 59 needing a person; maria
+  sees only her 3 deadlines (RLS applies to the view).
+
+## D16. Azure deploy, sign-in, and limits for a public demo
+- **Cloud (decided, ROADMAP cloud map):** Azure, because the buyer (legal) runs on Microsoft 365 and enterprise
+  sign-in is the gap this project closes.
+- **Shape (infra/azure, Terraform, `terraform validate` in CI):** Container Apps for the API and the web (scale to
+  zero), PostgreSQL Flexible **with no public access** (VNet + private DNS), Key Vault read by a **managed identity**
+  (no secrets in code or env files), Container Registry pulled by the same identity, Application Insights for the
+  OpenTelemetry spans, a blob container with an immutability policy for the audit-chain anchor (D10's known limit),
+  and a resource-group budget alert.
+- **Sign-in:** Entra ID. The API verifies the bearer token (signature via the tenant's keys, issuer, audience,
+  expiry); the person is mapped to an app role **inside Postgres** by their own id or by **directory security
+  group** (`identity_map` + `resolve_identity`, SECURITY DEFINER; the app can't read or edit the mapping). Terraform
+  creates one group per role. Access is then managed as group membership in the company directory and enforced by
+  row-level security. The demo user switcher stays for local use (`CC_AUTH=demo`). 7 tests with real signed tokens:
+  person mapping, group mapping, wrong audience, wrong issuer, expired, unmapped, header spoofing.
+- **Public-demo limits:** a monthly model-spend cap checked before every model call (402 when used up; the radar,
+  contracts and review queue need no model and keep working), a per-user hourly rate (429), and **replay mode**: the
+  example questions' answers are recorded once and served without calling the model; anything else gets 409.
+- **Found while preparing the load:** on a managed Postgres the admin is not a superuser, so FORCE ROW LEVEL
+  SECURITY also applies to the owner of the SECURITY DEFINER functions; `reveal()` and `review_field()` would have
+  silently seen no rows (legal_admin shown masked text, reviews not saved). Fixed with explicit owner policies (the
+  functions check permissions themselves); the cloud load ends with a smoke test of exactly this.
+- **Data into a private database:** `cloud_load export` writes the processed tables as CSV (COPY), the archive goes
+  to private blob storage (Entra auth, no keys), and a one-off Container Apps job inside the VNet downloads it with
+  its managed identity, loads the data **before** switching RLS on, then runs the setup and the smoke test. Tested
+  end to end on a scratch local database (510 contracts, 22,706 chunks, 6,630 fields; smoke test passed).
+- **Images:** API 1.14 GB (CPU-only PyTorch on Linux; embedding model and reranker baked in; PII detection moved to
+  an `ingest` dependency group the image skips); built and smoke-tested in CI, built for Azure with `az acr build`
+  (nothing heavy builds on the laptop).
