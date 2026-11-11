@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Permission-aware RAG over a contract portfolio, with verified citations and evals"
 requires-python = ">=3.12"
 dependencies = [
+    "torch>=2.4",
     "psycopg[binary]>=3.2",
     "pgvector>=0.3",
     "sentence-transformers>=3.0",
@@ -42,7 +43,14 @@ line-length = 120
 pythonpath = ["src"]
 
 [tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
 en-core-web-lg = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" }
 
 [tool.ruff.lint.flake8-bugbear]
 extend-immutable-calls = ["fastapi.Depends", "fastapi.Header"]
+
+# CPU-only PyTorch on Linux (CI and the container): the default Linux wheels bundle CUDA (gigabytes).
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
