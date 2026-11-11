@@ -10,6 +10,7 @@ Run:  uv run uvicorn contract_copilot.api:app --port 8071
 from __future__ import annotations
 
 from collections.abc import Iterator
+from datetime import date
 
 import psycopg
 from fastapi import Depends, FastAPI, Header, HTTPException
@@ -21,6 +22,7 @@ from contract_copilot import tracing
 from contract_copilot.ask import ask
 from contract_copilot.permissions import USERS, app_connect, as_user
 from contract_copilot.portfolio import ask_portfolio
+from contract_copilot.radar import compute as radar_compute
 from contract_copilot.retrieve import _hit
 from contract_copilot.serve import serve
 
@@ -47,6 +49,18 @@ def user(x_user: str = Header(...)) -> str:
 @app.get("/healthz")
 def healthz() -> dict:
     return {"ok": True}
+
+
+@app.get("/radar")
+def radar(as_of: str | None = None, days: int = 90, who: str = Depends(user),
+          db: psycopg.Connection = Depends(conn)) -> dict:
+    """Act this quarter: notice deadlines, renewals, uncapped liability, expirations (RLS applies)."""
+    try:
+        when = date.fromisoformat(as_of) if as_of else date.today()
+    except ValueError as e:
+        raise HTTPException(422, "as_of must be YYYY-MM-DD") from e
+    with as_user(db, who):
+        return radar_compute(db, when, max(1, min(days, 365)))
 
 
 @app.get("/users")

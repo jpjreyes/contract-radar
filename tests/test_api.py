@@ -50,3 +50,15 @@ def test_review_refused_for_non_reviewer(client):
     r = client.post("/review", headers=h("kenji"),
                     json={"contract_id": item[0]["contract_id"], "field": item[0]["field"], "decision": "accept"})
     assert r.status_code == 403
+
+
+def test_radar_respects_permissions(client):
+    admin = client.get("/radar?as_of=2026-11-11&days=90", headers=h("legal_admin")).json()
+    maria = client.get("/radar?as_of=2026-11-11&days=90", headers=h("maria")).json()
+    assert admin["contracts"] == 510 and maria["contracts"] == 50
+    admin_ids = {i["contract_id"] for i in admin["sections"]["notice_deadlines"]}
+    maria_ids = {i["contract_id"] for i in maria["sections"]["notice_deadlines"]}
+    assert maria_ids <= admin_ids and len(maria_ids) < len(admin_ids)
+    days = [i["days_left"] for i in admin["sections"]["notice_deadlines"]]
+    assert days == sorted(days) and all(0 <= d <= 90 for d in days)
+    assert client.get("/radar?as_of=not-a-date", headers=h("maria")).status_code == 422

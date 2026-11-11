@@ -8,7 +8,8 @@ import { api, currentUser, setCurrentUser, type User } from "@/lib/api";
 import { Logo } from "./ui";
 
 const LINKS = [
-  { href: "/", label: "Ask" },
+  { href: "/", label: "Act this quarter" },
+  { href: "/ask", label: "Ask" },
   { href: "/contracts", label: "Contracts" },
   { href: "/review", label: "Review queue" },
 ];
