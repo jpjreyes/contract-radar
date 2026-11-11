@@ -6,9 +6,9 @@ the two ways it can fail:
   planner      the model's plan, applied to the gold labels, gives exactly the gold set (did it understand?)
   end to end   the model's plan run as SQL on the EXTRACTED fields vs. the gold set: set precision / recall / F1
   oracle plan  the gold plan run on the extracted fields: error left when planning is perfect (= extraction error)
-Optional baseline (--rag): plain RAG over the whole portfolio, contracts it cites vs. the gold set.
+Optional baseline (--rag-every N, a fixed sample): plain RAG over the whole portfolio, contracts it cites vs. the gold set.
 
-Run:  uv run python -m contract_copilot.eval_portfolio [--rag]
+Run:  uv run python -m contract_copilot.eval_portfolio [--rag-every 4]
 """
 
 from __future__ import annotations
@@ -144,7 +144,7 @@ def prf(got: set[int], gold: set[int]) -> dict:
             "exact": got == gold}
 
 
-def run(rag: bool) -> dict:
+def run(rag_every: int) -> dict:
     table = gold_table()
     app = app_connect()
     rows = []
@@ -157,11 +157,11 @@ def run(rag: bool) -> dict:
             oracle = {m.contract_id for m in run_plan(app, gold_plan)}
         row = {"question": q, "gold_n": len(gold), "plan": [c.__dict__ for c in conds], "unsupported": unsupported,
                "planner_ok": gold_set(conds, table) == gold, "e2e": prf(e2e, gold), "oracle_plan": prf(oracle, gold)}
-        if rag:
+        if rag_every and (i - 1) % rag_every == 0:  # the baseline is slow (~45 s each): a fixed sample
             row["rag"] = _rag(app, q, gold)
         rows.append(row)
         el = time.monotonic() - t0
-        rag_note = f" rag F1={row['rag']['f1']:.2f}" if rag else ""
+        rag_note = f" rag F1={row['rag']['f1']:.2f}" if "rag" in row else ""
         print(f"  {i}/{len(QUESTIONS)} gold={len(gold):3} planner={'ok ' if row['planner_ok'] else 'BAD'} "
               f"e2e F1={row['e2e']['f1']:.2f} oracle F1={row['oracle_plan']['f1']:.2f}{rag_note}  "
               f"{q[:55]}  ({el:.0f}s, ~{el / i * (len(QUESTIONS) - i):.0f}s left)", flush=True)
@@ -175,8 +175,11 @@ def run(rag: bool) -> dict:
                "e2e_recall": mean("e2e", "recall"), "e2e_exact": sum(r["e2e"]["exact"] for r in rows),
                "oracle_plan_f1": mean("oracle_plan", "f1"), "oracle_plan_exact": sum(r["oracle_plan"]["exact"]
                                                                                      for r in rows)}
-    if rag:
-        summary["rag_f1"] = mean("rag", "f1")
+    sampled = [r for r in rows if "rag" in r]
+    if sampled:
+        summary["rag_sample"] = len(sampled)
+        summary["rag_f1_on_sample"] = round(sum(r["rag"]["f1"] for r in sampled) / len(sampled), 3)
+        summary["e2e_f1_on_same_sample"] = round(sum(r["e2e"]["f1"] for r in sampled) / len(sampled), 3)
     print(json.dumps(summary, indent=1))
     RUNS.mkdir(exist_ok=True)
     out = RUNS / f"portfolio-{datetime.now():%Y%m%d-%H%M%S}.json"
@@ -196,8 +199,9 @@ def _rag(app, q: str, gold: set[int]) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--rag", action="store_true", help="also run the plain-RAG baseline (one model call per question)")
-    run(ap.parse_args().rag)
+    ap.add_argument("--rag-every", type=int, default=0,
+                    help="also run the plain-RAG baseline on every Nth question (0 = off; 4 = 10 of 40)")
+    run(ap.parse_args().rag_every)
 
 
 if __name__ == "__main__":

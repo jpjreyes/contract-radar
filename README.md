@@ -1,0 +1,98 @@
+# Contract Copilot
+
+Ask questions across a portfolio of 510 real commercial contracts and get answers a lawyer can check: every claim
+carries a quote that code verified against the contract, each user sees only the contracts they're allowed to, and
+personal data is masked unless their role allows it. "Which contracts…?" questions run as filters over 13 key terms
+extracted from every contract, with doubtful values routed to a person. Every question and every review is written to
+a tamper-evident audit log.
+
+> Data: the 510 public commercial contracts of [CUAD](https://www.atticusprojectai.org/cuad) (CC BY 4.0), filed with
+> the SEC. The client, users and permissions are a demo scenario: see [CLIENT_BRIEF.md](CLIENT_BRIEF.md).
+
+![Portfolio question: the filter the model planned, matches with the evidence behind each one](docs/img/portfolio-question.png)
+
+![Contract viewer as the analyst: personal data masked, the cited signature block highlighted, key terms with review status](docs/img/viewer-analyst.png)
+
+## Results
+
+Held-out numbers unless marked dev; model Claude Haiku. How each was produced and what changed when it failed:
+[DECISIONS.md](DECISIONS.md).
+
+| What | Result |
+|---|---|
+| **Retrieval** (5,506 lawyer-labeled clauses, 415 unseen contracts) | the clause in the top 8 for **89.1%** (keyword 68.6% → vector 71.7% → hybrid 74.6% → + reranker 83.9% → + query planning 89.1%) |
+| **Cited answers** (dev, 50 questions) | answered 27/30 when the clause exists; the citation lands on the lawyers' span 25/27; says "not there" 18/20 when it isn't (adjudicated); 2/128 unverifiable claims dropped |
+| **Permission leaks** (exact-text attacks on forbidden contracts, every retrieval method) | **0** in 2,090 returned chunks |
+| **Personal data shown to users without access** | **0** in 3,912 served texts (every retrieval path + fetch by id); the app role cannot even select the original column |
+| **Personal-data detector** (fresh labeled sample, never inspected before scoring) | recall 0.83, precision 0.94; emails and phones ≥ 0.95 |
+| **Key-term extraction** (13 terms × 415 unseen contracts) | field accuracy **0.86**; auto-accepted values **97.0% correct**, 69.5% sent to a person |
+| **Portfolio questions** (40 "which contracts…?" questions, answers from the lawyers' labels) | the planner picks the right filter **40/40**; the contract set matches the lawyers' answer at F1 **0.84** (all remaining error is extraction: a perfect plan scores the same); plain RAG on the same questions: F1 0.15 |
+| **Cost / latency** | ~$0.0013 per answered question, median 8.8 s (CLI backend; the 8 s target is re-measured on the API) |
+
+## How it works
+
+```
+CUAD contracts ─► clause-aware chunks ─► personal-data detection ─► masked text + offset map
+                                          (Presidio + spaCy + rules)        │
+                                                                            ▼
+                         Postgres: pgvector + full-text index (on masked text) + row-level security
+                                                                            │
+question + user ─► one contract?  ─► planned hybrid search ─► reranker ─► model answers with quotes
+               │                       (runs AS the user)                  ─► every quote located in code
+               │                                                           ─► unverified claims dropped
+               └─► "which contracts…?" ─► model plans filter conditions ─► parameterized SQL over the
+                                          extracted key terms (AS the user) ─► matches + quote per condition
+
+extraction: per field, scoped search ─► one model call for 13 terms ─► quote check + validators
+            ─► auto-accept only fields proven ≥ 95% precise on dev ─► everything else to the review queue
+```
+
+- **Permissions live in Postgres, not in Python.** The app connects as a role that isn't a superuser and can't bypass
+  row-level security; each request sets the user for its transaction, and policies filter retrieval *before*
+  ranking, so a forbidden contract can't even take a top-k slot. No user, unknown user → no rows.
+- **Personal data is masked at ingest.** The keyword index and the embeddings are built from masked text, so searching
+  for a person's name finds nothing for users without access. The original column is not granted to the app role at
+  all; a `SECURITY DEFINER` function returns it only to users with personal-data access who may read that contract.
+- **Citations are checked in code.** The model must quote the exact words behind each claim; the quote is located in
+  the passage it cites (exact, whitespace-insensitive, or fuzzy ≥ 90) and mapped to offsets in the original
+  contract. Claims without a verified quote are never shown.
+- **Portfolio questions aren't retrieval problems.** "Which contracts auto-renew with less than 60 days' notice?" needs
+  every match out of 510, not the top 8 passages. The model only plans the filter; SQL finds the contracts.
+- **Every action is audited.** Questions, portfolio queries and reviews are appended by a database function that stamps
+  the user and time itself and chains each row to the previous one by SHA-256; editing any past row is detected at
+  that row.
+
+## Demo users
+
+| User | Sees | Personal data | Can review fields |
+|---|---|---|---|
+| legal_admin | all 510 contracts | yes | yes |
+| maria (procurement, North America) | 50 | no | her contracts |
+| kenji (marketing, EMEA + LATAM) | 46 | no | no |
+| analyst (all Legal contracts) | 311 | no | no |
+
+## Run it locally
+
+```bash
+scripts/dev_db.sh up                                   # Postgres 17 + pgvector on 127.0.0.1:55435 (Colima)
+cp .env.example .env                                   # DATABASE_URL, APP_DATABASE_URL, APP_DB_PASSWORD
+uv sync
+uv run python -m contract_copilot.ingest               # 510 contracts → chunks, masking, embeddings (~15 min)
+uv run python -m contract_copilot.permissions          # app role, RLS policies, demo users, audit log, review queue
+uv run python -m contract_copilot.extract --split all  # key terms for every contract
+uv run uvicorn contract_copilot.api:app --port 8071
+cd web && npm install && npx next dev -p 3072          # http://localhost:3072, switch users at the top right
+```
+
+Evals: `eval_retrieval`, `eval_answers`, `eval_permissions`, `eval_pii`, `eval_extract`, `eval_portfolio` (each
+`uv run python -m contract_copilot.<name> --help`). Tests: `uv run pytest` (needs the database for the
+permission, audit, review and API suites).
+
+## Stack
+
+Python 3.12 · Postgres 17 (pgvector, full-text search, row-level security) · sentence-transformers
+(bge-small-en-v1.5, ms-marco cross-encoder) · Microsoft Presidio + spaCy · Claude · FastAPI · Next.js + Tailwind.
+
+## License
+
+MIT for the code. CUAD is CC BY 4.0 (The Atticus Project).

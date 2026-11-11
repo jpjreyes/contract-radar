@@ -219,4 +219,44 @@ or overturn a decision are added to the entry.
   reviewer flag AND contract access), stamped with who/when and written to the audit log with old and new value;
   a re-extraction never overwrites a reviewed field. Reviewers: legal_admin, maria (her contracts only). Tested:
   kenji (not a reviewer) and maria on a Marketing contract are refused; the app role can't UPDATE fields.
-- **Cost/speed (Haiku via CLI):** ~15 s per contract per model call, 5 in parallel; 95 contracts in 6 min.
+- **Held-out test (415 contracts never used for tuning, 5,395 fields), run once with the frozen pipeline:**
+  field accuracy **0.860** (dev 0.849); **auto-accepted precision 0.970** (target ≥ 0.95) with 69.5% of fields
+  sent to review. Per trusted field: governing law 0.976, renewal notice 0.987, renewal term 0.98, cap on
+  liability 0.978, non-compete 0.951, exclusivity 0.924 (the one trusted field under 95% on test → candidate to
+  drop from TRUSTED). Weakest presence F1: minimum commitment 0.48, uncapped liability 0.65 (both review-only).
+  Alternatives on test: "high, ignore checks" 0.94 / 39% review; "high or medium + checks" 0.879 / 5.8%.
+- **Cost/speed (Haiku via CLI):** ~15–20 s per contract per model call, 5 in parallel; 415 contracts in ~25 min.
+
+## D12. Portfolio questions: the model plans a filter, SQL finds the contracts
+- **Why not RAG:** "which contracts auto-renew with < 60 days' notice?" needs every match out of 510; retrieval returns
+  the top 8 passages. Measured on 10 of the 40 questions: plain RAG (the cited-answer pipeline over the whole
+  portfolio) F1 **0.15** vs. **0.90** for filters on the same questions.
+- **Design (`portfolio.py`):** the model only plans: conditions over the 13 extracted fields + contract type
+  (present / absent / contains / ≤ / ≥ / before / after), or "unsupported" with a reason. Code compiles them to SQL
+  with every value a bound parameter (tested with an injection string), runs it as the user (RLS), and returns each
+  match with the value, quote, offsets and review status behind every condition, plus how many matches rest on
+  unreviewed values. No conditions → no rows (never "everything"). Each query is audited.
+- **Eval (`eval_portfolio.py`, 40 questions written with their intended filter; gold = that filter on the lawyers'
+  labels, all 510 contracts, asked as legal_admin):** planner **40/40** (its plan on the gold labels gives exactly
+  the gold set); end-to-end set F1 **0.84** (precision 0.84, recall 0.86); with the gold plan on the extracted
+  fields also 0.84 → **all remaining error is extraction**, none is planning. Exact set match 4/40: one wrong field in
+  510 breaks it, so F1 is the meaningful number (the spec's "exact ≥ 85%" target was unrealistic). Note: the 510
+  include the 95 dev contracts the extraction prompts were tuned on.
+- **Lever:** reviewed fields feed the same SQL, so the review queue is how a client raises this number; the UI shows
+  "N matches rest on values nobody has reviewed yet" next to every answer.
+
+## D13. API and web app: identity at the edge, every decision in Postgres
+- **API (`api.py`, FastAPI):** every endpoint opens a connection as the app role and runs inside `as_user` (the
+  transaction-scoped `app.user`), so the list of contracts, the text (masked or not), the fields and the review rights
+  all come from row-level security, column grants and SECURITY DEFINER functions, never from Python checks. A
+  contract that's missing or forbidden returns the same 404.
+- **Identity for the demo:** an `X-User` header chosen with a user switcher. In a deployment the header is replaced by
+  the identity provider's verified token (e.g. Cognito / OIDC → `app.user`); nothing else changes, which is the point
+  of keeping the decisions in the database.
+- **Web (`web/`, Next.js + Tailwind, shared design tokens with their own brand color):** Ask (whole portfolio or one
+  contract), Contracts (only what RLS returns), a contract viewer (masked personal data as labelled pills; a citation
+  or a key term highlights its exact characters in the original, mapped through the chunk's mask offsets), and the
+  review queue (Accept / Edit / Not in contract for reviewers; read-only otherwise). The browser calls `/api`, which
+  Next rewrites to the FastAPI service (one origin, no CORS).
+- **Tests (`test_api.py`):** unknown user 401, each user's contract count (510 / 50 / 46), the same contract masked for
+  the analyst and revealed for legal_admin, 404 for maria, review refused (403) for kenji.
