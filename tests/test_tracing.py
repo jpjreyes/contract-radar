@@ -37,7 +37,7 @@ def test_one_question_produces_the_expected_span_tree_without_content(exporter):
     from contract_copilot.tracing import TracedBackend
     exporter.clear()
     secret_question = "Who signed for Kiromic and what is the termination notice period?"
-    a, audit_id = ask("analyst", secret_question, backend=TracedBackend(FakeModel(), "fake"))
+    _a, audit_id = ask("analyst", secret_question, backend=TracedBackend(FakeModel(), "fake"))
     spans = {s.name: s for s in exporter.get_finished_spans()}
     assert {"ask", "retrieve", "rerank", "reveal", "llm", "verify_citations", "audit"} <= set(spans)
     root = spans["ask"]
