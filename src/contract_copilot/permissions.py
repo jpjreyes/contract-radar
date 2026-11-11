@@ -59,6 +59,14 @@ ALTER TABLE chunks FORCE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS read_contracts ON contracts;
 CREATE POLICY read_contracts ON contracts FOR SELECT TO {role} USING (can_read(region, business_unit));
 
+-- The SECURITY DEFINER functions (reveal, review_field, can_read) run as the role that ran this setup. On a managed
+-- Postgres that role is NOT a superuser, so FORCE ROW LEVEL SECURITY applies to it too; without these policies the
+-- functions would silently see no rows. They check permissions themselves, so the owner may read and write.
+DROP POLICY IF EXISTS owner_all ON contracts;
+CREATE POLICY owner_all ON contracts FOR ALL TO CURRENT_USER USING (true) WITH CHECK (true);
+DROP POLICY IF EXISTS owner_all ON chunks;
+CREATE POLICY owner_all ON chunks FOR ALL TO CURRENT_USER USING (true) WITH CHECK (true);
+
 DROP POLICY IF EXISTS read_chunks ON chunks;
 CREATE POLICY read_chunks ON chunks FOR SELECT TO {role}
     USING (EXISTS (SELECT 1 FROM contracts c WHERE c.id = chunks.contract_id));

@@ -1,12 +1,14 @@
 "use client";
 
+import { accessToken } from "./auth";
+
 export type Tone = "ok" | "warn" | "bad" | "neutral" | "brand" | "accent";
 
 export const CLIENT = "Northline Distribution";
 const KEY = "cc-user";
 export const DEFAULT_USER = "legal_admin";
 
-export type User = { name: string; description: string; pii_access: boolean; can_review: boolean };
+export type User = { name: string; description: string; pii_access: boolean; can_review: boolean; auth?: string };
 
 export type ContractRow = {
   id: number; name: string; type: string; region: string; business_unit: string;
@@ -61,9 +63,11 @@ export function setCurrentUser(name: string) {
 }
 
 export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
+  const token = await accessToken();  // Entra mode: a bearer token; demo mode: null → the X-User switcher
+  const identity: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : { "X-User": currentUser() };
   const res = await fetch(`/api${path}`, {
     ...init,
-    headers: { "Content-Type": "application/json", "X-User": currentUser(), ...(init.headers ?? {}) },
+    headers: { "Content-Type": "application/json", ...identity, ...(init.headers ?? {}) },
     cache: "no-store",
   });
   if (!res.ok) {

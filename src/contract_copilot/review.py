@@ -25,6 +25,8 @@ ALTER TABLE app_users ADD COLUMN IF NOT EXISTS can_review boolean NOT NULL DEFAU
 
 ALTER TABLE fields ENABLE ROW LEVEL SECURITY;
 ALTER TABLE fields FORCE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS owner_all ON fields;  -- see permissions.py: definer functions on a non-superuser owner
+CREATE POLICY owner_all ON fields FOR ALL TO CURRENT_USER USING (true) WITH CHECK (true);
 DROP POLICY IF EXISTS read_fields ON fields;
 CREATE POLICY read_fields ON fields FOR SELECT TO {role}
     USING (EXISTS (SELECT 1 FROM contracts c WHERE c.id = fields.contract_id));

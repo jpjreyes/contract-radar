@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ShieldCheck, UserRound } from "lucide-react";
 import { api, currentUser, setCurrentUser, type User } from "@/lib/api";
+import { AUTH_MODE, account, signOut } from "@/lib/auth";
 import { Logo } from "./ui";
 
 const LINKS = [
@@ -29,10 +30,15 @@ export function Nav() {
   const path = usePathname();
   const user = useUser();
   const [users, setUsers] = useState<User[]>([]);
+  const [me, setMe] = useState<User | null>(null);
+  const [signedInAs, setSignedInAs] = useState("");
   useEffect(() => {
-    api<User[]>("/users").then(setUsers).catch(() => setUsers([]));
+    if (AUTH_MODE === "demo") api<User[]>("/users").then(setUsers).catch(() => setUsers([]));
+    else account().then((a) => setSignedInAs(a?.username ?? ""));
   }, []);
-  const me = users.find((u) => u.name === user);
+  useEffect(() => {
+    api<User>("/me").then(setMe).catch(() => setMe(null));
+  }, [user]);
   const active = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-background/85 backdrop-blur">
@@ -49,6 +55,13 @@ export function Nav() {
             </Link>
           ))}
         </nav>
+        {AUTH_MODE !== "demo" ? (
+          <div className="ml-auto flex items-center gap-2 rounded-full border border-line bg-surface py-1 pl-3 pr-1 text-xs text-muted">
+            <UserRound className="size-3.5" />
+            <span className="max-w-48 truncate">{signedInAs || "signing in…"}</span>
+            <button onClick={() => signOut()} className="rounded-full bg-surface-2 px-2 py-1 font-medium text-foreground">Sign out</button>
+          </div>
+        ) : (
         <label className="ml-auto flex items-center gap-2 rounded-full border border-line bg-surface py-1 pl-3 pr-1 text-xs text-muted">
           <UserRound className="size-3.5" />
           <span className="hidden md:inline">Signed in as</span>
@@ -59,6 +72,7 @@ export function Nav() {
             ))}
           </select>
         </label>
+        )}
       </div>
       {me && (
         <div className="border-t border-line bg-surface-2/60">

@@ -83,6 +83,16 @@ def radar(as_of: str | None = None, days: int = 90, who: str = Depends(user),
         return radar_compute(db, when, max(1, min(days, 365)))
 
 
+@app.get("/me")
+def me(who: str = Depends(user)) -> dict:
+    """The caller's role, whichever way they signed in (demo switcher or Entra ID)."""
+    for n, d, _, _, _, pii in USERS:
+        if n == who:
+            return {"name": n, "description": d, "pii_access": pii, "can_review": n in review_mod.REVIEWERS,
+                    "auth": auth.mode()}
+    raise HTTPException(401, "unknown user")
+
+
 @app.get("/users")
 def users() -> list[dict]:
     return [{"name": n, "description": d, "pii_access": pii, "can_review": n in review_mod.REVIEWERS}

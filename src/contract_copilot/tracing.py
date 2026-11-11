@@ -12,7 +12,8 @@ OTLP backend can receive them. Tracing is off unless an endpoint is configured, 
 cost and timing but no contract text or questions (a trace store must not become an unmasked copy of the data).
 CC_TRACE_CONTENT=1 adds the question and the model's raw output, for local debugging only.
 
-Local viewer:  uvx --from arize-phoenix phoenix serve      (UI on http://localhost:6006)
+Local viewer:  uvx --python 3.12 --from "arize-phoenix==21.0.0" phoenix serve   (UI on http://localhost:6006)
+Azure:         APPLICATIONINSIGHTS_CONNECTION_STRING (set by infra/azure) sends the same spans to Application Insights
 Then:          CC_TRACE_ENDPOINT=http://localhost:6006/v1/traces uv run uvicorn contract_copilot.api:app --port 8071
 """
 
@@ -35,14 +36,19 @@ def setup(service: str = "contract-copilot") -> bool:
     """Install an OTLP exporter if CC_TRACE_ENDPOINT (or the standard OTEL variable) is set. Idempotent."""
     global _configured
     endpoint = os.environ.get("CC_TRACE_ENDPOINT") or os.environ.get("OTEL_EXPORTER_OTLP_TRACES_ENDPOINT")
-    if _configured or not endpoint:
+    azure = os.environ.get("APPLICATIONINSIGHTS_CONNECTION_STRING")
+    if _configured or not (endpoint or azure):
         return _configured
-    from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
     from opentelemetry.sdk.resources import Resource
     from opentelemetry.sdk.trace import TracerProvider
     from opentelemetry.sdk.trace.export import BatchSpanProcessor
     provider = TracerProvider(resource=Resource.create({"service.name": service}))
-    provider.add_span_processor(BatchSpanProcessor(OTLPSpanExporter(endpoint=endpoint)))
+    if endpoint:  # any OTLP backend (Arize Phoenix locally)
+        from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+        provider.add_span_processor(BatchSpanProcessor(OTLPSpanExporter(endpoint=endpoint)))
+    if azure:  # Azure deployment: the same spans to Application Insights
+        from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
+        provider.add_span_processor(BatchSpanProcessor(AzureMonitorTraceExporter(connection_string=azure)))
     trace.set_tracer_provider(provider)
     _configured = True
     return True
