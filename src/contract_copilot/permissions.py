@@ -128,7 +128,9 @@ def main() -> None:
     admin = connect()
     setup(admin, pw)
     audit.setup(admin, APP_ROLE)
-    print(f"role {APP_ROLE} + RLS policies + {len(USERS)} demo users + audit log ready")
+    from contract_copilot import review  # after audit: review_field() writes audit entries
+    review.setup(admin, APP_ROLE)
+    print(f"role {APP_ROLE} + RLS policies + {len(USERS)} demo users + audit log + review queue ready")
 
 
 if __name__ == "__main__":

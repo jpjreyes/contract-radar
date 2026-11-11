@@ -185,3 +185,38 @@ or overturn a decision are added to the entry.
   same way front-matter fields route the first 3 (D6): signature blocks share no words with "who signed".
   Demo, same question, same contract: the analyst sees "/s/ [PERSON_2] … [PERSON_1]", legal_admin sees the names;
   both cite identical character offsets in the original. Not yet measured as an eval.
+
+## D11. Field extraction: CUAD's definitions, code-side checks, per-field trust for auto-accept
+- **Constraints:** C1 (every value has a verified quote), C5 (doubtful values go to a person).
+- **13 fields** (CUAD categories): parties, agreement / effective / expiration date, renewal term, notice to stop
+  renewal (days), governing law, termination for convenience, exclusivity, non-compete, cap on liability, uncapped
+  liability, minimum commitment.
+- **Pipeline (`extract.py`):** per field, a contract-scoped planned search (D6, pool 20, top 3) → union of passages
+  (≤ 24, masked text: extraction never handles personal data) → ONE model call fills all 13 (value, exact quote,
+  source id, high/medium/low). Code then locates each quote in its cited passage (offsets map to the original),
+  and runs validators: ISO dates in range, expiration ≥ effective, notice 1–365 days, a known jurisdiction, ≥ 2
+  parties, and a contradiction check (value "None; non-exclusive" but marked present).
+- **Definitions = the labeling guideline.** v1 prompts used my own field descriptions; v2 uses CUAD's own category
+  definitions (what the lawyers labeled against). Dev (95 contracts, 1,235 fields):
+
+| | v1 (own wording) | v2 (CUAD definitions + contradiction check) |
+|---|---|---|
+| Field accuracy | 0.824 | 0.849 |
+| Cap on liability F1 | 0.667 (recall 0.50) | 0.899 |
+| Exclusivity F1 | 0.711 | 0.806 |
+| Auto-accepted precision (high + checks) | 0.909 | 0.940 |
+| Sent to review | 38% | 42% |
+
+  Regressions in v2: minimum commitment recall 0.68 → 0.32 ("a fixed fee is not a commitment" overcorrected),
+  non-compete F1 0.64 → 0.39. Not tuned further on dev (overfitting risk); both stay review-only.
+- **Routing = a measured, per-field choice.** The model's "high" is not calibrated equally across fields, so only
+  fields whose auto-accepted precision on dev was ≥ 95% may auto-accept (`TRUSTED`: renewal term, renewal notice,
+  governing law, exclusivity, non-compete, cap on liability); dates, parties, termination for convenience,
+  uncapped liability and minimum commitment always go to a person. Dev, in-sample: auto-accept precision 0.981 with
+  70% of fields to review, vs. 0.940 / 42% for "any field, high + checks". The trade-off (precision promise vs.
+  reviewer load) is the client's call; every review item arrives with its quote highlighted.
+- **Review queue (`review.py`):** fields follow contract RLS; changes only via `review_field()` (SECURITY DEFINER:
+  reviewer flag AND contract access), stamped with who/when and written to the audit log with old and new value;
+  a re-extraction never overwrites a reviewed field. Reviewers: legal_admin, maria (her contracts only). Tested:
+  kenji (not a reviewer) and maria on a Marketing contract are refused; the app role can't UPDATE fields.
+- **Cost/speed (Haiku via CLI):** ~15 s per contract per model call, 5 in parallel; 95 contracts in 6 min.
