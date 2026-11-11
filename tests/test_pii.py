@@ -67,3 +67,35 @@ def test_offset_map_round_trips_to_the_original(spans):
 def test_section_numbers_and_prose_are_not_contacts():
     text = "See Section 16 8.4 and 8.5. The parties agree that one clause shall in no way limit another."
     assert pii.detect(text) == []
+
+
+V3 = """Inventors     Chen, Suzanne; & Kim, Jae-Hyeong; &  Lu, Chungji (Jay)        2007-0266286
+Marketing Contact: Name: BaoQing (Angel) Song
+If to OntoChem: OntoChem GmbH Blücherstr. 24, D-06120 Halle (Saale) Germany
+IMG Center, Suite 100, 1360 East 9th Street, Cleveland, Ohio 44114
+Attn: Alistair Hancock Attn: Andrew Kirby  Rubicon House  Guildford Road  West End, Surrey GU24 9PW
+By: By: Jimmy Wayne Anderson Timothy Cabrera Its: Chairman
+Confidential Page 5 of 7 Initials: CL MD Version 3
+Governed by the laws of the State of Delaware, Inc. and Section 5, Article 3; the Company shall pay."""
+
+
+def test_v3_lists_nicknames_initials_and_repeated_labels():
+    people = found(pii.detect(V3), "PERSON")
+    assert {"Chen, Suzanne", "Kim, Jae-Hyeong", "Lu, Chungji (Jay)", "BaoQing (Angel) Song", "Alistair Hancock",
+            "Andrew Kirby", "Jimmy Wayne Anderson", "CL MD"} <= people
+    assert not any(w in " ".join(people) for w in ("Delaware", "Section", "Article", "Attn"))
+
+
+def test_v3_addresses_european_leading_unit_and_uk_postcode():
+    addresses = found(pii.detect(V3), "ADDRESS")
+    assert "Blücherstr. 24" in addresses
+    assert "Suite 100, 1360 East 9th Street" in addresses
+    assert {"Rubicon House", "Guildford Road"} <= addresses
+    assert not any("Halle" in a or "Surrey" in a for a in addresses)  # city and county stay visible
+
+
+
+def test_v3_firms_and_places_are_not_surname_lists():
+    text = ("copies to:   Morgan, Lewis & Bockius LLP 1111 Pennsylvania Avenue\n"
+            "Required Signature:           Seattle, Washington  98104\n")
+    assert not found(pii.detect(text), "PERSON") & {"Morgan, Lewis", "Seattle, Washington"}

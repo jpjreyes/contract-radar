@@ -410,3 +410,35 @@ or overturn a decision are added to the entry.
 - **Cost:** the small model adds ~0.5 s per contract on a laptop GPU and $0; the LLM prompt grows by ≤ 4 passages.
 - **Still weak:** uncapped liability precision 0.67 (the model over-reads carve-outs), minimum commitment 0.71,
   expiration dates (value right 87%): all stay review-only.
+
+## D19. Personal-data detector v3, measured on a fresh sample
+- **Why:** D9's misses on test2 were "Surname, Given" lists (inventor tables), non-US and suite-first addresses,
+  repeated labels ("By: By: Jimmy Wayne Anderson"), nicknames ("BaoQing (Angel) Song") and initials blocks
+  ("Initials: CL MD"). test2 had been inspected, so a **fresh test3** (120 chunks, 60 likely-PII + 60 random,
+  183 items, labeled by Sonnet before any v3 code was written) is the reported number.
+- **v3 rules:** surname-first names only inside a list (a ';' / '&' / column gap before and after) and never when a
+  zip/postcode or a firm suffix follows ("Morgan, Lewis & Bockius LLP", "Seattle, Washington 98104"); nicknames
+  inside names; label words can't be swallowed into a name; two signature columns run together are cut to the first
+  name; initials after "Initials:"; addresses with a leading suite, compound directions ("Drive Northwest"), "Box",
+  street-then-number (Germany, Netherlands, Nordics), and UK building/road names only when a UK postcode follows.
+- **Tried and dropped: a corpus-wide name registry** (names found in one contract masked in all others). Zero recall
+  gain on dev, test and test2, precision 0.955 → 0.892 on test: it spread junk ("Governing Law", "Signature Page",
+  "Chief Operating") that the per-contract checks let through. Removed.
+
+| Detector, recall / precision | v2 (D9) | v3 |
+|---|---|---|
+| dev (tuned on) | 0.956 / 0.994 | 0.967 / 0.994 |
+| test (inspected) | 0.926 / 0.965 | 0.960 / 0.970 |
+| test2 (inspected for v3) | 0.831 / 0.936 | 0.965 / 0.951 |
+| **test3 (fresh, reported)** | **0.902 / 0.944** | **0.907 / 0.944** |
+
+- **Reading it honestly:** v3 fixes the patterns it was written for (test2 +0.13) and costs nothing elsewhere, but on
+  fresh data it adds one address. The fresh sample also shows v2 was better than test2 suggested (0.90, not 0.83):
+  single samples of ~120 chunks swing by several points. Remaining misses on test3: international addresses (Hong
+  Kong, Osaka, Lima, UK building names), names in unlabeled table columns, "van der" particles; false positives:
+  company names used alone ("Miltenyi", "Corio's"), signature formulas ("THUS DONE AND SIGNED").
+- **Enforcement is what protects users, not detector recall:** re-masked all 510 contracts with v3 (222 chunks
+  changed and were re-embedded), then re-ran both enforcement evals: **0 personal-data leaks in 4,841 served texts**
+  and **0 permission leaks in 2,129 returned chunks**. A missed name is still only visible to users who can read that
+  contract. The exposure probe also lists masked values that appear unmasked elsewhere: mostly detector false
+  positives that cost readability, not privacy ("Governing Law" or "ARTICLE XIII" masked as a person in one contract).

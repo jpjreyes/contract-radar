@@ -228,7 +228,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     d = sub.add_parser("detector")
-    d.add_argument("--split", default="dev", choices=["dev", "test", "test2", "all"])
+    d.add_argument("--split", default="dev", choices=["dev", "test", "test2", "test3", "all"])
     d.add_argument("--show", type=int, default=0)
     e = sub.add_parser("exposure")
     e.add_argument("--per-user", type=int, default=25)

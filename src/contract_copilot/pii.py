@@ -19,7 +19,7 @@ import re
 from dataclasses import dataclass
 from functools import lru_cache
 
-PII_VERSION = 2  # v2: field labels cut from model-found names too ("Mario Cibelli Email")
+PII_VERSION = 3  # v3: "Surname, Given" lists, nicknames, initials, repeated labels, more address shapes
 TYPES = ("PERSON", "EMAIL", "PHONE", "ADDRESS")
 PRIORITY = {"EMAIL": 0, "PHONE": 1, "ADDRESS": 2, "PERSON": 3}  # when spans overlap, the more specific type wins
 
@@ -34,21 +34,39 @@ class Span:
 
 # ---------------------------------------------------------------- recognizers
 
-_NAME = r"(?:[A-Z][a-zA-Z'\-]+|[A-Z]\.)(?:[ \t]+(?:[A-Z][a-zA-Z'\-]+|[A-Z]\.|[A-Z][a-z]?\.|de|van|von|da|del|la)){1,4}"
-FIELD = re.compile(r"(?:\bName|\bAttn|\bAttention|/s/|\bBy|\bContact)[ \t]*[:.]?[ \t]*(?:/s/[ \t]*)?(?P<name>"
-                   + _NAME + r")")
+_NAME = (r"(?:[A-Z][a-zA-Z'\-]+|[A-Z]\.)(?:[ \t]+(?!(?:Attn|Attention|Name|By|Title|Its)\b)(?:[A-Z][a-zA-Z'\-]+|[A-Z]\.|[A-Z][a-z]?\.|\([A-Z][a-z]+\)|de|van|von|da|"
+         r"del|la)){1,4}")  # "\(Angel\)": a nickname inside the name ("BaoQing (Angel) Song")
+_LABEL = r"(?:\bName|\bAttn|\bAttention|/s/|\bBy|\bContact)[ \t]*[:.]?[ \t]*"
+FIELD = re.compile(r"(?:" + _LABEL + r")+(?:/s/[ \t]*)?(?P<name>" + _NAME + r")")  # "By: By: Jimmy Wayne Anderson"
+# "Chen, Suzanne; & Kim, Jae-Hyeong; & Lu, Chungji (Jay)": inventor/employee lists written surname first. Only inside a
+# list (a ';' or '&' or a table column gap right before, and ';' / '&' / a gap right after), so "Delaware, Inc." or "Section, Article" never qualify.
+_WORD = r"[A-Z][a-z]+(?:-[ ]?[A-Z]?[a-z]+)?"
+SURNAME_GIVEN = re.compile(r"(?:(?<=;)|(?<=&)|(?<=^)|(?<=[ \t]{2}))[ \t]*(?P<name>" + _WORD + r",[ \t]+(?:(?:[A-Z]\.){1,3}[ \t]*)?"
+                           + _WORD + r"(?:[ \t]+\([A-Z][a-z]+\))?)(?=[ \t]*(?:;|&|$|[ \t]{2,}|\n))", re.MULTILINE)
+NOT_A_LIST_NAME = re.compile(r"[ \t]*(?:\d{5}|[A-Z]{1,2}\d[A-Z\d]?[ \t]?\d[A-Z]{2}\b|&[^\n]{0,40}?\b(?:LLP|LLC|Inc|Co|"
+                             r"L\.L\.P|P\.C|P\.A|Ltd)\b)", re.IGNORECASE)  # a zip/postcode or a firm name follows
+INITIALS = re.compile(r"\bInitials:[ \t]*(?:/s/[ \t]*)?(?P<name>[A-Z]{2,3}(?:[ \t]+[A-Z]{2,3})?)\b")
 _SUFFIXES = ("Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Drive|Dr|Lane|Ln|Way|Court|Ct|Place|Pl|Parkway|Pkwy|"
              "Highway|Hwy|Plaza|Circle|Cir|Square|Sq|Terrace|Trail|Turnpike|Pike|Center|Centre|Expressway|Freeway|"
              "Park|Broadway|Row|Walk|Crescent|Loop|Alley|Mall|Quay|Wharf")
 _SUFFIX = _SUFFIXES + "|" + _SUFFIXES.upper()  # case-sensitive: "one clause shall in no way" is not an address
 _NUMBER = r"(?:\b\d{1,6}(?:-?[A-Z]|[-/]\d{1,4})?|\b(?:One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten)|\bNo\.[ \t]*\d{1,6})"
-_UNIT = (r"(?:,?[ \t]+(?:(?i:Suite|Ste\.?|Floor|Fl\.?|Unit|Room|Rm\.?|Building|Bldg\.?)[ \t]*#?[\w\-]+"
+_UNIT = (r"(?:,?[ \t]+(?:(?i:Suite|Ste\.?|Floor|Fl\.?|Unit|Room|Rm\.?|Building|Bldg\.?|Box)[ \t]*#?[\w\-]+"
          r"|#[ \t]*[\w\-]+|\d{1,3}(?:st|nd|rd|th)[ \t]+Floor|P\.?O\.?B\.?[ \t]*\d+))")
+_LEAD_UNIT = r"(?:(?:Suite|Floor|Unit|Room)[ \t]+#?\w+,[ \t]+)?"  # "Suite 100, 1360 East 9th Street"
 ADDRESS = re.compile(
-    _NUMBER + r"[ \t]+(?:(?:[NSEW]|North|South|East|West|NE|NW|SE|SW)\.?[ \t]+)?"
+    _LEAD_UNIT + _NUMBER + r"[ \t]+(?:(?:[NSEW]|North|South|East|West|NE|NW|SE|SW)\.?[ \t]+)?"
     r"(?:Avenue[ \t]+of[ \t]+the[ \t]+[A-Z]\w+|(?:[A-Z0-9][\w'.\-]*[ \t]+){0,4}(?:" + _SUFFIX + r")\b\.?)"
-    r"(?:,?[ \t]+(?:North|South|East|West|N\.?W\.?|N\.?E\.?|S\.?W\.?|S\.?E\.?)(?!\w))?" + _UNIT + r"{0,2}"
+    r"(?:,?[ \t]+(?:Northwest|Northeast|Southwest|Southeast|North|South|East|West|N\.?W\.?|N\.?E\.?|S\.?W\.?|"
+    r"S\.?E\.?)(?!\w))?" + _UNIT + r"{0,2}"
     r"|\b(?i:(?:P\.?[ \t]?O\.?|Post Office)[ \t]+Box[ \t]+\d+|P\.?O\.?B\.?[ \t]*\d+)")
+# street name first, number after (Germany, Netherlands, Nordics, Cyprus...): "Blücherstr. 24", "Keizersgracht 123"
+EURO_STREET = re.compile(r"\b[A-ZÄÖÜ][\wäöüßéè\-]*(?:str\.|straße|strasse|weg|platz|gasse|allee|ring|damm|laan|gracht|plein|"
+                         r"vej|gatan|gade)[ \t]+\d{1,4}[a-z]?\b")
+# UK and Commonwealth addresses often have no building number ("Rubicon House", "Guildford Road"): a building or road
+# name counts only when a UK-style postcode follows within the same address block.
+UK_NAMED = re.compile(r"\b((?:[A-Z][\w'\-]+ ){1,3}(?:House|Road|Avenue|Street|Lane|Court|Way|Park|Centre|Building|"
+                      r"Tower|Square|Place))\b(?=[^\n]{0,90}?\b[A-Z]{1,2}\d[A-Z\d]?[ \t]?\d[A-Z]{2}\b)")
 EMAIL = re.compile(r"[\w.+\-]+@[\w\-]+(?:\.[\w\-]+)+")
 PHONE = re.compile(r"(?<![\w$.])(?:\+?1[ .\-]?)?\(?\d{3}\)?[ .\-]\d{3}[ .\-]\d{4}(?:[ \t]*(?:x|ext\.?)[ \t]*\d{1,5})?"
                    r"|\+[ \t]?\d{1,3}[ .\-]?(?:\(?\d{1,4}\)?[ .\-]?){2,4}\d{2,4}(?![\w])")
@@ -68,7 +86,8 @@ TITLE_WORDS = {"president", "chief", "officer", "executive", "director", "manage
                "authorized", "print", "printed", "signatory", "witness", "signature", "member", "partner", "ceo",
                "cfo", "coo", "cto", "evp", "svp", "vp", "head", "legal", "the", "and", "of", "for", "to", "at", "in",
                "on", "with", "esq", "department", "dept", "office", "team", "whereof", "notice", "notices",
-               "address", "addresses", "contact", "approved"}
+               "address", "addresses", "contact", "approved", "attn", "negotiator", "administrator", "coordinator",
+               "area", "land", "initials"}
 SUFFIX_RE = re.compile(r",?[ \t]+(?:Jr|Sr|II|III|IV|Esq|M\.D|Ph\.D)\.?(?![\w])")
 
 
@@ -158,13 +177,34 @@ def detect(text: str) -> list[Span]:
                 found.append(Span(m.start(), m.end(), kind, m.group()))
     for m in FIELD.finditer(text):
         trimmed = _trim_name(text, m.start("name"), m.end("name"))
+        while trimmed and len(text[slice(*trimmed)].split()) > 4:  # "Jimmy Wayne Anderson Timothy Cabrera": two
+            words = text[slice(*trimmed)].split()                  # signature columns run together; keep the first
+            trimmed = (trimmed[0], trimmed[0] + text[trimmed[0]:trimmed[1]].find(words[3]) - 1)
+            trimmed = _clean(text, *trimmed)
         if trimmed and len(text[trimmed[0]:trimmed[1]].split()) >= 2 and plausible_person(text[slice(*trimmed)], ctx):
             found.append(Span(*trimmed, "PERSON", text[slice(*trimmed)]))
+    for m in SURNAME_GIVEN.finditer(text):
+        name, after = m.group("name"), text[m.end():m.end() + 60]
+        flat = re.sub(r"[,()]", " ", name)
+        if NOT_A_LIST_NAME.match(after):  # "Morgan, Lewis & Bockius LLP", "Seattle, Washington  98104"
+            continue
+        if plausible_person(flat, ctx) and not any(w.lower() in ctx.lower_words for w in flat.split()[:1]):
+            found.append(Span(m.start("name"), m.end("name"), "PERSON", name))
+    for m in INITIALS.finditer(text):
+        found.append(Span(m.start("name"), m.end("name"), "PERSON", m.group("name")))
+    for m in EURO_STREET.finditer(text):
+        found.append(Span(m.start(), m.end(), "ADDRESS", m.group()))
+    for m in UK_NAMED.finditer(text):
+        s, e = m.span(1)
+        while not ORG_WORDS.search(text[s:e]) is None and " " in text[s:e]:  # "Limited Glaxo Wellcome House"
+            s = text.index(" ", s) + 1
+        if not ORG_WORDS.search(text[s:e]):
+            found.append(Span(s, e, "ADDRESS", text[s:e]))
     found = [_with_suffix(text, sp) for sp in found]
     return merge(text, _propagate(text, found, ctx))
 
 
-LABEL_CUT = re.compile(r"[ \t]{2,}|\n|,|[ \t]+(?:Title|Its|Date|Dated|Name|By|Address|Telephone|Phone|Fax|Email|"
+LABEL_CUT = re.compile(r"[ \t]{2,}|\n|,|[ \t]+(?:Title|Its|Date|Dated|Name|By|Attn|Attention|Address|Telephone|Phone|Fax|Email|"
                        r"E-mail|Print|Office|Mobile|Tel|Facsimile)\b")
 
 
@@ -291,3 +331,4 @@ def mask_value_strings(text: str, spans: list[Span], toks: list[str]) -> str:
         if len(value) > 3:
             text = re.sub(re.escape(value), tok, text, flags=re.IGNORECASE)
     return text
+
