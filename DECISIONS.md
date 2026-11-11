@@ -344,6 +344,7 @@ or overturn a decision are added to the entry.
 | Mean presence F1 over 13 fields (eval half) | small model alone | LLM alone | cascade | LLM calls avoided |
 |---|---|---|---|---|
 | trained on lawyer labels | 0.779 | 0.843 | **0.858** | **31%** |
+| trained on lawyer labels, second run (same setup; this is the saved model) | 0.765 | 0.843 | 0.850 | 32% |
 | trained on the LLM's own answers (no human labels) | 0.723 | 0.843 | 0.846 | 26% |
 
 - **Where the small model wins:** minimum commitment (**0.736 vs the LLM's 0.531**), exclusivity (0.761 vs 0.747),
@@ -354,7 +355,55 @@ or overturn a decision are added to the entry.
   skipped with no loss in F1 (+0.015); (2) the lawyer-label model finds clauses the search misses, so it now feeds
   extraction's sources for the weakest fields (D18). Gold beats LLM labels by 0.056 on the small model alone; with
   no labeled data, distillation from the LLM still gets a cascade at the LLM's level.
-- **Known limits:** one training run per label source (no seed variance reported); the eval half is 217 contracts,
+- **Run-to-run variance:** two identical lawyer-label runs differ by 0.014 (small model) and 0.008 (cascade), so
+  differences below ~0.01 are noise; the cascade beats the LLM in both runs.
+- **Known limits:** two runs for lawyer labels, one for LLM labels; the eval half is 217 contracts,
   so fields with < 60 positives move a few points between runs; presence only (values and quotes stay with the LLM).
 - Run: `uv run python -m contract_copilot.distill --labels gold|llm --epochs 2` (progress every 50 steps); results in
   `runs/distill-*.json`; the trained model is saved to `data/models/m7-<labels>/` (not in git).
+
+## D18. Weak extraction fields: clearer definitions, the small model as a second retriever, and as a judge
+- **Diagnosis first (dev, 95 contracts):** for the weakest fields, was the lawyers' clause even among the passages
+  the model read? Minimum commitment 13/25, non-compete 7/14, termination for convenience 25/29, uncapped liability
+  22/22. Reading 6 passages per field instead of 3 adds 1 clause. So two different problems: **search misses** for
+  minimum commitment and non-compete; **judgment** for uncapped liability (16 false alarms, mostly "no cap is stated,
+  so the indemnity is uncapped": the lawyers only label it when the contract says so).
+- **Changes (each tried on dev only; test touched once at the end):**
+  1. Definitions: uncapped liability only when the contract says so (unlimited, or carved out of a cap); the absence
+     of a cap or an indemnity without a maximum is not. Minimum commitment includes minimum purchase, volume,
+     capacity and spend obligations, as the lawyers labeled it. (A termination-for-convenience rewording lost F1 on
+     dev and was reverted.)
+  2. **The M7 small model as a second retriever:** its 2 highest-scoring chunks for minimum commitment and
+     non-compete are added to the passages (tried for termination for convenience too: lost precision, removed).
+  3. **The small model decides presence for minimum commitment**, the one field where it beat the LLM on dev
+     (0.69 vs 0.50) and on the held-out half in both D17 runs; the LLM still reads values everywhere else. A
+     contract it flags gets the clause highlighted and goes to a person (the field never auto-accepts).
+
+| Dev (95 contracts), presence F1 | before | definitions | + small model retrieves | + small model decides (shipped) |
+|---|---|---|---|---|
+| minimum commitment | 0.457 | 0.571 | 0.500 | **0.691** |
+| non-compete | 0.385 | 0.480 | 0.645 | 0.563 |
+| uncapped liability | 0.690 | 0.840 | 0.846 | 0.840 |
+| termination for convenience | 0.754 | 0.697 | 0.687 | 0.746 |
+| field accuracy (13 fields) | 0.849 | 0.857 | 0.866 | 0.861 |
+| auto-accepted correct | — (trust rules came later) | 97.0% | 97.7% | **99.1%** |
+
+- **Test, run once (the reported number).** Headline on the 217 test contracts the small model never saw in any
+  form (its training used the other half's lawyer labels); all 415 below for continuity with D11:
+
+| Test | before (D11) | after (D18) |
+|---|---|---|
+| held-out half (217): field accuracy | 0.866 | **0.878** |
+| held-out half: minimum commitment F1 | 0.531 | **0.712** |
+| held-out half: uncapped liability F1 | 0.692 | **0.773** |
+| held-out half: non-compete F1 | 0.680 | **0.752** |
+| held-out half: exclusivity F1 | 0.747 | **0.832** |
+| held-out half: auto-accepted correct / sent to a person | 98.2% / 74.4% | **98.3% / 73.4%** |
+| all 415: field accuracy | 0.860 | 0.875 |
+| all 415: auto-accepted correct / sent to a person | 97.6% / 74.1% | 97.8% / 72.5% |
+
+- **Noise:** dev runs of the same configuration move single fields by up to ±0.1 (non-compete has 14 positives), so
+  only the held-out test numbers are reported; trusted fields stayed ≥ 95% precise on dev in the shipped setup.
+- **Cost:** the small model adds ~0.5 s per contract on a laptop GPU and $0; the LLM prompt grows by ≤ 4 passages.
+- **Still weak:** uncapped liability precision 0.67 (the model over-reads carve-outs), minimum commitment 0.71,
+  expiration dates (value right 87%): all stay review-only.

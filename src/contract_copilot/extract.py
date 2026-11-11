@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -29,7 +30,7 @@ import psycopg
 from contract_copilot.answer import locate
 from contract_copilot.db import connect
 from contract_copilot.llm import Backend, get_backend
-from contract_copilot.retrieve import Hit, search
+from contract_copilot.retrieve import Hit, by_ids, search
 from contract_copilot.serve import contract_offsets
 
 # name -> (CUAD category used for retrieval planning and the eval, what the model must return as `value`)
@@ -65,9 +66,14 @@ FIELDS: dict[str, tuple[str, str]] = {
                          "claims; value: the cap or limitation")),
     "uncapped_liability": ("Uncapped Liability", ("a party's liability is uncapped upon breach, including uncapped "
                            "liability for a particular type of breach such as IP infringement or breach of "
-                           "confidentiality (often listed as exceptions to the cap); value: what is uncapped")),
+                           "confidentiality (often listed as exceptions to the cap). Only when the contract SAYS so: "
+                           "it states liability is unlimited, or excludes a type of claim from a cap or limitation of "
+                           "liability. The absence of a cap, or an indemnity with no stated maximum, is NOT uncapped "
+                           "liability; value: what is uncapped")),
     "minimum_commitment": ("Minimum Commitment", ("a minimum order size, or minimum amount or units per time period, "
-                           "that one party must BUY from the counterparty (a fixed fee or price is NOT a minimum "
+                           "that one party must buy from the counterparty, including minimum purchase, volume, "
+                           "capacity or spend obligations ('not less than', 'at least', shortfall payments) and "
+                           "minimum quantities to deliver or perform (a fixed fee or price alone is NOT a minimum "
                            "commitment); value: the minimum")),
 }
 # Fields allowed to auto-accept: those whose auto-accepted precision on the DEV split was >= 95% (D11). The others
@@ -83,6 +89,14 @@ def spot_checked(contract_id: int, name: str) -> bool:
 NEGATIVE = re.compile(r"^\s*(?:none|no\b|not\b|n/a|non-exclusive|nonexclusive)", re.IGNORECASE)
 PER_FIELD_K = 3
 MAX_SOURCES = 24
+# Fields whose clause search misses most often (dev: minimum commitment 13/25 lawyer clauses reached the model, non-
+# compete 7/14; k=6 instead of 3 adds only 1): the small model's top chunks are added for them (D18). Termination for
+# convenience (25/29 reached) was tried too and lost precision on dev, so it's out.
+BOOST = ("minimum_commitment", "non_compete")
+BOOST_K = 2
+# Fields whose PRESENCE the small model decides instead of the LLM: it beat the LLM on dev (minimum commitment 0.69 vs
+# 0.50) and on the held-out half in both D17 runs. The value is then left to a person (these fields never auto-accept).
+SMALL_DECIDES = ("minimum_commitment",)
 
 US_STATES = {"alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware",
              "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana",
@@ -178,14 +192,26 @@ def validate(fields: dict[str, Field], contract_id: int | None = None) -> None:
         f.status = "auto_accepted" if trusted else "needs_review"
 
 
-def gather(conn: psycopg.Connection, contract_id: int) -> list[Hit]:
-    """Top passages per field (masked text), merged in first-seen order and capped."""
+def gather(conn: psycopg.Connection, contract_id: int,
+           boost: bool = os.environ.get("CC_EXTRACT_BOOST", "1") != "0") -> list[Hit]:
+    """Top passages per field (masked text), merged in first-seen order and capped; then, for the fields search
+    misses most, the chunks the small M7 model scores highest (D18), if that model is trained on this machine."""
     seen: dict[int, Hit] = {}
     for category, desc in FIELDS.values():
         for h in search(conn, f"{category}: {desc}", method="planned",
                         k=PER_FIELD_K, contract_id=contract_id, category=category, pool=20):
             seen.setdefault(h.chunk_id, h)
-    return sorted(list(seen.values())[:MAX_SOURCES], key=lambda h: h.start)
+    picked = list(seen.values())[:MAX_SOURCES]
+    from contract_copilot.distill import chunk_scores  # here, not at the top: distill imports FIELDS from here
+    scores = chunk_scores(conn, contract_id) if boost and BOOST else {}
+    if scores:
+        have, extra = {h.chunk_id for h in picked}, []
+        for name in BOOST:
+            for k in sorted(scores, key=lambda k: -scores[k][name])[:BOOST_K]:
+                if k not in have and k not in extra:
+                    extra.append(k)
+        picked += by_ids(conn, extra)
+    return sorted(picked, key=lambda h: h.start)
 
 
 def _prompt(hits: list[Hit]) -> str:
@@ -210,6 +236,26 @@ def extract(hits: list[Hit], backend: Backend) -> tuple[dict[str, Field], dict]:
     validate(fields, hits[0].contract_id if hits else None)
     return fields, {"tokens_in": res.input_tokens, "tokens_out": res.output_tokens, "seconds": round(res.latency_s, 1),
                     "model": res.model}
+
+
+def apply_small_model(conn: psycopg.Connection, contract_id: int, fields: dict[str, Field]) -> None:
+    """Presence of SMALL_DECIDES fields from the M7 model (D18); no-op if the model isn't trained on this machine."""
+    from contract_copilot.distill import chunk_scores, thresholds
+    scores, th = chunk_scores(conn, contract_id), thresholds()
+    if not scores or not th:
+        return
+    for name in SMALL_DECIDES:
+        top = max(scores, key=lambda k: scores[k][name])
+        present = scores[top][name] >= th[name]
+        f = fields[name]
+        if present and not f.present:
+            h = by_ids(conn, [top])[0]
+            fields[name] = Field(name, True, "", "", top, h.start, h.end, "medium",
+                                 ["found by the small model (D18): value and wording need a person"])
+        elif not present and f.present:
+            fields[name] = Field(name, False, "", "", None, None, None, f.confidence,
+                                 ["the LLM saw it, the small model didn't (D18)"])
+        fields[name].status = "needs_review"
 
 
 SETUP = """
@@ -266,6 +312,7 @@ def run(contract_ids: list[int], workers: int = 5, log: str | None = None) -> li
             rows.append({"contract_id": cid, "error": repr(e)[:200]})
             print(f"  {len(rows)}/{total} {names[cid][:45]:45} ERROR {repr(e)[:80]}", flush=True)
             return
+        apply_small_model(conn, cid, fields)
         save(conn, cid, fields, usage["model"])
         rows.append({"contract_id": cid, "sources": n_sources, **usage,
                      "fields": {n: asdict(f) for n, f in fields.items()}})

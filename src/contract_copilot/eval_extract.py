@@ -91,8 +91,12 @@ def value_ok(name: str, value: str, gold: str) -> bool | None:
     return None
 
 
-def run(split: str) -> dict:
+def run(split: str, subset: str | None = None) -> dict:
+    """subset="m7-eval": only the test contracts the M7 small model never saw (D17/D18), for head-to-head numbers
+    once the small model feeds extraction."""
     conn = connect()
+    if subset:
+        from contract_copilot.distill import m7_split
     gold = gold_rows()
     rows = conn.execute(
         "SELECT c.name, f.name, f.present, f.value, f.confidence, f.status, f.issues FROM fields f "
@@ -102,6 +106,8 @@ def run(split: str) -> dict:
     contracts = set()
     for cname, fname, present, value, conf, status, issues in rows:
         if split != "all" and split_of(cname) != split:
+            continue
+        if subset and m7_split(cname) != "eval":
             continue
         g = gold.get(cuad._norm(cname))
         if g is None:
@@ -151,10 +157,10 @@ def run(split: str) -> dict:
         acc = [r for r in records if accept(r)]
         routing[label] = {"auto_accept_precision": round(sum(r["correct"] for r in acc) / max(1, len(acc)), 3),
                           "sent_to_review": round(1 - len(acc) / max(1, len(records)), 3)}
-    report = {"split": split, "contracts": len(contracts), "fields": len(records),
+    report = {"split": split, "subset": subset, "contracts": len(contracts), "fields": len(records),
               "overall_accuracy": round(sum(r["correct"] for r in records) / max(1, len(records)), 3),
               "by_field": table, "routing": routing}
-    print(f"split={split} contracts={len(contracts)} fields={len(records)} accuracy={report['overall_accuracy']}")
+    print(f"split={split} subset={subset} contracts={len(contracts)} fields={len(records)} accuracy={report['overall_accuracy']}")
     print(f"{'field':34} {'gold':>4} {'F1':>6} {'P':>6} {'R':>6} {'value':>8} {'acc':>6} {'auto':>8} {'autoP':>6}")
     for f, t in table.items():
         print(f"{f:34} {t['gold_present']:>4} {t['presence_f1']:>6} {t['precision']:>6} {t['recall']:>6} "
@@ -163,7 +169,7 @@ def run(split: str) -> dict:
         print(f"  routing [{label}]: auto-accept precision {v['auto_accept_precision']}, "
               f"sent to review {v['sent_to_review']}")
     RUNS.mkdir(exist_ok=True)
-    out = RUNS / f"extract-eval-{split}-{datetime.now():%Y%m%d-%H%M%S}.json"
+    out = RUNS / f"extract-eval-{split}{'-' + subset if subset else ''}-{datetime.now():%Y%m%d-%H%M%S}.json"
     out.write_text(json.dumps({**report, "records": records}, indent=1, default=str))
     print(f"-> {out.name}")
     return report
@@ -172,7 +178,9 @@ def run(split: str) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", choices=["dev", "test", "all"], default="dev")
-    run(ap.parse_args().split)
+    ap.add_argument("--subset", choices=["m7-eval"])
+    a = ap.parse_args()
+    run(a.split, a.subset)
 
 
 if __name__ == "__main__":

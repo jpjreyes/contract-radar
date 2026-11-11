@@ -86,6 +86,14 @@ def first_chunks(conn: psycopg.Connection, contract_id: int, n: int) -> list[Hit
     return [_hit(r) for r in rows]
 
 
+def by_ids(conn: psycopg.Connection, ids: list[int]) -> list[Hit]:
+    if not ids:
+        return []
+    rows = conn.execute("SELECT id, contract_id, start_char, end_char, text_masked, 0.0, mask_map FROM chunks "
+                        "WHERE id = ANY(%s) ORDER BY idx", (ids,)).fetchall()
+    return [_hit(r) for r in rows]
+
+
 def last_chunks(conn: psycopg.Connection, contract_id: int, n: int) -> list[Hit]:
     rows = conn.execute("SELECT id, contract_id, start_char, end_char, text_masked, 0.0, mask_map FROM chunks "
                         "WHERE contract_id = %s ORDER BY idx DESC LIMIT %s", (contract_id, n)).fetchall()

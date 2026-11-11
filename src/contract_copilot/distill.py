@@ -57,8 +57,19 @@ def load_model(labels: str = "gold"):
     return AutoTokenizer.from_pretrained(path), model
 
 
+def thresholds(labels: str = "gold") -> dict[str, float]:
+    """Per-field presence thresholds chosen on dev when the saved model was trained."""
+    path = MODELS / f"m7-{labels}" / "thresholds.json"
+    return json.loads(path.read_text()) if path.exists() else {}
+
+
+_SCORES: dict[tuple[int, str], dict] = {}
+
+
 def chunk_scores(conn, contract_id: int, labels: str = "gold") -> dict[int, dict[str, float]]:
     """Per chunk of one contract, the small model's probability that it holds each field (masked text only)."""
+    if (contract_id, labels) in _SCORES:
+        return _SCORES[(contract_id, labels)]
     loaded = load_model(labels)
     if loaded is None:
         return {}
@@ -67,7 +78,8 @@ def chunk_scores(conn, contract_id: int, labels: str = "gold") -> dict[int, dict
     if not rows:
         return {}
     probs = predict(*loaded, rows)
-    return {r["chunk"]: dict(zip(NAMES, map(float, p))) for r, p in zip(rows, probs)}
+    _SCORES[(contract_id, labels)] = {r["chunk"]: dict(zip(NAMES, map(float, p))) for r, p in zip(rows, probs)}
+    return _SCORES[(contract_id, labels)]
 
 
 def m7_split(name: str) -> str:
@@ -208,6 +220,8 @@ def run(labels: str, epochs: int) -> dict:
               f"{v['llm_calls_avoided']:>6}")
     print("mean", report["mean"], f"| local {report['seconds_per_contract_local']} s/contract, "
           f"train {report['train_seconds']} s")
+    (MODELS / f"m7-{labels}" / "thresholds.json").write_text(
+        json.dumps({n: v["threshold"] for n, v in report["fields"].items()}))
     RUNS.mkdir(exist_ok=True)
     out = RUNS / f"distill-{labels}-{datetime.now():%Y%m%d-%H%M%S}.json"
     out.write_text(json.dumps(report, indent=1))
