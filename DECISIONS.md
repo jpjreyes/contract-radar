@@ -87,7 +87,8 @@ or overturn a decision are added to the entry.
   CUAD (Pareteum renewal notice; Middlebrook termination for convenience), 1 was run-to-run inconsistency, 1 a real
   over-call (non-exclusive licenses read as exclusivity). Both numbers are reported; labels are never edited.
 - **Open:** latency is above C4 (8 s) on the CLI backend (process start-up per call + long answers): re-measure on the
-  API and cap answer length; run pass^k on the absent set for the inconsistency.
+  API and cap answer length; run pass^k on the absent set for the inconsistency. (Both done in D20: 7.5 s median;
+  pass^3 17/20 raw, identical across runs.)
 
 ## D8. Row-level security in practice: a non-superuser app role, deny by default
 - **Constraint:** C2.
@@ -469,6 +470,10 @@ or overturn a decision are added to the entry.
   `evals/adjudication.json`: 2 CUAD label misses (Pareteum renewal notice, Middlebrook termination for convenience)
   and 1 real over-call (Ingevity: non-exclusive licenses read as exclusivity). Marshall, the inconsistent case in D7,
   came back absent this time.
+- **Consistency (pass^k, closes D7's open item):** the 20 "absent" questions run 3 more times: **17/20 in every
+  run, the same 3 contracts each time** (pass^3 = 17/20 raw, 19/20 adjudicated; Marshall absent 3/3). The
+  remaining errors are systematic, not random: 2 label misses and the Ingevity over-call. Cost: 3 points of the
+  5-hour window, 0 of the week.
 - **Noise:** the two answer misses when the clause exists are both expiration dates; non-compete moved −0.025 on the
   held-out half (54 positives) with no code change, inside the run-to-run swing noted in D18.
 - **Knock-on, Act this quarter (legal_admin, as of 2026-11-11):** notice deadlines 18 (unchanged), uncapped

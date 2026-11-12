@@ -24,7 +24,7 @@ when it failed: [DECISIONS.md](DECISIONS.md) (final run: D20).
 | What | Result |
 |---|---|
 | **Retrieval** (5,506 lawyer-labeled clauses, 415 unseen contracts) | the clause in the top 8 for **89.1%** (keyword 68.6% → vector 71.7% → hybrid 74.6% → + reranker 83.9% → + query planning 89.1%) |
-| **Cited answers** (dev, 50 questions) | answered 28/30 when the clause exists; the citation lands on the lawyers' span 26/28; says "not there" 19/20 when it isn't (adjudicated; 17/20 raw); 2/129 unverifiable claims dropped |
+| **Cited answers** (dev, 50 questions) | answered 28/30 when the clause exists; the citation lands on the lawyers' span 26/28; says "not there" 19/20 when it isn't (adjudicated; 17/20 raw, the same in 3 repeat runs); 2/129 unverifiable claims dropped |
 | **Permission leaks** (exact-text attacks on forbidden contracts, every retrieval method) | **0** in 2,129 returned chunks |
 | **Personal data shown to users without access** | **0** in 4,841 served texts (every retrieval path + fetch by id); the app role cannot even select the original column |
 | **Personal-data detector** (fresh labeled sample, never inspected before scoring) | recall 0.91, precision 0.94 (detector v3, D19); emails 1.00, phones 0.96 |
