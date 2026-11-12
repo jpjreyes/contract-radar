@@ -1,13 +1,22 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 189,
- "seconds": 6.5,
+ "audit_id": 242,
+ "seconds": 5.3,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "The agreement was signed on behalf of the Distributor by [PERSON_2], whose title is Executive Vice President. The name is a redacted placeholder and is kept as written.",
+   "text": "The agreement was signed for the Distributor by the person named [PERSON_2], whose title is Executive vice President, dated October 16, 1996.",
    "citations": [
+    {
+     "source": "S6",
+     "chunk_id": 7079,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "Distributor",
+     "start": 2027,
+     "end": 2038,
+     "contract_id": 156
+    },
     {
      "source": "S6",
      "chunk_id": 7079,
@@ -21,16 +30,43 @@
      "source": "S6",
      "chunk_id": 7079,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "Name: [PERSON_2]",
+     "start": 2281,
+     "end": 2301,
+     "contract_id": 156
+    },
+    {
+     "source": "S6",
+     "chunk_id": 7079,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
      "quote": "Title: Executive vice President",
      "start": 2468,
      "end": 2499,
+     "contract_id": 156
+    },
+    {
+     "source": "S6",
+     "chunk_id": 7079,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "Date: October 16, 1996",
+     "start": 2623,
+     "end": 2645,
      "contract_id": 156
     }
    ]
   },
   {
-   "text": "The agreement was signed on behalf of NETGEAR, Inc. by [PERSON_3], whose title is Vice President & General Manager, Commercial Business Unit. The name is a redacted placeholder and is kept as written.",
+   "text": "The agreement was signed for NETGEAR, Inc. by the person named [PERSON_3], whose title is Vice President & General Manager, Commercial Business Unit, dated November 5, 1996.",
    "citations": [
+    {
+     "source": "S6",
+     "chunk_id": 7079,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "NETGEAR, Inc.",
+     "start": 2068,
+     "end": 2081,
+     "contract_id": 156
+    },
     {
      "source": "S6",
      "chunk_id": 7079,
@@ -44,23 +80,27 @@
      "source": "S6",
      "chunk_id": 7079,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "Title: Vice President & General Manager",
-     "start": 2509,
-     "end": 2548,
+     "quote": "Name:  [PERSON_3]",
+     "start": 2322,
+     "end": 2339,
      "contract_id": 156
-    }
-   ]
-  },
-  {
-   "text": "The Distributor's signature is dated October 16, 1996, and NETGEAR's signature is dated November 5, 1996.",
-   "citations": [
+    },
     {
      "source": "S6",
      "chunk_id": 7079,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "Date: October 16, 1996",
-     "start": 2623,
-     "end": 2645,
+     "quote": "Title: Vice President & General Manager",
+     "start": 2509,
+     "end": 2548,
+     "contract_id": 156
+    },
+    {
+     "source": "S6",
+     "chunk_id": 7079,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "Commercial Business Unit",
+     "start": 2597,
+     "end": 2621,
      "contract_id": 156
     },
     {

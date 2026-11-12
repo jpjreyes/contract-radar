@@ -17,21 +17,22 @@ a tamper-evident audit log.
 
 ## Results
 
-Held-out numbers unless marked dev; model Claude Haiku. How each was produced and what changed when it failed:
-[DECISIONS.md](DECISIONS.md).
+Held-out numbers unless marked dev; model Claude Haiku via the Claude CLI on a Claude plan, isolated configuration (one
+sentence added to every prompt by an account-managed hook); costs are API-equivalent. How each was produced and what changed
+when it failed: [DECISIONS.md](DECISIONS.md) (final run: D20).
 
 | What | Result |
 |---|---|
 | **Retrieval** (5,506 lawyer-labeled clauses, 415 unseen contracts) | the clause in the top 8 for **89.1%** (keyword 68.6% → vector 71.7% → hybrid 74.6% → + reranker 83.9% → + query planning 89.1%) |
-| **Cited answers** (dev, 50 questions) | answered 27/30 when the clause exists; the citation lands on the lawyers' span 25/27; says "not there" 18/20 when it isn't (adjudicated); 2/128 unverifiable claims dropped |
+| **Cited answers** (dev, 50 questions) | answered 28/30 when the clause exists; the citation lands on the lawyers' span 26/28; says "not there" 19/20 when it isn't (adjudicated; 17/20 raw); 2/129 unverifiable claims dropped |
 | **Permission leaks** (exact-text attacks on forbidden contracts, every retrieval method) | **0** in 2,129 returned chunks |
 | **Personal data shown to users without access** | **0** in 4,841 served texts (every retrieval path + fetch by id); the app role cannot even select the original column |
 | **Personal-data detector** (fresh labeled sample, never inspected before scoring) | recall 0.91, precision 0.94 (detector v3, D19); emails 1.00, phones 0.96 |
-| **Key-term extraction** (13 terms × 415 unseen contracts) | field accuracy **0.875**; auto-accepted values **97.8% correct**, 72.5% sent to a person. Weakest fields fixed with the small model below (held-out half: minimum commitment F1 0.53 → 0.71, uncapped liability 0.69 → 0.77, non-compete 0.68 → 0.75) |
+| **Key-term extraction** (13 terms × 415 unseen contracts) | field accuracy **0.879**; auto-accepted values **97.9% correct**, 72.5% sent to a person. Weakest fields fixed with the small model below (held-out half: minimum commitment F1 0.53 → 0.71, uncapped liability 0.69 → 0.80, non-compete 0.68 → 0.73) |
 | **Small local model vs the LLM** (bge-small fine-tuned on masked clauses; 217 contracts it never saw) | presence F1: small model 0.78, LLM 0.84, **cascade 0.86 with 31% of LLM calls skipped**; 0.5 s per contract on a laptop, $0, no text leaves the server. Trained on the LLM's own answers instead of lawyer labels: cascade 0.85 |
 | **Portfolio questions** (40 "which contracts…?" questions, answers from the lawyers' labels) | the planner picks the right filter **40/40**; the contract set matches the lawyers' answer at F1 **0.865** (all remaining error is extraction: a perfect plan scores the same); plain RAG on the same questions: F1 0.15 |
-| **Act this quarter** (as of 2026-11-11, all 510 contracts) | 18 non-renewal notice deadlines in the next 90 days computed from extracted terms (renewals rolled forward to the current term), 153 contracts with uncapped liability, 57 sent to a person instead of guessed |
-| **Cost / latency** | ~$0.0013 per answered question, median 8.8 s (CLI backend; the 8 s target is re-measured on the API) |
+| **Act this quarter** (as of 2026-11-11, all 510 contracts) | 18 non-renewal notice deadlines in the next 90 days computed from extracted terms (renewals rolled forward to the current term), 151 contracts with uncapped liability, 62 sent to a person instead of guessed |
+| **Cost / latency** | ~$0.0012 per answered question (API-equivalent), median 7.5 s on the CLI backend (target 8 s; re-measured on the API when deployed) |
 
 ## How it works
 

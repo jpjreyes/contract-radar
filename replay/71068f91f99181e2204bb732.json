@@ -1,27 +1,36 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 192,
- "seconds": 8.8,
+ "audit_id": 245,
+ "seconds": 6.5,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Notices must be in writing and may be sent by mail, telefax, courier, or otherwise delivered to the party's listed address, or to a different address substituted by written notice.",
+   "text": "Notices must be in writing and may be sent by mail, telefax, courier service, or otherwise delivered to the party being notified at the address listed in the notices section, or to any other address substituted by written notice.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 7078,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "All notices given under the Agreement are to be in writing and may be sent by mail, telefax, courier service or otherwise delivered to the party to be notified at the following address, or to such other address as may have been substituted by written notice:",
+     "quote": "All notices given under the Agreement are to be in writing and may be sent by mail, telefax, courier service or otherwise delivered to the party to be notified at the following address, or to such other address as may have been substituted by written notice",
      "start": 1208,
-     "end": 1466,
+     "end": 1465,
      "contract_id": 156
     }
    ]
   },
   {
-   "text": "Notices to Distributor (Ingram Micro) go to the Santa Ana, California address in the notice block. The street line is the placeholder [ADDRESS_3] with [ADDRESS_4] also shown, so the full street address is not legible in the source.",
+   "text": "Notices to Distributor (Ingram Micro) should be sent to the address listed under \"To Distributor,\" which in the source reads [ADDRESS_3], [ADDRESS_4], SANTA ANA, CA 92799-5125, with an unclear \"(???)\" line also shown.",
    "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "To Distributor:",
+     "start": 1477,
+     "end": 1492,
+     "contract_id": 156
+    },
     {
      "source": "S1",
      "chunk_id": 7078,
@@ -34,8 +43,17 @@
    ]
   },
   {
-   "text": "Notices to NETGEAR go to the Santa Clara, California address in the notice block, with the addressee shown as the placeholder [PERSON_1]. The street lines appear as the placeholders [ADDRESS_2] and [ADDRESS_5].",
+   "text": "Notices to NETGEAR should be sent to the address listed under \"To NETGEAR,\" which in the source reads [ADDRESS_2], [ADDRESS_5], Santa Clara, CA 95052-8185, with the attention line [PERSON_1].",
    "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 7078,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "To NETGEAR:",
+     "start": 1514,
+     "end": 1525,
+     "contract_id": 156
+    },
     {
      "source": "S1",
      "chunk_id": 7078,
@@ -52,20 +70,6 @@
      "quote": "[PERSON_1]",
      "start": 1779,
      "end": 1800,
-     "contract_id": 156
-    }
-   ]
-  },
-  {
-   "text": "The notice block is garbled in the source. The mapping of the placeholders to each party's street lines is not fully clear, and a \"(???)\" mark appears in the block, so the exact notice addresses should be confirmed against the executed agreement.",
-   "citations": [
-    {
-     "source": "S1",
-     "chunk_id": 7078,
-     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "(???)",
-     "start": 1742,
-     "end": 1747,
      "contract_id": 156
     }
    ]

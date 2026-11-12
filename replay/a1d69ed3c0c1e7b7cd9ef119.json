@@ -3,7 +3,7 @@
   {
    "field": "renewal_term",
    "op": "present",
-   "value": ""
+   "value": "true"
   },
   {
    "field": "notice_to_terminate_renewal_days",
@@ -12,8 +12,8 @@
   }
  ],
  "unsupported": "",
- "unreviewed": 2,
- "audit_id": 193,
+ "unreviewed": 3,
+ "audit_id": 246,
  "matches": [
   {
    "contract_id": 157,
@@ -28,10 +28,10 @@
     },
     "notice_to_terminate_renewal_days": {
      "value": "30",
-     "quote": "a thirty-day notice of written termination",
-     "start": 658,
+     "quote": "thirty-day notice of written termination",
+     "start": 660,
      "end": 700,
-     "status": "auto_accepted"
+     "status": "needs_review"
     }
    }
   },
@@ -59,19 +59,19 @@
    "contract_id": 101,
    "contract": "TodosMedicalLtd_20190328_20-F_EX-4.10_11587157_EX-4.10_Marketing Agreement_ Reseller Agreement",
    "evidence": {
-    "renewal_term": {
-     "value": "automatic, successive 5 years, then successive 2 years (conditional on Reseller achieving Annual Milestones)",
-     "quote": "the term of the Agreement shall be automatically renewed for an additional five (5) years",
-     "start": 22117,
-     "end": 22206,
-     "status": "needs_review"
-    },
     "notice_to_terminate_renewal_days": {
      "value": "60",
      "quote": "at least sixty (60) days prior to the expiration of the then-current term",
      "start": 22394,
      "end": 22467,
      "status": "auto_accepted"
+    },
+    "renewal_term": {
+     "value": "automatic, one 5-year renewal (if Annual Milestones achieved), then successive 2 years unless non-renewal notice",
+     "quote": "shall be automatically renewed for an additional five (5) years. Thereafter, at the end of each renewal term, the Agreement shall renew for an additional two (2) years",
+     "start": 22143,
+     "end": 22310,
+     "status": "needs_review"
     }
    }
   },

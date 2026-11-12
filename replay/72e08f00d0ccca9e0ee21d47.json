@@ -1,12 +1,12 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 201,
- "seconds": 7.9,
+ "audit_id": 254,
+ "seconds": 5.4,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "[PERSON_1] signed the agreement for Newegg Inc. The signature block shows a /s/ signature by [PERSON_1], and the title beneath it is VP, Marketing. The signature-block layout pairs each signature with a party name, and this pairing is my reading of the layout.",
+   "text": "The agreement was signed for Newegg Inc. by [PERSON_1], whose title is VP, Marketing.",
    "citations": [
     {
      "source": "S3",
@@ -25,20 +25,11 @@
      "start": 37291,
      "end": 37311,
      "contract_id": 125
-    },
-    {
-     "source": "S3",
-     "chunk_id": 5267,
-     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "Newegg Inc. Allied Esports International, Inc.",
-     "start": 37159,
-     "end": 37205,
-     "contract_id": 125
     }
    ]
   },
   {
-   "text": "[PERSON_2] signed the agreement for Allied Esports International, Inc. The signature block shows a /s/ signature by [PERSON_2], and the title beneath it is CEO. As above, the pairing with the party name is inferred from the layout.",
+   "text": "The agreement was signed for Allied Esports International, Inc. by [PERSON_2], whose title is CEO.",
    "citations": [
     {
      "source": "S3",
@@ -57,14 +48,19 @@
      "start": 37312,
      "end": 37322,
      "contract_id": 125
-    },
+    }
+   ]
+  },
+  {
+   "text": "The two parties to the agreement are Newegg Inc. and Allied Esports International, Inc.",
+   "citations": [
     {
-     "source": "S3",
-     "chunk_id": 5267,
+     "source": "S5",
+     "chunk_id": 5235,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "Allied Esports International, Inc.",
-     "start": 37171,
-     "end": 37205,
+     "quote": "by and between Newegg Inc. (\"Newegg\"), a Delaware corporation, and Allied Esports International, Inc., a Nevada corporation (\"Allied\")",
+     "start": 158,
+     "end": 292,
      "contract_id": 125
     }
    ]

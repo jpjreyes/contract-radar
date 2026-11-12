@@ -3,7 +3,7 @@
   {
    "field": "renewal_term",
    "op": "present",
-   "value": ""
+   "value": "true"
   },
   {
    "field": "notice_to_terminate_renewal_days",
@@ -12,8 +12,8 @@
   }
  ],
  "unsupported": "",
- "unreviewed": 11,
- "audit_id": 205,
+ "unreviewed": 12,
+ "audit_id": 258,
  "matches": [
   {
    "contract_id": 450,
@@ -88,8 +88,8 @@
     },
     "notice_to_terminate_renewal_days": {
      "value": "30",
-     "quote": "written notice of intent not to renew no later than thirty (30) days prior to the end of said year",
-     "start": 24965,
+     "quote": "no later than thirty (30) days prior to the end of said year",
+     "start": 25003,
      "end": 25063,
      "status": "auto_accepted"
     }
@@ -101,8 +101,8 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, successive 1 month",
-     "quote": "This Agreement shall automatically be renewed for one (1) or more one (1) month periods",
-     "start": 10559,
+     "quote": "shall automatically be renewed for one (1) or more one (1) month periods",
+     "start": 10574,
      "end": 10646,
      "status": "auto_accepted"
     },
@@ -128,8 +128,8 @@
     },
     "notice_to_terminate_renewal_days": {
      "value": "30",
-     "quote": "at least thirty (30) days prior to the expiration",
-     "start": 58509,
+     "quote": "written notification at least thirty (30) days prior to the expiration",
+     "start": 58488,
      "end": 58558,
      "status": "auto_accepted"
     }
@@ -141,8 +141,8 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, successive 1 year",
-     "quote": "shall be automatically renewed for successive one year periods",
-     "start": 4002,
+     "quote": "automatically renewed for successive one year periods",
+     "start": 4011,
      "end": 4064,
      "status": "auto_accepted"
     },
@@ -161,15 +161,15 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, successive 1 year",
-     "quote": "this Agreement shall automatically renew for         subsequent one (1) year periods",
-     "start": 35669,
+     "quote": "shall automatically renew for         subsequent one (1) year periods",
+     "start": 35684,
      "end": 35753,
      "status": "auto_accepted"
     },
     "notice_to_terminate_renewal_days": {
      "value": "30",
-     "quote": "written notification at least thirty (30) days prior to the         expiration of the initial five (5) year term",
-     "start": 35812,
+     "quote": "at least thirty (30) days prior to the         expiration of the initial five (5) year term",
+     "start": 35833,
      "end": 35924,
      "status": "auto_accepted"
     }
@@ -179,18 +179,18 @@
    "contract_id": 375,
    "contract": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement",
    "evidence": {
-    "notice_to_terminate_renewal_days": {
-     "value": "30",
-     "quote": "upon thirty (30) days written notice to the other party",
-     "start": 22165,
-     "end": 22220,
-     "status": "needs_review"
-    },
     "renewal_term": {
      "value": "automatic, successive 1 year",
      "quote": "shall be automatically renewed for successive one (1) year periods",
      "start": 1589,
      "end": 1655,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "30",
+     "quote": "This Agreement may be terminated by either party at the expiration of its term or any renewal term upon thirty (30) days written notice to the other party.",
+     "start": 22066,
+     "end": 22221,
      "status": "needs_review"
     }
    }
@@ -201,10 +201,10 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, 6 months",
-     "quote": "shall automatically be           extended  for  an additional period of half a year",
-     "start": 7575,
+     "quote": "The Initial Term shall automatically be           extended  for  an additional period of half a year",
+     "start": 7558,
      "end": 7658,
-     "status": "needs_review"
+     "status": "auto_accepted"
     },
     "notice_to_terminate_renewal_days": {
      "value": "60",
@@ -212,6 +212,26 @@
      "start": 7794,
      "end": 7839,
      "status": "auto_accepted"
+    }
+   }
+  },
+  {
+   "contract_id": 426,
+   "contract": "DYNTEKINC_07_30_1999-EX-10-ONLINE HOSTING AGREEMENT",
+   "evidence": {
+    "renewal_term": {
+     "value": "elective, one additional 1 year, by either party on prior written notice",
+     "quote": "may extend the term of this Agreement for an additional one year",
+     "start": 2755,
+     "end": 2819,
+     "status": "needs_review"
+    },
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days advance written notice before the end of the Period",
+     "start": 2894,
+     "end": 2970,
+     "status": "needs_review"
     }
    }
   },
@@ -240,18 +260,18 @@
    "contract": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT",
    "evidence": {
     "renewal_term": {
-     "value": "automatic, successive 1 month (month to month)",
+     "value": "successive month to month, until terminated by either party",
      "quote": "this Agreement shall continue on a month to month basis until terminated by either party",
      "start": 1676,
      "end": 1764,
-     "status": "needs_review"
+     "status": "auto_accepted"
     },
     "notice_to_terminate_renewal_days": {
      "value": "30",
      "quote": "upon thirty (30) days prior written notice to the other",
      "start": 1765,
      "end": 1820,
-     "status": "needs_review"
+     "status": "auto_accepted"
     }
    }
   },
@@ -279,18 +299,38 @@
    "contract_id": 473,
    "contract": "IMAGEWARESYSTEMSINC_12_20_1999-EX-10.22-MAINTENANCE AGREEMENT",
    "evidence": {
+    "notice_to_terminate_renewal_days": {
+     "value": "60",
+     "quote": "at least sixty (60) days prior written notice      of the non-renewal",
+     "start": 4940,
+     "end": 5009,
+     "status": "auto_accepted"
+    },
     "renewal_term": {
      "value": "automatic, successive 1 year",
      "quote": "shall automatically renew for consecutive one (1) year terms",
      "start": 4772,
      "end": 4832,
      "status": "auto_accepted"
-    },
+    }
+   }
+  },
+  {
+   "contract_id": 18,
+   "contract": "IntegrityFunds_20200121_485BPOS_EX-99.E UNDR CONTR_11948727_EX-99.E UNDR CONTR_Service Agreement",
+   "evidence": {
     "notice_to_terminate_renewal_days": {
      "value": "60",
-     "quote": "at least sixty (60) days prior written notice",
-     "start": 4940,
-     "end": 4985,
+     "quote": "on 60 days' written notice, by vote of a majority of the Qualified Trustees",
+     "start": 21368,
+     "end": 21443,
+     "status": "needs_review"
+    },
+    "renewal_term": {
+     "value": "automatic, successive 1 year",
+     "quote": "shall continue automatically for successive annual periods ending on January 18th of each year",
+     "start": 20683,
+     "end": 20777,
      "status": "auto_accepted"
     }
    }
@@ -301,17 +341,17 @@
    "evidence": {
     "notice_to_terminate_renewal_days": {
      "value": "30",
-     "quote": "must give written notice to the other party at least          thirty (30) days prior to the desired date of termination",
-     "start": 4621,
+     "quote": "at least          thirty (30) days prior to the desired date of termination",
+     "start": 4665,
      "end": 4740,
      "status": "needs_review"
     },
     "renewal_term": {
-     "value": "unilateral annual renewal, one year each, upon mPhase's request with Lucent's written consent (not to be unreasonably withheld)",
+     "value": "successive 1 year, renewable only with Lucent's written consent (not automatic)",
      "quote": "mPhase shall have the right to          annually renew this agreement for a period of one year upon each annual          expiration with the written consent of Lucent",
      "start": 4329,
      "end": 4495,
-     "status": "needs_review"
+     "status": "auto_accepted"
     }
    }
   },
@@ -344,7 +384,7 @@
      "quote": "automatically renewed for successive additional 3~year periods",
      "start": 9323,
      "end": 9385,
-     "status": "needs_review"
+     "status": "auto_accepted"
     },
     "notice_to_terminate_renewal_days": {
      "value": "60",
@@ -361,8 +401,8 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, successive 1 year",
-     "quote": "will automatically renew at the end of the Initial Term or a subsequent renewal term on a year to year basis",
-     "start": 43246,
+     "quote": "automatically renew at the end of the Initial Term or a subsequent renewal term on a year to year basis",
+     "start": 43251,
      "end": 43354,
      "status": "auto_accepted"
     },
@@ -380,7 +420,7 @@
    "contract": "PFSFUNDS_06_26_2020-EX-99.H OTH MAT CONT-SERVICES AGREEMENT",
    "evidence": {
     "renewal_term": {
-     "value": "successive 1 year, if approved at least annually by a majority of the Trustees who are not interested persons of the Trust or the Adviser",
+     "value": "successive 1 year, if continuance approved at least annually by majority of Trustees who are not interested persons",
      "quote": "shall continue in effect from year to year thereafter",
      "start": 12313,
      "end": 12366,
@@ -420,11 +460,11 @@
    "contract": "SPHERE3DCORP_06_24_2020-EX-10.12-CONSULTING AGREEMENT",
    "evidence": {
     "renewal_term": {
-     "value": "automatic, 1 month extension",
-     "quote": "the contract will automatically extend for an additional month of service",
-     "start": 4676,
-     "end": 4749,
-     "status": "needs_review"
+     "value": "automatic, successive 1 month",
+     "quote": "Without notification the contract will automatically extend for an additional month of service.",
+     "start": 4655,
+     "end": 4750,
+     "status": "auto_accepted"
     },
     "notice_to_terminate_renewal_days": {
      "value": "5",
@@ -441,9 +481,9 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, successive 1 year",
-     "quote": "subject to an automatic extension for consecutive one (1) year periods  thereafter",
-     "start": 13112,
-     "end": 13194,
+     "quote": "automatic extension for consecutive one (1) year periods",
+     "start": 13126,
+     "end": 13182,
      "status": "auto_accepted"
     },
     "notice_to_terminate_renewal_days": {
@@ -451,7 +491,7 @@
      "quote": "upon thirty (30) days' written notice by either Party to the other Party",
      "start": 13331,
      "end": 13403,
-     "status": "auto_accepted"
+     "status": "needs_review"
     }
    }
   },
@@ -468,8 +508,8 @@
     },
     "notice_to_terminate_renewal_days": {
      "value": "60",
-     "quote": "upon sixty (60) days' written notice after the end of the term",
-     "start": 4156,
+     "quote": "unless terminated by a Party upon sixty (60) days' written notice after the end of the term",
+     "start": 4127,
      "end": 4218,
      "status": "auto_accepted"
     }
@@ -484,7 +524,7 @@
      "quote": "This Agreement shall automatically continue following the Initial Term, for an additional period of three (3) years",
      "start": 63973,
      "end": 64088,
-     "status": "auto_accepted"
+     "status": "needs_review"
     },
     "notice_to_terminate_renewal_days": {
      "value": "60",
@@ -501,15 +541,15 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, successive 1 month",
-     "quote": "will extend automatically for monthly periods",
-     "start": 1412,
+     "quote": "This Agreement will extend automatically for monthly periods",
+     "start": 1397,
      "end": 1457,
      "status": "auto_accepted"
     },
     "notice_to_terminate_renewal_days": {
      "value": "30",
-     "quote": "at least thirty (30) days before the expiration of the then current term",
-     "start": 1532,
+     "quote": "notifies the other party in writing at least thirty (30) days before the expiration of the then current term",
+     "start": 1496,
      "end": 1604,
      "status": "auto_accepted"
     }
@@ -541,15 +581,15 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, successive 1 year",
-     "quote": "renewed for additional, successive periods of one (1) year each",
-     "start": 2273,
+     "quote": "this Agreement shall be renewed for additional, successive periods of one (1) year each",
+     "start": 2249,
      "end": 2336,
      "status": "auto_accepted"
     },
     "notice_to_terminate_renewal_days": {
      "value": "30",
-     "quote": "at least 30 days prior to the expiration of the then-current term",
-     "start": 2182,
+     "quote": "unless written notice to the contrary is provided by one party to the other party at least 30 days prior to the expiration of the then-current term",
+     "start": 2100,
      "end": 2247,
      "status": "auto_accepted"
     }
@@ -561,8 +601,8 @@
    "evidence": {
     "renewal_term": {
      "value": "automatic, successive 1 year",
-     "quote": "shall renew automatically for successive one (1) year periods",
-     "start": 14474,
+     "quote": "thereafter shall renew automatically for successive one (1) year periods",
+     "start": 14463,
      "end": 14535,
      "status": "auto_accepted"
     },

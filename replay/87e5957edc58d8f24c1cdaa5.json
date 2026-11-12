@@ -1,26 +1,12 @@
 {
  "answerable": true,
- "clause_present": true,
- "audit_id": 186,
- "seconds": 9.0,
+ "clause_present": false,
+ "audit_id": 239,
+ "seconds": 9.6,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "The sources do not state a monetary cap on either party's liability. The only dollar figure is an insurance requirement for sudden and accidental pollution coverage, which is not a limit on liability.",
-   "citations": [
-    {
-     "source": "S5",
-     "chunk_id": 5103,
-     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "Owner covenants that it will maintain at all times during the Term of this Agreement insurance coverage for sudden and accidental pollution of $500,000,000.",
-     "start": 10474,
-     "end": 10630,
-     "contract_id": 117
-    }
-   ]
-  },
-  {
-   "text": "The indemnities exclude consequential, punitive, special, or similar damages, including lost profits. This exclusion applies to the indemnities in Section 4 only.",
+   "text": "The indemnities expressly exclude liability for consequential, punitive, special, or similar damages, including lost profits.",
    "citations": [
     {
      "source": "S1",
@@ -34,7 +20,7 @@
    ]
   },
   {
-   "text": "Each party's indemnity is carved out to the extent the loss is caused by the other party's acts or omissions. Owner's indemnity excludes losses caused by Charterer, and Charterer's indemnity excludes losses caused by Owner.",
+   "text": "The indemnities are mutual. Each party indemnifies the other for damage to property or injury or death to persons, except to the extent caused by the indemnified party's own acts or omissions.",
    "citations": [
     {
      "source": "S1",
@@ -57,24 +43,38 @@
    ]
   },
   {
-   "text": "Under the force majeure clause, the vessels, their captains and Owner are not responsible for listed causes of loss, unless the Agreement expressly provides otherwise. Listed causes include loss arising from any other cause arising without the actual fault of Owner, and acts of God, war, terrorism, and strikes.",
+   "text": "The force majeure clause separately lists losses for which the vessels, their captains, Owner, or (in part) Charterer are not responsible, such as losses from navigation errors, fire (unless caused by Owner's personal design or neglect), collision, and acts of God. This is a responsibility exclusion, not a liability cap.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 5105,
      "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "or from any other cause of whatsoever kind arising without the actual fault of Owner.",
-     "start": 13293,
-     "end": 13378,
+     "quote": "shall not, unless otherwise in this Agreement expressly provided, be responsible for any loss or damage arising or resulting from",
+     "start": 12286,
+     "end": 12415,
      "contract_id": 117
     },
     {
      "source": "S2",
      "chunk_id": 5105,
      "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "act of God, act of war; act of public enemies, pirates or assailing thieves; acts of terrorism",
+     "quote": "act of God, act of war",
      "start": 13619,
-     "end": 13713,
+     "end": 13641,
+     "contract_id": 117
+    }
+   ]
+  },
+  {
+   "text": "Owner must maintain sudden and accidental pollution insurance of $500,000,000. The sources present this as an insurance requirement and do not say it caps Owner's liability.",
+   "citations": [
+    {
+     "source": "S5",
+     "chunk_id": 5103,
+     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+     "quote": "Owner covenants that it will maintain at all times during the Term of this Agreement insurance coverage for sudden and accidental pollution of $500,000,000.",
+     "start": 10474,
+     "end": 10630,
      "contract_id": 117
     }
    ]

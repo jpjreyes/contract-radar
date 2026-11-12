@@ -1,12 +1,12 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 214,
- "seconds": 22.2,
+ "audit_id": 267,
+ "seconds": 19.6,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Yes, the contract caps liability. Under the Limitation of Liability clause, either party's liability is capped at the amount Corio actually paid for the transaction at issue in the 12 months before the cause of action. The excluded liabilities are those under Sections 2.7, 8, 10 and 12.3. The source text is cut off before the end of the sentence.",
+   "text": "Yes. Each party's liability is capped at the amount Corio actually paid for the transaction to which the liability relates, during the 12 months before the cause of action. Liability arising under Sections 2.7, 8, 10 and 12.3 is excluded from this cap.",
    "citations": [
     {
      "source": "S1",
@@ -20,53 +20,49 @@
    ]
   },
   {
-   "text": "A second, aggregate cap in the same section limits all claims under the agreement to the total amount Corio paid under the agreement to Changepoint. The same carve-outs (Sections 2.7, 8, 10 and 12.3) apply to the exclusion of lost profits and indirect or consequential damages in that section.",
+   "text": "A separate aggregate cap applies to all claims arising out of or related to the agreement: the total amount Corio actually paid under the agreement to Changepoint. The same Sections 2.7, 8, 10 and 12.3 are excluded from this cap, and the same section excludes lost profits and indirect, special, incidental or consequential damages, subject to those same exceptions.",
    "citations": [
     {
      "source": "S3",
      "chunk_id": 10401,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "IN THE          AGGREGATE, WITH RESPECT OF ALL CLAIMS ARISING OUT OF OR RELATED TO          THIS AGREEMENT, THE TOTAL AMOUNT ACTUALLY PAID BY CORIO UNDER THIS          AGREEMENT TO CHANGEPOINT.",
-     "start": 55507,
-     "end": 55700,
-     "contract_id": 224
-    },
-    {
-     "source": "S3",
-     "chunk_id": 10401,
-     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "EXCEPT FOR LIABILITY ARISING UNDER          SECTIONS 2.7, 8, 10 AND 12.3 OF THIS AGREEMENT, IN NO EVENT SHALL          EITHER PARTY HAVE ANY LIABILITY TO THE OTHER PARTY FOR ANY LOST          PROFITS OR COSTS OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, OR          FOR ANY INDIRECT, INCIDENTIAL, SPECIAL OR CONSEQUENTIAL DAMAGES",
-     "start": 55701,
+     "quote": "THE TOTAL AMOUNT ACTUALLY PAID BY CORIO UNDER THIS          AGREEMENT TO CHANGEPOINT. EXCEPT FOR LIABILITY ARISING UNDER          SECTIONS 2.7, 8, 10 AND 12.3 OF THIS AGREEMENT, IN NO EVENT SHALL          EITHER PARTY HAVE ANY LIABILITY TO THE OTHER PARTY FOR ANY LOST          PROFITS OR COSTS OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, OR          FOR ANY INDIRECT, INCIDENTIAL, SPECIAL OR CONSEQUENTIAL DAMAGES",
+     "start": 55615,
      "end": 56033,
      "contract_id": 224
     }
    ]
   },
   {
-   "text": "A separate clause caps Changepoint's liability at the amounts paid by the customer. Breach of Section 5.2 (unauthorized disclosure of confidential information) and breach of Section 6.4(a) (intellectual property indemnity) are excluded from that cap.",
+   "text": "Changepoint's entire liability for breach or related claims is capped at specified amounts: the amount paid for the Licensed Materials, the maintenance or installation service amounts tied to the claim, or the aggregate amount paid under the agreement. Claims for breach of Section 5.2 (unauthorized disclosure of confidential information) and breach of Section 6.4(A) (intellectual property indemnity) are excluded from this cap.",
    "citations": [
     {
      "source": "S7",
      "chunk_id": 10471,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "EXCEPT FOR ANY CLAIM FOR BREACH OF SECTION 5.2 (UNAUTHORIZED DISCLOSURE OF CONFIDENTIAL INFORMATION), OR FOR BREACH OF SECTION 6.4(A) (INTELLECTUAL PROPERTY INDEMNITY), CHANGEPOINT'S ENTIRE LIABILITY, REGARDLESS OF THE FORM OF ACTION, WHETHER BASED ON CONTRACT OR TORT, INCLUDING",
-     "start": 134506,
-     "end": 134785,
-     "contract_id": 224
-    },
-    {
-     "source": "S7",
-     "chunk_id": 10471,
-     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "(IV) IN THE AGGREGATE WITH RESPECT TO ALL CLAIMS UNDER OR RELATED TO THIS AGREEMENT, THE AMOUNT PAID BY CUSTOMER UNDER THIS AGREEMENT.",
-     "start": 135352,
-     "end": 135486,
+     "quote": "ETO, EXCEPT FOR ANY CLAIM FOR BREACH OF SECTION 5.2 (UNAUTHORIZED DISCLOSURE OF CONFIDENTIAL INFORMATION), OR FOR BREACH OF SECTION 6.4(A) (INTELLECTUAL PROPERTY INDEMNITY), CHANGEPOINT'S ENTIRE LIABILITY, REGARDLESS OF THE FORM OF ACTION, WHETHER BASED ON CONTRACT OR TORT, INCLUDING\n\n                              ",
+     "start": 134501,
+     "end": 134817,
      "contract_id": 224
     }
    ]
   },
   {
-   "text": "Caveat: the sources give different caps and carve-outs. The S1 and S3 caps use the Corio payment base and carve out Sections 2.7, 8, 10 and 12.3. The S7 cap is Changepoint-only and carves out Sections 5.2 and 6.4(a) instead. S5 is a separate end-user clause with a cap equal to the fee the end user paid Changepoint. These sources should be reconciled against the full agreement before relying on any one of them.",
+   "text": "Changepoint is also excluded from liability for special, incidental, indirect or consequential loss, lost business revenue, loss of profits, loss of data, and any claim against Customer by another person, even if advised of the possibility of such loss.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 10472,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "IN NO EVENT WILL CHANGEPOINT BE LIABLE FOR SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL LOSS OR DAMAGE, LOST BUSINESS REVENUE, LOSS OF PROFITS, LOSS OF DATA, FAILURE TO REALIZE EXPECTED PROFITS OR SAVINGS OR ANY CLAIM AGAINST CUSTOMER BY ANY OTHER PERSON",
+     "start": 135497,
+     "end": 135754,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "A separate limitation in the sources, which refers to end-user agreements with Corio rather than this agreement, caps Changepoint's liability for direct, indirect, special, incidental and consequential damages at the fee paid by the end user to Changepoint under such agreement. The sources do not state whether that limitation applies to this agreement.",
    "citations": [
     {
      "source": "S5",

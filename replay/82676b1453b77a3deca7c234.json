@@ -1,43 +1,48 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 190,
- "seconds": 17.6,
+ "audit_id": 243,
+ "seconds": 13.4,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Yes, the contract caps NETGEAR's total liability for damages under the Agreement. The cap amount is redacted in the source as [*], so the sources do not state the dollar figure. The cap is described as the amount paid to NETGEAR under the Agreement.",
+   "text": "Yes. NETGEAR's total liability for damages in any action arising out of the Agreement is capped. The cap amount is redacted in the source as [*], so the sources do not state the dollar figure.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 7104,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "EXCEPT FOR DAMAGES ARISING UNDER SECTIONS 14.A AND 16.A, IN NO EVENT WILL NETGEAR's OR BAY NETWORKS' TOTAL LIABILITY FOR ANY DAMAGES IN ANY ACTION BASED ON OR ARISING OUT OF OR IN CONNECTION WITH THE AGREEMENT EXCEED THE [*] TO NETGEAR PURSUANT TO THE AGREEMENT.",
-     "start": 35002,
+     "quote": "IN NO EVENT WILL NETGEAR's OR BAY NETWORKS' TOTAL LIABILITY FOR ANY DAMAGES IN ANY ACTION BASED ON OR ARISING OUT OF OR IN CONNECTION WITH THE AGREEMENT EXCEED THE [*] TO NETGEAR PURSUANT TO THE AGREEMENT.",
+     "start": 35059,
      "end": 35264,
      "contract_id": 156
     }
    ]
   },
   {
-   "text": "Damages arising under Section 14.A (Claims of Infringement, indemnification) and Section 16.A (Limitation of Liability, indemnification) are excluded from NETGEAR's cap.",
+   "text": "The Distributor's total liability is also capped, using the same redacted [*] amount. The source text reads 'WELL' where 'WILL' is presumably meant.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 7104,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "EXCEPT FOR DAMAGES ARISING UNDER SECTIONS 14.A AND 16.A",
-     "start": 35002,
-     "end": 35057,
+     "quote": "IN NO EVENT WELL DISTRIBUTOR's TOTAL LIABILITY FOR ANY DAMAGES IN ANY ACTION BASED ON OR ARISING OUT OF OR IN CONNECTION WITH THE AGREEMENT EXCEED THE [*] TO NETGEAR PURSUANT TO THE AGREEMENT.",
+     "start": 35337,
+     "end": 35529,
      "contract_id": 156
-    },
+    }
+   ]
+  },
+  {
+   "text": "Excluded from NETGEAR's cap: damages arising under Sections 14.A and 16.A. Section 16.A is the NETGEAR indemnity for third-party bodily injury, death, or property claims, and 14.A is the NETGEAR indemnity for intellectual property infringement claims.",
+   "citations": [
     {
-     "source": "S4",
-     "chunk_id": 7100,
+     "source": "S2",
+     "chunk_id": 7104,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "NETGEAR agrees to defend at its own expense any action brought against Distributor to the extent that it is based on a claim that any Product infringes a United States or Territory patent, copyright, trade mark, trade secret or other valid intellectual property right",
-     "start": 29077,
-     "end": 29344,
+     "quote": "EXCEPT FOR DAMAGES ARISING UNDER SECTIONS 14.A AND 16.A, IN NO EVENT WILL NETGEAR's OR BAY NETWORKS' TOTAL LIABILITY",
+     "start": 35002,
+     "end": 35118,
      "contract_id": 156
     },
     {
@@ -48,39 +53,43 @@
      "start": 33006,
      "end": 33126,
      "contract_id": 156
+    },
+    {
+     "source": "S4",
+     "chunk_id": 7100,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "NETGEAR agrees to defend at its own expense any action brought against Distributor to the extent that it is based on a claim that any Product infringes a United States or Territory patent, copyright, trade mark, trade secret or other valid intellectual property right",
+     "start": 29077,
+     "end": 29344,
+     "contract_id": 156
     }
    ]
   },
   {
-   "text": "The Distributor's liability is also capped at the same [*] amount, with exceptions for damages arising from breach of Sections 6.C, 12, 13, or 17. The source text reads 'WELL' where 'WILL' is presumably meant, and it is quoted as written.",
+   "text": "Excluded from the Distributor's cap: damages arising from breach of Sections 6.C and 12, 13 or 17. Section 17 concerns foreign reshipment and export restrictions.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 7104,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "EXCEPT FOR DAMAGES ARISING FROM BREACH OF SECTIONS 6.C AND 12,13 OR 17, IN NO EVENT WELL DISTRIBUTOR's TOTAL LIABILITY FOR ANY DAMAGES IN ANY ACTION BASED ON OR ARISING OUT OF OR IN CONNECTION WITH THE AGREEMENT EXCEED THE [*] TO NETGEAR PURSUANT TO THE AGREEMENT.",
+     "quote": "EXCEPT FOR DAMAGES ARISING FROM BREACH OF SECTIONS 6.C AND 12,13 OR 17",
      "start": 35265,
-     "end": 35529,
+     "end": 35335,
      "contract_id": 156
-    }
-   ]
-  },
-  {
-   "text": "Section 17 is titled Foreign Reshipment.",
-   "citations": [
+    },
     {
      "source": "S8",
      "chunk_id": 7105,
      "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
-     "quote": "17.      FOREIGN RESHIPMENT",
-     "start": 35531,
-     "end": 35558,
+     "quote": "This Agreement is made subject to all laws, regulations, orders or other restrictions on the export from the United States of Products",
+     "start": 35560,
+     "end": 35694,
      "contract_id": 156
     }
    ]
   },
   {
-   "text": "Separately from the cap, either party is excluded from liability for the cost of substitute procurement, special, indirect, incidental or consequential damages, and damages from inaccurate or lost data or loss of use or profits. The source states this applies 'EVEN IF INFORMED OF SUCH DAMAGES.' The source does not list carve-outs to this exclusion.",
+   "text": "Separately from the cap, both parties are excluded from liability for substitute procurement costs, special, indirect, incidental, or consequential damages, and for inaccurate or lost data, loss of use or profits. The sources show no carve-outs from this exclusion.",
    "citations": [
     {
      "source": "S2",

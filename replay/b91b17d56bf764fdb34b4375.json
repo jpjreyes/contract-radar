@@ -8,19 +8,19 @@
   {
    "field": "exclusivity",
    "op": "present",
-   "value": "true"
+   "value": ""
   }
  ],
  "unsupported": "",
- "unreviewed": 25,
- "audit_id": 171,
+ "unreviewed": 23,
+ "audit_id": 224,
  "matches": [
   {
    "contract_id": 137,
    "contract": "AIRSPANNETWORKSINC_04_11_2000-EX-10.5-Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor is the exclusive distributor of the Airspan Products in the Territory (appointed by Airspan)",
+     "value": "Distributor is the exclusive distributor of the Airspan Products in the Territory, appointed by Airspan",
      "quote": "appoints Distributor as an independent, exclusive distributor",
      "start": 2106,
      "end": 2167,
@@ -33,7 +33,7 @@
    "contract": "BLACKBOXSTOCKSINC_08_05_2014-EX-10.1-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor is the exclusive seller of Company's Products in the Territory (South America), for Snotarator LLC",
+     "value": "Products of the Company in the Territory (South America) are exclusive to Distributor (SMSA Ballinger Acquisition Corp.)",
      "quote": "the exclusive right to sell the products of the Company",
      "start": 678,
      "end": 733,
@@ -46,23 +46,10 @@
    "contract": "ENTERTAINMENTGAMINGASIAINC_02_15_2005-EX-10.5-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor holds the exclusive right to market, sell, rent, lease, service and maintain the Products in the Territory (exclusive for Distributor; Vendor may convert to non-exclusive only under Section 5.5 if Distributor fails to purchase)",
+     "value": "Vendor grants Distributor an exclusive right to market, sell, rent, lease, service and maintain the Products within the Territory (exclusive for Distributor)",
      "quote": "an exclusive right to market, sell, rent, lease, service and maintain the Products",
      "start": 728,
      "end": 810,
-     "status": "needs_review"
-    }
-   }
-  },
-  {
-   "contract_id": 261,
-   "contract": "ETELOS,INC_03_09_2004-EX-10.8-DISTRIBUTOR AGREEMENT",
-   "evidence": {
-    "exclusivity": {
-     "value": "Distributor may not carry competitive products without Tripath's consent (in favor of Tripath); the appointment itself is non-exclusive",
-     "quote": "Distributor will not carry any competitive products without Tripath's consent",
-     "start": 3435,
-     "end": 3512,
      "status": "needs_review"
     }
    }
@@ -72,7 +59,7 @@
    "contract": "GentechHoldingsInc_20190808_1-A_EX1A-6 MAT CTRCT_11776814_EX1A-6 MAT CTRCT_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Company grants Distributor the exclusive right to sell and distribute the Products in the USA to customers Distributor introduces and Company confirms; Company may not sell or supply the Products to those customers except through Distributor",
+     "value": "Distributor is the exclusive distributor of the Products in the USA, for customers Distributor introduces and Company confirms; Company may not sell or supply the Products to those customers except through Distributor",
      "quote": "the exclusive right to sell and distribute the Products to customers that Distributor introduce and confirmed by Company",
      "start": 1835,
      "end": 1955,
@@ -85,10 +72,10 @@
    "contract": "HYPERIONSOFTWARECORP_09_28_1994-EX-10.47-EXCLUSIVE DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor is the exclusive licensee to market and distribute the Products in the Territory (Singapore, Malaysia, Indonesia, Thailand, Brunei), for Distributor",
-     "quote": "an exclusive, non-transferable fight and license to market and distribute the Products in the Territory",
-     "start": 1563,
-     "end": 1666,
+     "value": "Products in the Territory (Singapore, Malaysia, Indonesia, Thailand, Brunei) are exclusive to Distributor (Delteq Pte Ltd)",
+     "quote": "Developer hereby grants to Distributor an exclusive",
+     "start": 1524,
+     "end": 1575,
      "status": "needs_review"
     }
    }
@@ -98,10 +85,10 @@
    "contract": "ImineCorp_20180725_S-1_EX-10.5_11275970_EX-10.5_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor (SUNWAI Technology) may not market, sell, distribute or solicit orders in Taiwan for products competitive with iMine Products during the term without JRVS's prior written consent; for JRVS. The grant itself is non-exclusive.",
-     "quote": "The Distributor shall not, during the term of this Agreement, directly or indirectly market, sell, distribute, solicit orders within the Territory for any products which are competitive with the iMine Products unless JRVS consents thereto in writing in advance",
-     "start": 3793,
-     "end": 4053,
+     "value": "Distributor may not market, sell or solicit orders for products competitive with iMine Products in the Territory (Taiwan) during the term, without JRVS's prior written consent, in favor of JRVS. The appointment itself is non-exclusive.",
+     "quote": "shall not, during the term of this Agreement, directly or indirectly market, sell, distribute, solicit orders within the Territory for any products which are competitive with the iMine Products",
+     "start": 3809,
+     "end": 4002,
      "status": "needs_review"
     }
    }
@@ -111,9 +98,9 @@
    "contract": "InnerscopeHearingTechnologiesInc_20181109_8-K_EX-10.6_11419704_EX-10.6_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor (InnerScope Hearing Technologies) is granted exclusive rights to promote, distribute and sell the Products in the Territory (Worldwide) for hearing-disorder treatment; Erchonia grants no other distributor these rights",
-     "quote": "grants Distributor the exclusive, non- transferable right and license to promote, distribute and sell the Products",
-     "start": 1171,
+     "value": "Distributor (InnerScope Hearing Technologies) is the exclusive distributor of the Products, worldwide, for the treatment of hearing disorders",
+     "quote": "Erchonia grants Distributor the exclusive, non- transferable right and license to promote, distribute and sell the Products",
+     "start": 1162,
      "end": 1285,
      "status": "needs_review"
     }
@@ -137,10 +124,10 @@
    "contract": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor is Company's exclusive distributor of Products within the Market (State of Illinois); Distributor may not order Products from any source other than the Company",
-     "quote": "grants to  Distributor  the  exclusive                            right  to sell and  distribute  Products  within  the                            Market",
-     "start": 2262,
-     "end": 2415,
+     "value": "Products within the Market (State of Illinois public and private entities): Distributor is Company's exclusive distributor, and Company grants Distributor the exclusive right to sell and distribute Products in the Market",
+     "quote": "Company's exclusive distributor within",
+     "start": 2181,
+     "end": 2219,
      "status": "needs_review"
     }
    }
@@ -150,7 +137,7 @@
    "contract": "LUCIDINC_04_15_2011-EX-10.9-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor is the exclusive Distributor within the Territories (territory list left blank as [*]) and the exclusive authorized Lucid Distributor for the listed market segments; no sub-distributors without Lucid's prior written approval",
+     "value": "Distributor is the exclusive Distributor of Lucid products within the Territory (territories left blank) and the listed market segments, for the Distributor",
      "quote": "The Distributor is appointed as an exclusive Distributor within the following territories",
      "start": 2013,
      "end": 2102,
@@ -176,7 +163,7 @@
    "contract": "NEOMEDIATECHNOLOGIESINC_12_15_2005-EX-16.1-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor has the exclusive right to sell the Products to Beijing Sino-US Jinche Yingang Auto Technological Services Limited (Auto Center); PPG Shanghai and its affiliates may not sell Products directly to the Auto Center without Distributor's written approval",
+     "value": "Distributor has the exclusive right to sell the Products to Beijing Sino-US Jinche Yingang Auto Technological Services Limited (the Auto Center); PPG Shanghai and its affiliates may not sell directly to the Auto Center without Distributor's written approval",
      "quote": "DISTRIBUTOR shall have          the exclusive right for selling the Products to Beijing Sino-US Jinche          Yingang Auto Technological Services Limited",
      "start": 2976,
      "end": 3131,
@@ -189,7 +176,7 @@
    "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_Amendment",
    "evidence": {
     "exclusivity": {
-     "value": "The distributorship granted to Licensee (NEON Systems, Inc.) is exclusive; exception: Licensor may also license Partitioned Database Facility product to International Business Machines Corporation for sublicensing and distribution",
+     "value": "Distributorship granted to Licensee (NEON Systems, Inc.) is exclusive, with Licensor's Partitioned Database Facility product carved out so Licensor may also license it to International Business Machines Corporation for sublicensing and distribution",
      "quote": "from a non-exclusive to an exclusive distributorship",
      "start": 8896,
      "end": 8948,
@@ -202,7 +189,7 @@
    "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_New",
    "evidence": {
     "exclusivity": {
-     "value": "Licensee (Neon Systems, Inc.) holds an exclusive right in the Territory to make Sublicense Copies and to market and sublicense the Licensed Products",
+     "value": "Licensee holds exclusive rights in the Territory to make Sublicense Copies and to market and sublicense the Licensed Products (Licensor may not grant such rights to others in the Territory)",
      "quote": "Licensor hereby grants to Licensee an exclusive in the Territory",
      "start": 5564,
      "end": 5628,
@@ -215,7 +202,7 @@
    "contract": "NETGEAR,INC_04_21_2003-EX-10.16- AMENDMENT #2 TO THE DISTRIBUTION AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Ingram Micro is the only distributor appointed by NETGEAR in the redacted territory (marked [*]) during the initial one year period beginning on the Amendment Date; NETGEAR may not appoint other distributors there in that period, and afterward the appointment is non-exclusive for any extension or renewal term",
+     "value": "Distributor (Ingram Micro) is the only distributor NETGEAR may appoint in the masked territory during the initial one-year period beginning on the Amendment Date; after that period, appointment is non-exclusive",
      "quote": "Distributor shall be the only distributor appointed by NETGEAR in",
      "start": 676,
      "end": 741,
@@ -228,7 +215,7 @@
    "contract": "NETGEAR,INC_04_21_2003-EX-10.16-AMENDMENT TO THE DISTRIBUTOR AGREEMENT BETWEEN INGRAM MICRO AND NETGEAR",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor (INGRAM MICRO INC.) is the only distributor NETGEAR may appoint in the masked territory [*] during the initial one-year period beginning on the Amendment Date, subject to marketing activities under the Marketing Plan; after that period, for any extension or renewal term, the appointment is non-exclusive",
+     "value": "Distributor is the exclusive NETGEAR distributor in the masked territory [*] during the initial one-year period beginning on the Amendment Date; becomes non-exclusive for any extension or renewal term",
      "quote": "Distributor shall be the only distributor appointed by NETGEAR in [*]",
      "start": 4222,
      "end": 4291,
@@ -254,23 +241,10 @@
    "contract": "OPTIMIZEDTRANSPORTATIONMANAGEMENT,INC_07_26_2000-EX-6.6-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "COMWARE has the exclusive right to purchase and resell Products in the exclusive territory of the 48 Contiguous United States during the Initial Distribution Period",
-     "quote": "COMWARE shall have the exclusive right to purchase",
+     "value": "Products (CircuiTest 2000S and 2100 Scanner Expansion) in the 48 Contiguous United States during the Initial Distribution Period, for COMWARE",
+     "quote": "COMWARE shall have the exclusive right to purchase, at the DISCOUNTS described below, and resell Products to potential customers",
      "start": 1535,
-     "end": 1585,
-     "status": "needs_review"
-    }
-   }
-  },
-  {
-   "contract_id": 102,
-   "contract": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
-   "evidence": {
-    "exclusivity": {
-     "value": "Distributor may not handle competitive products within the Territory (Romania) during the term, unless accepted by Principal; the appointment itself is non-exclusive, and Principal keeps the right to market to customers in the Territory",
-     "quote": "or indirectly, shall handle no products that are competitive with the Products within the Territory.",
-     "start": 2581,
-     "end": 2681,
+     "end": 1663,
      "status": "needs_review"
     }
    }
@@ -280,7 +254,7 @@
    "contract": "SmartRxSystemsInc_20180914_1-A_EX1A-6 MAT CTRCT_11351705_EX1A-6 MAT CTRCT_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor is Company's exclusive Distributor for the State of Texas; Company agrees no other Distributor will be appointed in any other state (except Florida) for Distributor's Territory. Company retains right to directly market and license in Florida.",
+     "value": "Exclusive distribution rights for the State of Texas, granted to Distributor (A3 Development Group, LLC); Company will not appoint other distributors in other states except Florida",
      "quote": "Company hereby appoints Distributor as Company's exclusive Distributor for the State of Texas",
      "start": 3816,
      "end": 3909,
@@ -293,7 +267,7 @@
    "contract": "StaarSurgicalCompany_20180801_10-Q_EX-10.37_11289449_EX-10.37_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor's right to market, distribute and sell the Products in the Territory is exclusive (for Distributor); Distributor must procure Products solely from STAAR (STAAR retains right to sell in the Territory directly or indirectly)",
+     "value": "Distributor's right to market, distribute and sell the Products in the Territory is exclusive (for Distributor; STAAR retains right to sell directly in the Territory); Distributor must procure Products solely from STAAR",
      "quote": "Distributor's right to market, distribute and sell the Products in the Territory shall be exclusive",
      "start": 2397,
      "end": 2496,
@@ -319,10 +293,10 @@
    "contract": "WaterNowInc_20191120_10-Q_EX-10.12_11900227_EX-10.12_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Hydraspin's distribution of the Products in the Territory (United States) is exclusive to BESTEV MANAGEMENT, LLC (Distributor); Hydraspin must deal exclusively with and through Distributor in the Territory",
-     "quote": "as Hydraspin's exclusive distributor of the Products in the Territory during the term of this Agreement",
-     "start": 9044,
-     "end": 9147,
+     "value": "Distribution of the Products in the Territory is exclusive to Distributor (BESTEV MANAGEMENT, LLC); Hydraspin will deal exclusively with and through Distributor in the Territory",
+     "quote": "Hydraspin will deal exclusively with and through the Distributor in relation to the distribution of the Products in the Territory",
+     "start": 10823,
+     "end": 10952,
      "status": "needs_review"
     }
    }
@@ -332,10 +306,10 @@
    "contract": "ZogenixInc_20190509_10-Q_EX-10.2_11663313_EX-10.2_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor (and its Affiliates) must purchase the Product only from Zogenix under the Supply Agreement and may not manufacture it; exclusive for Zogenix as supplier",
-     "quote": "Distributor agrees that in no event shall Distributor or its Affiliates manufacture or have manufactured the Product, or purchase the Product from any party other than Zogenix",
-     "start": 30675,
-     "end": 30850,
+     "value": "Zogenix holds the exclusive right to manufacture and sell the Product to Distributor; Distributor and its Affiliates may not manufacture the Product or purchase it from anyone other than Zogenix under the Supply Agreement (for Zogenix's benefit)",
+     "quote": "the exclusive right to manufacture and sell the Product to Distributor",
+     "start": 29961,
+     "end": 30031,
      "status": "needs_review"
     }
    }

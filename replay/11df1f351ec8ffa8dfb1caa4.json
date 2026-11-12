@@ -1,61 +1,66 @@
 {
  "answerable": true,
  "clause_present": false,
- "audit_id": 215,
- "seconds": 9.2,
+ "audit_id": 268,
+ "seconds": 7.8,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "The sources contain no termination-for-convenience clause that lets either party end the agreement at any time without cause. The termination rights shown are tied to breach or insolvency-type events.",
+   "text": "The sources contain no termination-for-convenience clause. Termination rights appear only for cause (breach or insolvency), and the agreement's term renews unless a party gives non-renewal notice.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 10481,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "Either party may by notice in writing terminate this Agreement if (i) the other party breaches or fails to observe or perform any of its obligations",
+     "quote": "Either party may by notice in writing terminate this Agreement if (i) the other party breaches",
      "start": 143748,
-     "end": 143896,
+     "end": 143842,
      "contract_id": 224
     },
     {
      "source": "S2",
      "chunk_id": 10404,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "If either party breaches any material term or condition of",
-     "start": 58716,
-     "end": 58774,
-     "contract_id": 224
-    },
-    {
-     "source": "S2",
-     "chunk_id": 10404,
-     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "To the extent permitted by applicable law, either party may terminate          this Agreement by",
-     "start": 59410,
-     "end": 59506,
+     "quote": "may terminate this Agreement on written notice at any time following",
+     "start": 58944,
+     "end": 59012,
      "contract_id": 224
     }
    ]
   },
   {
-   "text": "The only no-cause exit right for either party is non-renewal. The agreement runs for an initial five-year term and then renews automatically for one-year periods unless either party gives written notice at least 30 days before the relevant expiration.",
+   "text": "Either party may stop the agreement without cause by giving written non-renewal notice at least 30 days before the end of the initial five-year term or any one-year renewal term. This is a non-renewal right, not a termination for convenience.",
    "citations": [
     {
      "source": "S3",
      "chunk_id": 10403,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "shall continue in          full force and effect for an initial period of five (5) years.",
-     "start": 58232,
-     "end": 58321,
+     "quote": "unless either party provides the other party with          written notification at least thirty (30) days prior to the expiration",
+     "start": 58429,
+     "end": 58558,
+     "contract_id": 224
+    }
+   ]
+  },
+  {
+   "text": "Termination for breach requires a cure period: 30 days under Section 8.2 for non-payment or other breaches, and 60 days under Section 11.2 for material breaches.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 10481,
+     "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+     "quote": "fails to cure such breach or failure within thirty (30) days after written notice",
+     "start": 143985,
+     "end": 144066,
      "contract_id": 224
     },
     {
-     "source": "S3",
-     "chunk_id": 10403,
+     "source": "S2",
+     "chunk_id": 10404,
      "contract": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
-     "quote": "written notification at least thirty (30) days prior to the expiration          of the initial five (5) year term or any one (1) year renewal thereof",
-     "start": 58488,
-     "end": 58637,
+     "quote": "fails to cure such breach within sixty (60) days",
+     "start": 58803,
+     "end": 58851,
      "contract_id": 224
     }
    ]

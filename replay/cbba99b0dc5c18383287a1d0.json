@@ -1,13 +1,36 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 209,
- "seconds": 6.3,
+ "audit_id": 262,
+ "seconds": 5.2,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "The agreement was signed for Centrack International, Inc. by [PERSON_1], whose title is President & CEO.",
+   "text": "The agreement has a signature block for both parties, introduced by the statement that the parties have executed it.",
    "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first set forth above.",
+     "start": 14753,
+     "end": 14851,
+     "contract_id": 4
+    }
+   ]
+  },
+  {
+   "text": "For Centrack International, Inc., the signature is by [PERSON_1], whose stated title is President & CEO.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "CENTRACK INTERNATIONAL, INC.",
+     "start": 14853,
+     "end": 14881,
+     "contract_id": 4
+    },
     {
      "source": "S3",
      "chunk_id": 138,
@@ -15,6 +38,15 @@
      "quote": "By: /s/ [PERSON_1]",
      "start": 14917,
      "end": 14941,
+     "contract_id": 4
+    },
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "Name: [PERSON_1]",
+     "start": 15052,
+     "end": 15074,
      "contract_id": 4
     },
     {
@@ -29,8 +61,17 @@
    ]
   },
   {
-   "text": "The agreement was signed for I-on Interactive, Inc. by [PERSON_2], whose title is Vice President.",
+   "text": "For i-on Interactive, Inc., the signature is by [PERSON_2], whose stated title is Vice President.",
    "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "I-ON INTERACTIVE, INC.",
+     "start": 14893,
+     "end": 14915,
+     "contract_id": 4
+    },
     {
      "source": "S3",
      "chunk_id": 138,
@@ -38,6 +79,15 @@
      "quote": "By: /s/ [PERSON_2]",
      "start": 14957,
      "end": 14978,
+     "contract_id": 4
+    },
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "Name:   [PERSON_2]",
+     "start": 15092,
+     "end": 15113,
      "contract_id": 4
     },
     {
@@ -52,15 +102,24 @@
    ]
   },
   {
-   "text": "The signature block appears under the instruction that the parties executed the Agreement as of the date first set forth above.",
+   "text": "The signatories' actual names are not given in the sources; they appear only as the placeholders [PERSON_1] and [PERSON_2].",
    "citations": [
     {
      "source": "S3",
      "chunk_id": 138,
      "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
-     "quote": "IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first set forth above.",
-     "start": 14753,
-     "end": 14851,
+     "quote": "By: /s/ [PERSON_1]",
+     "start": 14917,
+     "end": 14941,
+     "contract_id": 4
+    },
+    {
+     "source": "S3",
+     "chunk_id": 138,
+     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+     "quote": "By: /s/ [PERSON_2]",
+     "start": 14957,
+     "end": 14978,
      "contract_id": 4
     }
    ]

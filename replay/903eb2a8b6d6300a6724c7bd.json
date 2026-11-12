@@ -1,26 +1,12 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 200,
- "seconds": 11.9,
+ "audit_id": 253,
+ "seconds": 6.3,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Notices must be in writing and delivered by one of the methods listed in Section 9.1, including personal delivery, certified mail, overnight delivery service, or other means such as facsimile if the addressee acknowledges receipt in writing.",
-   "citations": [
-    {
-     "source": "S2",
-     "chunk_id": 17872,
-     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
-     "quote": "All notices which are required or permitted by this Agreement shall be in writing and shall be (i) delivered personally to the designated addressee, (ii) sent by the United States Mail addressed to the designated person by certified mail, return receipt requested, all postage prepaid, or (iii) sent by overnight delivery service addressed to the designated person, all charges prepaid, or (iv) by other means such as facsimile machine if the designated addressee acknowledges receipt in writing.",
-     "start": 24345,
-     "end": 24841,
-     "contract_id": 393
-    }
-   ]
-  },
-  {
-   "text": "Notices to NPC are addressed to the NPC designee, Executive Vice President, National City Processing Company, at the address shown in the contract (placeholder [ADDRESS_1]), with copies to a second NPC Executive Vice President (placeholder [PERSON_2]) at the same company and address.",
+   "text": "Notices must be addressed according to a list set out in Section 9.1. Notices to NPC go to [PERSON_1], Executive Vice President, National City Processing Company, [ADDRESS_1], Louisville, KY 40285-0001, with copies to [PERSON_2] at the same company and address.",
    "citations": [
     {
      "source": "S2",
@@ -35,55 +21,73 @@
      "source": "S2",
      "chunk_id": 17872,
      "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
-     "quote": "If to NPC:                         [PERSON_1]                         Executive Vice President                         National City Processing Company                         [ADDRESS_1]",
+     "quote": "If to NPC:",
      "start": 24882,
-     "end": 25077,
+     "end": 24892,
      "contract_id": 393
     },
     {
      "source": "S2",
      "chunk_id": 17872,
      "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
-     "quote": "with copies to:         [PERSON_2]                         Executive Vice President                         National City Processing Company",
+     "quote": "with copies to:         [PERSON_2]",
      "start": 25174,
-     "end": 25314,
+     "end": 25208,
      "contract_id": 393
     }
    ]
   },
   {
-   "text": "Notices to NCB are addressed to the NCB designee, Senior Vice President, National City Bank of Kentucky, at the address shown in the contract (placeholder [ADDRESS_2]), with copies to [PERSON_4], Senior Vice President and Counsel, at the same bank and address.",
+   "text": "Notices to NCB go to [PERSON_3], Senior Vice President, National City Bank of Kentucky, [ADDRESS_2], Louisville, KY 40202, with copies to [PERSON_4], Senior Vice President and Counsel, at the same bank and address.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 17872,
      "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
-     "quote": "If to NCB:              [PERSON_3]                         Senior Vice President                         National City Bank of Kentucky                         [ADDRESS_2]",
+     "quote": "If to NCB:",
      "start": 25409,
-     "end": 25592,
+     "end": 25419,
      "contract_id": 393
     },
     {
      "source": "S2",
      "chunk_id": 17872,
      "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
-     "quote": "with copies to:         [PERSON_4]                         Senior Vice President and Counsel                         National City Bank of Kentucky",
-     "start": 25640,
-     "end": 25793,
+     "quote": "National City Bank of Kentucky",
+     "start": 25520,
+     "end": 25550,
+     "contract_id": 393
+    },
+    {
+     "source": "S2",
+     "chunk_id": 17872,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "Louisville, KY  40202",
+     "start": 25617,
+     "end": 25638,
      "contract_id": 393
     }
    ]
   },
   {
-   "text": "Notices sent by means other than the listed methods are deemed given when acknowledged in writing.",
+   "text": "Notices must be in writing and delivered personally to the designated addressee, sent by certified U.S. Mail (return receipt requested), sent by overnight delivery service, or sent by other means such as facsimile if the addressee acknowledges receipt in writing.",
    "citations": [
     {
-     "source": "S1",
-     "chunk_id": 17873,
+     "source": "S2",
+     "chunk_id": 17872,
      "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
-     "quote": "Notices sent by other means and acknowledged are deemed given when acknowledged in writing.",
-     "start": 26316,
-     "end": 26407,
+     "quote": "All notices which are required or permitted by this Agreement shall be in writing",
+     "start": 24345,
+     "end": 24426,
+     "contract_id": 393
+    },
+    {
+     "source": "S2",
+     "chunk_id": 17872,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "(iv) by other means such as facsimile machine if the designated addressee acknowledges receipt in writing",
+     "start": 24735,
+     "end": 24840,
      "contract_id": 393
     }
    ]

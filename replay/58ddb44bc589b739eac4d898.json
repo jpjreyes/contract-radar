@@ -12,31 +12,18 @@
   }
  ],
  "unsupported": "",
- "unreviewed": 10,
- "audit_id": 183,
+ "unreviewed": 9,
+ "audit_id": 236,
  "matches": [
   {
    "contract_id": 494,
    "contract": "BLACKBOXSTOCKSINC_08_05_2014-EX-10.1-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor is the exclusive seller of Company's Products in the Territory (South America), for Snotarator LLC",
+     "value": "Products of the Company in the Territory (South America) are exclusive to Distributor (SMSA Ballinger Acquisition Corp.)",
      "quote": "the exclusive right to sell the products of the Company",
      "start": 678,
      "end": 733,
-     "status": "needs_review"
-    }
-   }
-  },
-  {
-   "contract_id": 261,
-   "contract": "ETELOS,INC_03_09_2004-EX-10.8-DISTRIBUTOR AGREEMENT",
-   "evidence": {
-    "exclusivity": {
-     "value": "Distributor may not carry competitive products without Tripath's consent (in favor of Tripath); the appointment itself is non-exclusive",
-     "quote": "Distributor will not carry any competitive products without Tripath's consent",
-     "start": 3435,
-     "end": 3512,
      "status": "needs_review"
     }
    }
@@ -46,10 +33,10 @@
    "contract": "ImineCorp_20180725_S-1_EX-10.5_11275970_EX-10.5_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor (SUNWAI Technology) may not market, sell, distribute or solicit orders in Taiwan for products competitive with iMine Products during the term without JRVS's prior written consent; for JRVS. The grant itself is non-exclusive.",
-     "quote": "The Distributor shall not, during the term of this Agreement, directly or indirectly market, sell, distribute, solicit orders within the Territory for any products which are competitive with the iMine Products unless JRVS consents thereto in writing in advance",
-     "start": 3793,
-     "end": 4053,
+     "value": "Distributor may not market, sell or solicit orders for products competitive with iMine Products in the Territory (Taiwan) during the term, without JRVS's prior written consent, in favor of JRVS. The appointment itself is non-exclusive.",
+     "quote": "shall not, during the term of this Agreement, directly or indirectly market, sell, distribute, solicit orders within the Territory for any products which are competitive with the iMine Products",
+     "start": 3809,
+     "end": 4002,
      "status": "needs_review"
     }
    }
@@ -72,7 +59,7 @@
    "contract": "NEOMEDIATECHNOLOGIESINC_12_15_2005-EX-16.1-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor has the exclusive right to sell the Products to Beijing Sino-US Jinche Yingang Auto Technological Services Limited (Auto Center); PPG Shanghai and its affiliates may not sell Products directly to the Auto Center without Distributor's written approval",
+     "value": "Distributor has the exclusive right to sell the Products to Beijing Sino-US Jinche Yingang Auto Technological Services Limited (the Auto Center); PPG Shanghai and its affiliates may not sell directly to the Auto Center without Distributor's written approval",
      "quote": "DISTRIBUTOR shall have          the exclusive right for selling the Products to Beijing Sino-US Jinche          Yingang Auto Technological Services Limited",
      "start": 2976,
      "end": 3131,
@@ -85,7 +72,7 @@
    "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_Amendment",
    "evidence": {
     "exclusivity": {
-     "value": "The distributorship granted to Licensee (NEON Systems, Inc.) is exclusive; exception: Licensor may also license Partitioned Database Facility product to International Business Machines Corporation for sublicensing and distribution",
+     "value": "Distributorship granted to Licensee (NEON Systems, Inc.) is exclusive, with Licensor's Partitioned Database Facility product carved out so Licensor may also license it to International Business Machines Corporation for sublicensing and distribution",
      "quote": "from a non-exclusive to an exclusive distributorship",
      "start": 8896,
      "end": 8948,
@@ -98,7 +85,7 @@
    "contract": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_New",
    "evidence": {
     "exclusivity": {
-     "value": "Licensee (Neon Systems, Inc.) holds an exclusive right in the Territory to make Sublicense Copies and to market and sublicense the Licensed Products",
+     "value": "Licensee holds exclusive rights in the Territory to make Sublicense Copies and to market and sublicense the Licensed Products (Licensor may not grant such rights to others in the Territory)",
      "quote": "Licensor hereby grants to Licensee an exclusive in the Territory",
      "start": 5564,
      "end": 5628,
@@ -124,10 +111,10 @@
    "contract": "OPTIMIZEDTRANSPORTATIONMANAGEMENT,INC_07_26_2000-EX-6.6-DISTRIBUTOR AGREEMENT",
    "evidence": {
     "exclusivity": {
-     "value": "COMWARE has the exclusive right to purchase and resell Products in the exclusive territory of the 48 Contiguous United States during the Initial Distribution Period",
-     "quote": "COMWARE shall have the exclusive right to purchase",
+     "value": "Products (CircuiTest 2000S and 2100 Scanner Expansion) in the 48 Contiguous United States during the Initial Distribution Period, for COMWARE",
+     "quote": "COMWARE shall have the exclusive right to purchase, at the DISCOUNTS described below, and resell Products to potential customers",
      "start": 1535,
-     "end": 1585,
+     "end": 1663,
      "status": "needs_review"
     }
    }
@@ -137,10 +124,10 @@
    "contract": "ZogenixInc_20190509_10-Q_EX-10.2_11663313_EX-10.2_Distributor Agreement",
    "evidence": {
     "exclusivity": {
-     "value": "Distributor (and its Affiliates) must purchase the Product only from Zogenix under the Supply Agreement and may not manufacture it; exclusive for Zogenix as supplier",
-     "quote": "Distributor agrees that in no event shall Distributor or its Affiliates manufacture or have manufactured the Product, or purchase the Product from any party other than Zogenix",
-     "start": 30675,
-     "end": 30850,
+     "value": "Zogenix holds the exclusive right to manufacture and sell the Product to Distributor; Distributor and its Affiliates may not manufacture the Product or purchase it from anyone other than Zogenix under the Supply Agreement (for Zogenix's benefit)",
+     "quote": "the exclusive right to manufacture and sell the Product to Distributor",
+     "start": 29961,
+     "end": 30031,
      "status": "needs_review"
     }
    }

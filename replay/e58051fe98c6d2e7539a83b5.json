@@ -1,12 +1,12 @@
 {
  "answerable": true,
  "clause_present": false,
- "audit_id": 199,
- "seconds": 10.2,
+ "audit_id": 252,
+ "seconds": 9.7,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Section 7.2 says either party may terminate, but only on the listed grounds. The only mutual ground is written agreement of both parties, so there is no unilateral termination for convenience.",
+   "text": "Section 7.2 says either party may terminate, but only on the grounds listed after it. It does not give a general right to terminate without cause.",
    "citations": [
     {
      "source": "S1",
@@ -16,7 +16,12 @@
      "start": 21643,
      "end": 21777,
      "contract_id": 393
-    },
+    }
+   ]
+  },
+  {
+   "text": "The only listed ground that does not depend on the other party's fault is termination by written agreement of both parties.",
+   "citations": [
     {
      "source": "S1",
      "chunk_id": 17869,
@@ -29,21 +34,21 @@
    ]
   },
   {
-   "text": "Termination for the other party's breach is available to either party only after written notice specifying the breach and a cure period has passed. The cure period is five business days for NPC's failure to provide required funds to pay Merchants, and thirty business days for any other breach.",
+   "text": "Either party may terminate for the other party's uncured breach, after written notice and a cure period.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 17869,
      "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
-     "quote": "provided          the terminating party has given written notice of the breach to the          other party specifying the breach, the action necessary to cure the          breach and the breaching party has not cured the breach within five          business days after notice is given of any failure by NPC to provide          any funds required hereunder to be provided by NPC to pay Merchants or          within thirty business days after notice is given of any other breach.",
-     "start": 21910,
-     "end": 22387,
+     "quote": "(b) Upon the other party's breach of this Agreement provided          the terminating party has given written notice of the breach to the          other party specifying the breach, the action necessary to cure the          breach and the breaching party has not cured the breach within five          business days after notice is given",
+     "start": 21858,
+     "end": 22194,
      "contract_id": 393
     }
    ]
   },
   {
-   "text": "Section 6.2 gives either party a right to terminate on prior written notice if NPC does not request Compliance Modifications, or the parties cannot agree on their terms. This right is tied to a compliance trigger, not to convenience.",
+   "text": "Section 6.2 lets either party terminate on prior written notice if NPC does not request Compliance Modifications or the parties cannot agree on their terms. This is tied to a regulatory or compliance trigger, not a general convenience right.",
    "citations": [
     {
      "source": "S2",
@@ -57,7 +62,7 @@
    ]
   },
   {
-   "text": "The term runs five years and then renews automatically for one-year terms unless a party gives written notice of non-renewal at least six months before renewal. This governs expiry and renewal, not early termination.",
+   "text": "Section 7.1 provides for automatic renewal unless either party gives written notice of non-renewal at least six months before renewal. This ends the agreement at the end of a term rather than providing early termination for convenience.",
    "citations": [
     {
      "source": "S2",
@@ -71,7 +76,7 @@
    ]
   },
   {
-   "text": "Some termination rights are one-sided. NCB may terminate upon NPC's bankruptcy filing, and NPC may terminate immediately if NCB's Visa/MasterCard agreements or membership are terminated or materially limited in a way that impairs NPC's processing ability.",
+   "text": "The other termination rights are one-sided and event-specific. NCB may terminate on NPC's bankruptcy filing, and NPC may terminate if NCB's bankcard association agreements or membership are terminated or materially limited.",
    "citations": [
     {
      "source": "S1",

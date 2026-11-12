@@ -1,9 +1,52 @@
 {
- "answerable": false,
+ "answerable": true,
  "clause_present": false,
- "audit_id": 198,
- "seconds": 6.3,
+ "audit_id": 251,
+ "seconds": 7.6,
  "pii_revealed_chunks": [],
- "claims": [],
+ "claims": [
+  {
+   "text": "The provided sources do not contain a limitation-of-liability clause or any cap on liability. The only liability-allocation provision shown is the indemnification in Section 5.1, which is described as covering losses 'of any nature'.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 17865,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "5.1 INDEMNIFICATION. NPC agrees to indemnify, defend and save NCB, its directors, officers and employees harmless from all losses, claims, judgments, awards, penalties, expenses and other amounts of any nature arising out of:",
+     "start": 17402,
+     "end": 17627,
+     "contract_id": 393
+    }
+   ]
+  },
+  {
+   "text": "The one exclusion stated in the sources is from NCB's indemnification rights: NCB is not entitled to indemnification for amounts arising from NCB's own negligence or willful misconduct.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 17865,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "provided, however, that NCB shall not be entitled to indemnification as to amounts arising from the negligence or willful misconduct of NCB.",
+     "start": 18352,
+     "end": 18492,
+     "contract_id": 393
+    }
+   ]
+  },
+  {
+   "text": "Section 5.1 is listed as surviving termination of the Agreement, so the indemnification obligation (and the exclusion within it) continues after termination.",
+   "citations": [
+    {
+     "source": "S4",
+     "chunk_id": 17870,
+     "contract": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+     "quote": "The provisions of Sections 3.3, 4.2, 5.1, 8.1 and 10.6 of this Agreement shall survive any termination.",
+     "start": 23155,
+     "end": 23258,
+     "contract_id": 393
+    }
+   ]
+  }
+ ],
  "replayed": true
 }

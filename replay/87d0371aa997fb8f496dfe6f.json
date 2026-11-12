@@ -1,54 +1,40 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 174,
- "seconds": 16.6,
+ "audit_id": 227,
+ "seconds": 19.2,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Yes, the contract caps Diversinet's liability at 100% of the fees paid by the Reseller in the 12 months before the event giving rise to the liability. The cap covers liability relating to the Agreement or the Bundled Product.",
+   "text": "Yes, there is a cap. Diversinet's liability relating to the agreement or the Bundled Product is capped at 100% of the license fees, royalties and support fees the Reseller paid in the 12 months before the event giving rise to the liability.",
    "citations": [
     {
      "source": "S3",
      "chunk_id": 13532,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "IN NO EVENT SHALL DIVERSINET'S LIABILITY RELATING TO THIS AGREEMENT (OR THE  BUNDLED PRODUCT) EXCEED ONE HUNDRED PERCENT (100%) OF THE AGGREGATE AMOUNT OF THE LICENSE FEES, ROYALTIES  AND SUPPORT FEES PAID BY RESELLER IN THE TWELVE (12) MONTH PERIOD PRECEDING THE EVENT OR CIRCUMSTANCE  GIVING RISE TO THE ALLEGED LIABILITY ON THE PART OF DIVERSINET.",
+     "quote": "IN NO EVENT SHALL DIVERSINET'S LIABILITY RELATING TO THIS AGREEMENT (OR THE  BUNDLED PRODUCT) EXCEED ONE HUNDRED PERCENT (100%) OF THE AGGREGATE AMOUNT OF THE LICENSE FEES, ROYALTIES  AND SUPPORT FEES PAID BY RESELLER IN THE TWELVE (12) MONTH PERIOD PRECEDING THE EVENT OR CIRCUMSTANCE",
      "start": 33262,
+     "end": 33547,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The cap is limited to Diversinet's liability; the cited text refers to liability 'ON THE PART OF DIVERSINET' and contains no comparable cap on the Reseller.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 13532,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "GIVING RISE TO THE ALLEGED LIABILITY ON THE PART OF DIVERSINET.",
+     "start": 33549,
      "end": 33612,
      "contract_id": 280
     }
    ]
   },
   {
-   "text": "The cap is stated to apply \"NOTWITHSTANDING THE ABOVE,\" meaning it overrides the preceding paragraphs (a) to (c) of Section 5 and the performance language in them.",
-   "citations": [
-    {
-     "source": "S3",
-     "chunk_id": 13532,
-     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "NOTWITHSTANDING THE ABOVE, IN NO EVENT SHALL DIVERSINET'S LIABILITY RELATING TO THIS AGREEMENT (OR THE  BUNDLED PRODUCT) EXCEED ONE HUNDRED PERCENT (100%)",
-     "start": 33235,
-     "end": 33389,
-     "contract_id": 280
-    }
-   ]
-  },
-  {
-   "text": "The excerpts do not list any categories of liability that are carved out from the 100% cap. They also do not say whether any items are excluded from the cap itself.",
-   "citations": [
-    {
-     "source": "S3",
-     "chunk_id": 13532,
-     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "NOTWITHSTANDING THE ABOVE, IN NO EVENT SHALL DIVERSINET'S LIABILITY RELATING TO THIS AGREEMENT (OR THE  BUNDLED PRODUCT) EXCEED ONE HUNDRED PERCENT (100%)",
-     "start": 33235,
-     "end": 33389,
-     "contract_id": 280
-    }
-   ]
-  },
-  {
-   "text": "Separately from the cap, Section 5(a) excludes Diversinet's liability for indirect, special, incidental or consequential damages (including commercial damages or losses). This exclusion is subject to a carve-out for direct foreseeable damages.",
+   "text": "Separately from the cap, Diversinet is not liable for indirect, special, incidental or consequential damages, including commercial damages or losses, arising from use, sale or distribution of the Bundled Product, even if Diversinet was informed of the possibility of such damages. The exclusion carves back direct foreseeable damages.",
    "citations": [
     {
      "source": "S1",
@@ -58,11 +44,20 @@
      "start": 30820,
      "end": 31036,
      "contract_id": 280
+    },
+    {
+     "source": "S1",
+     "chunk_id": 13531,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "EVEN IF DIVERSINET HAS BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES.",
+     "start": 31241,
+     "end": 31313,
+     "contract_id": 280
     }
    ]
   },
   {
-   "text": "For intellectual property infringement by the Products, Section 4(e) states that Diversinet's liability is limited to the stated remedies. It is described as the entire liability and the sole and exclusive remedy of the Reseller and End-User.",
+   "text": "For intellectual property infringement by the Products, the sources state that Diversinet's stated obligations are its entire liability and the sole and exclusive remedy of the Reseller and End-User.",
    "citations": [
     {
      "source": "S4",
@@ -76,7 +71,76 @@
    ]
   },
   {
-   "text": "The parties state that the limitation of liability, disclaimer and damages exclusion are intended to be severable and to operate independently of the rest of the Agreement.",
+   "text": "Diversinet also has no liability for certain infringement claims, including claims based on use of other than a current or the last prior release, and claims based on use or combination with non-Diversinet programs, data, equipment or documentation in a manner not reasonably contemplated by the agreement.",
+   "citations": [
+    {
+     "source": "S4",
+     "chunk_id": 13535,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Diversinet shall have no liability for any claim based upon:",
+     "start": 36667,
+     "end": 36727,
+     "contract_id": 280
+    },
+    {
+     "source": "S4",
+     "chunk_id": 13535,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "(i) use of other than a current or the last prior release to the current unaltered version of the Products",
+     "start": 36731,
+     "end": 36837,
+     "contract_id": 280
+    },
+    {
+     "source": "S4",
+     "chunk_id": 13535,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "(ii) use, operation or combination of the Products with non-Diversinet programs, data, equipment or documentation in a manner not  reasonably contemplated by this Agreement",
+     "start": 36843,
+     "end": 37015,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "Diversinet also has no responsibility for failures to meet requirements on performance issues caused by factors outside its reasonable control, or by Customers, End Users or third parties.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 13532,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "Diversinet shall have no responsibility for any failure to meet the requirements hereunder, with  respect to performance issues, including without limitation: (i) caused by factors outside of Diversinet's reasonable control",
+     "start": 32692,
+     "end": 32915,
+     "contract_id": 280
+    },
+    {
+     "source": "S3",
+     "chunk_id": 13532,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "(ii) that result  from any actions or omissions of Customers, End Users or any third parties",
+     "start": 32917,
+     "end": 33009,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The sources do not expressly list any carve-outs from the 100% cap itself, and do not say which claims, if any, fall outside it.",
+   "citations": [
+    {
+     "source": "S3",
+     "chunk_id": 13532,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "NOTWITHSTANDING THE ABOVE, IN NO EVENT SHALL DIVERSINET'S LIABILITY RELATING TO THIS AGREEMENT",
+     "start": 33235,
+     "end": 33329,
+     "contract_id": 280
+    }
+   ]
+  },
+  {
+   "text": "The sources state that the limitation of liability and exclusion of damages are intended to be severable from the rest of the agreement.",
    "citations": [
     {
      "source": "S5",

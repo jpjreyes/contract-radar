@@ -1,8 +1,8 @@
 {
  "answerable": false,
  "clause_present": false,
- "audit_id": 188,
- "seconds": 5.7,
+ "audit_id": 241,
+ "seconds": 3.6,
  "pii_revealed_chunks": [],
  "claims": [],
  "replayed": true

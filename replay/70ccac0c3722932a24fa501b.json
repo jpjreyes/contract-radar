@@ -1,12 +1,12 @@
 {
  "answerable": true,
  "clause_present": false,
- "audit_id": 202,
- "seconds": 10.9,
+ "audit_id": 255,
+ "seconds": 10.0,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Section 12.2 is a mutual exclusion of indirect and consequential damages: neither party is liable for indirect, special, incidental, exemplary, punitive or consequential damages, including lost profits, lost revenues or lost savings.",
+   "text": "The contract does not set a monetary cap on liability. Section 12.2 instead limits liability by excluding certain categories of damages, and the excluded categories are indirect, special, incidental, exemplary, punitive and consequential damages, including lost profits, lost revenues and lost savings.",
    "citations": [
     {
      "source": "S1",
@@ -20,21 +20,21 @@
    ]
   },
   {
-   "text": "The exclusion applies whether the claim is in contract, tort, strict liability or otherwise, and even if the party was advised of or should have known of the possibility of such damages.",
+   "text": "The damages exclusion applies to liability arising out of or in connection with the agreement and/or the products, whether in contract, tort, strict liability or otherwise, and applies even if the party was advised of or aware of the possibility of such damages.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 5252,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "WHETHER IN CONTRACT, TORT, STRICT LIABILITY OR OTHERWISE, EVEN IF THE PARTY HAS BEEN ADVISED, KNOWS OR SHOULD KNOW, OR IS OTHERWISE AWARE OF THE POSSIBILITY OF SUCH DAMAGES",
-     "start": 21017,
+     "quote": "ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT AND/OR THE PRODUCTS, WHETHER IN CONTRACT, TORT, STRICT LIABILITY OR OTHERWISE, EVEN IF THE PARTY HAS BEEN ADVISED, KNOWS OR SHOULD KNOW, OR IS OTHERWISE AWARE OF THE POSSIBILITY OF SUCH DAMAGES",
+     "start": 20944,
      "end": 21189,
      "contract_id": 125
     }
    ]
   },
   {
-   "text": "The exclusion does not apply to claims made under the indemnity in Section 12.1, which is the carve-out from the exclusion.",
+   "text": "The damages exclusion does not apply to claims made under Section 12.1, the indemnity provision. Section 12.1 covers claims based on breach of obligations, warranties, representations or covenants, personal injury or property damage caused by the indemnitor's fault or negligence, and third-party infringement claims.",
    "citations": [
     {
      "source": "S1",
@@ -44,12 +44,7 @@
      "start": 20695,
      "end": 20746,
      "contract_id": 125
-    }
-   ]
-  },
-  {
-   "text": "Section 12.1 is a mutual indemnity covering third-party claims based on, among other things, the indemnitor's breach of any obligation, warranty, representation or covenant in the Agreement, personal injury or property damage caused by the indemnitor's fault or negligence, and third-party infringement claims.",
-   "citations": [
+    },
     {
      "source": "S1",
      "chunk_id": 5252,

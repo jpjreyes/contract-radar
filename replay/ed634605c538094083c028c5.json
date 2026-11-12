@@ -1,14 +1,14 @@
 {
  "answerable": true,
  "clause_present": false,
- "audit_id": 175,
- "seconds": 12.0,
+ "audit_id": 228,
+ "seconds": 10.3,
  "pii_revealed_chunks": [
   13539
  ],
  "claims": [
   {
-   "text": "The sources show no general right for either party to terminate for convenience. The termination rights in Section 4(a) are tied to specific events, such as non-payment, uncured material breach, or the Reseller's sales-target conditions.",
+   "text": "The excerpted termination section lets either Party terminate only on listed grounds, starting with the phrase 'Either Party may terminate this Agreement:'. The listed grounds are non-payment after a 30-day notice period, and material breach that is not cured within the cure period. Neither excerpt describes a right to terminate without cause or for convenience.",
    "citations": [
     {
      "source": "S1",
@@ -23,29 +23,38 @@
      "source": "S1",
      "chunk_id": 13516,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "if the other Party breaches any material term or condition of this Agreement,  and fails to cure such breach within the 60 day period",
+     "quote": "if the other Party breaches any material term or condition of this Agreement",
      "start": 5890,
-     "end": 6023,
+     "end": 5966,
      "contract_id": 280
     }
    ]
   },
   {
-   "text": "The only termination right tied to a business condition is available to the Reseller alone, and only if the Reseller terminates the Annual Minimum Commitment provisions and fails to meet the sales targets in Schedule 3.",
+   "text": "The excerpts show a termination right for Reseller tied to the Annual Minimum Commitment (AMC) and sales targets. This is conditional on the sales targets not being met, so it is not a general convenience right.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 13516,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "upon providing thirty (30) days' written notice to Reseller if Reseller terminates the provisions of the Annual Minimum Commitment  and fails to meet the sales targets as set out in Schedule 3.",
-     "start": 6032,
-     "end": 6225,
+     "quote": "if Reseller terminates the provisions of the Annual Minimum Commitment",
+     "start": 6092,
+     "end": 6162,
+     "contract_id": 280
+    },
+    {
+     "source": "S1",
+     "chunk_id": 13516,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "fails to meet the sales targets as set out in Schedule 3",
+     "start": 6168,
+     "end": 6224,
      "contract_id": 280
     }
    ]
   },
   {
-   "text": "The Reseller alone may end the agreement at renewal by giving notice within 60 days before the end of the Initial Term or a renewal term. This is a non-renewal right tied to the term, not a general termination for convenience.",
+   "text": "The only other exit shown for Reseller is non-renewal. Reseller may terminate by giving notice within sixty days before the end of the Initial Term or any renewal term. This is a renewal decision, not a termination for convenience during the term.",
    "citations": [
     {
      "source": "S7",
@@ -59,15 +68,33 @@
    ]
   },
   {
-   "text": "The agreement runs for an Initial Term of five years and then renews automatically, so it is not terminable at will during the term.",
+   "text": "Automatic termination under subsection (b) is triggered by events such as Reseller ceasing its business or a winding-up, dissolution or liquidation. These are not convenience terminations. The excerpt of subsection (b) is cut off, so the full list of automatic-termination events is not visible in the sources.",
    "citations": [
     {
-     "source": "S7",
-     "chunk_id": 13515,
+     "source": "S4",
+     "chunk_id": 13517,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "continue in effect for a period of five (5) years (the \"Initial Term\"), unless sooner  terminated in accordance with the provisions set out herein.",
-     "start": 4753,
-     "end": 4900,
+     "quote": "Reseller ceases carrying on its business",
+     "start": 6362,
+     "end": 6402,
+     "contract_id": 280
+    },
+    {
+     "source": "S4",
+     "chunk_id": 13517,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "winding-up, dissolution or liquidation of Reseller",
+     "start": 6506,
+     "end": 6556,
+     "contract_id": 280
+    },
+    {
+     "source": "S1",
+     "chunk_id": 13516,
+     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+     "quote": "This Agreement shall terminate automatically without notice and without further action by Diversinet in the event that:",
+     "start": 6233,
+     "end": 6352,
      "contract_id": 280
     }
    ]

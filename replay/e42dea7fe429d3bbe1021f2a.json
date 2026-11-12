@@ -1,12 +1,12 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 211,
- "seconds": 5.7,
+ "audit_id": 264,
+ "seconds": 5.1,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Either party can terminate the agreement for convenience, without cause, on 30 days' written notice.",
+   "text": "Yes. Either party may terminate the agreement for convenience, without cause, on 30 days' written notice.",
    "citations": [
     {
      "source": "S1",
@@ -20,7 +20,7 @@
    ]
   },
   {
-   "text": "Termination does not relieve the Customer of its obligation to pay all amounts due, including payments made on a timely basis.",
+   "text": "Termination does not relieve the Customer of its payment obligations. The Customer must still pay all amounts due, on a timely basis, regardless of how the agreement is terminated.",
    "citations": [
     {
      "source": "S1",
@@ -34,14 +34,14 @@
    ]
   },
   {
-   "text": "Separately, the agreement auto-renews for one-month periods unless either party gives notice of non-renewal not less than fifteen days before the end of the current term. This is a non-renewal mechanism, distinct from termination for convenience.",
+   "text": "Separately from termination for convenience, either party may decline to renew. Non-renewal notice must be given at least fifteen days before the end of the current term.",
    "citations": [
     {
      "source": "S1",
      "chunk_id": 134,
      "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
-     "quote": "This Agreement shall automatically be renewed for one (1) or more one (1) month periods unless either the Customer or i-on gives notice to the other party of its intention not to renew the",
-     "start": 10559,
+     "quote": "unless either the Customer or i-on gives notice to the other party of its intention not to renew the",
+     "start": 10647,
      "end": 10747,
      "contract_id": 4
     },

@@ -1,15 +1,15 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 177,
- "seconds": 6.0,
+ "audit_id": 230,
+ "seconds": 5.7,
  "pii_revealed_chunks": [
   138,
   127
  ],
  "claims": [
   {
-   "text": "John J. Lofquist signed the agreement on behalf of Centrack International, Inc. as President & CEO.",
+   "text": "The agreement was signed for Centrack International, Inc. by John J. Lofquist, whose title is President & CEO.",
    "citations": [
     {
      "source": "S3",
@@ -24,24 +24,15 @@
      "source": "S3",
      "chunk_id": 138,
      "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
-     "quote": "Name: John J. Lofquist",
-     "start": 15052,
-     "end": 15074,
-     "contract_id": 4
-    },
-    {
-     "source": "S3",
-     "chunk_id": 138,
-     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
-     "quote": "Title: President & CEO",
-     "start": 15114,
+     "quote": "President & CEO",
+     "start": 15121,
      "end": 15136,
      "contract_id": 4
     }
    ]
   },
   {
-   "text": "Anna Talerico signed the agreement on behalf of i-on Interactive, Inc. as Vice President.",
+   "text": "The agreement was signed for i-on Interactive, Inc. by Anna Talerico, whose title is Vice President.",
    "citations": [
     {
      "source": "S3",
@@ -50,15 +41,6 @@
      "quote": "By: /s/ ANNA TALERICO",
      "start": 14957,
      "end": 14978,
-     "contract_id": 4
-    },
-    {
-     "source": "S3",
-     "chunk_id": 138,
-     "contract": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
-     "quote": "Name:   Anna Talerico",
-     "start": 15092,
-     "end": 15113,
      "contract_id": 4
     },
     {

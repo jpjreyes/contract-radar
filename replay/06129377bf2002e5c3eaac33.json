@@ -1,12 +1,12 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 191,
- "seconds": 6.4,
+ "audit_id": 244,
+ "seconds": 5.8,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Either party may terminate the Agreement for convenience, without cause, on ninety (90) days written notice to the other party.",
+   "text": "Yes. Either party may terminate the Agreement for convenience, without cause, on ninety (90) days written notice to the other party.",
    "citations": [
     {
      "source": "S1",
@@ -20,7 +20,7 @@
    ]
   },
   {
-   "text": "The same no-cause termination right is restated later in Section 15.B, again allowing either party to terminate without cause on ninety (90) days written notice.",
+   "text": "The Agreement restates the same no-cause termination right, again allowing either party to terminate on ninety (90) days written notice.",
    "citations": [
     {
      "source": "S1",
@@ -34,7 +34,7 @@
    ]
   },
   {
-   "text": "The no-cause termination right sits alongside the Agreement's one-year term, which renews automatically unless terminated as provided below.",
+   "text": "The termination-for-convenience right operates alongside the one-year term, which otherwise renews automatically for successive one-year periods unless terminated as provided in the section.",
    "citations": [
     {
      "source": "S1",
@@ -43,6 +43,20 @@
      "quote": "will automatically renew for successive one (1) year periods unless terminated as provided below.",
      "start": 30966,
      "end": 31063,
+     "contract_id": 156
+    }
+   ]
+  },
+  {
+   "text": "Upon expiration or termination, neither party is liable to the other for damages in any form by reason of that expiration or termination, except as otherwise specifically stated in the Agreement.",
+   "citations": [
+    {
+     "source": "S1",
+     "chunk_id": 7101,
+     "contract": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+     "quote": "neither party will be liable to the other for damages in any form by reason of the expiration or earlier termination of the Agreement.",
+     "start": 31952,
+     "end": 32086,
      "contract_id": 156
     }
    ]

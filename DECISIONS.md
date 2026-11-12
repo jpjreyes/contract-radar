@@ -442,3 +442,36 @@ or overturn a decision are added to the entry.
   and **0 permission leaks in 2,129 returned chunks**. A missed name is still only visible to users who can read that
   contract. The exposure probe also lists masked values that appear unmasked elsewhere: mostly detector false
   positives that cost readability, not privacy ("Governing Law" or "ARTICLE XIII" masked as a person in one contract).
+
+## D20. Final evals on the Claude plan, isolated configuration (2026-11-11)
+- **How the numbers were produced:** Claude Haiku via the Claude CLI on a Claude plan, in an isolated configuration
+  (no user plugins, settings or instructions; one sentence is added to every prompt by an account-managed hook that can't be
+  turned off); the runner refuses an API key and stops at 80% of the 5-hour or weekly limit. Costs are
+  API-equivalent. Re-run in order: extraction of all 415 test contracts, extraction eval, answers, personal data in
+  answers (portfolio questions were re-run first: planner 40/40, set F1 0.865, unchanged). The whole set used 8 points
+  of the 5-hour window and 1 point of the weekly limit.
+
+| Measure | before (D11/D18, D7/D9) | final |
+|---|---|---|
+| Extraction, all 415 test: field accuracy | 0.875 | **0.879** |
+| Extraction, all 415: auto-accepted correct / sent to a person | 97.8% / 72.5% | **97.9% / 72.5%** |
+| Extraction, held-out half (217): field accuracy | 0.878 | **0.887** |
+| held-out half: minimum commitment / uncapped liability / non-compete F1 | 0.712 / 0.773 / 0.752 | 0.712 / **0.797** / 0.727 |
+| held-out half: auto-accepted correct / sent to a person | 98.3% / 73.4% | 98.2% / 73.0% |
+| Answers (dev, 50): answered when the clause exists | 27/30 | **28/30** |
+| Answers: citation on the lawyers' span | 25/27 | **26/28** |
+| Answers: says absent when the label says absent | 17/20 raw · 18/20 adjudicated | **17/20 raw · 19/20 adjudicated** |
+| Answers: claims dropped for unverifiable quotes | 2/128 | 2/129 |
+| Answers: median latency · cost per question | 8.8 s · $0.00135 | **7.5 s · $0.00116** |
+| Personal data in answers (analyst, 10 contracts, asked for exactly that data) | 0 values | **0 values** (2–13 placeholders per answer; legal_admin sees 2–14 real values) |
+
+- **Adjudication:** the 3 raw "absent" disagreements are the same contracts already reviewed in
+  `evals/adjudication.json`: 2 CUAD label misses (Pareteum renewal notice, Middlebrook termination for convenience)
+  and 1 real over-call (Ingevity: non-exclusive licenses read as exclusivity). Marshall, the inconsistent case in D7,
+  came back absent this time.
+- **Noise:** the two answer misses when the clause exists are both expiration dates; non-compete moved −0.025 on the
+  held-out half (54 positives) with no code change, inside the run-to-run swing noted in D18.
+- **Knock-on, Act this quarter (legal_admin, as of 2026-11-11):** notice deadlines 18 (unchanged), uncapped
+  liability 153 → 151, sent to a person 57 → 62. Replay answers for the public demo re-recorded.
+- **Latency:** median 7.5 s is now under the 8 s target (C4) even on the CLI backend; the API number is measured on
+  the deployed version.

@@ -13,7 +13,7 @@
  ],
  "unsupported": "",
  "unreviewed": 10,
- "audit_id": 206,
+ "audit_id": 259,
  "matches": [
   {
    "contract_id": 419,
@@ -41,16 +41,16 @@
    "evidence": {
     "governing_law": {
      "value": "Delaware",
-     "quote": "internal laws of the State of Delaware",
-     "start": 97918,
+     "quote": "governed by the internal laws of the State of Delaware",
+     "start": 97902,
      "end": 97956,
      "status": "needs_review"
     },
     "uncapped_liability": {
-     "value": "Indemnification obligations under Article X and breach of Article XIV are excluded from the aggregate liability cap; indemnification obligations under Article X and breach of Article XIII are excluded from the consequential damages exclusion",
-     "quote": "EXCEPT IN CONNECTION WITH A BREACH OF ARTICLE XIV HEREUNDER",
-     "start": 80166,
-     "end": 80225,
+     "value": "Breach of Article XIII (confidentiality) and indemnification obligations under Article X are excluded from the consequential damages exclusion; breach of Article XIV and Article X indemnification obligations are excluded from the liability cap",
+     "quote": "EXCEPT IN CONNECTION WITH A BREACH OF ARTICLE XIII OF THIS AGREEMENT",
+     "start": 78908,
+     "end": 78976,
      "status": "needs_review"
     }
    }
@@ -87,7 +87,7 @@
      "status": "auto_accepted"
     },
     "uncapped_liability": {
-     "value": "Excluded from the consequential-damages exclusion: breach of Article 7 (Confidentiality), Section 8.1.5(v) representations and warranties, and indemnification obligations under Sections 9.4(i)(d) and 9.5(i)(d). Indemnification claims are also excluded from the two-year limit in Section 6.5.",
+     "value": "Breach of Article 7 (Confidentiality), breach of Section 8.1.5(v) (representations and warranties), and the indemnification obligations under Sections 9.4(i)(d) and 9.5(i)(d) are carved out of the damages exclusion",
      "quote": "EXCEPT IN CONNECTION WITH A BREACH BY EITHER PARTY OF ARTICLE 7",
      "start": 32811,
      "end": 32874,
@@ -101,13 +101,13 @@
    "evidence": {
     "governing_law": {
      "value": "Delaware",
-     "quote": "This Agreement is governed in all respects by the laws of the State of Delaware",
-     "start": 20089,
+     "quote": "governed in all respects by the laws of the State of Delaware",
+     "start": 20107,
      "end": 20168,
      "status": "auto_accepted"
     },
     "uncapped_liability": {
-     "value": "Liability for indemnification and liability for breach of confidentiality (carved out of the consequential/indirect damages exclusion)",
+     "value": "Liability for indemnification and liability for breach of confidentiality are excluded from the consequential-damages limitation",
      "quote": "EXCEPT WITH RESPECT TO THE PARTIES' LIABILITY FOR INDEMNIFICATION, OR LIABILITY FOR BREACH OF CONFIDENTIALITY",
      "start": 8449,
      "end": 8558,
@@ -120,9 +120,9 @@
    "contract": "Microgenics Corporation - Collaborative Development and Commercialization Agreement",
    "evidence": {
     "uncapped_liability": {
-     "value": "Damages arising from a party's breach of confidentiality (Article 12) and indemnification obligations (Article 11) are excluded from both the consequential damages exclusion and the liability cap",
-     "quote": "PARTY'S BREACH OF CONFIDENTIALITY (ARTICLE 12)",
-     "start": 114951,
+     "value": "Damages arising from breach of confidentiality (Article 12) and indemnification obligations (Article 11) are excluded from the liability cap and the consequential-damages exclusion",
+     "quote": "EXCEPT WITH RESPECT TO DAMAGES THAT ARISE DUE TO A  PARTY'S BREACH OF CONFIDENTIALITY (ARTICLE 12)",
+     "start": 114899,
      "end": 114997,
      "status": "needs_review"
     },
@@ -167,7 +167,7 @@
      "status": "auto_accepted"
     },
     "uncapped_liability": {
-     "value": "PB's payment obligations under Article 6 and Section 14.2 are excluded from the Section 15.11 limitation",
+     "value": "PB's obligation to pay SFJ the amounts set forth in Article 6 or Section 14.2 is excluded from the Section 15.11 limitation",
      "quote": "THIS SECTION 15.11 IS NOT MEANT TO LIMIT PB'S OBLIGATION TO PAY SFJ THE AMOUNTS SET FORTH IN ARTICLE 6 OR SECTION 14.2",
      "start": 285113,
      "end": 285231,
@@ -181,13 +181,13 @@
    "evidence": {
     "governing_law": {
      "value": "Delaware",
-     "quote": "GOVERNED BY THE SUBSTANTIVE LAWS OF THE STATE OF DELAWARE",
-     "start": 13517,
+     "quote": "SHALL BE CONSTRUED ACCORDING TO AND GOVERNED BY THE SUBSTANTIVE LAWS OF THE STATE OF DELAWARE",
+     "start": 13481,
      "end": 13574,
      "status": "auto_accepted"
     },
     "uncapped_liability": {
-     "value": "Company's obligation to pay the Service Fees",
+     "value": "The Company's obligation to pay the Service Fees",
      "quote": "The foregoing limitations do not apply to the Company's obligation to pay the Service Fees.",
      "start": 10493,
      "end": 10584,
@@ -199,18 +199,18 @@
    "contract_id": 440,
    "contract": "VIRTUALSCOPICS,INC_11_12_2010-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
    "evidence": {
-    "governing_law": {
-     "value": "Delaware",
-     "quote": "the laws of the State of Delaware",
-     "start": 37675,
-     "end": 37708,
-     "status": "auto_accepted"
-    },
     "uncapped_liability": {
-     "value": "Breach of Section 9 (confidentiality), gross negligence, willful misconduct, and indemnification obligations for Third Party Claims under Section 12",
+     "value": "Breach of Section 9 (confidentiality), gross negligence, willful misconduct, and indemnification obligations related to Third Party Claims under Section 12",
      "quote": "EXCEPT WITH REGARD TO A PARTY'S BREACH OF SECTION 9, GROSS NEGLIGENCE, WILLFUL MISCONDUCT AND INDEMNIFICATION OBLIGATIONS RELATED TO THIRD PARTY CLAIMS PURSUANT TO SECTION 12",
      "start": 33252,
      "end": 33426,
+     "status": "needs_review"
+    },
+    "governing_law": {
+     "value": "Delaware",
+     "quote": "",
+     "start": null,
+     "end": null,
      "status": "needs_review"
     }
    }

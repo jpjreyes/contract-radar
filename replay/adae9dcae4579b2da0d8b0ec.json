@@ -1,26 +1,40 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 204,
- "seconds": 6.8,
+ "audit_id": 257,
+ "seconds": 6.3,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "Notices must be sent to the other Party's address or e-mail address as set out below that Party's signature on the Agreement, unless a different address has been notified under the same provision.",
+   "text": "Notices must go to the other Party's address or e-mail address as set out below its signature, or to any other address the Party has notified under the clause. The specific addresses are not in the provided excerpts.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 5262,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "sent to the address or e-mail address of the other Party as set out below its signature of this Agreement, or such other address or email address as shall have been notified to the other Party in accordance with this provision",
+     "quote": "sent to the address or e-mail address of the other Party as set out below its signature of this Agreement, or such other address or email address as shall have been notified to the other Party in accordance with this provision.",
      "start": 32639,
-     "end": 32865,
+     "end": 32866,
      "contract_id": 125
     }
    ]
   },
   {
-   "text": "Permitted delivery methods include registered post or equivalent, facsimile, courier, or electronic transmission.",
+   "text": "Notices must be in writing and in the English language.",
+   "citations": [
+    {
+     "source": "S2",
+     "chunk_id": 5262,
+     "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+     "quote": "shall be given in writing, in the English language",
+     "start": 32584,
+     "end": 32634,
+     "contract_id": 125
+    }
+   ]
+  },
+  {
+   "text": "Permitted delivery methods are registered post or equivalent, facsimile, courier, or electronic transmission.",
    "citations": [
     {
      "source": "S2",
@@ -34,29 +48,29 @@
    ]
   },
   {
-   "text": "Notices must be given in writing and in the English language.",
+   "text": "A posted notice is deemed received five working days after posting, or ten working days after posting if the addressee is not in the sender's country.",
    "citations": [
     {
      "source": "S2",
      "chunk_id": 5262,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "Any notice required under this Agreement shall be given in writing, in the English language",
-     "start": 32543,
-     "end": 32634,
+     "quote": "If posted, the notice shall be deemed to have been received five (5) working days after the date of posting or, in the case of a notice to an addressee not in the country of the sender, ten (10) working days after the date of posting.",
+     "start": 32973,
+     "end": 33207,
      "contract_id": 125
     }
    ]
   },
   {
-   "text": "The actual notice addresses or e-mail addresses are not included in the provided excerpts; they are only referenced as appearing below each Party's signature.",
+   "text": "A facsimile or electronic notice is deemed received upon confirmation of complete receipt by the intended receiving Party, and a couriered notice is deemed received on delivery.",
    "citations": [
     {
-     "source": "S2",
-     "chunk_id": 5262,
+     "source": "S1",
+     "chunk_id": 5263,
      "contract": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
-     "quote": "as set out below its signature of this Agreement",
-     "start": 32696,
-     "end": 32744,
+     "quote": "If sent by facsimile or electronic transmission, notice shall be deemed received upon confirmation of complete receipt being given by the intended receiving Party. If couriered, notice will be deemed to have been received on delivery.",
+     "start": 33208,
+     "end": 33442,
      "contract_id": 125
     }
    ]

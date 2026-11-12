@@ -1,26 +1,12 @@
 {
  "answerable": true,
  "clause_present": false,
- "audit_id": 187,
- "seconds": 8.4,
+ "audit_id": 240,
+ "seconds": 7.6,
  "pii_revealed_chunks": [],
  "claims": [
   {
-   "text": "The contract sets a 3-year initial term. Neither party gets a right to end it for convenience during that term, and the excerpts show no such right.",
-   "citations": [
-    {
-     "source": "S1",
-     "chunk_id": 5095,
-     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "The initial term of this Agreement shall be for 3 years",
-     "start": 597,
-     "end": 652,
-     "contract_id": 117
-    }
-   ]
-  },
-  {
-   "text": "Either party may terminate only for the other party's breach, and only after 10 days' prior written notice and an opportunity to cure during that 10-day period.",
+   "text": "The sources contain no termination-for-convenience right for either party. The only early termination right that either party holds unilaterally is for the other party's breach, and it requires prior written notice and an opportunity to cure.",
    "citations": [
     {
      "source": "S1",
@@ -30,20 +16,11 @@
      "start": 1581,
      "end": 1778,
      "contract_id": 117
-    },
-    {
-     "source": "S1",
-     "chunk_id": 5095,
-     "contract": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
-     "quote": "and the opportunity for such breaching party to cure such breach during such 10 day period.",
-     "start": 1835,
-     "end": 1926,
-     "contract_id": 117
     }
    ]
   },
   {
-   "text": "Either Charterer or Owner may elect not to renew by written notice 30 days before expiration of the Initial Term or a Renewal Term. This is non-renewal, not termination for convenience, and it takes effect at the end of the current term.",
+   "text": "Either party may stop the agreement from renewing, but only by written notice given 30 days before the end of the current term. This is non-renewal, not termination for convenience.",
    "citations": [
     {
      "source": "S1",
@@ -57,7 +34,7 @@
    ]
   },
   {
-   "text": "If the parties do not agree on a renegotiated fee by the start of a Renewal Term, the agreement terminates automatically. This is also not a termination-for-convenience right.",
+   "text": "If the parties do not agree on a renegotiated fee by the start of a Renewal Term, the agreement terminates automatically. This is not a convenience right held by either party.",
    "citations": [
     {
      "source": "S1",

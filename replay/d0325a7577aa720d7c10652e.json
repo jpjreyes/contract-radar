@@ -1,14 +1,14 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 179,
- "seconds": 7.3,
+ "audit_id": 232,
+ "seconds": 5.3,
  "pii_revealed_chunks": [
   138
  ],
  "claims": [
   {
-   "text": "Either party may terminate the Web Site Hosting Agreement for convenience (without cause) on 30 days' written notice.",
+   "text": "Either party can terminate the agreement for convenience, without needing a cause, on 30 days' written notice.",
    "citations": [
     {
      "source": "S1",
@@ -22,7 +22,7 @@
    ]
   },
   {
-   "text": "Termination does not release the Customer from paying amounts already due; the Customer must still make timely payments after termination for any reason.",
+   "text": "Termination for convenience does not relieve the Customer of its obligation to pay amounts due, which must still be paid on a timely basis.",
    "citations": [
     {
      "source": "S1",
@@ -36,7 +36,7 @@
    ]
   },
   {
-   "text": "Separately from termination, either party may also decline to renew the agreement by giving notice not less than fifteen days before the end of the current term.",
+   "text": "Separately, either party may also avoid renewal by giving notice of non-renewal not less than fifteen (15) days before the end of the current term. This is a non-renewal right, not a termination for convenience.",
    "citations": [
     {
      "source": "S1",

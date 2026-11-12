@@ -1,8 +1,8 @@
 {
  "answerable": true,
  "clause_present": true,
- "audit_id": 173,
- "seconds": 7.5,
+ "audit_id": 226,
+ "seconds": 7.6,
  "pii_revealed_chunks": [
   13540,
   13513,
@@ -10,46 +10,14 @@
  ],
  "claims": [
   {
-   "text": "The signature block names Dr. Wendy Graham, President, as signatory for the Reseller, 2205925 Ontario Limited.",
+   "text": "The agreement's signature block names two signatories: Dr. Wendy Graham, as President, and Albert Wahbe, as CEO.",
    "citations": [
     {
      "source": "S5",
      "chunk_id": 13540,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "Print Name: Dr. Wendy Graham",
+     "quote": "Print Name: Dr. Wendy Graham Print Name: Albert Wahbe",
      "start": 46646,
-     "end": 46674,
-     "contract_id": 280
-    },
-    {
-     "source": "S5",
-     "chunk_id": 13540,
-     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "Title: President",
-     "start": 46701,
-     "end": 46717,
-     "contract_id": 280
-    },
-    {
-     "source": "S5",
-     "chunk_id": 13540,
-     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "2205925 Ontario Limited  DIVERSINET CORP.",
-     "start": 46515,
-     "end": 46556,
-     "contract_id": 280
-    }
-   ]
-  },
-  {
-   "text": "The signature block names Albert Wahbe, CEO, as signatory for Diversinet Corp.",
-   "citations": [
-    {
-     "source": "S5",
-     "chunk_id": 13540,
-     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "Print Name: Albert Wahbe",
-     "start": 46675,
      "end": 46699,
      "contract_id": 280
     },
@@ -57,11 +25,16 @@
      "source": "S5",
      "chunk_id": 13540,
      "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "Title: CEO",
-     "start": 46718,
+     "quote": "Title: President Title: CEO",
+     "start": 46701,
      "end": 46728,
      "contract_id": 280
-    },
+    }
+   ]
+  },
+  {
+   "text": "The signature block is headed by the two contracting entities, 2205925 Ontario Limited and Diversinet Corp. Based on the layout order, Dr. Wendy Graham (President) appears under 2205925 Ontario Limited and Albert Wahbe (CEO) under Diversinet Corp.",
+   "citations": [
     {
      "source": "S5",
      "chunk_id": 13540,
@@ -74,7 +47,7 @@
    ]
   },
   {
-   "text": "The agreement states that the Parties signed it by their duly authorized representatives.",
+   "text": "The signing parties are described as signing by their duly authorized representatives.",
    "citations": [
     {
      "source": "S5",
@@ -88,7 +61,7 @@
    ]
   },
   {
-   "text": "Schedule 1 also lists Dr. Wendy Graham as the 'Person Signing Contract' for the Reseller.",
+   "text": "Schedule 1 separately identifies Dr. Wendy Graham as the person signing the contract for the Reseller.",
    "citations": [
     {
      "source": "S5",
@@ -102,7 +75,7 @@
    ]
   },
   {
-   "text": "The copy provided shows printed names and titles, but the signature lines and 'Date Signed' fields are blank, so the text does not confirm that the individuals actually signed.",
+   "text": "The signature lines themselves are blank in the provided text, so the sources show who is named to sign but do not confirm that the signatures were actually applied.",
    "citations": [
     {
      "source": "S5",
@@ -111,15 +84,6 @@
      "quote": "Signature:__________________________________    Signature:__________________________",
      "start": 46560,
      "end": 46644,
-     "contract_id": 280
-    },
-    {
-     "source": "S5",
-     "chunk_id": 13540,
-     "contract": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
-     "quote": "Date Signed_________________________________ Date Signed________________________",
-     "start": 46783,
-     "end": 46863,
      "contract_id": 280
     }
    ]
