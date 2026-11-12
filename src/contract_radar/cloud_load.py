@@ -10,7 +10,7 @@
           4. smoke test the security that differs on a managed server: reveal() must return originals to
              legal_admin and nothing to the analyst; the app role must not read the original column
 
-Run:  uv run python -m contract_copilot.cloud_load export /tmp/contract-radar-data.tar.gz
+Run:  uv run python -m contract_radar.cloud_load export /tmp/contract-radar-data.tar.gz
 """
 
 from __future__ import annotations
@@ -22,7 +22,7 @@ import sys
 import tarfile
 import urllib.request
 
-from contract_copilot.db import connect, ensure_schema
+from contract_radar.db import connect, ensure_schema
 
 TABLES = {
     "contracts": "id, name, contract_type, region, business_unit, chars, sha, pii_version, pii_counts",
@@ -68,7 +68,7 @@ def load() -> None:
 
 
 def load_bytes(data: bytes) -> None:
-    from contract_copilot import extract, permissions
+    from contract_radar import extract, permissions
     admin = connect()
     ensure_schema(admin)
     admin.execute(extract.SETUP)  # fields table
@@ -93,7 +93,7 @@ def load_bytes(data: bytes) -> None:
 def smoke(admin) -> None:
     import psycopg
 
-    from contract_copilot.permissions import app_connect, as_user
+    from contract_radar.permissions import app_connect, as_user
     app = app_connect()
     chunk_id = admin.execute("SELECT k.id FROM chunks k JOIN contracts c ON c.id = k.contract_id "
                              "WHERE c.business_unit = 'Legal' AND k.text_masked LIKE '%%[PERSON_%%' LIMIT 1").fetchone()[0]

@@ -13,9 +13,9 @@ exposure   enforcement end to end, the number that must be 0: for every user wit
            apart: how often the probed string is ALSO left unmasked elsewhere (a detector consistency issue, not an
            enforcement one: e.g. "Miltenyi" masked as a surname in one place, kept in "Miltenyi Product").
 
-Run:  uv run python -m contract_copilot.eval_pii detector --split dev
-      uv run python -m contract_copilot.eval_pii exposure --per-user 25
-      uv run python -m contract_copilot.eval_pii answers --n 10
+Run:  uv run python -m contract_radar.eval_pii detector --split dev
+      uv run python -m contract_radar.eval_pii exposure --per-user 25
+      uv run python -m contract_radar.eval_pii answers --n 10
 """
 
 from __future__ import annotations
@@ -27,10 +27,10 @@ import re
 from collections import Counter
 from datetime import datetime
 
-from contract_copilot import cuad, pii
-from contract_copilot.db import connect
-from contract_copilot.eval_retrieval import RUNS
-from contract_copilot.pii_gold import GOLD
+from contract_radar import cuad, pii
+from contract_radar.db import connect
+from contract_radar.eval_retrieval import RUNS
+from contract_radar.pii_gold import GOLD
 
 ADJUDICATION = GOLD.parent / "pii_adjudication.json"
 COVER = 0.9
@@ -110,9 +110,9 @@ def exposure(per_user: int, seed: int = 5) -> dict:
     """End-to-end enforcement (needs APP_DATABASE_URL)."""
     import psycopg
 
-    from contract_copilot.permissions import USERS, app_connect, as_user
-    from contract_copilot.retrieve import search
-    from contract_copilot.serve import serve
+    from contract_radar.permissions import USERS, app_connect, as_user
+    from contract_radar.retrieve import search
+    from contract_radar.serve import serve
 
     admin, app = connect(), app_connect()
     rng = random.Random(seed)
@@ -183,8 +183,8 @@ QUESTION = ("Who signed this agreement for each party, and where should notices 
 def answers(n: int, seed: int = 9) -> dict:
     """The model path: ask for exactly the personal data, as a user without access (must get placeholders, never the
     values) and as a user with access (control: gets the real values)."""
-    from contract_copilot.answer import answer
-    from contract_copilot.permissions import app_connect, as_user
+    from contract_radar.answer import answer
+    from contract_radar.permissions import app_connect, as_user
 
     admin, app = connect(), app_connect()
     rows = admin.execute("SELECT id, name FROM contracts WHERE business_unit = 'Legal' AND pii_counts ? 'PERSON' "
@@ -218,7 +218,7 @@ def answers(n: int, seed: int = 9) -> dict:
 
 
 def _hit_for(conn, chunk_id: int):
-    from contract_copilot.retrieve import _hit
+    from contract_radar.retrieve import _hit
     row = conn.execute("SELECT id, contract_id, start_char, end_char, text_masked, 0.0, mask_map FROM chunks "
                        "WHERE id = %s", (chunk_id,)).fetchone()
     return [_hit(row)] if row else []

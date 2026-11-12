@@ -1,0 +1,146 @@
+{
+ "question": "Who signed this agreement for each party, and where should notices be sent? Give names, street addresses, emails and phone numbers.",
+ "contracts": [
+  {
+   "contract": "StampscomInc_20001114_10-Q_EX-10.47_2631630_EX-10.47_Co-Branding Agreement",
+   "pii_values": 10,
+   "analyst": {
+    "claims": 4,
+    "values_shown": 0,
+    "placeholders_shown": 6
+   },
+   "legal_admin": {
+    "claims": 5,
+    "values_shown": 6,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "DUOSTECHNOLOGIESGROUP,INC_04_21_2009-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+   "pii_values": 15,
+   "analyst": {
+    "claims": 6,
+    "values_shown": 0,
+    "placeholders_shown": 12
+   },
+   "legal_admin": {
+    "claims": 6,
+    "values_shown": 11,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "GIGGLESN_HUGS,INC_06_23_2016-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+   "pii_values": 3,
+   "analyst": {
+    "claims": 4,
+    "values_shown": 0,
+    "placeholders_shown": 2
+   },
+   "legal_admin": {
+    "claims": 3,
+    "values_shown": 2,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+   "pii_values": 21,
+   "analyst": {
+    "claims": 7,
+    "values_shown": 0,
+    "placeholders_shown": 13
+   },
+   "legal_admin": {
+    "claims": 8,
+    "values_shown": 14,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+   "pii_values": 2,
+   "analyst": {
+    "claims": 3,
+    "values_shown": 0,
+    "placeholders_shown": 2
+   },
+   "legal_admin": {
+    "claims": 3,
+    "values_shown": 2,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "KIROMICBIOPHARMA,INC_05_11_2020-EX-10.23-CONSULTING AGREEMENT",
+   "pii_values": 5,
+   "analyst": {
+    "claims": 5,
+    "values_shown": 0,
+    "placeholders_shown": 5
+   },
+   "legal_admin": {
+    "claims": 6,
+    "values_shown": 5,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "HealthcentralCom_19991108_S-1A_EX-10.27_6623292_EX-10.27_Co-Branding Agreement",
+   "pii_values": 7,
+   "analyst": {
+    "claims": 5,
+    "values_shown": 0,
+    "placeholders_shown": 4
+   },
+   "legal_admin": {
+    "claims": 3,
+    "values_shown": 4,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "SCOUTCAMINC_05_12_2020-EX-10.22-SERVICES AGREEMENT",
+   "pii_values": 2,
+   "analyst": {
+    "claims": 3,
+    "values_shown": 0,
+    "placeholders_shown": 2
+   },
+   "legal_admin": {
+    "claims": 3,
+    "values_shown": 2,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "ORBSATCORP_08_17_2007-EX-7.3-STRATEGIC ALLIANCE AGREEMENT",
+   "pii_values": 6,
+   "analyst": {
+    "claims": 5,
+    "values_shown": 0,
+    "placeholders_shown": 4
+   },
+   "legal_admin": {
+    "claims": 6,
+    "values_shown": 4,
+    "placeholders_shown": 0
+   }
+  },
+  {
+   "contract": "SOLUTIONSVENDINGINTERNATIONAL,INC_03_31_2020-EX1A-1 UNDR AGMT-SERVICES AGREEMENT",
+   "pii_values": 3,
+   "analyst": {
+    "claims": 4,
+    "values_shown": 0,
+    "placeholders_shown": 3
+   },
+   "legal_admin": {
+    "claims": 4,
+    "values_shown": 3,
+    "placeholders_shown": 0
+   }
+  }
+ ],
+ "exposed": 0
+}

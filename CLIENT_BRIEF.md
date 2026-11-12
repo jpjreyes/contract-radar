@@ -3,7 +3,7 @@
 **Client:** Northline Distribution, a mid-size distributor (the same fictional client as the Legacy Portal Agent).
 **Who asked:** the legal-operations lead, on behalf of procurement, marketing and legal.
 **Data:** 510 real commercial contracts from SEC EDGAR (CUAD v1, labeled by lawyers for 41 clause types, CC BY 4.0).
-Ownership of each contract (business unit, region) is synthetic and documented in `src/contract_copilot/cuad.py`.
+Ownership of each contract (business unit, region) is synthetic and documented in `src/contract_radar/cuad.py`.
 
 ## The problem today
 About 500 contracts sit in PDFs. Nobody can answer "which supply agreements auto-renew in the next 90 days with less

@@ -11,8 +11,8 @@ pytestmark = pytest.mark.skipif(not os.environ.get("APP_DATABASE_URL"), reason="
 
 @pytest.fixture(scope="module")
 def conns():
-    from contract_copilot.db import connect
-    from contract_copilot.permissions import app_connect
+    from contract_radar.db import connect
+    from contract_radar.permissions import app_connect
     return connect(), app_connect()
 
 
@@ -22,7 +22,7 @@ def test_app_role_cannot_bypass_rls(conns):
 
 
 def test_deny_by_default_without_or_with_unknown_user(conns):
-    from contract_copilot.permissions import as_user
+    from contract_radar.permissions import as_user
     _, app = conns
     assert app.execute("SELECT count(*) FROM chunks").fetchone()[0] == 0
     with as_user(app, "nobody"):
@@ -30,8 +30,8 @@ def test_deny_by_default_without_or_with_unknown_user(conns):
 
 
 def test_forbidden_text_is_unreachable_even_by_exact_search_and_id(conns):
-    from contract_copilot.permissions import as_user
-    from contract_copilot.retrieve import search
+    from contract_radar.permissions import as_user
+    from contract_radar.retrieve import search
     admin, app = conns
     cid, text = admin.execute(
         "SELECT c.id, k.text FROM contracts c JOIN chunks k ON k.contract_id = c.id "
@@ -44,7 +44,7 @@ def test_forbidden_text_is_unreachable_even_by_exact_search_and_id(conns):
 
 
 def test_setting_ends_with_the_transaction(conns):
-    from contract_copilot.permissions import as_user
+    from contract_radar.permissions import as_user
     _, app = conns
     with as_user(app, "legal_admin"):
         assert app.execute("SELECT count(*) FROM contracts").fetchone()[0] == 510
@@ -64,16 +64,16 @@ def _pii_chunk(admin, business_unit="Legal"):
 def test_app_role_cannot_select_the_original_column(conns):
     import psycopg
 
-    from contract_copilot.permissions import as_user
+    from contract_radar.permissions import as_user
     _, app = conns
     with pytest.raises(psycopg.errors.InsufficientPrivilege), as_user(app, "legal_admin"):
         app.execute("SELECT text FROM chunks LIMIT 1")
 
 
 def test_original_is_revealed_only_to_users_with_pii_access(conns):
-    from contract_copilot.permissions import as_user
-    from contract_copilot.retrieve import _hit
-    from contract_copilot.serve import serve
+    from contract_radar.permissions import as_user
+    from contract_radar.retrieve import _hit
+    from contract_radar.serve import serve
     admin, app = conns
     chunk_id, original, masked, mapping = _pii_chunk(admin)
     assert masked != original and mapping
@@ -92,9 +92,9 @@ def test_original_is_revealed_only_to_users_with_pii_access(conns):
 
 
 def test_searching_for_a_masked_name_finds_nothing(conns):
-    from contract_copilot.permissions import as_user
-    from contract_copilot.retrieve import search
-    from contract_copilot.serve import serve
+    from contract_radar.permissions import as_user
+    from contract_radar.retrieve import search
+    from contract_radar.serve import serve
     admin, app = conns
     _chunk_id, original, _, mapping = _pii_chunk(admin)
     value = original[mapping[0][2]:mapping[0][3]]

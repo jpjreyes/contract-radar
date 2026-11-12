@@ -5,8 +5,8 @@ contract). Changing one goes through `review_field(...)` only, SECURITY DEFINER:
 (app_users.can_review) AND may read that contract, records who and when on the field, and writes an audit entry with
 the old and new value. A re-extraction never overwrites a reviewed field (extract.save).
 
-Run:  uv run python -m contract_copilot.review --user maria            (list the queue)
-      uv run python -m contract_copilot.review --user maria --contract 12 --field governing_law --edit "Delaware"
+Run:  uv run python -m contract_radar.review --user maria            (list the queue)
+      uv run python -m contract_radar.review --user maria --contract 12 --field governing_law --edit "Delaware"
 """
 
 from __future__ import annotations
@@ -15,8 +15,8 @@ import argparse
 
 import psycopg
 
-from contract_copilot.extract import SETUP as FIELDS_TABLE
-from contract_copilot.permissions import app_connect, as_user
+from contract_radar.extract import SETUP as FIELDS_TABLE
+from contract_radar.permissions import app_connect, as_user
 
 REVIEWERS = {"legal_admin", "maria"}  # legal ops lead; procurement manager for her own contracts
 

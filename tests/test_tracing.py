@@ -26,15 +26,15 @@ class FakeModel:
     """Quotes the first source verbatim, so one claim verifies; no model call, no cost."""
 
     def complete(self, system, prompt, schema, model=None, images=None):
-        from contract_copilot.llm import LLMResult
+        from contract_radar.llm import LLMResult
         first = prompt.split("[S1]", 1)[1].split("\n", 2)[2][:60].strip()
         return LLMResult({"answerable": True, "clause_present": True,
                           "claims": [{"text": "x", "sources": [{"id": "S1", "quote": first}]}]}, 1200, 80, 0.5, "haiku")
 
 
 def test_one_question_produces_the_expected_span_tree_without_content(exporter):
-    from contract_copilot.ask import ask
-    from contract_copilot.tracing import TracedBackend
+    from contract_radar.ask import ask
+    from contract_radar.tracing import TracedBackend
     exporter.clear()
     secret_question = "Who signed for Kiromic and what is the termination notice period?"
     _a, audit_id = ask("analyst", secret_question, backend=TracedBackend(FakeModel(), "fake"))

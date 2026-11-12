@@ -1,0 +1,27 @@
+{
+ "users": {
+  "maria": {
+   "allowed_contracts": 50,
+   "forbidden_probes": 200,
+   "chunks_returned": 668,
+   "leaks": 0,
+   "control_found_own_contract": "10/10"
+  },
+  "kenji": {
+   "allowed_contracts": 46,
+   "forbidden_probes": 200,
+   "chunks_returned": 686,
+   "leaks": 0,
+   "control_found_own_contract": "10/10"
+  },
+  "analyst": {
+   "allowed_contracts": 311,
+   "forbidden_probes": 200,
+   "chunks_returned": 775,
+   "leaks": 0,
+   "control_found_own_contract": "10/10"
+  }
+ },
+ "total_leaks": 0,
+ "total_returned_chunks": 2129
+}

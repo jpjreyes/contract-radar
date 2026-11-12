@@ -5,7 +5,7 @@ changed (a better detector), its chunks are re-masked in place and only chunks w
 re-embedded. Embeddings and the keyword index are built from the masked text, so a user without PII access can't
 find a chunk by searching for a person's name (D9).
 
-Run:  uv run python -m contract_copilot.ingest [--limit N] [--workers 4]
+Run:  uv run python -m contract_radar.ingest [--limit N] [--workers 4]
 """
 
 from __future__ import annotations
@@ -17,10 +17,10 @@ from concurrent.futures import ProcessPoolExecutor
 
 from psycopg.types.json import Jsonb
 
-from contract_copilot import cuad, pii
-from contract_copilot.chunking import Chunk, chunk_text
-from contract_copilot.db import connect, ensure_schema, finish_pii_migration
-from contract_copilot.embed import embed_passages
+from contract_radar import cuad, pii
+from contract_radar.chunking import Chunk, chunk_text
+from contract_radar.db import connect, ensure_schema, finish_pii_migration
+from contract_radar.embed import embed_passages
 
 
 def masked_chunks(text: str) -> tuple[list[Chunk], list[tuple[str, str, list]], dict[str, int]]:

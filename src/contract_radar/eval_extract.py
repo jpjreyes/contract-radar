@@ -8,7 +8,7 @@ Per field:
 Routing (what the product promises): precision of AUTO-ACCEPTED fields (target >= 95%) and the share sent to review,
 for the shipped policy and two alternatives, so the threshold is a measured choice.
 
-Run (after extract.py):  uv run python -m contract_copilot.eval_extract --split dev
+Run (after extract.py):  uv run python -m contract_radar.eval_extract --split dev
 """
 
 from __future__ import annotations
@@ -22,10 +22,10 @@ from datetime import date, datetime
 
 from rapidfuzz import fuzz
 
-from contract_copilot import cuad
-from contract_copilot.db import connect
-from contract_copilot.eval_retrieval import RUNS, split_of
-from contract_copilot.extract import FIELDS, jurisdictions, parse_date
+from contract_radar import cuad
+from contract_radar.db import connect
+from contract_radar.eval_retrieval import RUNS, split_of
+from contract_radar.extract import FIELDS, jurisdictions, parse_date
 
 CSV_ANSWER = {"Notice Period To Terminate Renewal": "Notice Period To Terminate Renewal- Answer"}
 VALUE_CHECKED = {"parties", "agreement_date", "effective_date", "expiration_date",
@@ -96,7 +96,7 @@ def run(split: str, subset: str | None = None) -> dict:
     once the small model feeds extraction."""
     conn = connect()
     if subset:
-        from contract_copilot.distill import m7_split
+        from contract_radar.distill import m7_split
     gold = gold_rows()
     rows = conn.execute(
         "SELECT c.name, f.name, f.present, f.value, f.confidence, f.status, f.issues FROM fields f "

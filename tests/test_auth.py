@@ -26,8 +26,8 @@ def token(**over):
 def client():
     from fastapi.testclient import TestClient
 
-    from contract_copilot.api import app
-    from contract_copilot.db import connect
+    from contract_radar.api import app
+    from contract_radar.db import connect
     admin = connect()
     admin.execute("DELETE FROM identity_map WHERE value IN ('maria@northline.test', 'grp-marketing-emea')")
     admin.execute("INSERT INTO identity_map VALUES ('user', 'maria@northline.test', 'maria'), "
@@ -38,7 +38,7 @@ def client():
 
 @pytest.fixture(autouse=True)
 def oidc(monkeypatch):
-    from contract_copilot import auth
+    from contract_radar import auth
     monkeypatch.setenv("CC_AUTH", "oidc")
     monkeypatch.setenv("CC_OIDC_ISSUER", ISS)
     monkeypatch.setenv("CC_OIDC_AUDIENCE", AUD)

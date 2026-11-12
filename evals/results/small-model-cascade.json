@@ -1,0 +1,183 @@
+{
+ "labels": "gold",
+ "epochs": 2,
+ "train_seconds": 1125,
+ "seconds_per_contract_local": 0.522,
+ "fields": {
+  "parties": {
+   "eval_contracts": 217,
+   "gold_present": 216,
+   "small_f1": 0.998,
+   "llm_f1": 0.991,
+   "cascade_f1": 1.0,
+   "llm_calls_avoided": 0.982,
+   "threshold": 0.05,
+   "band": [
+    0.0,
+    0.5
+   ]
+  },
+  "agreement_date": {
+   "eval_contracts": 217,
+   "gold_present": 198,
+   "small_f1": 0.954,
+   "llm_f1": 0.945,
+   "cascade_f1": 0.963,
+   "llm_calls_avoided": 0.912,
+   "threshold": 0.05,
+   "band": [
+    0.0,
+    0.94
+   ]
+  },
+  "effective_date": {
+   "eval_contracts": 217,
+   "gold_present": 154,
+   "small_f1": 0.839,
+   "llm_f1": 0.882,
+   "cascade_f1": 0.882,
+   "llm_calls_avoided": 0.018,
+   "threshold": 0.6,
+   "band": [
+    0.0,
+    0.98
+   ]
+  },
+  "expiration_date": {
+   "eval_contracts": 217,
+   "gold_present": 142,
+   "small_f1": 0.82,
+   "llm_f1": 0.866,
+   "cascade_f1": 0.866,
+   "llm_calls_avoided": 0.0,
+   "threshold": 0.75,
+   "band": [
+    0.0,
+    1.01
+   ]
+  },
+  "renewal_term": {
+   "eval_contracts": 217,
+   "gold_present": 66,
+   "small_f1": 0.691,
+   "llm_f1": 0.917,
+   "cascade_f1": 0.909,
+   "llm_calls_avoided": 0.074,
+   "threshold": 0.9,
+   "band": [
+    0.5,
+    1.01
+   ]
+  },
+  "notice_to_terminate_renewal_days": {
+   "eval_contracts": 217,
+   "gold_present": 44,
+   "small_f1": 0.537,
+   "llm_f1": 0.901,
+   "cascade_f1": 0.889,
+   "llm_calls_avoided": 0.106,
+   "threshold": 0.9,
+   "band": [
+    0.5,
+    1.01
+   ]
+  },
+  "governing_law": {
+   "eval_contracts": 217,
+   "gold_present": 195,
+   "small_f1": 0.967,
+   "llm_f1": 0.977,
+   "cascade_f1": 0.975,
+   "llm_calls_avoided": 0.959,
+   "threshold": 0.65,
+   "band": [
+    0.5,
+    0.64
+   ]
+  },
+  "termination_for_convenience": {
+   "eval_contracts": 217,
+   "gold_present": 88,
+   "small_f1": 0.627,
+   "llm_f1": 0.874,
+   "cascade_f1": 0.879,
+   "llm_calls_avoided": 0.046,
+   "threshold": 0.65,
+   "band": [
+    0.36,
+    1.01
+   ]
+  },
+  "exclusivity": {
+   "eval_contracts": 217,
+   "gold_present": 85,
+   "small_f1": 0.696,
+   "llm_f1": 0.747,
+   "cascade_f1": 0.747,
+   "llm_calls_avoided": 0.055,
+   "threshold": 0.9,
+   "band": [
+    0.5,
+    1.01
+   ]
+  },
+  "non_compete": {
+   "eval_contracts": 217,
+   "gold_present": 54,
+   "small_f1": 0.713,
+   "llm_f1": 0.68,
+   "cascade_f1": 0.68,
+   "llm_calls_avoided": 0.088,
+   "threshold": 0.9,
+   "band": [
+    0.5,
+    1.01
+   ]
+  },
+  "cap_on_liability": {
+   "eval_contracts": 217,
+   "gold_present": 129,
+   "small_f1": 0.811,
+   "llm_f1": 0.955,
+   "cascade_f1": 0.951,
+   "llm_calls_avoided": 0.502,
+   "threshold": 0.95,
+   "band": [
+    0.44,
+    0.96
+   ]
+  },
+  "uncapped_liability": {
+   "eval_contracts": 217,
+   "gold_present": 50,
+   "small_f1": 0.585,
+   "llm_f1": 0.692,
+   "cascade_f1": 0.713,
+   "llm_calls_avoided": 0.207,
+   "threshold": 0.85,
+   "band": [
+    0.5,
+    0.94
+   ]
+  },
+  "minimum_commitment": {
+   "eval_contracts": 217,
+   "gold_present": 75,
+   "small_f1": 0.712,
+   "llm_f1": 0.531,
+   "cascade_f1": 0.593,
+   "llm_calls_avoided": 0.157,
+   "threshold": 0.75,
+   "band": [
+    0.5,
+    0.88
+   ]
+  }
+ },
+ "mean": {
+  "small_f1": 0.765,
+  "llm_f1": 0.843,
+  "cascade_f1": 0.85,
+  "llm_calls_avoided": 0.316
+ }
+}

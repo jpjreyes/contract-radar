@@ -8,7 +8,7 @@ the two ways it can fail:
   oracle plan  the gold plan run on the extracted fields: error left when planning is perfect (= extraction error)
 Optional baseline (--rag-every N, a fixed sample): plain RAG over the whole portfolio, contracts it cites vs. the gold set.
 
-Run:  uv run python -m contract_copilot.eval_portfolio [--rag-every 4]
+Run:  uv run python -m contract_radar.eval_portfolio [--rag-every 4]
 """
 
 from __future__ import annotations
@@ -18,13 +18,13 @@ import json
 import time
 from datetime import date, datetime
 
-from contract_copilot import cuad
-from contract_copilot.db import connect
-from contract_copilot.eval_extract import gold_answer, gold_date, gold_days, gold_present, gold_rows
-from contract_copilot.eval_retrieval import RUNS
-from contract_copilot.extract import FIELDS, jurisdictions
-from contract_copilot.permissions import app_connect, as_user
-from contract_copilot.portfolio import TYPE_FIELD, Condition, plan, run_plan
+from contract_radar import cuad
+from contract_radar.db import connect
+from contract_radar.eval_extract import gold_answer, gold_date, gold_days, gold_present, gold_rows
+from contract_radar.eval_retrieval import RUNS
+from contract_radar.extract import FIELDS, jurisdictions
+from contract_radar.permissions import app_connect, as_user
+from contract_radar.portfolio import TYPE_FIELD, Condition, plan, run_plan
 
 C = Condition
 QUESTIONS: list[tuple[str, list[Condition]]] = [
@@ -190,7 +190,7 @@ def run(rag_every: int) -> dict:
 
 def _rag(app, q: str, gold: set[int]) -> dict:
     """Baseline: ask the cited-answer pipeline across the whole portfolio; the contracts it cites are its answer."""
-    from contract_copilot.answer import answer
+    from contract_radar.answer import answer
     with as_user(app, "legal_admin"):
         a = answer(app, q)
     got = {h.contract_id for c in a.claims for ct in c.citations for h in a.sources if h.chunk_id == ct.chunk_id}

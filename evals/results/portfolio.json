@@ -1,0 +1,1104 @@
+{
+ "summary": {
+  "questions": 40,
+  "planner_accuracy": 1.0,
+  "e2e_f1": 0.865,
+  "e2e_precision": 0.847,
+  "e2e_recall": 0.893,
+  "e2e_exact": 4,
+  "oracle_plan_f1": 0.865,
+  "oracle_plan_exact": 4
+ },
+ "rows": [
+  {
+   "question": "Which contracts are governed by Delaware law?",
+   "gold_n": 41,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "Delaware"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact": true
+   },
+   "oracle_plan": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact": true
+   }
+  },
+  {
+   "question": "Which agreements are under New York law?",
+   "gold_n": 99,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "New York"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 1.0,
+    "recall": 0.98,
+    "f1": 0.99,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 1.0,
+    "recall": 0.98,
+    "f1": 0.99,
+    "exact": false
+   }
+  },
+  {
+   "question": "List the contracts governed by California law.",
+   "gold_n": 57,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "California"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.982,
+    "recall": 0.965,
+    "f1": 0.973,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.982,
+    "recall": 0.965,
+    "f1": 0.973,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts use Texas as the governing law?",
+   "gold_n": 30,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "Texas"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 1.0,
+    "recall": 0.933,
+    "f1": 0.966,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 1.0,
+    "recall": 0.933,
+    "f1": 0.966,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts are governed by the laws of Nevada?",
+   "gold_n": 8,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "Nevada"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact": true
+   },
+   "oracle_plan": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact": true
+   }
+  },
+  {
+   "question": "Which agreements fall under Florida law?",
+   "gold_n": 17,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "Florida"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.944,
+    "recall": 1.0,
+    "f1": 0.971,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.944,
+    "recall": 1.0,
+    "f1": 0.971,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts have an exclusivity clause?",
+   "gold_n": 180,
+   "plan": [
+    {
+     "field": "exclusivity",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.748,
+    "recall": 0.922,
+    "f1": 0.826,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.748,
+    "recall": 0.922,
+    "f1": 0.826,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts include a non-compete?",
+   "gold_n": 119,
+   "plan": [
+    {
+     "field": "non_compete",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.72,
+    "recall": 0.756,
+    "f1": 0.738,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.72,
+    "recall": 0.756,
+    "f1": 0.738,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts can be terminated for convenience?",
+   "gold_n": 183,
+   "plan": [
+    {
+     "field": "termination_for_convenience",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.785,
+    "recall": 0.918,
+    "f1": 0.846,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.785,
+    "recall": 0.918,
+    "f1": 0.846,
+    "exact": false
+   }
+  },
+  {
+   "question": "Where do we have a minimum purchase commitment?",
+   "gold_n": 165,
+   "plan": [
+    {
+     "field": "minimum_commitment",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "The session notes suggested calling a context-mode resume tool, but that tool is not available to me in this session, so I did not check for prior session state. The filter above is based only on the current question.",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.681,
+    "recall": 0.752,
+    "f1": 0.715,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.681,
+    "recall": 0.752,
+    "f1": 0.715,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts have uncapped liability?",
+   "gold_n": 111,
+   "plan": [
+    {
+     "field": "uncapped_liability",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "The session notes mention calling mcp__plugin_context-mode_context-mode__ctx_resume for a summary of a prior session, but that tool is not available to me in this session, so I did not call it. The question itself maps directly to a supported field.",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.68,
+    "recall": 0.937,
+    "f1": 0.788,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.68,
+    "recall": 0.937,
+    "f1": 0.788,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts cap or limit liability?",
+   "gold_n": 275,
+   "plan": [
+    {
+     "field": "cap_on_liability",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.898,
+    "recall": 0.964,
+    "f1": 0.93,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.898,
+    "recall": 0.964,
+    "f1": 0.93,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts renew automatically or can be extended?",
+   "gold_n": 163,
+   "plan": [
+    {
+     "field": "renewal_term",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.84,
+    "recall": 0.963,
+    "f1": 0.897,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.84,
+    "recall": 0.963,
+    "f1": 0.897,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts have no cap on liability at all?",
+   "gold_n": 235,
+   "plan": [
+    {
+     "field": "cap_on_liability",
+     "op": "absent",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.953,
+    "recall": 0.872,
+    "f1": 0.911,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.953,
+    "recall": 0.872,
+    "f1": 0.911,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts have no exclusivity?",
+   "gold_n": 330,
+   "plan": [
+    {
+     "field": "exclusivity",
+     "op": "absent",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.951,
+    "recall": 0.83,
+    "f1": 0.887,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.951,
+    "recall": 0.83,
+    "f1": 0.887,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts need 30 days' notice or less to stop renewal?",
+   "gold_n": 29,
+   "plan": [
+    {
+     "field": "notice_to_terminate_renewal_days",
+     "op": "lte",
+     "value": "30"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.963,
+    "recall": 0.897,
+    "f1": 0.929,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.963,
+    "recall": 0.897,
+    "f1": 0.929,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts let us stop renewal with at most 60 days' notice?",
+   "gold_n": 46,
+   "plan": [
+    {
+     "field": "notice_to_terminate_renewal_days",
+     "op": "lte",
+     "value": "60"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.87,
+    "recall": 0.87,
+    "f1": 0.87,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.87,
+    "recall": 0.87,
+    "f1": 0.87,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts require at least 90 days' notice to prevent renewal?",
+   "gold_n": 51,
+   "plan": [
+    {
+     "field": "notice_to_terminate_renewal_days",
+     "op": "gte",
+     "value": "90"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.842,
+    "recall": 0.941,
+    "f1": 0.889,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.842,
+    "recall": 0.941,
+    "f1": 0.889,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts expire before 2010?",
+   "gold_n": 88,
+   "plan": [
+    {
+     "field": "expiration_date",
+     "op": "before",
+     "value": "2010-01-01"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.855,
+    "recall": 0.807,
+    "f1": 0.83,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.855,
+    "recall": 0.807,
+    "f1": 0.83,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts expire in 2020 or later?",
+   "gold_n": 73,
+   "plan": [
+    {
+     "field": "expiration_date",
+     "op": "after",
+     "value": "2020-01-01"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.857,
+    "recall": 0.822,
+    "f1": 0.839,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.857,
+    "recall": 0.822,
+    "f1": 0.839,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts expire during 2015?",
+   "gold_n": 9,
+   "plan": [
+    {
+     "field": "expiration_date",
+     "op": "after",
+     "value": "2015-01-01"
+    },
+    {
+     "field": "expiration_date",
+     "op": "before",
+     "value": "2016-01-01"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.875,
+    "recall": 0.778,
+    "f1": 0.824,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.875,
+    "recall": 0.778,
+    "f1": 0.824,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts were signed before 2005?",
+   "gold_n": 111,
+   "plan": [
+    {
+     "field": "agreement_date",
+     "op": "before",
+     "value": "2005-01-01"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.888,
+    "recall": 0.928,
+    "f1": 0.907,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.888,
+    "recall": 0.928,
+    "f1": 0.907,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which agreements are dated 2019 or later?",
+   "gold_n": 83,
+   "plan": [
+    {
+     "field": "agreement_date",
+     "op": "after",
+     "value": "2019-01-01"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.878,
+    "recall": 0.952,
+    "f1": 0.913,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.878,
+    "recall": 0.952,
+    "f1": 0.913,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which distributor agreements have exclusivity?",
+   "gold_n": 21,
+   "plan": [
+    {
+     "field": "contract_type",
+     "op": "contains",
+     "value": "Distributor"
+    },
+    {
+     "field": "exclusivity",
+     "op": "present",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.8,
+    "recall": 0.952,
+    "f1": 0.87,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.8,
+    "recall": 0.952,
+    "f1": 0.87,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which license agreements have uncapped liability?",
+   "gold_n": 9,
+   "plan": [
+    {
+     "field": "contract_type",
+     "op": "contains",
+     "value": "License"
+    },
+    {
+     "field": "uncapped_liability",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.818,
+    "recall": 1.0,
+    "f1": 0.9,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.818,
+    "recall": 1.0,
+    "f1": 0.9,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which supply agreements include a minimum commitment?",
+   "gold_n": 12,
+   "plan": [
+    {
+     "field": "contract_type",
+     "op": "contains",
+     "value": "Supply"
+    },
+    {
+     "field": "minimum_commitment",
+     "op": "present",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 1.0,
+    "recall": 0.667,
+    "f1": 0.8,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 1.0,
+    "recall": 0.667,
+    "f1": 0.8,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which franchise agreements have a non-compete?",
+   "gold_n": 10,
+   "plan": [
+    {
+     "field": "contract_type",
+     "op": "contains",
+     "value": "Franchise"
+    },
+    {
+     "field": "non_compete",
+     "op": "present",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.833,
+    "recall": 1.0,
+    "f1": 0.909,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.833,
+    "recall": 1.0,
+    "f1": 0.909,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which Delaware-law contracts have uncapped liability?",
+   "gold_n": 12,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "Delaware"
+    },
+    {
+     "field": "uncapped_liability",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.733,
+    "recall": 0.917,
+    "f1": 0.815,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.733,
+    "recall": 0.917,
+    "f1": 0.815,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which New York law contracts can be terminated for convenience?",
+   "gold_n": 41,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "New York"
+    },
+    {
+     "field": "termination_for_convenience",
+     "op": "present",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.814,
+    "recall": 0.854,
+    "f1": 0.833,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.814,
+    "recall": 0.854,
+    "f1": 0.833,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which auto-renewing contracts are governed by California law?",
+   "gold_n": 24,
+   "plan": [
+    {
+     "field": "renewal_term",
+     "op": "present",
+     "value": ""
+    },
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "California"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.88,
+    "recall": 0.917,
+    "f1": 0.898,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.88,
+    "recall": 0.917,
+    "f1": 0.898,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts have both exclusivity and a non-compete?",
+   "gold_n": 68,
+   "plan": [
+    {
+     "field": "exclusivity",
+     "op": "present",
+     "value": "true"
+    },
+    {
+     "field": "non_compete",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.547,
+    "recall": 0.765,
+    "f1": 0.638,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.547,
+    "recall": 0.765,
+    "f1": 0.638,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts have exclusivity but no liability cap?",
+   "gold_n": 61,
+   "plan": [
+    {
+     "field": "exclusivity",
+     "op": "present",
+     "value": ""
+    },
+    {
+     "field": "cap_on_liability",
+     "op": "absent",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.662,
+    "recall": 0.803,
+    "f1": 0.726,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.662,
+    "recall": 0.803,
+    "f1": 0.726,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts auto-renew and need 60 days or less notice to stop it?",
+   "gold_n": 44,
+   "plan": [
+    {
+     "field": "renewal_term",
+     "op": "present",
+     "value": "true"
+    },
+    {
+     "field": "notice_to_terminate_renewal_days",
+     "op": "lte",
+     "value": "60"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.87,
+    "recall": 0.909,
+    "f1": 0.889,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.87,
+    "recall": 0.909,
+    "f1": 0.889,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts with a minimum commitment can be terminated for convenience?",
+   "gold_n": 57,
+   "plan": [
+    {
+     "field": "minimum_commitment",
+     "op": "present",
+     "value": "yes"
+    },
+    {
+     "field": "termination_for_convenience",
+     "op": "present",
+     "value": "yes"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.474,
+    "recall": 0.649,
+    "f1": 0.548,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.474,
+    "recall": 0.649,
+    "f1": 0.548,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts have uncapped liability and a liability cap?",
+   "gold_n": 111,
+   "plan": [
+    {
+     "field": "uncapped_liability",
+     "op": "present",
+     "value": ""
+    },
+    {
+     "field": "cap_on_liability",
+     "op": "present",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.693,
+    "recall": 0.937,
+    "f1": 0.797,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.693,
+    "recall": 0.937,
+    "f1": 0.797,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which reseller agreements renew automatically?",
+   "gold_n": 7,
+   "plan": [
+    {
+     "field": "contract_type",
+     "op": "contains",
+     "value": "Reseller"
+    },
+    {
+     "field": "renewal_term",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact": true
+   },
+   "oracle_plan": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact": true
+   }
+  },
+  {
+   "question": "Which service agreements cap liability?",
+   "gold_n": 11,
+   "plan": [
+    {
+     "field": "contract_type",
+     "op": "contains",
+     "value": "Service"
+    },
+    {
+     "field": "cap_on_liability",
+     "op": "present",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.846,
+    "recall": 1.0,
+    "f1": 0.917,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.846,
+    "recall": 1.0,
+    "f1": 0.917,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which joint venture agreements have a non-compete?",
+   "gold_n": 4,
+   "plan": [
+    {
+     "field": "contract_type",
+     "op": "contains",
+     "value": "Joint Venture"
+    },
+    {
+     "field": "non_compete",
+     "op": "present",
+     "value": "true"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact": true
+   },
+   "oracle_plan": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exact": true
+   }
+  },
+  {
+   "question": "Which Delaware-law contracts expire in 2020 or later?",
+   "gold_n": 6,
+   "plan": [
+    {
+     "field": "governing_law",
+     "op": "contains",
+     "value": "Delaware"
+    },
+    {
+     "field": "expiration_date",
+     "op": "after",
+     "value": "2020-01-01"
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 1.0,
+    "recall": 0.833,
+    "f1": 0.909,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 1.0,
+    "recall": 0.833,
+    "f1": 0.909,
+    "exact": false
+   }
+  },
+  {
+   "question": "Which contracts without exclusivity can be terminated for convenience?",
+   "gold_n": 126,
+   "plan": [
+    {
+     "field": "exclusivity",
+     "op": "absent",
+     "value": ""
+    },
+    {
+     "field": "termination_for_convenience",
+     "op": "present",
+     "value": ""
+    }
+   ],
+   "unsupported": "",
+   "planner_ok": true,
+   "e2e": {
+    "precision": 0.715,
+    "recall": 0.738,
+    "f1": 0.727,
+    "exact": false
+   },
+   "oracle_plan": {
+    "precision": 0.715,
+    "recall": 0.738,
+    "f1": 0.727,
+    "exact": false
+   }
+  }
+ ]
+}

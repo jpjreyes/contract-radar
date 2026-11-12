@@ -4,7 +4,7 @@ Identity: the demo picks a user with the `X-User` header (a user switcher in the
 header is replaced by the identity provider's verified token (e.g. Cognito/OIDC); nothing below trusts the client
 for anything else: permissions, masking and reviewer rights are all decided in Postgres.
 
-Run:  uv run uvicorn contract_copilot.api:app --port 8071
+Run:  uv run uvicorn contract_radar.api:app --port 8071
 """
 
 from __future__ import annotations
@@ -20,14 +20,14 @@ from fastapi.responses import JSONResponse
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from pydantic import BaseModel
 
-from contract_copilot import auth, limits, tracing
-from contract_copilot import review as review_mod
-from contract_copilot.ask import ask
-from contract_copilot.permissions import USERS, app_connect, as_user
-from contract_copilot.portfolio import ask_portfolio
-from contract_copilot.radar import compute as radar_compute
-from contract_copilot.retrieve import _hit
-from contract_copilot.serve import serve
+from contract_radar import auth, limits, tracing
+from contract_radar import review as review_mod
+from contract_radar.ask import ask
+from contract_radar.permissions import USERS, app_connect, as_user
+from contract_radar.portfolio import ask_portfolio
+from contract_radar.radar import compute as radar_compute
+from contract_radar.retrieve import _hit
+from contract_radar.serve import serve
 
 tracing.setup()
 app = FastAPI(title="Contract Radar", version="0.1")

@@ -4,7 +4,7 @@ import random
 
 import pytest
 
-from contract_copilot import pii
+from contract_radar import pii
 
 BLOCK = """IN WITNESS WHEREOF, the parties have executed this Agreement.
 

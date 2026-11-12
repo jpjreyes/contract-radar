@@ -8,7 +8,7 @@ or deleting any past row breaks every hash after it; `audit_verify()` returns th
 The log stores ids, counts and flags, never answer text, so it doesn't become a second copy of personal data. It
 does record whether personal data was revealed to the user, and which chunks.
 
-Setup runs with the permissions setup:  uv run python -m contract_copilot.permissions
+Setup runs with the permissions setup:  uv run python -m contract_radar.permissions
 """
 
 from __future__ import annotations

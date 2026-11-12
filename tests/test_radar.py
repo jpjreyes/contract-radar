@@ -4,7 +4,7 @@ from datetime import date
 
 import pytest
 
-from contract_copilot.radar import Renewal, add_months, current_term_end, parse_renewal
+from contract_radar.radar import Renewal, add_months, current_term_end, parse_renewal
 
 
 @pytest.mark.parametrize("value, expected", [

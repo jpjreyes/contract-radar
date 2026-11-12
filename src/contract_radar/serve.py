@@ -12,9 +12,9 @@ from dataclasses import replace
 
 import psycopg
 
-from contract_copilot.pii import to_original
-from contract_copilot.retrieve import Hit
-from contract_copilot.tracing import span
+from contract_radar.pii import to_original
+from contract_radar.retrieve import Hit
+from contract_radar.tracing import span
 
 
 def serve(conn: psycopg.Connection, hits: list[Hit]) -> list[Hit]:

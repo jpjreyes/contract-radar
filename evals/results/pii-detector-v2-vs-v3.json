@@ -1,0 +1,1798 @@
+{
+ "dev:v2": {
+  "by_type": {
+   "PERSON": {
+    "gold": 87,
+    "recall": 0.966,
+    "masked": 81,
+    "precision": 0.988
+   },
+   "EMAIL": {
+    "gold": 17,
+    "recall": 1.0,
+    "masked": 17,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 33,
+    "recall": 1.0,
+    "masked": 33,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.884,
+    "masked": 38,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 180,
+    "recall": 0.956,
+    "masked": 169,
+    "precision": 0.994
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "42/F, Edinburgh Tower, The Landmark 12 Queen's Road Central",
+    "otice) to:   Skadden, Arps, Slate, Meagher & Flom 42/F, Edinburgh Tower, The Landmark 12 Queen's Road Central, Hong Kong Facsimile: +852 37"
+   ],
+   [
+    "ADDRESS",
+    "Glaxo Wellcome House",
+    "Commercial Development   GSK: Glaxo Group Limited Glaxo Wellcome House Berkeley Avenue Greenford Mid"
+   ],
+   [
+    "ADDRESS",
+    "Berkeley Avenue",
+    "t   GSK: Glaxo Group Limited Glaxo Wellcome House Berkeley Avenue Greenford Middlesex UB6 0NN U"
+   ],
+   [
+    "ADDRESS",
+    "2\\4 Letnikovskaya street",
+    " the date of this Agreement are:   OICL\n\nAddress: 2\\4 Letnikovskaya street, 115114, Moscow, Russia\n\nFax "
+   ],
+   [
+    "PERSON",
+    "Ruben Aganbegyan",
+    "Russia\n\nFax number:\n\nAttention: Evgeny Dankevich\n\nRuben Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n"
+   ],
+   [
+    "PERSON",
+    "Konstantin Olefir",
+    "r:\n\nAttention: Evgeny Dankevich\n\nRuben Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n\nAddress: Kennedy "
+   ],
+   [
+    "ADDRESS",
+    "Kennedy 12, Kennedy Business Centre, 2nd floor",
+    "Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n\nAddress: Kennedy 12, Kennedy Business Centre, 2nd floor, P.C. 1087, Nicosia, Cyprus\n\n"
+   ],
+   [
+    "PERSON",
+    "Baum",
+    "10\n\nBaum, 1900 E.Golf Road, Suite 1200"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Ono's",
+    "Territory shall terminate upon the termination of Ono's rights with respect to the On"
+   ]
+  ]
+ },
+ "dev:v3_rules_only": {
+  "by_type": {
+   "PERSON": {
+    "gold": 87,
+    "recall": 0.966,
+    "masked": 82,
+    "precision": 0.988
+   },
+   "EMAIL": {
+    "gold": 17,
+    "recall": 1.0,
+    "masked": 17,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 33,
+    "recall": 1.0,
+    "masked": 33,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.93,
+    "masked": 40,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 180,
+    "recall": 0.967,
+    "masked": 172,
+    "precision": 0.994
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "42/F, Edinburgh Tower, The Landmark 12 Queen's Road Central",
+    "otice) to:   Skadden, Arps, Slate, Meagher & Flom 42/F, Edinburgh Tower, The Landmark 12 Queen's Road Central, Hong Kong Facsimile: +852 37"
+   ],
+   [
+    "ADDRESS",
+    "2\\4 Letnikovskaya street",
+    " the date of this Agreement are:   OICL\n\nAddress: 2\\4 Letnikovskaya street, 115114, Moscow, Russia\n\nFax "
+   ],
+   [
+    "PERSON",
+    "Ruben Aganbegyan",
+    "Russia\n\nFax number:\n\nAttention: Evgeny Dankevich\n\nRuben Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n"
+   ],
+   [
+    "PERSON",
+    "Konstantin Olefir",
+    "r:\n\nAttention: Evgeny Dankevich\n\nRuben Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n\nAddress: Kennedy "
+   ],
+   [
+    "ADDRESS",
+    "Kennedy 12, Kennedy Business Centre, 2nd floor",
+    "Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n\nAddress: Kennedy 12, Kennedy Business Centre, 2nd floor, P.C. 1087, Nicosia, Cyprus\n\n"
+   ],
+   [
+    "PERSON",
+    "Baum",
+    "10\n\nBaum, 1900 E.Golf Road, Suite 1200"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Ono's",
+    "Territory shall terminate upon the termination of Ono's rights with respect to the On"
+   ]
+  ]
+ },
+ "dev:v3": {
+  "by_type": {
+   "PERSON": {
+    "gold": 87,
+    "recall": 0.966,
+    "masked": 82,
+    "precision": 0.988
+   },
+   "EMAIL": {
+    "gold": 17,
+    "recall": 1.0,
+    "masked": 17,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 33,
+    "recall": 1.0,
+    "masked": 33,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.93,
+    "masked": 40,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 180,
+    "recall": 0.967,
+    "masked": 172,
+    "precision": 0.994
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "42/F, Edinburgh Tower, The Landmark 12 Queen's Road Central",
+    "otice) to:   Skadden, Arps, Slate, Meagher & Flom 42/F, Edinburgh Tower, The Landmark 12 Queen's Road Central, Hong Kong Facsimile: +852 37"
+   ],
+   [
+    "ADDRESS",
+    "2\\4 Letnikovskaya street",
+    " the date of this Agreement are:   OICL\n\nAddress: 2\\4 Letnikovskaya street, 115114, Moscow, Russia\n\nFax "
+   ],
+   [
+    "PERSON",
+    "Ruben Aganbegyan",
+    "Russia\n\nFax number:\n\nAttention: Evgeny Dankevich\n\nRuben Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n"
+   ],
+   [
+    "PERSON",
+    "Konstantin Olefir",
+    "r:\n\nAttention: Evgeny Dankevich\n\nRuben Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n\nAddress: Kennedy "
+   ],
+   [
+    "ADDRESS",
+    "Kennedy 12, Kennedy Business Centre, 2nd floor",
+    "Aganbegyan\\Konstantin Olefir\n\nand\n\nQIWI\n\nAddress: Kennedy 12, Kennedy Business Centre, 2nd floor, P.C. 1087, Nicosia, Cyprus\n\n"
+   ],
+   [
+    "PERSON",
+    "Baum",
+    "10\n\nBaum, 1900 E.Golf Road, Suite 1200"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Ono's",
+    "Territory shall terminate upon the termination of Ono's rights with respect to the On"
+   ]
+  ]
+ },
+ "test:v2": {
+  "by_type": {
+   "PERSON": {
+    "gold": 190,
+    "recall": 0.932,
+    "masked": 177,
+    "precision": 0.955
+   },
+   "EMAIL": {
+    "gold": 23,
+    "recall": 1.0,
+    "masked": 23,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 16,
+    "recall": 1.0,
+    "masked": 16,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.837,
+    "masked": 39,
+    "precision": 0.974
+   },
+   "ALL": {
+    "gold": 272,
+    "recall": 0.926,
+    "masked": 255,
+    "precision": 0.965
+   }
+  },
+  "missed": [
+   [
+    "PERSON",
+    "Jimmy Wayne Anderson",
+    " GLOBAL TECHNOLOGIES, LTD TIMOTHY CABRERA By: By: Jimmy Wayne Anderson Timothy Cabrera Its: Chairman"
+   ],
+   [
+    "ADDRESS",
+    "Seaport West 155 Seaport Boulevard",
+    "beth.mcevoy@sekisuidiagnostics.com Foley Hoag LLP Seaport West 155 Seaport Boulevard Boston, MA 02210 Attn: Mark A"
+   ],
+   [
+    "ADDRESS",
+    "2042 Corte Del Nogal",
+    "ddad@foleyhoag.com If to Qualigen: Qualigen, Inc. 2042 Corte Del Nogal Carlsbad, CA 92011 Attn: Pres"
+   ],
+   [
+    "ADDRESS",
+    "37, Wugong 5t h Road",
+    "pliances Corporation, having principal offices at 37, Wugong 5t h Road, Wugu District, New Taipei Ci"
+   ],
+   [
+    "PERSON",
+    "Michael T. Christy",
+    ": /s/ James W. McKenzie, Jr.              By: /s/ Michael T. Christy     -------------------------"
+   ],
+   [
+    "PERSON",
+    "MICHAEL T. CHRISTY",
+    "Name: James W. McKenzie, Jr.                Name: MICHAEL T. CHRISTY       -----------------------"
+   ],
+   [
+    "PERSON",
+    "JimR- Brcck",
+    "resident\n\n-2 -\n\n\n\n\n\nPRIME OFFSHORE L.L.C. Byi'Sj' JimR- Brcck___________________ JiinE. Brc"
+   ],
+   [
+    "PERSON",
+    "JiinE. Brcck",
+    "ORE L.L.C. Byi'Sj' JimR- Brcck___________________ JiinE. Brcck President and Chief Financial"
+   ],
+   [
+    "ADDRESS",
+    "100 Ba Li Zhuang Xi Li, Suite 907, ZhuBang2000 Plaza, East Building",
+    " Name: MobileVision Communications Ltd.\n\nAddress: 100 Ba Li Zhuang Xi Li, Suite 907, ZhuBang2000 Plaza, East Building, Beijing, China\n\nCOUNTRY PROV"
+   ],
+   [
+    "PERSON",
+    "BaoQing (Angel) Song",
+    "l: xumengdi@looklook.cn\n\nMarketing Contact: Name: BaoQing (Angel) Song\n\n  Phone: +86 13911178981\n\n  "
+   ],
+   [
+    "PERSON",
+    "Liang (Dean) Wang",
+    "ent from above)   Customer Service Contact: Name: Liang (Dean) Wang\n\n  Phone: +86 136 2131 5977\n\n"
+   ],
+   [
+    "PERSON",
+    "CL",
+    "aw principles. Confidential Page 5 of 7 Initials: CL MD Version Jan16_v1\n\n\n\n\n\nCert"
+   ],
+   [
+    "PERSON",
+    "MD",
+    "principles. Confidential Page 5 of 7 Initials: CL MD Version Jan16_v1\n\n\n\n\n\nCertain"
+   ],
+   [
+    "PERSON",
+    "CL",
+    "ate 25/05/2008 Confidential Page 6 of 7 Initials: CL MD Version Jan16_v1\n\n\n\n\n\nCert"
+   ],
+   [
+    "PERSON",
+    "MD",
+    " 25/05/2008 Confidential Page 6 of 7 Initials: CL MD Version Jan16_v1\n\n\n\n\n\nCertain"
+   ],
+   [
+    "PERSON",
+    "CL",
+    " Payment [***] Confidential Page 7 of 7 Initials: CL MD Version Jan16_v1"
+   ],
+   [
+    "PERSON",
+    "MD",
+    "yment [***] Confidential Page 7 of 7 Initials: CL MD Version Jan16_v1"
+   ],
+   [
+    "ADDRESS",
+    "280 Park Avenue, 11t h Floor",
+    "py to:\n\nBlackstone/ Long-Short Credit Income Fund 280 Park Avenue, 11t h Floor New York, New York 10017 Attn"
+   ],
+   [
+    "ADDRESS",
+    "280 Park Avenue, 11t h Floor",
+    "Beeney\n\nGSO/ Blackstone Debt Funds Management LLC 280 Park Avenue, 11t h Floor New York, New York 1001\n\nIf t"
+   ],
+   [
+    "ADDRESS",
+    "Newport Office Center VII 480 Washington Blvd.",
+    "tn: Kevin Shinkunas\n\nMellon Investor Services LLC Newport Office Center VII 480 Washington Blvd. Jersey City, NJ 07310 Attn: L"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Miltenyi",
+    " the respective Modules, submitted by Bellicum to Miltenyi shall be governed exclusively"
+   ],
+   [
+    "PERSON",
+    "Miltenyi",
+    "tion or similar document furnished by Bellicum to Miltenyi or by Miltenyi to Bellicum, a"
+   ],
+   [
+    "PERSON",
+    "Miltenyi",
+    " document furnished by Bellicum to Miltenyi or by Miltenyi to Bellicum, as the case may "
+   ],
+   [
+    "PERSON",
+    "Approved Marker",
+    "elow:\n\n  (i) CDx Assays Including Investigational/Approved Marker(s) for […***…]:\n\n    […***…]."
+   ],
+   [
+    "PERSON",
+    "Houston",
+    "ca Production Company 501 Westlake Park Boulevard Houston, Texas 77079 Attention: Tusca"
+   ],
+   [
+    "PERSON",
+    "Tuscaloosa Area Land Negotiator",
+    "ke Park Boulevard Houston, Texas 77079 Attention: Tuscaloosa Area Land Negotiator Fax No.: (281) 366-4519\n\n"
+   ],
+   [
+    "PERSON",
+    "MD Anderson's",
+    "ne evidence of approval of each Clinical Study by MD Anderson's IRB, and with respect to Stud"
+   ],
+   [
+    "ADDRESS",
+    "Suite 200C",
+    "Suite 200C   Morristown, NJ 07960 USA   "
+   ],
+   [
+    "PERSON",
+    "SOUTH FLORIDA FOOTBALL",
+    "ship\n\n                                        By: SOUTH FLORIDA FOOTBALL                              "
+   ]
+  ]
+ },
+ "test:v3_rules_only": {
+  "by_type": {
+   "PERSON": {
+    "gold": 190,
+    "recall": 0.979,
+    "masked": 187,
+    "precision": 0.963
+   },
+   "EMAIL": {
+    "gold": 23,
+    "recall": 1.0,
+    "masked": 23,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 16,
+    "recall": 1.0,
+    "masked": 16,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.837,
+    "masked": 39,
+    "precision": 0.974
+   },
+   "ALL": {
+    "gold": 272,
+    "recall": 0.96,
+    "masked": 265,
+    "precision": 0.97
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "Seaport West 155 Seaport Boulevard",
+    "beth.mcevoy@sekisuidiagnostics.com Foley Hoag LLP Seaport West 155 Seaport Boulevard Boston, MA 02210 Attn: Mark A"
+   ],
+   [
+    "ADDRESS",
+    "2042 Corte Del Nogal",
+    "ddad@foleyhoag.com If to Qualigen: Qualigen, Inc. 2042 Corte Del Nogal Carlsbad, CA 92011 Attn: Pres"
+   ],
+   [
+    "ADDRESS",
+    "37, Wugong 5t h Road",
+    "pliances Corporation, having principal offices at 37, Wugong 5t h Road, Wugu District, New Taipei Ci"
+   ],
+   [
+    "PERSON",
+    "Michael T. Christy",
+    ": /s/ James W. McKenzie, Jr.              By: /s/ Michael T. Christy     -------------------------"
+   ],
+   [
+    "PERSON",
+    "MICHAEL T. CHRISTY",
+    "Name: James W. McKenzie, Jr.                Name: MICHAEL T. CHRISTY       -----------------------"
+   ],
+   [
+    "PERSON",
+    "JimR- Brcck",
+    "resident\n\n-2 -\n\n\n\n\n\nPRIME OFFSHORE L.L.C. Byi'Sj' JimR- Brcck___________________ JiinE. Brc"
+   ],
+   [
+    "PERSON",
+    "JiinE. Brcck",
+    "ORE L.L.C. Byi'Sj' JimR- Brcck___________________ JiinE. Brcck President and Chief Financial"
+   ],
+   [
+    "ADDRESS",
+    "100 Ba Li Zhuang Xi Li, Suite 907, ZhuBang2000 Plaza, East Building",
+    " Name: MobileVision Communications Ltd.\n\nAddress: 100 Ba Li Zhuang Xi Li, Suite 907, ZhuBang2000 Plaza, East Building, Beijing, China\n\nCOUNTRY PROV"
+   ],
+   [
+    "ADDRESS",
+    "280 Park Avenue, 11t h Floor",
+    "py to:\n\nBlackstone/ Long-Short Credit Income Fund 280 Park Avenue, 11t h Floor New York, New York 10017 Attn"
+   ],
+   [
+    "ADDRESS",
+    "280 Park Avenue, 11t h Floor",
+    "Beeney\n\nGSO/ Blackstone Debt Funds Management LLC 280 Park Avenue, 11t h Floor New York, New York 1001\n\nIf t"
+   ],
+   [
+    "ADDRESS",
+    "Newport Office Center VII 480 Washington Blvd.",
+    "tn: Kevin Shinkunas\n\nMellon Investor Services LLC Newport Office Center VII 480 Washington Blvd. Jersey City, NJ 07310 Attn: L"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Miltenyi",
+    " the respective Modules, submitted by Bellicum to Miltenyi shall be governed exclusively"
+   ],
+   [
+    "PERSON",
+    "Miltenyi",
+    "tion or similar document furnished by Bellicum to Miltenyi or by Miltenyi to Bellicum, a"
+   ],
+   [
+    "PERSON",
+    "Miltenyi",
+    " document furnished by Bellicum to Miltenyi or by Miltenyi to Bellicum, as the case may "
+   ],
+   [
+    "PERSON",
+    "Approved Marker",
+    "elow:\n\n  (i) CDx Assays Including Investigational/Approved Marker(s) for […***…]:\n\n    […***…]."
+   ],
+   [
+    "PERSON",
+    "Houston",
+    "ca Production Company 501 Westlake Park Boulevard Houston, Texas 77079 Attention: Tusca"
+   ],
+   [
+    "PERSON",
+    "MD Anderson's",
+    "ne evidence of approval of each Clinical Study by MD Anderson's IRB, and with respect to Stud"
+   ],
+   [
+    "ADDRESS",
+    "Suite 200C",
+    "Suite 200C   Morristown, NJ 07960 USA   "
+   ],
+   [
+    "PERSON",
+    "SOUTH FLORIDA FOOTBALL",
+    "ship\n\n                                        By: SOUTH FLORIDA FOOTBALL                              "
+   ]
+  ]
+ },
+ "test:v3": {
+  "by_type": {
+   "PERSON": {
+    "gold": 190,
+    "recall": 0.979,
+    "masked": 187,
+    "precision": 0.963
+   },
+   "EMAIL": {
+    "gold": 23,
+    "recall": 1.0,
+    "masked": 23,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 16,
+    "recall": 1.0,
+    "masked": 16,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.837,
+    "masked": 39,
+    "precision": 0.974
+   },
+   "ALL": {
+    "gold": 272,
+    "recall": 0.96,
+    "masked": 265,
+    "precision": 0.97
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "Seaport West 155 Seaport Boulevard",
+    "beth.mcevoy@sekisuidiagnostics.com Foley Hoag LLP Seaport West 155 Seaport Boulevard Boston, MA 02210 Attn: Mark A"
+   ],
+   [
+    "ADDRESS",
+    "2042 Corte Del Nogal",
+    "ddad@foleyhoag.com If to Qualigen: Qualigen, Inc. 2042 Corte Del Nogal Carlsbad, CA 92011 Attn: Pres"
+   ],
+   [
+    "ADDRESS",
+    "37, Wugong 5t h Road",
+    "pliances Corporation, having principal offices at 37, Wugong 5t h Road, Wugu District, New Taipei Ci"
+   ],
+   [
+    "PERSON",
+    "Michael T. Christy",
+    ": /s/ James W. McKenzie, Jr.              By: /s/ Michael T. Christy     -------------------------"
+   ],
+   [
+    "PERSON",
+    "MICHAEL T. CHRISTY",
+    "Name: James W. McKenzie, Jr.                Name: MICHAEL T. CHRISTY       -----------------------"
+   ],
+   [
+    "PERSON",
+    "JimR- Brcck",
+    "resident\n\n-2 -\n\n\n\n\n\nPRIME OFFSHORE L.L.C. Byi'Sj' JimR- Brcck___________________ JiinE. Brc"
+   ],
+   [
+    "PERSON",
+    "JiinE. Brcck",
+    "ORE L.L.C. Byi'Sj' JimR- Brcck___________________ JiinE. Brcck President and Chief Financial"
+   ],
+   [
+    "ADDRESS",
+    "100 Ba Li Zhuang Xi Li, Suite 907, ZhuBang2000 Plaza, East Building",
+    " Name: MobileVision Communications Ltd.\n\nAddress: 100 Ba Li Zhuang Xi Li, Suite 907, ZhuBang2000 Plaza, East Building, Beijing, China\n\nCOUNTRY PROV"
+   ],
+   [
+    "ADDRESS",
+    "280 Park Avenue, 11t h Floor",
+    "py to:\n\nBlackstone/ Long-Short Credit Income Fund 280 Park Avenue, 11t h Floor New York, New York 10017 Attn"
+   ],
+   [
+    "ADDRESS",
+    "280 Park Avenue, 11t h Floor",
+    "Beeney\n\nGSO/ Blackstone Debt Funds Management LLC 280 Park Avenue, 11t h Floor New York, New York 1001\n\nIf t"
+   ],
+   [
+    "ADDRESS",
+    "Newport Office Center VII 480 Washington Blvd.",
+    "tn: Kevin Shinkunas\n\nMellon Investor Services LLC Newport Office Center VII 480 Washington Blvd. Jersey City, NJ 07310 Attn: L"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Miltenyi",
+    " the respective Modules, submitted by Bellicum to Miltenyi shall be governed exclusively"
+   ],
+   [
+    "PERSON",
+    "Miltenyi",
+    "tion or similar document furnished by Bellicum to Miltenyi or by Miltenyi to Bellicum, a"
+   ],
+   [
+    "PERSON",
+    "Miltenyi",
+    " document furnished by Bellicum to Miltenyi or by Miltenyi to Bellicum, as the case may "
+   ],
+   [
+    "PERSON",
+    "Approved Marker",
+    "elow:\n\n  (i) CDx Assays Including Investigational/Approved Marker(s) for […***…]:\n\n    […***…]."
+   ],
+   [
+    "PERSON",
+    "Houston",
+    "ca Production Company 501 Westlake Park Boulevard Houston, Texas 77079 Attention: Tusca"
+   ],
+   [
+    "PERSON",
+    "MD Anderson's",
+    "ne evidence of approval of each Clinical Study by MD Anderson's IRB, and with respect to Stud"
+   ],
+   [
+    "ADDRESS",
+    "Suite 200C",
+    "Suite 200C   Morristown, NJ 07960 USA   "
+   ],
+   [
+    "PERSON",
+    "SOUTH FLORIDA FOOTBALL",
+    "ship\n\n                                        By: SOUTH FLORIDA FOOTBALL                              "
+   ]
+  ]
+ },
+ "test2:v2": {
+  "by_type": {
+   "PERSON": {
+    "gold": 164,
+    "recall": 0.817,
+    "masked": 122,
+    "precision": 0.893
+   },
+   "EMAIL": {
+    "gold": 22,
+    "recall": 0.955,
+    "masked": 22,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 25,
+    "recall": 1.0,
+    "masked": 25,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.721,
+    "masked": 35,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 254,
+    "recall": 0.831,
+    "masked": 204,
+    "precision": 0.936
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "Blücherstr. 24",
+    ", postage prepaid.\n\nIf to OntoChem: OntoChem GmbH Blücherstr. 24, D-06120 Halle (Saale) German"
+   ],
+   [
+    "ADDRESS",
+    "IMG Center, Suite 100, 1360 East 9th Street",
+    "signates International Merchandising Corporation, IMG Center, Suite 100, 1360 East 9th Street, Cleveland, Ohio 44114, Attn."
+   ],
+   [
+    "ADDRESS",
+    "Suite 100, 1360 East 9th Street",
+    "ernational Merchandising Corporation, IMG Center, Suite 100, 1360 East 9th Street, Cleveland, Ohio 44114, Attn."
+   ],
+   [
+    "ADDRESS",
+    "Suite 100, 1360 East 9th Street",
+    "e order of \"Pey Dirt, Inc.\" and delivered to IMG, Suite 100, 1360 East 9th Street, Cleveland, Ohio 44114, Attn."
+   ],
+   [
+    "ADDRESS",
+    "2121 George Halas Drive Northwest",
+    "ball Museum, Inc. d/b/a Pro Football Hall of Fame 2121 George Halas Drive Northwest Canton, Ohio 44708 Attention:"
+   ],
+   [
+    "ADDRESS",
+    "Rubicon House",
+    "to:    Attn: Alistair Hancock Attn: Andrew Kirby  Rubicon House Rubicon House  Guildford Road"
+   ],
+   [
+    "ADDRESS",
+    "Rubicon House",
+    "listair Hancock Attn: Andrew Kirby  Rubicon House Rubicon House  Guildford Road Guildford Roa"
+   ],
+   [
+    "ADDRESS",
+    "Guildford Road",
+    " Attn: Andrew Kirby  Rubicon House Rubicon House  Guildford Road Guildford Road  West End, Sur"
+   ],
+   [
+    "ADDRESS",
+    "Guildford Road",
+    "irby  Rubicon House Rubicon House  Guildford Road Guildford Road  West End, Surrey GU24 9PW We"
+   ],
+   [
+    "PERSON",
+    "Chen, Suzanne",
+    "s     11/414,612     2007-0266286     7516385     Chen, Suzanne; & Kim, Jae-Hyeong; &  Tseng,"
+   ],
+   [
+    "PERSON",
+    "Kim, Jae-Hyeong",
+    "    2007-0266286     7516385     Chen, Suzanne; & Kim, Jae-Hyeong; &  Tseng, Chih-Chiang       "
+   ],
+   [
+    "PERSON",
+    "Tseng, Chih-Chiang",
+    " 7516385     Chen, Suzanne; & Kim, Jae-Hyeong; &  Tseng, Chih-Chiang                             2"
+   ],
+   [
+    "PERSON",
+    "Chuang, Patrick",
+    "10,352     2007-0096790     Not yet  patented     Chuang, Patrick; & Kim, Jae-Hyeong;  & Lu, Ch"
+   ],
+   [
+    "PERSON",
+    "Kim, Jae-Hyeong",
+    "6790     Not yet  patented     Chuang, Patrick; & Kim, Jae-Hyeong;  & Lu, Chungji (Jay)        "
+   ],
+   [
+    "PERSON",
+    "Lu, Chungji (Jay)",
+    "tented     Chuang, Patrick; & Kim, Jae-Hyeong;  & Lu, Chungji (Jay)                             3"
+   ],
+   [
+    "PERSON",
+    "Chen, Suzanne",
+    "Device.     Japan     2006-294640                 Chen, Suzanne; & Huang, M.H. Mu- Hsiang; & "
+   ],
+   [
+    "PERSON",
+    "Huang, M.H. Mu- Hsiang",
+    "     2006-294640                 Chen, Suzanne; & Huang, M.H. Mu- Hsiang; & Tseng, Chih-Chiang        "
+   ],
+   [
+    "PERSON",
+    "Huang, M.H.",
+    "     2006-294640                 Chen, Suzanne; & Huang, M.H. Mu- Hsiang; & Tseng, Chih-Chi"
+   ],
+   [
+    "PERSON",
+    "Tseng, Chih-Chiang",
+    "       Chen, Suzanne; & Huang, M.H. Mu- Hsiang; & Tseng, Chih-Chiang                             1"
+   ],
+   [
+    "PERSON",
+    "Chen, Suzanne",
+    "s     11/404,191     2007-0097780     7355907     Chen, Suzanne; & Huang, M.H. Mu- Hsiang; & "
+   ],
+   [
+    "PERSON",
+    "Huang, M.H. Mu- Hsiang",
+    "    2007-0097780     7355907     Chen, Suzanne; & Huang, M.H. Mu- Hsiang; & Tseng, Chih-Chiang        "
+   ],
+   [
+    "PERSON",
+    "Huang, M.H.",
+    "    2007-0097780     7355907     Chen, Suzanne; & Huang, M.H. Mu- Hsiang; & Tseng, Chih-Chi"
+   ],
+   [
+    "PERSON",
+    "Tseng, Chih-Chiang",
+    "07     Chen, Suzanne; & Huang, M.H. Mu- Hsiang; & Tseng, Chih-Chiang                             3"
+   ],
+   [
+    "PERSON",
+    "Chen, Suzanne",
+    "ontrol.     Japan     2006-294617                 Chen, Suzanne; & Chuang, Patrick; &  Huang,"
+   ],
+   [
+    "PERSON",
+    "Chuang, Patrick",
+    "     2006-294617                 Chen, Suzanne; & Chuang, Patrick; &  Huang, M.H. Mu-Hsiang\n\n\n\n"
+   ],
+   [
+    "PERSON",
+    "Huang, M.H. Mu-Hsiang",
+    "             Chen, Suzanne; & Chuang, Patrick; &  Huang, M.H. Mu-Hsiang\n\n\n\n\n\n\n\n   2\n\n14-Apr-06     Sh"
+   ],
+   [
+    "PERSON",
+    "Huang, M.H.",
+    "             Chen, Suzanne; & Chuang, Patrick; &  Huang, M.H. Mu-Hsiang\n\n\n\n\n\n\n\n   2\n\n14-Apr"
+   ],
+   [
+    "PERSON",
+    "Chen, Suzanne",
+    "s     11/404,353     2007-0101222     7389457     Chen, Suzanne; & Chuang, Patrick; &  Huang,"
+   ],
+   [
+    "PERSON",
+    "Chuang, Patrick",
+    "    2007-0101222     7389457     Chen, Suzanne; & Chuang, Patrick; &  Huang, M.H. Mu-Hsiang    "
+   ],
+   [
+    "PERSON",
+    "Huang, M.H. Mu-Hsiang",
+    " 7389457     Chen, Suzanne; & Chuang, Patrick; &  Huang, M.H. Mu-Hsiang                             3"
+   ],
+   [
+    "PERSON",
+    "Huang, M.H.",
+    " 7389457     Chen, Suzanne; & Chuang, Patrick; &  Huang, M.H. Mu-Hsiang                    "
+   ],
+   [
+    "PERSON",
+    "Chuang, Patrick",
+    "s     11/417,805     2007-0097765     7313040     Chuang, Patrick; & Huang, M.H."
+   ],
+   [
+    "PERSON",
+    "Huang, M.H.",
+    "  2007-0097765     7313040     Chuang, Patrick; & Huang, M.H."
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "ephone and overnight courier charges) incurred by Smith and a guest designated by Smi"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "rges) incurred by Smith and a guest designated by Smith will be paid by TDA or reimbu"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "Smith will be paid by TDA or reimbursed by TDA to Smith where necessary in the perfor"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "DA to Smith where necessary in the performance of Smith's Services under this Agreeme"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "es are required and reasonable for a celebrity of Smith's stature.\n\n5.    AUDIT\n\n"
+   ],
+   [
+    "EMAIL",
+    "susan cousounis@adaptimmune.com",
+    "m with copies to lini.pandite@adaptimmune.com and susan cousounis@adaptimmune.com for Clinical Study payments a"
+   ],
+   [
+    "ADDRESS",
+    "1515 Holcombe Boulevard, Box 1643",
+    "Attn: Vice President, Strategic Industry Ventures 1515 Holcombe Boulevard, Box 1643 Houston, TX 77030   With a co"
+   ],
+   [
+    "ADDRESS",
+    "One Manhattan West",
+    "pies to: Skadden, Arps, Slate, Meagher & Flom LLP One Manhattan West New York, NY 10001 Attention:"
+   ],
+   [
+    "ADDRESS",
+    "525 WEST LANSING",
+    "N ATTN: FRANCHISE 670 G. MENNEN WILLIAMS BUILDING 525 WEST LANSING LANSING, MICHIGAN 48913\n\nNOTE"
+   ],
+   [
+    "PERSON",
+    "IP",
+    "erein.                Page 2 of 3   Initials: /s/ IP\n\nSource: STEEL VAULT CORP, 10"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Corio's",
+    "ned in the Code, will          not interfere with Corio's license with respect to the S"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "adian bankruptcy law shall also apply          to Corio's rights under this Agreement.\n"
+   ],
+   [
+    "PERSON",
+    "Binimetinib",
+    "tions and methods of administration, that combine Binimetinib or Encorafenib and one or mor"
+   ],
+   [
+    "PERSON",
+    "Binimetinib",
+    " one or more other active ingredients (other than Binimetinib or Encorafenib) in fixed dose"
+   ],
+   [
+    "PERSON",
+    "Citrix",
+    "Citrix-GEAC           Microsoft Open"
+   ],
+   [
+    "PERSON",
+    "Cal Citrix",
+    "0                       Terminal Services Bus-5.0 Cal Citrix - GEAC         Microsoft Open"
+   ],
+   [
+    "PERSON",
+    "Citrix",
+    "ndows Server                       2000 Bus - 5.0 Citrix-GEAC           Microsoft Wind"
+   ],
+   [
+    "PERSON",
+    "Attn",
+    "iven hereunder:     If to ISA: with a copy to:    Attn: Joseph Coschera Attn: Daniel"
+   ],
+   [
+    "PERSON",
+    "Attn",
+    "n@lawsgr.com    If to Rubicon: with a copy to:    Attn: Alistair Hancock Attn: Andre"
+   ],
+   [
+    "PERSON",
+    "Kaplan",
+    "phone: +1-646-274-9610 with a copy to: Kleinberg, Kaplan, Wolff & Cohen, P.C. 500 Fift"
+   ],
+   [
+    "PERSON",
+    "Rubin",
+    "tate of New York (the \"Trust\"), Robert M. Rubin (\"Rubin\"), or any affiliate of Rubin "
+   ],
+   [
+    "PERSON",
+    "Rubin",
+    "), Robert M. Rubin (\"Rubin\"), or any affiliate of Rubin or the Trust. For purposes of"
+   ],
+   [
+    "PERSON",
+    "Expiration da",
+    "rizona Assigned Internet Domain Names Domain Name Expiration date Owner amish-handscraped.com"
+   ]
+  ]
+ },
+ "test2:v3_rules_only": {
+  "by_type": {
+   "PERSON": {
+    "gold": 164,
+    "recall": 0.97,
+    "masked": 140,
+    "precision": 0.921
+   },
+   "EMAIL": {
+    "gold": 22,
+    "recall": 0.955,
+    "masked": 22,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 25,
+    "recall": 1.0,
+    "masked": 25,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.93,
+    "masked": 38,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 254,
+    "recall": 0.965,
+    "masked": 225,
+    "precision": 0.951
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "IMG Center, Suite 100, 1360 East 9th Street",
+    "signates International Merchandising Corporation, IMG Center, Suite 100, 1360 East 9th Street, Cleveland, Ohio 44114, Attn."
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "ephone and overnight courier charges) incurred by Smith and a guest designated by Smi"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "rges) incurred by Smith and a guest designated by Smith will be paid by TDA or reimbu"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "Smith will be paid by TDA or reimbursed by TDA to Smith where necessary in the perfor"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "DA to Smith where necessary in the performance of Smith's Services under this Agreeme"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "es are required and reasonable for a celebrity of Smith's stature.\n\n5.    AUDIT\n\n"
+   ],
+   [
+    "EMAIL",
+    "susan cousounis@adaptimmune.com",
+    "m with copies to lini.pandite@adaptimmune.com and susan cousounis@adaptimmune.com for Clinical Study payments a"
+   ],
+   [
+    "ADDRESS",
+    "One Manhattan West",
+    "pies to: Skadden, Arps, Slate, Meagher & Flom LLP One Manhattan West New York, NY 10001 Attention:"
+   ],
+   [
+    "ADDRESS",
+    "525 WEST LANSING",
+    "N ATTN: FRANCHISE 670 G. MENNEN WILLIAMS BUILDING 525 WEST LANSING LANSING, MICHIGAN 48913\n\nNOTE"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Corio's",
+    "ned in the Code, will          not interfere with Corio's license with respect to the S"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "adian bankruptcy law shall also apply          to Corio's rights under this Agreement.\n"
+   ],
+   [
+    "PERSON",
+    "Binimetinib",
+    "tions and methods of administration, that combine Binimetinib or Encorafenib and one or mor"
+   ],
+   [
+    "PERSON",
+    "Binimetinib",
+    " one or more other active ingredients (other than Binimetinib or Encorafenib) in fixed dose"
+   ],
+   [
+    "PERSON",
+    "Citrix",
+    "Citrix-GEAC           Microsoft Open"
+   ],
+   [
+    "PERSON",
+    "Cal Citrix",
+    "0                       Terminal Services Bus-5.0 Cal Citrix - GEAC         Microsoft Open"
+   ],
+   [
+    "PERSON",
+    "Citrix",
+    "ndows Server                       2000 Bus - 5.0 Citrix-GEAC           Microsoft Wind"
+   ],
+   [
+    "PERSON",
+    "Kaplan",
+    "phone: +1-646-274-9610 with a copy to: Kleinberg, Kaplan, Wolff & Cohen, P.C. 500 Fift"
+   ],
+   [
+    "PERSON",
+    "Rubin",
+    "tate of New York (the \"Trust\"), Robert M. Rubin (\"Rubin\"), or any affiliate of Rubin "
+   ],
+   [
+    "PERSON",
+    "Rubin",
+    "), Robert M. Rubin (\"Rubin\"), or any affiliate of Rubin or the Trust. For purposes of"
+   ],
+   [
+    "PERSON",
+    "Expiration da",
+    "rizona Assigned Internet Domain Names Domain Name Expiration date Owner amish-handscraped.com"
+   ]
+  ]
+ },
+ "test2:v3": {
+  "by_type": {
+   "PERSON": {
+    "gold": 164,
+    "recall": 0.97,
+    "masked": 140,
+    "precision": 0.921
+   },
+   "EMAIL": {
+    "gold": 22,
+    "recall": 0.955,
+    "masked": 22,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 25,
+    "recall": 1.0,
+    "masked": 25,
+    "precision": 1.0
+   },
+   "ADDRESS": {
+    "gold": 43,
+    "recall": 0.93,
+    "masked": 38,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 254,
+    "recall": 0.965,
+    "masked": 225,
+    "precision": 0.951
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "IMG Center, Suite 100, 1360 East 9th Street",
+    "signates International Merchandising Corporation, IMG Center, Suite 100, 1360 East 9th Street, Cleveland, Ohio 44114, Attn."
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "ephone and overnight courier charges) incurred by Smith and a guest designated by Smi"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "rges) incurred by Smith and a guest designated by Smith will be paid by TDA or reimbu"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "Smith will be paid by TDA or reimbursed by TDA to Smith where necessary in the perfor"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "DA to Smith where necessary in the performance of Smith's Services under this Agreeme"
+   ],
+   [
+    "PERSON",
+    "Smith",
+    "es are required and reasonable for a celebrity of Smith's stature.\n\n5.    AUDIT\n\n"
+   ],
+   [
+    "EMAIL",
+    "susan cousounis@adaptimmune.com",
+    "m with copies to lini.pandite@adaptimmune.com and susan cousounis@adaptimmune.com for Clinical Study payments a"
+   ],
+   [
+    "ADDRESS",
+    "One Manhattan West",
+    "pies to: Skadden, Arps, Slate, Meagher & Flom LLP One Manhattan West New York, NY 10001 Attention:"
+   ],
+   [
+    "ADDRESS",
+    "525 WEST LANSING",
+    "N ATTN: FRANCHISE 670 G. MENNEN WILLIAMS BUILDING 525 WEST LANSING LANSING, MICHIGAN 48913\n\nNOTE"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Corio's",
+    "ned in the Code, will          not interfere with Corio's license with respect to the S"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "adian bankruptcy law shall also apply          to Corio's rights under this Agreement.\n"
+   ],
+   [
+    "PERSON",
+    "Binimetinib",
+    "tions and methods of administration, that combine Binimetinib or Encorafenib and one or mor"
+   ],
+   [
+    "PERSON",
+    "Binimetinib",
+    " one or more other active ingredients (other than Binimetinib or Encorafenib) in fixed dose"
+   ],
+   [
+    "PERSON",
+    "Citrix",
+    "Citrix-GEAC           Microsoft Open"
+   ],
+   [
+    "PERSON",
+    "Cal Citrix",
+    "0                       Terminal Services Bus-5.0 Cal Citrix - GEAC         Microsoft Open"
+   ],
+   [
+    "PERSON",
+    "Citrix",
+    "ndows Server                       2000 Bus - 5.0 Citrix-GEAC           Microsoft Wind"
+   ],
+   [
+    "PERSON",
+    "Kaplan",
+    "phone: +1-646-274-9610 with a copy to: Kleinberg, Kaplan, Wolff & Cohen, P.C. 500 Fift"
+   ],
+   [
+    "PERSON",
+    "Rubin",
+    "tate of New York (the \"Trust\"), Robert M. Rubin (\"Rubin\"), or any affiliate of Rubin "
+   ],
+   [
+    "PERSON",
+    "Rubin",
+    "), Robert M. Rubin (\"Rubin\"), or any affiliate of Rubin or the Trust. For purposes of"
+   ],
+   [
+    "PERSON",
+    "Expiration da",
+    "rizona Assigned Internet Domain Names Domain Name Expiration date Owner amish-handscraped.com"
+   ]
+  ]
+ },
+ "test3:v2": {
+  "by_type": {
+   "PERSON": {
+    "gold": 100,
+    "recall": 0.92,
+    "masked": 102,
+    "precision": 0.912
+   },
+   "EMAIL": {
+    "gold": 18,
+    "recall": 1.0,
+    "masked": 18,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 28,
+    "recall": 0.964,
+    "masked": 28,
+    "precision": 0.964
+   },
+   "ADDRESS": {
+    "gold": 37,
+    "recall": 0.757,
+    "masked": 30,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 183,
+    "recall": 0.902,
+    "masked": 178,
+    "precision": 0.944
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "Room 303, 3rd Floor, St. George's Building, 2 Ice House Street",
+    "n accordance with this Section):\n\nIf to Licensor: Room 303, 3rd Floor, St. George's Building, 2 Ice House Street, Central, Hong Kong Facsimile"
+   ],
+   [
+    "PHONE",
+    "(852) 3526 0355",
+    "2 Ice House Street, Central, Hong Kong Facsimile: (852) 3526 0355 E-mail:angela@sg-cs.com Atten"
+   ],
+   [
+    "ADDRESS",
+    "100, 40 Lake Bellevue Dr",
+    "a@sg-cs.com Attention: Angela Jen If to Licensee: 100, 40 Lake Bellevue Dr, Bellevue, WA, 98005 Facsimil"
+   ],
+   [
+    "PERSON",
+    "Elisa Doctor",
+    "Contact Names at UBS AG: Payment Inquiries        Elisa Doctor                Email:        "
+   ],
+   [
+    "ADDRESS",
+    "214 39t h Lane",
+    "ight courier, on the next business day. Shi Farms:214 39t h Lane Pueblo, CO 81006 ATTN: Steven"
+   ],
+   [
+    "ADDRESS",
+    "1119 West 1st Ave - Suite G",
+    " Pueblo, CO 81006 ATTN: Steven Turetsky Gridiron: 1119 West 1st Ave - Suite G Spokane, WA 99021 ATTN: Tim O"
+   ],
+   [
+    "PERSON",
+    "Tim Orr",
+    "19 West 1st Ave - Suite G Spokane, WA 99021 ATTN: Tim Orr 5. Entire Agreement. A. Amend"
+   ],
+   [
+    "PERSON",
+    "Steven van der Velden",
+    "  For Elephant Talk Communication Holding AG  /s/ Steven van der Velden Name: Mr. Steven van der Veld"
+   ],
+   [
+    "PERSON",
+    "Steven van der Velden",
+    "n Holding AG  /s/ Steven van der Velden Name: Mr. Steven van der Velden Title: CEO\n\n\n\n               "
+   ],
+   [
+    "ADDRESS",
+    "2-2-16, Sonezakishinchi",
+    "er service). If to Acquiror: Sucampo Pharma, LLC. 2-2-16, Sonezakishinchi, Kita-ku, Osaka Attention: […"
+   ],
+   [
+    "ADDRESS",
+    "110 - 110th Ave. N.E., Suite 550",
+    "resident/General Counsel                          110 - 110th Ave. N.E., Suite 550                          Bell"
+   ],
+   [
+    "PERSON",
+    "Dr. Andreas Felder",
+    "/s/ Bassil Dahiyat\n\n\n\n\n\n /s/ Alois Konrad\n\n\n\n /s/ Dr. Andreas Felder   Bassil Dahiyat\n\n\n\n\n\n Alois "
+   ],
+   [
+    "PERSON",
+    "Dr. Andreas Felder",
+    "as Felder   Bassil Dahiyat\n\n\n\n\n\n Alois Konrad\n\n\n\n Dr. Andreas Felder   President and CEO\n\n\n\n\n\n\n\n\n\n"
+   ],
+   [
+    "PERSON",
+    "Heidrun Thoma",
+    " heidi@canalecomm.com   Boehringer Ingelheim GmbH Heidrun Thoma Corporate communications Boeh"
+   ],
+   [
+    "ADDRESS",
+    "Calle La Colonia 180",
+    "\n  To HOC:\n\n  Hochschild Mining Holdings Limited  Calle La Colonia 180 Surco, Lima 33, Peru  Attenti"
+   ],
+   [
+    "PERSON",
+    "Steven J. Daniels",
+    "are New York, NY 10036 Attention: Eric L. Cochran Steven J. Daniels Email: eric.cochran@skadden.c"
+   ],
+   [
+    "ADDRESS",
+    "Oxford House",
+    "ts Administrator NCC Escrow International Limited Oxford House\n\n\n\n\n\nOxford Road Manchester M"
+   ],
+   [
+    "ADDRESS",
+    "Oxford Road",
+    "CC Escrow International Limited Oxford House\n\n\n\n\n\nOxford Road Manchester M1 7ED England\n\nTe"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Miltenyi",
+    "isions in this Article 4 (including Section 4.7), Miltenyi will be solely responsible fo"
+   ],
+   [
+    "PHONE",
+    "252.227-7013",
+    "hnical Data and Computer Software clause at DFARS 252.227-7013 for agencies of the Departmen"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "are to work with and in          conjunction with Corio's system software or Corio's ot"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "      conjunction with Corio's system software or Corio's other hosted          applica"
+   ],
+   [
+    "PERSON",
+    "NeuroBo",
+    "NeuroBo shall be responsible for and "
+   ],
+   [
+    "PERSON",
+    "Santa Monica",
+    "recent Open House pages.\n\n- - Chromatography Ltd. Santa Monica CA\n\n- - Mass Spectral Interpr"
+   ],
+   [
+    "PERSON",
+    "THUS DONE AND SIGNED",
+    "on NT\n\n\n\n-56-    TELKOM CONTRACT NO. 076C/01      THUS DONE AND SIGNED at  WOODMEAD  by SYSTEMS APPL"
+   ],
+   [
+    "PERSON",
+    "THUS DONE AND SIGNED",
+    "                                                  THUS DONE AND SIGNED at  Pretoria by the TELKOM SO"
+   ],
+   [
+    "PERSON",
+    "Accounts Payable",
+    " be sent to the attention of:\n\nap@aduro.com Attn: Accounts Payable\n\n"
+   ],
+   [
+    "PERSON",
+    "Hydraspin: Water Now",
+    "ail transmission, addressed as follows: (i) If to Hydraspin: Water Now, Inc. Hydraspin USA, Inc. 500"
+   ]
+  ]
+ },
+ "test3:v3_rules_only": {
+  "by_type": {
+   "PERSON": {
+    "gold": 100,
+    "recall": 0.92,
+    "masked": 102,
+    "precision": 0.912
+   },
+   "EMAIL": {
+    "gold": 18,
+    "recall": 1.0,
+    "masked": 18,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 28,
+    "recall": 0.964,
+    "masked": 28,
+    "precision": 0.964
+   },
+   "ADDRESS": {
+    "gold": 37,
+    "recall": 0.784,
+    "masked": 31,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 183,
+    "recall": 0.907,
+    "masked": 179,
+    "precision": 0.944
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "Room 303, 3rd Floor, St. George's Building, 2 Ice House Street",
+    "n accordance with this Section):\n\nIf to Licensor: Room 303, 3rd Floor, St. George's Building, 2 Ice House Street, Central, Hong Kong Facsimile"
+   ],
+   [
+    "PHONE",
+    "(852) 3526 0355",
+    "2 Ice House Street, Central, Hong Kong Facsimile: (852) 3526 0355 E-mail:angela@sg-cs.com Atten"
+   ],
+   [
+    "ADDRESS",
+    "100, 40 Lake Bellevue Dr",
+    "a@sg-cs.com Attention: Angela Jen If to Licensee: 100, 40 Lake Bellevue Dr, Bellevue, WA, 98005 Facsimil"
+   ],
+   [
+    "PERSON",
+    "Elisa Doctor",
+    "Contact Names at UBS AG: Payment Inquiries        Elisa Doctor                Email:        "
+   ],
+   [
+    "ADDRESS",
+    "214 39t h Lane",
+    "ight courier, on the next business day. Shi Farms:214 39t h Lane Pueblo, CO 81006 ATTN: Steven"
+   ],
+   [
+    "ADDRESS",
+    "1119 West 1st Ave - Suite G",
+    " Pueblo, CO 81006 ATTN: Steven Turetsky Gridiron: 1119 West 1st Ave - Suite G Spokane, WA 99021 ATTN: Tim O"
+   ],
+   [
+    "PERSON",
+    "Tim Orr",
+    "19 West 1st Ave - Suite G Spokane, WA 99021 ATTN: Tim Orr 5. Entire Agreement. A. Amend"
+   ],
+   [
+    "PERSON",
+    "Steven van der Velden",
+    "  For Elephant Talk Communication Holding AG  /s/ Steven van der Velden Name: Mr. Steven van der Veld"
+   ],
+   [
+    "PERSON",
+    "Steven van der Velden",
+    "n Holding AG  /s/ Steven van der Velden Name: Mr. Steven van der Velden Title: CEO\n\n\n\n               "
+   ],
+   [
+    "ADDRESS",
+    "2-2-16, Sonezakishinchi",
+    "er service). If to Acquiror: Sucampo Pharma, LLC. 2-2-16, Sonezakishinchi, Kita-ku, Osaka Attention: […"
+   ],
+   [
+    "ADDRESS",
+    "110 - 110th Ave. N.E., Suite 550",
+    "resident/General Counsel                          110 - 110th Ave. N.E., Suite 550                          Bell"
+   ],
+   [
+    "PERSON",
+    "Dr. Andreas Felder",
+    "/s/ Bassil Dahiyat\n\n\n\n\n\n /s/ Alois Konrad\n\n\n\n /s/ Dr. Andreas Felder   Bassil Dahiyat\n\n\n\n\n\n Alois "
+   ],
+   [
+    "PERSON",
+    "Dr. Andreas Felder",
+    "as Felder   Bassil Dahiyat\n\n\n\n\n\n Alois Konrad\n\n\n\n Dr. Andreas Felder   President and CEO\n\n\n\n\n\n\n\n\n\n"
+   ],
+   [
+    "PERSON",
+    "Heidrun Thoma",
+    " heidi@canalecomm.com   Boehringer Ingelheim GmbH Heidrun Thoma Corporate communications Boeh"
+   ],
+   [
+    "ADDRESS",
+    "Calle La Colonia 180",
+    "\n  To HOC:\n\n  Hochschild Mining Holdings Limited  Calle La Colonia 180 Surco, Lima 33, Peru  Attenti"
+   ],
+   [
+    "PERSON",
+    "Steven J. Daniels",
+    "are New York, NY 10036 Attention: Eric L. Cochran Steven J. Daniels Email: eric.cochran@skadden.c"
+   ],
+   [
+    "ADDRESS",
+    "Oxford House",
+    "ts Administrator NCC Escrow International Limited Oxford House\n\n\n\n\n\nOxford Road Manchester M"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Miltenyi",
+    "isions in this Article 4 (including Section 4.7), Miltenyi will be solely responsible fo"
+   ],
+   [
+    "PHONE",
+    "252.227-7013",
+    "hnical Data and Computer Software clause at DFARS 252.227-7013 for agencies of the Departmen"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "are to work with and in          conjunction with Corio's system software or Corio's ot"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "      conjunction with Corio's system software or Corio's other hosted          applica"
+   ],
+   [
+    "PERSON",
+    "NeuroBo",
+    "NeuroBo shall be responsible for and "
+   ],
+   [
+    "PERSON",
+    "Santa Monica",
+    "recent Open House pages.\n\n- - Chromatography Ltd. Santa Monica CA\n\n- - Mass Spectral Interpr"
+   ],
+   [
+    "PERSON",
+    "THUS DONE AND SIGNED",
+    "on NT\n\n\n\n-56-    TELKOM CONTRACT NO. 076C/01      THUS DONE AND SIGNED at  WOODMEAD  by SYSTEMS APPL"
+   ],
+   [
+    "PERSON",
+    "THUS DONE AND SIGNED",
+    "                                                  THUS DONE AND SIGNED at  Pretoria by the TELKOM SO"
+   ],
+   [
+    "PERSON",
+    "Accounts Payable",
+    " be sent to the attention of:\n\nap@aduro.com Attn: Accounts Payable\n\n"
+   ],
+   [
+    "PERSON",
+    "Hydraspin: Water Now",
+    "ail transmission, addressed as follows: (i) If to Hydraspin: Water Now, Inc. Hydraspin USA, Inc. 500"
+   ]
+  ]
+ },
+ "test3:v3": {
+  "by_type": {
+   "PERSON": {
+    "gold": 100,
+    "recall": 0.92,
+    "masked": 102,
+    "precision": 0.912
+   },
+   "EMAIL": {
+    "gold": 18,
+    "recall": 1.0,
+    "masked": 18,
+    "precision": 1.0
+   },
+   "PHONE": {
+    "gold": 28,
+    "recall": 0.964,
+    "masked": 28,
+    "precision": 0.964
+   },
+   "ADDRESS": {
+    "gold": 37,
+    "recall": 0.784,
+    "masked": 31,
+    "precision": 1.0
+   },
+   "ALL": {
+    "gold": 183,
+    "recall": 0.907,
+    "masked": 179,
+    "precision": 0.944
+   }
+  },
+  "missed": [
+   [
+    "ADDRESS",
+    "Room 303, 3rd Floor, St. George's Building, 2 Ice House Street",
+    "n accordance with this Section):\n\nIf to Licensor: Room 303, 3rd Floor, St. George's Building, 2 Ice House Street, Central, Hong Kong Facsimile"
+   ],
+   [
+    "PHONE",
+    "(852) 3526 0355",
+    "2 Ice House Street, Central, Hong Kong Facsimile: (852) 3526 0355 E-mail:angela@sg-cs.com Atten"
+   ],
+   [
+    "ADDRESS",
+    "100, 40 Lake Bellevue Dr",
+    "a@sg-cs.com Attention: Angela Jen If to Licensee: 100, 40 Lake Bellevue Dr, Bellevue, WA, 98005 Facsimil"
+   ],
+   [
+    "PERSON",
+    "Elisa Doctor",
+    "Contact Names at UBS AG: Payment Inquiries        Elisa Doctor                Email:        "
+   ],
+   [
+    "ADDRESS",
+    "214 39t h Lane",
+    "ight courier, on the next business day. Shi Farms:214 39t h Lane Pueblo, CO 81006 ATTN: Steven"
+   ],
+   [
+    "ADDRESS",
+    "1119 West 1st Ave - Suite G",
+    " Pueblo, CO 81006 ATTN: Steven Turetsky Gridiron: 1119 West 1st Ave - Suite G Spokane, WA 99021 ATTN: Tim O"
+   ],
+   [
+    "PERSON",
+    "Tim Orr",
+    "19 West 1st Ave - Suite G Spokane, WA 99021 ATTN: Tim Orr 5. Entire Agreement. A. Amend"
+   ],
+   [
+    "PERSON",
+    "Steven van der Velden",
+    "  For Elephant Talk Communication Holding AG  /s/ Steven van der Velden Name: Mr. Steven van der Veld"
+   ],
+   [
+    "PERSON",
+    "Steven van der Velden",
+    "n Holding AG  /s/ Steven van der Velden Name: Mr. Steven van der Velden Title: CEO\n\n\n\n               "
+   ],
+   [
+    "ADDRESS",
+    "2-2-16, Sonezakishinchi",
+    "er service). If to Acquiror: Sucampo Pharma, LLC. 2-2-16, Sonezakishinchi, Kita-ku, Osaka Attention: […"
+   ],
+   [
+    "ADDRESS",
+    "110 - 110th Ave. N.E., Suite 550",
+    "resident/General Counsel                          110 - 110th Ave. N.E., Suite 550                          Bell"
+   ],
+   [
+    "PERSON",
+    "Dr. Andreas Felder",
+    "/s/ Bassil Dahiyat\n\n\n\n\n\n /s/ Alois Konrad\n\n\n\n /s/ Dr. Andreas Felder   Bassil Dahiyat\n\n\n\n\n\n Alois "
+   ],
+   [
+    "PERSON",
+    "Dr. Andreas Felder",
+    "as Felder   Bassil Dahiyat\n\n\n\n\n\n Alois Konrad\n\n\n\n Dr. Andreas Felder   President and CEO\n\n\n\n\n\n\n\n\n\n"
+   ],
+   [
+    "PERSON",
+    "Heidrun Thoma",
+    " heidi@canalecomm.com   Boehringer Ingelheim GmbH Heidrun Thoma Corporate communications Boeh"
+   ],
+   [
+    "ADDRESS",
+    "Calle La Colonia 180",
+    "\n  To HOC:\n\n  Hochschild Mining Holdings Limited  Calle La Colonia 180 Surco, Lima 33, Peru  Attenti"
+   ],
+   [
+    "PERSON",
+    "Steven J. Daniels",
+    "are New York, NY 10036 Attention: Eric L. Cochran Steven J. Daniels Email: eric.cochran@skadden.c"
+   ],
+   [
+    "ADDRESS",
+    "Oxford House",
+    "ts Administrator NCC Escrow International Limited Oxford House\n\n\n\n\n\nOxford Road Manchester M"
+   ]
+  ],
+  "false_positives": [
+   [
+    "PERSON",
+    "Miltenyi",
+    "isions in this Article 4 (including Section 4.7), Miltenyi will be solely responsible fo"
+   ],
+   [
+    "PHONE",
+    "252.227-7013",
+    "hnical Data and Computer Software clause at DFARS 252.227-7013 for agencies of the Departmen"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "are to work with and in          conjunction with Corio's system software or Corio's ot"
+   ],
+   [
+    "PERSON",
+    "Corio's",
+    "      conjunction with Corio's system software or Corio's other hosted          applica"
+   ],
+   [
+    "PERSON",
+    "NeuroBo",
+    "NeuroBo shall be responsible for and "
+   ],
+   [
+    "PERSON",
+    "Santa Monica",
+    "recent Open House pages.\n\n- - Chromatography Ltd. Santa Monica CA\n\n- - Mass Spectral Interpr"
+   ],
+   [
+    "PERSON",
+    "THUS DONE AND SIGNED",
+    "on NT\n\n\n\n-56-    TELKOM CONTRACT NO. 076C/01      THUS DONE AND SIGNED at  WOODMEAD  by SYSTEMS APPL"
+   ],
+   [
+    "PERSON",
+    "THUS DONE AND SIGNED",
+    "                                                  THUS DONE AND SIGNED at  Pretoria by the TELKOM SO"
+   ],
+   [
+    "PERSON",
+    "Accounts Payable",
+    " be sent to the attention of:\n\nap@aduro.com Attn: Accounts Payable\n\n"
+   ],
+   [
+    "PERSON",
+    "Hydraspin: Water Now",
+    "ail transmission, addressed as follows: (i) If to Hydraspin: Water Now, Inc. Hydraspin USA, Inc. 500"
+   ]
+  ]
+ }
+}

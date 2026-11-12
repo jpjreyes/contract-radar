@@ -10,9 +10,9 @@ from dataclasses import dataclass
 
 import psycopg
 
-from contract_copilot import planner
-from contract_copilot.embed import embed_query, rerank_scores
-from contract_copilot.tracing import span
+from contract_radar import planner
+from contract_radar.embed import embed_query, rerank_scores
+from contract_radar.tracing import span
 
 RRF_K = 60
 STOP = {"a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "has", "have", "if", "in", "into", "is", "it", "its", "of", "on", "or", "that", "the", "their", "this", "to", "was", "were", "will", "with", "any", "all", "such", "shall", "may", "must", "other", "should", "which", "what", "who", "whom", "whose", "there", "these", "those", "been", "being", "do", "does", "part", "parts", "contract", "agreement", "highlight", "reviewed", "lawyer", "details", "related"}

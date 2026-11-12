@@ -12,8 +12,8 @@ pytestmark = pytest.mark.skipif(not os.environ.get("APP_DATABASE_URL"), reason="
 
 @pytest.fixture(scope="module")
 def conns():
-    from contract_copilot.db import connect
-    from contract_copilot.permissions import app_connect
+    from contract_radar.db import connect
+    from contract_radar.permissions import app_connect
     return connect(), app_connect()
 
 
@@ -27,8 +27,8 @@ def _field_of(admin, business_unit: str, region: str):
 
 
 def test_reviewer_edits_own_contract_and_it_is_audited(conns):
-    from contract_copilot import audit, review
-    from contract_copilot.permissions import as_user
+    from contract_radar import audit, review
+    from contract_radar.permissions import as_user
     admin, app = conns
     cid, name = _field_of(admin, "Procurement", "North America")  # maria's scope
     with admin.transaction():  # rolled back: the test leaves the real queue as it was
@@ -48,8 +48,8 @@ def test_reviewer_edits_own_contract_and_it_is_audited(conns):
 
 
 def test_non_reviewer_and_out_of_scope_reviews_are_refused(conns):
-    from contract_copilot import review
-    from contract_copilot.permissions import as_user
+    from contract_radar import review
+    from contract_radar.permissions import as_user
     admin, app = conns
     cid, name = _field_of(admin, "Procurement", "North America")
     other_cid, other_name = _field_of(admin, "Marketing", "EMEA")
@@ -62,7 +62,7 @@ def test_non_reviewer_and_out_of_scope_reviews_are_refused(conns):
 
 
 def test_app_role_cannot_write_fields_directly(conns):
-    from contract_copilot.permissions import as_user
+    from contract_radar.permissions import as_user
     _, app = conns
     with pytest.raises(psycopg.errors.InsufficientPrivilege), as_user(app, "legal_admin"):
         app.execute("UPDATE fields SET value = 'x'")

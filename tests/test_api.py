@@ -13,7 +13,7 @@ pytestmark = pytest.mark.skipif(not os.environ.get("APP_DATABASE_URL"), reason="
 def client():
     from fastapi.testclient import TestClient
 
-    from contract_copilot.api import app
+    from contract_radar.api import app
     return TestClient(app)
 
 
@@ -32,7 +32,7 @@ def test_each_user_lists_only_their_contracts(client):
 
 
 def test_contract_text_is_masked_or_revealed_by_role_and_forbidden_is_404(client):
-    from contract_copilot.db import connect
+    from contract_radar.db import connect
     cid = connect().execute(
         "SELECT c.id FROM contracts c JOIN chunks k ON k.contract_id = c.id WHERE c.business_unit = 'Legal' "
         "AND k.text_masked LIKE '%%[PERSON_%%' ORDER BY c.id LIMIT 1").fetchone()[0]
@@ -76,7 +76,7 @@ def test_spend_cap_and_rate_limit_stop_live_questions_before_any_model_call(clie
 
 
 def test_replay_mode_serves_recorded_answers_only(client, monkeypatch, tmp_path):
-    from contract_copilot import limits
+    from contract_radar import limits
     monkeypatch.setenv("CC_MODE", "replay")
     monkeypatch.setattr(limits, "REPLAY_DIR", tmp_path)
     q = "Which contracts have exclusivity?"

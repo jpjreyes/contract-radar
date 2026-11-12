@@ -17,7 +17,7 @@ Cascade: on the eval set, the small model decides when it's confident (probabili
 chosen on dev so precision stays at the LLM's level); otherwise the LLM's answer is used. Reported: per-field F1 for
 small model, LLM and cascade; share of LLM calls avoided; cost and latency per contract.
 
-Run:  uv run python -m contract_copilot.distill --labels gold --epochs 3     (prints progress every 50 steps)
+Run:  uv run python -m contract_radar.distill --labels gold --epochs 3     (prints progress every 50 steps)
 """
 
 from __future__ import annotations
@@ -33,12 +33,12 @@ from functools import lru_cache
 import numpy as np
 import torch
 
-from contract_copilot import cuad
-from contract_copilot.db import connect
-from contract_copilot.embed import EMBED_MODEL, _device
-from contract_copilot.eval_extract import gold_answer, gold_present, gold_rows
-from contract_copilot.eval_retrieval import RUNS, split_of
-from contract_copilot.extract import FIELDS
+from contract_radar import cuad
+from contract_radar.db import connect
+from contract_radar.embed import EMBED_MODEL, _device
+from contract_radar.eval_extract import gold_answer, gold_present, gold_rows
+from contract_radar.eval_retrieval import RUNS, split_of
+from contract_radar.extract import FIELDS
 
 NAMES = list(FIELDS)
 CATS = [FIELDS[n][0] for n in NAMES]

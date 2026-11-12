@@ -12,14 +12,14 @@ pytestmark = pytest.mark.skipif(not os.environ.get("APP_DATABASE_URL"), reason="
 
 @pytest.fixture(scope="module")
 def conns():
-    from contract_copilot.db import connect
-    from contract_copilot.permissions import app_connect
+    from contract_radar.db import connect
+    from contract_radar.permissions import app_connect
     return connect(), app_connect()
 
 
 def test_append_stamps_the_user_from_the_database(conns):
-    from contract_copilot import audit
-    from contract_copilot.permissions import as_user
+    from contract_radar import audit
+    from contract_radar.permissions import as_user
     admin, app = conns
     with as_user(app, "kenji"):
         rid = audit.append(app, {"action": "test", "app_user": "legal_admin"})  # a claim in the payload is ignored
@@ -29,7 +29,7 @@ def test_append_stamps_the_user_from_the_database(conns):
 
 
 def test_app_role_cannot_read_change_or_delete_the_log(conns):
-    from contract_copilot.permissions import as_user
+    from contract_radar.permissions import as_user
     _, app = conns
     for sql in ("SELECT * FROM audit_log", "UPDATE audit_log SET app_user = 'x'", "DELETE FROM audit_log",
                 "SELECT audit_verify()"):
@@ -38,8 +38,8 @@ def test_app_role_cannot_read_change_or_delete_the_log(conns):
 
 
 def test_editing_a_past_row_breaks_the_chain_at_that_row(conns):
-    from contract_copilot import audit
-    from contract_copilot.permissions import as_user
+    from contract_radar import audit
+    from contract_radar.permissions import as_user
     admin, app = conns
     with as_user(app, "analyst"):
         first = audit.append(app, {"action": "test", "n": 1})

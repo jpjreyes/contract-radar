@@ -5,7 +5,7 @@ EVERY matching contract out of 510. So the model only plans: it turns the questi
 extracted fields (D11). Code compiles them to SQL, which runs as the user (row-level security decides which contracts
 exist for them), and each match comes back with the quote behind every condition and whether a person reviewed it.
 
-Run:  uv run python -m contract_copilot.portfolio --user legal_admin "Which contracts under Delaware law have exclusivity?"
+Run:  uv run python -m contract_radar.portfolio --user legal_admin "Which contracts under Delaware law have exclusivity?"
 """
 
 from __future__ import annotations
@@ -17,11 +17,11 @@ from dataclasses import dataclass, field
 
 import psycopg
 
-from contract_copilot import audit
-from contract_copilot.extract import FIELDS
-from contract_copilot.llm import Backend, get_backend
-from contract_copilot.permissions import app_connect, as_user
-from contract_copilot.tracing import content_allowed, span
+from contract_radar import audit
+from contract_radar.extract import FIELDS
+from contract_radar.llm import Backend, get_backend
+from contract_radar.permissions import app_connect, as_user
+from contract_radar.tracing import content_allowed, span
 
 OPS = {
     "present": "the contract has this term",

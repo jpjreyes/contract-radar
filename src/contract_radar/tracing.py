@@ -14,7 +14,7 @@ CC_TRACE_CONTENT=1 adds the question and the model's raw output, for local debug
 
 Local viewer:  uvx --python 3.12 --from "arize-phoenix==21.0.0" phoenix serve   (UI on http://localhost:6006)
 Azure:         APPLICATIONINSIGHTS_CONNECTION_STRING (set by infra/azure) sends the same spans to Application Insights
-Then:          CC_TRACE_ENDPOINT=http://localhost:6006/v1/traces uv run uvicorn contract_copilot.api:app --port 8071
+Then:          CC_TRACE_ENDPOINT=http://localhost:6006/v1/traces uv run uvicorn contract_radar.api:app --port 8071
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ from contextlib import contextmanager
 from opentelemetry import trace
 
 _configured = False
-tracer = trace.get_tracer("contract_copilot")
+tracer = trace.get_tracer("contract_radar")
 
 # USD per million tokens (input, output), list prices; used for the cost attribute on every model span.
 PRICES = {"haiku": (0.10, 0.50)}

@@ -4,7 +4,7 @@ Everything runs on the app role inside one transaction with `app.user` set, so r
 personal-data masking (D9) apply to retrieval, to what the model sees and to what comes back. The audit row is written
 in the same transaction, by the database, with the user and time stamped there.
 
-Run:  uv run python -m contract_copilot.ask --user analyst --contract "Development Agreement" "Who signed it?"
+Run:  uv run python -m contract_radar.ask --user analyst --contract "Development Agreement" "Who signed it?"
 """
 
 from __future__ import annotations
@@ -15,11 +15,11 @@ import time
 
 import psycopg
 
-from contract_copilot import audit
-from contract_copilot.answer import Answer, answer
-from contract_copilot.llm import Backend
-from contract_copilot.permissions import app_connect, as_user
-from contract_copilot.tracing import content_allowed, span
+from contract_radar import audit
+from contract_radar.answer import Answer, answer
+from contract_radar.llm import Backend
+from contract_radar.permissions import app_connect, as_user
+from contract_radar.tracing import content_allowed, span
 
 
 def ask(user: str, question: str, contract_id: int | None = None, category: str | None = None,

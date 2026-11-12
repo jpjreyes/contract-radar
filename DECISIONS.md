@@ -360,7 +360,7 @@ or overturn a decision are added to the entry.
   differences below ~0.01 are noise; the cascade beats the LLM in both runs.
 - **Known limits:** two runs for lawyer labels, one for LLM labels; the eval half is 217 contracts,
   so fields with < 60 positives move a few points between runs; presence only (values and quotes stay with the LLM).
-- Run: `uv run python -m contract_copilot.distill --labels gold|llm --epochs 2` (progress every 50 steps); results in
+- Run: `uv run python -m contract_radar.distill --labels gold|llm --epochs 2` (progress every 50 steps); results in
   `runs/distill-*.json`; the trained model is saved to `data/models/m7-<labels>/` (not in git).
 
 ## D18. Weak extraction fields: clearer definitions, the small model as a second retriever, and as a judge
@@ -445,6 +445,8 @@ or overturn a decision are added to the entry.
   positives that cost readability, not privacy ("Governing Law" or "ARTICLE XIII" masked as a person in one contract).
 
 ## D20. Final evals on the Claude plan, isolated configuration (2026-11-11)
+- **Where the runs are:** summaries of every reported run in [evals/results/](evals/results/) (extracted values,
+  contract text and personal-data strings removed).
 - **How the numbers were produced:** Claude Haiku via the Claude CLI on a Claude plan, in an isolated configuration
   (no user plugins, settings or instructions; one sentence is added to every prompt by an account-managed hook that can't be
   turned off); the runner refuses an API key and stops at 80% of the 5-hour or weekly limit. Costs are

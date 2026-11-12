@@ -22,7 +22,7 @@ COPY README.md ./
 RUN uv sync --frozen --no-dev --no-default-groups
 
 # Bake the embedding model and the reranker into the image: no download on a cold start.
-RUN uv run --no-sync python -c "from contract_copilot.embed import embedder, reranker; embedder(); reranker()"
+RUN uv run --no-sync python -c "from contract_radar.embed import embedder, reranker; embedder(); reranker()"
 
 # Non-root runtime user
 RUN useradd --create-home --uid 10001 app && chown -R app /opt/hf
@@ -30,4 +30,4 @@ USER app
 
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=60s CMD python -c "import urllib.request,os; urllib.request.urlopen(f'http://127.0.0.1:{os.environ.get(\"PORT\",\"8000\")}/healthz')"
-CMD ["sh", "-c", "uv run --no-sync uvicorn contract_copilot.api:app --host 0.0.0.0 --port ${PORT}"]
+CMD ["sh", "-c", "uv run --no-sync uvicorn contract_radar.api:app --host 0.0.0.0 --port ${PORT}"]

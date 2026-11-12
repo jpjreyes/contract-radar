@@ -1,8 +1,8 @@
 """Portfolio planning (M5): conditions compile to parameterized SQL with the same meaning as the gold evaluator."""
 
-from contract_copilot.eval_portfolio import holds
-from contract_copilot.portfolio import Condition as C
-from contract_copilot.portfolio import compile_sql
+from contract_radar.eval_portfolio import holds
+from contract_radar.portfolio import Condition as C
+from contract_radar.portfolio import compile_sql
 
 
 def test_values_are_bound_parameters_never_spliced_into_sql():

@@ -1,9 +1,9 @@
 """Chunk offsets must be exact: citations and the retrieval eval both depend on them."""
 
-from contract_copilot.chunking import MAX_CHARS, chunk_text
-from contract_copilot.cuad import category_of
-from contract_copilot.eval_retrieval import overlaps, split_of
-from contract_copilot.retrieve import _or_query
+from contract_radar.chunking import MAX_CHARS, chunk_text
+from contract_radar.cuad import category_of
+from contract_radar.eval_retrieval import overlaps, split_of
+from contract_radar.retrieve import _or_query
 
 TEXT = """SUPPLY AGREEMENT
 
@@ -44,7 +44,7 @@ def test_split_is_deterministic_and_overlap_is_half_open():
 
 
 def test_planner_expands_and_routes_front_matter():
-    from contract_copilot import planner
+    from contract_radar import planner
     assert "not less than" in planner.expand("Minimum Commitment", "Minimum Commitment: a minimum order size")
     assert planner.expand(None, "q") == "q"
     assert planner.is_front_matter("Parties") and not planner.is_front_matter("Cap On Liability")

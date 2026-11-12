@@ -5,7 +5,7 @@ For every non-admin demo user, pick contracts they may NOT read and search for s
 A leak is any returned chunk from a contract outside the user's grant. As a control, the same attack on contracts
 the user MAY read must still find them (so 0 leaks isn't just "returns nothing").
 
-Run:  uv run python -m contract_copilot.eval_permissions --per-user 25
+Run:  uv run python -m contract_radar.eval_permissions --per-user 25
 """
 
 from __future__ import annotations
@@ -15,10 +15,10 @@ import json
 import random
 from datetime import datetime
 
-from contract_copilot.db import connect
-from contract_copilot.eval_retrieval import RUNS
-from contract_copilot.permissions import USERS, app_connect, as_user
-from contract_copilot.retrieve import search
+from contract_radar.db import connect
+from contract_radar.eval_retrieval import RUNS
+from contract_radar.permissions import USERS, app_connect, as_user
+from contract_radar.retrieve import search
 
 METHODS = ("keyword", "vector", "hybrid", "planned")
 

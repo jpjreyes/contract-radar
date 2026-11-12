@@ -4,7 +4,7 @@ For every labeled clause (a contract + a clause type with at least one gold span
 its description, scoped to that contract. A query is a hit at k if a top-k chunk overlaps any gold span; span recall
 counts how many gold spans are covered. Split by contract (hash): dev 20% for iteration, test 80% for the numbers.
 
-Run:  uv run python -m contract_copilot.eval_retrieval --split test --methods keyword vector hybrid hybrid+rerank
+Run:  uv run python -m contract_radar.eval_retrieval --split test --methods keyword vector hybrid hybrid+rerank
 """
 
 from __future__ import annotations
@@ -18,9 +18,9 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
-from contract_copilot import cuad
-from contract_copilot.db import connect
-from contract_copilot.retrieve import search
+from contract_radar import cuad
+from contract_radar.db import connect
+from contract_radar.retrieve import search
 
 KS = (1, 3, 5, 8)
 RUNS = Path(__file__).resolve().parents[2] / "runs"

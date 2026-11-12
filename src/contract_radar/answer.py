@@ -14,10 +14,10 @@ from dataclasses import dataclass, field
 import psycopg
 from rapidfuzz import fuzz
 
-from contract_copilot.llm import Backend, get_backend
-from contract_copilot.retrieve import Hit, search
-from contract_copilot.serve import contract_offsets, serve
-from contract_copilot.tracing import span
+from contract_radar.llm import Backend, get_backend
+from contract_radar.retrieve import Hit, search
+from contract_radar.serve import contract_offsets, serve
+from contract_radar.tracing import span
 
 FUZZY_MIN = 90
 

@@ -4,7 +4,7 @@
   absent   the lawyers found no such clause: did we say we can't find it (correct refusal)?
 Also: claims dropped because their quote couldn't be verified, latency, tokens and estimated cost.
 
-Run:  uv run python -m contract_copilot.eval_answers --present 30 --absent 20
+Run:  uv run python -m contract_radar.eval_answers --present 30 --absent 20
 """
 
 from __future__ import annotations
@@ -15,11 +15,11 @@ import random
 import time
 from datetime import datetime
 
-from contract_copilot import cuad
-from contract_copilot.answer import answer
-from contract_copilot.db import connect
-from contract_copilot.eval_retrieval import RUNS, overlaps, split_of
-from contract_copilot.llm import get_backend
+from contract_radar import cuad
+from contract_radar.answer import answer
+from contract_radar.db import connect
+from contract_radar.eval_retrieval import RUNS, overlaps, split_of
+from contract_radar.llm import get_backend
 
 PRICE_IN, PRICE_OUT = 0.10, 0.50  # Claude Haiku 5.5 list price per million tokens (<= 100K-token prompts)
 

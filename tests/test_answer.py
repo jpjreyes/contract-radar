@@ -1,6 +1,6 @@
 """Citation checks in code: a claim survives only with a quote that really is in the cited passage."""
 
-from contract_copilot.answer import _norm, locate
+from contract_radar.answer import _norm, locate
 
 TEXT = ("2.1 Renewal. The term renews automatically for successive one-year periods unless either party gives\n"
         "notice at least sixty (60) days before the end of the then-current term.")
@@ -24,5 +24,5 @@ class FakeBackend:
         self.data = data
 
     def complete(self, system, prompt, schema, model="haiku", images=None):
-        from contract_copilot.llm import LLMResult
+        from contract_radar.llm import LLMResult
         return LLMResult(self.data, 10, 5, 0.1, model)

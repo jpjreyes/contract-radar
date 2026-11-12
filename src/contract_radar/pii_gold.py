@@ -13,7 +13,7 @@ Labeling policy (the same text the detector is held to; see DECISIONS D9):
            stay visible (they decide jurisdiction questions and don't identify anyone alone).
   Redaction markers like [***] are not PII.
 
-Run:  uv run python -m contract_copilot.pii_gold --likely 120 --random 120 --workers 4
+Run:  uv run python -m contract_radar.pii_gold --likely 120 --random 120 --workers 4
 """
 
 from __future__ import annotations
@@ -26,8 +26,8 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from contract_copilot.db import connect
-from contract_copilot.llm import get_backend
+from contract_radar.db import connect
+from contract_radar.llm import get_backend
 
 GOLD = Path(__file__).resolve().parents[2] / "evals" / "pii_gold.json"
 TYPES = ("PERSON", "EMAIL", "PHONE", "ADDRESS")

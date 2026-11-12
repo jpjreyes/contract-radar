@@ -1,5 +1,7 @@
 # Contract Radar
 
+[![ci](https://github.com/jpreyesm03/contract-radar/actions/workflows/ci.yml/badge.svg)](https://github.com/jpreyesm03/contract-radar/actions/workflows/ci.yml)
+
 Ask questions across a portfolio of 510 real commercial contracts and get answers a lawyer can check: every claim
 carries a quote that code verified against the contract, each user sees only the contracts they're allowed to, and
 personal data is masked unless their role allows it. "Which contracts…?" questions run as filters over 13 key terms
@@ -19,7 +21,8 @@ a tamper-evident audit log.
 
 Held-out numbers unless marked dev; model Claude Haiku via the Claude CLI on a Claude plan, isolated configuration (one
 sentence added to every prompt by an account-managed hook); costs are API-equivalent. How each was produced and what changed
-when it failed: [DECISIONS.md](DECISIONS.md) (final run: D20).
+when it failed: [DECISIONS.md](DECISIONS.md) (final run: D20). The runs behind each number:
+[evals/results/](evals/results/).
 
 | What | Result |
 |---|---|
@@ -67,6 +70,25 @@ extraction: per field, scoped search ─► one model call for 13 terms ─► q
   the user and time itself and chains each row to the previous one by SHA-256; editing any past row is detected at
   that row.
 
+## Repo map
+
+| Area | Code |
+|---|---|
+| Ingest: CUAD loader, schema, clause-aware chunks, embeddings | `cuad.py`, `db.py`, `chunking.py`, `ingest.py`, `embed.py` |
+| Search: query planning per clause type, hybrid search + reranker | `planner.py`, `retrieve.py` |
+| Cited answers: quotes located in code; asked as the user and audited | `answer.py`, `ask.py` |
+| Permissions: app role, row-level security, demo users, sign-in | `permissions.py`, `auth.py` (Entra ID) |
+| Personal data: detection, masking, offset map, reveal only when allowed | `pii.py`, `serve.py`, `pii_gold.py` (labels) |
+| Key-term extraction, review queue, small local model | `extract.py`, `review.py`, `distill.py` |
+| Portfolio questions: planned filters → SQL | `portfolio.py` |
+| Act this quarter: deadlines from extracted terms | `radar.py` |
+| Audit log, tracing, limits and replay mode | `audit.py`, `tracing.py`, `limits.py` |
+| API, model backends, cloud data load | `api.py`, `llm.py`, `subscription.py`, `cloud_load.py` |
+| Evals (one per README row) | `eval_retrieval.py`, `eval_answers.py`, `eval_permissions.py`, `eval_pii.py`, `eval_extract.py`, `eval_portfolio.py` |
+
+All in `src/contract_radar/`. Web app: `web/` (Next.js). Infrastructure: `infra/azure/` (Terraform). Demo answers for
+replay mode: `replay/`.
+
 ## Demo users
 
 | User | Sees | Personal data | Can review fields |
@@ -78,19 +100,23 @@ extraction: per field, scoped search ─► one model call for 13 terms ─► q
 
 ## Run it locally
 
+Data: download `CUAD_v1.zip` from [Zenodo](https://zenodo.org/records/4595826) and unzip it into `data/raw/`
+(so `data/raw/CUAD_v1/CUAD_v1.json` exists).
+
 ```bash
 scripts/dev_db.sh up                                   # Postgres 17 + pgvector on 127.0.0.1:55435 (Colima)
 cp .env.example .env                                   # DATABASE_URL, APP_DATABASE_URL, APP_DB_PASSWORD
 uv sync
-uv run python -m contract_copilot.ingest               # 510 contracts → chunks, masking, embeddings (~15 min)
-uv run python -m contract_copilot.permissions          # app role, RLS policies, demo users, audit log, review queue
-uv run python -m contract_copilot.extract --split all  # key terms for every contract
-uv run uvicorn contract_copilot.api:app --port 8071
+uv run python -m contract_radar.ingest               # 510 contracts → chunks, masking, embeddings (~15 min)
+uv run python -m contract_radar.permissions          # app role, RLS policies, demo users, audit log, review queue
+uv run python -m contract_radar.distill              # small local model used by extraction (~20 min on a laptop)
+uv run python -m contract_radar.extract --split all  # key terms for every contract
+uv run uvicorn contract_radar.api:app --port 8071
 cd web && npm install && npx next dev -p 3072          # http://localhost:3072, switch users at the top right
 ```
 
 Evals: `eval_retrieval`, `eval_answers`, `eval_permissions`, `eval_pii`, `eval_extract`, `eval_portfolio` (each
-`uv run python -m contract_copilot.<name> --help`). Tests: `uv run pytest` (needs the database for the
+`uv run python -m contract_radar.<name> --help`). Tests: `uv run pytest` (needs the database for the
 permission, audit, review and API suites).
 
 ## Deploy on Azure

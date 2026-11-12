@@ -17,8 +17,8 @@ os.environ.setdefault("CC_RATE_PER_HOUR", "1000")
 
 from fastapi.testclient import TestClient
 
-from contract_copilot import limits
-from contract_copilot.api import app
+from contract_radar import limits
+from contract_radar.api import app
 
 PORTFOLIO = [
     "Which contracts auto-renew and need 60 days or less notice to stop it?",

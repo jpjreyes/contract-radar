@@ -1,0 +1,153 @@
+{
+ "split": "test",
+ "subset": null,
+ "contracts": 415,
+ "fields": 5395,
+ "overall_accuracy": 0.879,
+ "by_field": {
+  "parties": {
+   "gold_present": 414,
+   "presence_f1": 0.994,
+   "precision": 1.0,
+   "recall": 0.988,
+   "value_acc": "365/409",
+   "accuracy": 0.882,
+   "auto_accepted": "0/415",
+   "auto_precision": null
+  },
+  "agreement_date": {
+   "gold_present": 376,
+   "presence_f1": 0.936,
+   "precision": 0.974,
+   "recall": 0.902,
+   "value_acc": "303/313",
+   "accuracy": 0.865,
+   "auto_accepted": "0/415",
+   "auto_precision": null
+  },
+  "effective_date": {
+   "gold_present": 289,
+   "presence_f1": 0.877,
+   "precision": 0.907,
+   "recall": 0.848,
+   "value_acc": "225/229",
+   "accuracy": 0.824,
+   "auto_accepted": "0/415",
+   "auto_precision": null
+  },
+  "expiration_date": {
+   "gold_present": 268,
+   "presence_f1": 0.857,
+   "precision": 0.888,
+   "recall": 0.828,
+   "value_acc": "183/213",
+   "accuracy": 0.749,
+   "auto_accepted": "0/415",
+   "auto_precision": null
+  },
+  "renewal_term": {
+   "gold_present": 131,
+   "presence_f1": 0.898,
+   "precision": 0.836,
+   "recall": 0.969,
+   "value_acc": "-",
+   "accuracy": 0.93,
+   "auto_accepted": "304/415",
+   "auto_precision": 0.984
+  },
+  "notice_to_terminate_renewal_days": {
+   "gold_present": 82,
+   "presence_f1": 0.905,
+   "precision": 0.884,
+   "recall": 0.927,
+   "value_acc": "72/74",
+   "accuracy": 0.957,
+   "auto_accepted": "319/415",
+   "auto_precision": 0.987
+  },
+  "governing_law": {
+   "gold_present": 354,
+   "presence_f1": 0.976,
+   "precision": 0.991,
+   "recall": 0.96,
+   "value_acc": "333/336",
+   "accuracy": 0.952,
+   "auto_accepted": "351/415",
+   "auto_precision": 0.974
+  },
+  "termination_for_convenience": {
+   "gold_present": 154,
+   "presence_f1": 0.877,
+   "precision": 0.835,
+   "recall": 0.922,
+   "value_acc": "-",
+   "accuracy": 0.904,
+   "auto_accepted": "0/415",
+   "auto_precision": null
+  },
+  "exclusivity": {
+   "gold_present": 151,
+   "presence_f1": 0.838,
+   "precision": 0.765,
+   "recall": 0.927,
+   "value_acc": "-",
+   "accuracy": 0.87,
+   "auto_accepted": "0/415",
+   "auto_precision": null
+  },
+  "non_compete": {
+   "gold_present": 105,
+   "presence_f1": 0.759,
+   "precision": 0.739,
+   "recall": 0.781,
+   "value_acc": "-",
+   "accuracy": 0.875,
+   "auto_accepted": "207/415",
+   "auto_precision": 0.966
+  },
+  "cap_on_liability": {
+   "gold_present": 231,
+   "presence_f1": 0.941,
+   "precision": 0.918,
+   "recall": 0.965,
+   "value_acc": "-",
+   "accuracy": 0.933,
+   "auto_accepted": "305/415",
+   "auto_precision": 0.98
+  },
+  "uncapped_liability": {
+   "gold_present": 89,
+   "presence_f1": 0.774,
+   "precision": 0.667,
+   "recall": 0.921,
+   "value_acc": "-",
+   "accuracy": 0.884,
+   "auto_accepted": "0/415",
+   "auto_precision": null
+  },
+  "minimum_commitment": {
+   "gold_present": 140,
+   "presence_f1": 0.719,
+   "precision": 0.691,
+   "recall": 0.75,
+   "value_acc": "-",
+   "accuracy": 0.802,
+   "auto_accepted": "0/415",
+   "auto_precision": null
+  }
+ },
+ "routing": {
+  "shipped: high + all checks pass": {
+   "auto_accept_precision": 0.979,
+   "sent_to_review": 0.725
+  },
+  "high, ignore checks": {
+   "auto_accept_precision": 0.948,
+   "sent_to_review": 0.347
+  },
+  "high or medium + checks pass": {
+   "auto_accept_precision": 0.903,
+   "sent_to_review": 0.082
+  }
+ }
+}

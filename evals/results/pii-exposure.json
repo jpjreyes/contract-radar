@@ -1,0 +1,33 @@
+{
+ "users": {
+  "legal_admin": {
+   "pii_access": true,
+   "probes": 22,
+   "served_texts": 1230,
+   "original_shown_when_allowed": "22/22"
+  },
+  "maria": {
+   "pii_access": false,
+   "probes": 25,
+   "served_texts": 1215,
+   "enforcement_leaks": 0,
+   "value_also_unmasked_elsewhere": "6/25"
+  },
+  "kenji": {
+   "pii_access": false,
+   "probes": 25,
+   "served_texts": 1200,
+   "enforcement_leaks": 0,
+   "value_also_unmasked_elsewhere": "4/25"
+  },
+  "analyst": {
+   "pii_access": false,
+   "probes": 22,
+   "served_texts": 1196,
+   "enforcement_leaks": 0,
+   "value_also_unmasked_elsewhere": "2/22"
+  }
+ },
+ "total_enforcement_leaks": 0,
+ "app_role_can_select_original": false
+}

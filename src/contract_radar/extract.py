@@ -10,7 +10,7 @@ not the model, decides what's trustworthy:
 The model only sees masked text (D9), so extraction never handles personal data; quote offsets map back to the
 original contract.
 
-Run:  uv run python -m contract_copilot.extract --split dev --workers 5
+Run:  uv run python -m contract_radar.extract --split dev --workers 5
 """
 
 from __future__ import annotations
@@ -27,11 +27,11 @@ from datetime import date
 
 import psycopg
 
-from contract_copilot.answer import locate
-from contract_copilot.db import connect
-from contract_copilot.llm import Backend, get_backend
-from contract_copilot.retrieve import Hit, by_ids, search
-from contract_copilot.serve import contract_offsets
+from contract_radar.answer import locate
+from contract_radar.db import connect
+from contract_radar.llm import Backend, get_backend
+from contract_radar.retrieve import Hit, by_ids, search
+from contract_radar.serve import contract_offsets
 
 # name -> (CUAD category used for retrieval planning and the eval, what the model must return as `value`)
 # name -> (CUAD category, what counts + the value format). "What counts" is CUAD's own definition, the guideline the
@@ -202,7 +202,7 @@ def gather(conn: psycopg.Connection, contract_id: int,
                         k=PER_FIELD_K, contract_id=contract_id, category=category, pool=20):
             seen.setdefault(h.chunk_id, h)
     picked = list(seen.values())[:MAX_SOURCES]
-    from contract_copilot.distill import chunk_scores  # here, not at the top: distill imports FIELDS from here
+    from contract_radar.distill import chunk_scores  # here, not at the top: distill imports FIELDS from here
     scores = chunk_scores(conn, contract_id) if boost and BOOST else {}
     if scores:
         have, extra = {h.chunk_id for h in picked}, []
@@ -240,7 +240,7 @@ def extract(hits: list[Hit], backend: Backend) -> tuple[dict[str, Field], dict]:
 
 def apply_small_model(conn: psycopg.Connection, contract_id: int, fields: dict[str, Field]) -> None:
     """Presence of SMALL_DECIDES fields from the M7 model (D18); no-op if the model isn't trained on this machine."""
-    from contract_copilot.distill import chunk_scores, thresholds
+    from contract_radar.distill import chunk_scores, thresholds
     scores, th = chunk_scores(conn, contract_id), thresholds()
     if not scores or not th:
         return
@@ -338,8 +338,8 @@ def run(contract_ids: list[int], workers: int = 5, log: str | None = None) -> li
 
 
 def main() -> None:
-    from contract_copilot import cuad
-    from contract_copilot.eval_retrieval import RUNS, split_of
+    from contract_radar import cuad
+    from contract_radar.eval_retrieval import RUNS, split_of
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", choices=["dev", "test", "all"], default="dev")
     ap.add_argument("--limit", type=int)

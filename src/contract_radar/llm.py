@@ -13,12 +13,11 @@ from __future__ import annotations
 import base64
 import json
 import os
-import subprocess
 import time
 from dataclasses import dataclass
 from typing import Protocol
 
-from contract_copilot import subscription
+from contract_radar import subscription
 
 DEFAULT_MODEL = os.environ.get("CC_MODEL", "haiku")
 
@@ -155,7 +154,7 @@ class AnthropicBackend:
 
 
 def get_backend(name: str | None = None) -> Backend:
-    from contract_copilot.tracing import TracedBackend  # every model call becomes an LLM span
+    from contract_radar.tracing import TracedBackend  # every model call becomes an LLM span
     name = name or os.environ.get("CC_BACKEND", "claude-cli")
     if name == "claude-cli":
         return TracedBackend(ClaudeCLIBackend(), name)

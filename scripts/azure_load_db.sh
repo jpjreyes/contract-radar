@@ -20,7 +20,7 @@ CLIENT=$(az identity list -g "$RG" --query "[0].clientId" -o tsv)
 DUMP=/tmp/contract-radar-data.tar.gz
 
 echo "== export (contracts, chunks with masked text + embeddings, fields)"
-uv run python -m contract_copilot.cloud_load export "$DUMP"
+uv run python -m contract_radar.cloud_load export "$DUMP"
 ls -lh "$DUMP"
 
 echo "== upload"
@@ -40,7 +40,7 @@ az containerapp job create -g "$RG" -n "job-load" --environment "$ENV" --trigger
   --env-vars "DATABASE_URL=secretref:admin-url" "APP_DB_PASSWORD=secretref:app-pw" "APP_DATABASE_URL=secretref:app-url" \
              "AZURE_CLIENT_ID=$CLIENT" \
              "BLOB_URL=https://$ST.blob.core.windows.net/dbload/data.tar.gz" "IDENTITY_SQL=$SQL" \
-  --command "uv" --args "run" "--no-sync" "python" "-m" "contract_copilot.cloud_load" >/dev/null 2>&1 || \
+  --command "uv" --args "run" "--no-sync" "python" "-m" "contract_radar.cloud_load" >/dev/null 2>&1 || \
 az containerapp job update -g "$RG" -n "job-load" --image "$ACR/contract-radar-api:latest" >/dev/null
 az containerapp job start -g "$RG" -n "job-load" >/dev/null
 echo "started: follow it with  az containerapp job execution list -g $RG -n job-load -o table"

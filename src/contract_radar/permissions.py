@@ -5,7 +5,7 @@ it). Every request sets `app.user` for its transaction; policies on `contracts` 
 may read. No user set, unknown user, or no matching grant -> no rows (deny by default). Because the filter runs inside
 the search query, a user's top-k is computed over what they can see: nothing forbidden is ranked and dropped later.
 
-Setup (admin connection):  uv run python -m contract_copilot.permissions
+Setup (admin connection):  uv run python -m contract_radar.permissions
 """
 
 from __future__ import annotations
@@ -19,8 +19,8 @@ import psycopg.sql
 from dotenv import load_dotenv
 from pgvector.psycopg import register_vector
 
-from contract_copilot import audit
-from contract_copilot.db import connect
+from contract_radar import audit
+from contract_radar.db import connect
 
 APP_ROLE = "cc_app"
 
@@ -136,9 +136,9 @@ def main() -> None:
     admin = connect()
     setup(admin, pw)
     audit.setup(admin, APP_ROLE)
-    from contract_copilot import review  # after audit: review_field() writes audit entries
+    from contract_radar import review  # after audit: review_field() writes audit entries
     review.setup(admin, APP_ROLE)
-    from contract_copilot import auth, limits
+    from contract_radar import auth, limits
     limits.setup(admin, APP_ROLE)
     auth.setup(admin, APP_ROLE)
     print(f"role {APP_ROLE} + RLS policies + {len(USERS)} demo users + audit log + review queue ready")
