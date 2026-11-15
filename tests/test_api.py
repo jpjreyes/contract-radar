@@ -102,3 +102,17 @@ def test_hybrid_mode_serves_recordings_and_answers_other_questions_live(client, 
         client.post("/portfolio", headers=h("maria"), json={"question": "Which contracts are governed by Texas law?"})
     assert calls
     assert client.get("/mode", headers=h("maria")).json() == {"mode": "hybrid"}
+
+
+def test_pdf_export_is_the_users_view_and_is_audited(client):
+    import io
+
+    from pypdf import PdfReader
+    cid = client.get("/contracts", headers=h("analyst")).json()[0]["id"]
+    r = client.get(f"/contracts/{cid}/pdf", headers=h("analyst"))
+    assert r.status_code == 200 and r.headers["content-type"] == "application/pdf"
+    text = "".join(p.extract_text() for p in PdfReader(io.BytesIO(r.content)).pages)
+    assert "exported by analyst" in text and "[PERSON_" not in text  # bars, not placeholders or names
+    hidden = {c["id"] for c in client.get("/contracts", headers=h("legal_admin")).json()} - \
+             {c["id"] for c in client.get("/contracts", headers=h("kenji")).json()}
+    assert client.get(f"/contracts/{min(hidden)}/pdf", headers=h("kenji")).status_code == 404

@@ -19,6 +19,7 @@ dependencies = [
     "opentelemetry-instrumentation-fastapi>=0.66b2",
     "pyjwt[crypto]>=2.9",
     "azure-monitor-opentelemetry-exporter>=1.0.0b59",
+    "fpdf2>=2.9.0",
 ]
 
 [dependency-groups]
@@ -30,6 +31,7 @@ ingest = [
 ]
 dev = [
     "httpx>=0.28.1",
+    "pypdf>=7.1.0",
     "pytest>=8",
     "ruff>=0.6",
 ]

@@ -16,11 +16,11 @@ from datetime import date
 
 import psycopg
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from pydantic import BaseModel
 
-from contract_radar import auth, limits, tracing
+from contract_radar import audit, auth, export_pdf, limits, tracing
 from contract_radar import review as review_mod
 from contract_radar.ask import ask
 from contract_radar.permissions import USERS, app_connect, as_user
@@ -139,6 +139,23 @@ def contract(cid: int, who: str = Depends(user), db: psycopg.Connection = Depend
                         "masks": [list(m) for m in h.masks]} for h in chunks],
             "fields": [dict(zip(("name", "present", "value", "quote", "start", "end", "confidence", "issues",
                                  "status", "reviewed_by"), f)) for f in fields]}
+
+
+@app.get("/contracts/{cid}/pdf")
+def contract_pdf(cid: int, who: str = Depends(user), db: psycopg.Connection = Depends(conn)) -> Response:
+    """The contract as the user sees it (masked values as redaction bars), never the original file; audited."""
+    with as_user(db, who):
+        meta = db.execute("SELECT name FROM contracts WHERE id = %s", (cid,)).fetchone()
+        if meta is None:
+            raise HTTPException(404, "not found")
+        rows = db.execute("SELECT id, contract_id, start_char, end_char, text_masked, 0.0, mask_map FROM chunks "
+                          "WHERE contract_id = %s ORDER BY idx", (cid,)).fetchall()
+        chunks = serve(db, [_hit(r) for r in rows])
+        masked = any(h.masks for h in chunks)
+        audit.append(db, {"action": "export_pdf", "contract_id": cid, "chunks": len(chunks), "masked": masked})
+    pdf = export_pdf.render(meta[0], who, masked, [h.text for h in chunks])
+    filename = "".join(ch if ch.isalnum() or ch in "-_." else "_" for ch in meta[0])[:120] + ".pdf"
+    return Response(pdf, media_type="application/pdf", headers={"Content-Disposition": f'attachment; filename="{filename}"'})
 
 
 class AskIn(BaseModel):

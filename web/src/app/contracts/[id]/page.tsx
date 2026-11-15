@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, Check, Pencil, X } from "lucide-react";
+import { ArrowLeft, Check, Download, Loader2, Pencil, X } from "lucide-react";
 import { Masked } from "@/components/masked";
 import { useUser } from "@/components/nav";
 import { Badge, Card, Empty, PageHeader } from "@/components/ui";
-import { api, FIELD_LABELS, prettyName, type Chunk, type ContractDetail, type FieldRow, type User } from "@/lib/api";
+import { api, authHeaders, FIELD_LABELS, prettyName, type Chunk, type ContractDetail, type FieldRow, type User } from "@/lib/api";
 
 /** Original-text offset (relative to the chunk) -> offset in the text shown (masked chunks have placeholders). */
 function toShown(pos: number, chunk: Chunk): number {
@@ -71,7 +71,8 @@ function Viewer() {
   return (
     <div>
       <Link href="/contracts" className="mb-4 inline-flex items-center gap-1 text-sm text-muted hover:text-foreground"><ArrowLeft className="size-4" />Contracts</Link>
-      <PageHeader eyebrow={`${doc.type} · ${doc.business_unit} · ${doc.region}`} title={<span className="block break-words text-xl leading-snug sm:text-2xl">{prettyName(doc.name)}</span>}>
+      <PageHeader eyebrow={`${doc.type} · ${doc.business_unit} · ${doc.region}`} title={<span className="block break-words text-xl leading-snug sm:text-2xl">{prettyName(doc.name)}</span>}
+        actions={<PdfButton id={doc.id} masked={masked} />}>
         {masked ? "Personal data in this contract is masked for your role." : "You can see this contract's personal data."}
       </PageHeader>
       <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
@@ -90,6 +91,37 @@ function Viewer() {
           {!doc.fields.length && <p className="text-sm text-faint">No key terms extracted yet.</p>}
         </div>
       </div>
+    </div>
+  );
+}
+
+function PdfButton({ id, masked }: { id: number; masked: boolean }) {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState("");
+  async function download() {
+    setBusy(true); setErr("");
+    try {
+      const res = await fetch(`/api/contracts/${id}/pdf`, { headers: await authHeaders(), cache: "no-store" });
+      if (!res.ok) throw new Error(`${res.status}`);
+      const name = /filename="([^"]+)"/.exec(res.headers.get("content-disposition") ?? "")?.[1] ?? `contract-${id}.pdf`;
+      const url = URL.createObjectURL(await res.blob());
+      const a = Object.assign(document.createElement("a"), { href: url, download: name });
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      setErr("Download failed; try again.");
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <div className="text-right">
+      <button onClick={download} disabled={busy} title={masked ? "Your copy keeps the redactions" : undefined}
+        className="inline-flex items-center gap-2 rounded-sm border border-line-strong bg-surface px-3.5 py-2 text-sm font-medium hover:border-foreground disabled:opacity-50">
+        {busy ? <Loader2 className="size-4 animate-spin" /> : <Download className="size-4" />}Download PDF
+      </button>
+      <p className="mt-1 text-[11px] text-faint">{masked ? "redacted for your role · logged" : "logged in the audit trail"}</p>
+      {err && <p className="text-xs text-bad">{err}</p>}
     </div>
   );
 }

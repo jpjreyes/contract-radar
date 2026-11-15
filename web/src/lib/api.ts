@@ -69,9 +69,13 @@ export function wakeApi() {
   fetch("/api/healthz", { cache: "no-store" }).catch(() => {});
 }
 
-export async function api<T>(path: string, init: RequestInit = {}, as?: string): Promise<T> {
+export async function authHeaders(as?: string): Promise<Record<string, string>> {
   const token = as ? null : await accessToken();  // Entra mode: a bearer token; demo mode: null → the X-User switcher
-  const identity: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : { "X-User": as ?? currentUser() };
+  return token ? { Authorization: `Bearer ${token}` } : { "X-User": as ?? currentUser() };
+}
+
+export async function api<T>(path: string, init: RequestInit = {}, as?: string): Promise<T> {
+  const identity = await authHeaders(as);
   const started = Date.now();
   for (let attempt = 0; ; attempt++) {
     let res: Response | null = null;
