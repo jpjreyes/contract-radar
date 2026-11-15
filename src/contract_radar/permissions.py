@@ -101,8 +101,11 @@ def setup(admin: psycopg.Connection, app_password: str) -> None:
     pw = psycopg.sql.Literal(app_password).as_string(admin)
     if not exists:
         admin.execute(f"CREATE ROLE {APP_ROLE} LOGIN NOSUPERUSER NOBYPASSRLS NOINHERIT PASSWORD {pw}")
-    else:
-        admin.execute(f"ALTER ROLE {APP_ROLE} LOGIN NOSUPERUSER NOBYPASSRLS PASSWORD {pw}")
+    else:  # managed Postgres admins aren't superusers and can't touch those attributes: check them instead
+        su, bypass = admin.execute("SELECT rolsuper, rolbypassrls FROM pg_roles WHERE rolname = %s", (APP_ROLE,)).fetchone()
+        if su or bypass:
+            raise RuntimeError(f"{APP_ROLE} must not be a superuser or bypass row-level security")
+        admin.execute(f"ALTER ROLE {APP_ROLE} LOGIN PASSWORD {pw}")
     admin.execute(SETUP.replace("{role}", APP_ROLE))
     with admin.transaction():
         admin.execute("DELETE FROM app_users")
