@@ -1,0 +1,106 @@
+{
+ "summary": {
+  "tasks": 5,
+  "identical": "5/5",
+  "errors": 0,
+  "api_median_seconds": 10.7,
+  "plan_median_seconds_same_tasks": 9.1
+ },
+ "rows": [
+  {
+   "kind": "present",
+   "category": "Anti-Assignment",
+   "contract": "PareteumCorp_20081001_8-K_EX-99.1_2654808_EX-99.1_Hosting Agreement",
+   "api": {
+    "answerable": true,
+    "clause_present": true,
+    "citation_on_gold": true
+   },
+   "plan": {
+    "answerable": true,
+    "clause_present": true,
+    "citation_on_gold": true
+   },
+   "same": true,
+   "api_seconds": 13.6,
+   "plan_seconds": 16.6,
+   "claims": 4
+  },
+  {
+   "kind": "present",
+   "category": "Termination For Convenience",
+   "contract": "FIBROGENINC_10_01_2014-EX-10.11-COLLABORATION AGREEMENT",
+   "api": {
+    "answerable": true,
+    "clause_present": true,
+    "citation_on_gold": true
+   },
+   "plan": {
+    "answerable": true,
+    "clause_present": true,
+    "citation_on_gold": true
+   },
+   "same": true,
+   "api_seconds": 10.2,
+   "plan_seconds": 7.7,
+   "claims": 2
+  },
+  {
+   "kind": "present",
+   "category": "Cap On Liability",
+   "contract": "BERKELEYLIGHTS,INC_06_26_2020-EX-10.12-COLLABORATION AGREEMENT",
+   "api": {
+    "answerable": true,
+    "clause_present": true,
+    "citation_on_gold": true
+   },
+   "plan": {
+    "answerable": true,
+    "clause_present": true,
+    "citation_on_gold": true
+   },
+   "same": true,
+   "api_seconds": 13.3,
+   "plan_seconds": 10.2,
+   "claims": 4
+  },
+  {
+   "kind": "absent",
+   "category": "Most Favored Nation",
+   "contract": "BIOFRONTERAAG_04_29_2019-EX-4.17-SUPPLY AGREEMENT",
+   "api": {
+    "answerable": false,
+    "clause_present": false,
+    "citation_on_gold": null
+   },
+   "plan": {
+    "answerable": false,
+    "clause_present": false,
+    "citation_on_gold": null
+   },
+   "same": true,
+   "api_seconds": 8.1,
+   "plan_seconds": 5.4,
+   "claims": 0
+  },
+  {
+   "kind": "absent",
+   "category": "Notice Period To Terminate Renewal",
+   "contract": "PareteumCorp_20081001_8-K_EX-99.1_2654808_EX-99.1_Hosting Agreement",
+   "api": {
+    "answerable": true,
+    "clause_present": true,
+    "citation_on_gold": null
+   },
+   "plan": {
+    "answerable": true,
+    "clause_present": true,
+    "citation_on_gold": null
+   },
+   "same": true,
+   "api_seconds": 10.7,
+   "plan_seconds": 9.1,
+   "claims": 1
+  }
+ ]
+}

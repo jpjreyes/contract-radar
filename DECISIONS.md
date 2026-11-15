@@ -482,3 +482,40 @@ or overturn a decision are added to the entry.
   liability 153 → 151, sent to a person 57 → 62. Replay answers for the public demo re-recorded.
 - **Latency:** median 7.5 s is now under the 8 s target (C4) even on the CLI backend; the API number is measured on
   the deployed version.
+
+## D21. Deployed on Azure; public demo in hybrid mode; API parity check (2026-11-15)
+
+**Live:** https://ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io (Azure Container Apps, Canada Central; Postgres Flexible with no public access; model key in Key
+Vault, read by a managed identity; image `f2faaa3`).
+
+What the Azure for Students subscription changed, all in `infra/azure` and `scripts/azure_deploy.sh`:
+- **Region:** the subscription only allows five regions (policy "Allowed resource deployment regions"). In westus the
+  burstable Postgres SKU was refused at create time ("SkuNotAvailable") although it was listed, so a test server was
+  created in Canada Central first; it came up, and everything moved there. No fixed availability zone (Azure picks it).
+- **Sign-in:** the subscription lives in the university's directory, which allows app registrations but not security
+  groups, and the D15 design maps groups to roles. Entra sign-in is now a switch (`entra_sign_in`, default false):
+  the public demo uses the user switcher (visitors have no account in any directory anyway); the OIDC code and its
+  tests are unchanged for a real deployment in the client's tenant.
+- **Images:** ACR Tasks (`az acr build`) are not allowed on this subscription, so images are built locally for
+  linux/amd64 and pushed with a short-lived registry token. Container Apps allow one environment per subscription.
+
+**Demo mode: hybrid**: the example questions are served from the recordings (instant, $0) and any
+other question is answered live, behind the monthly spend cap ($10 in the app; the key's workspace also has a $10
+limit) and 30 questions per demo user per hour. Smoke test on the live URL: users see 510 / 50 / 46 / 311 contracts;
+"who signed" as the analyst returns `[PERSON_1]`, `[PERSON_2]`, as legal_admin the names; a live analyst question
+about notice contacts masked both street addresses; a live portfolio question ("governed by Texas law") planned the
+right filter and returned 7 contracts.
+
+**API parity check.** Rule fixed before running (`parity_api.py`, committed first): from the final answer eval
+(D20), the first 3 "present" rows with distinct clause types and the first 2 "absent" rows, sent through the deployed
+API as legal_admin, compared on what the eval scores (answered, clause present, citation on the lawyers' span).
+
+| | Result |
+|---|---|
+| Identical outcomes, API vs plan | **5/5** (anti-assignment, termination for convenience, cap on liability, MFN absent; the Pareteum renewal-notice row matches too, a CUAD label miss in `evals/adjudication.json`) |
+| Errors | 0 |
+| Latency, same 5 tasks | API median **10.7 s** (warm) vs 9.1 s on the CLI backend |
+
+The deployed API is slower than the 8 s target (C4): retrieval and reranking run on 1 vCPU in the container,
+where the laptop has a GPU-class chip; the model call itself is not the difference. Left as is for the demo; more CPU
+or a GPU-free reranker would be the fix for a client. Run file: `evals/results/parity-api.json`.

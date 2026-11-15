@@ -8,6 +8,9 @@ personal data is masked unless their role allows it. "Which contracts…?" quest
 extracted from every contract, with doubtful values routed to a person. Every question and every review is written to
 a tamper-evident audit log.
 
+**Live demo:** [ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io](https://ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io): switch between the four demo users at the top right; try an
+example question or ask your own. (The API scales to zero, so the first load can take ~20 seconds.)
+
 > Data: the 510 public commercial contracts of [CUAD](https://www.atticusprojectai.org/cuad) (CC BY 4.0), filed with
 > the SEC. The client, users and permissions are a demo scenario: see [CLIENT_BRIEF.md](CLIENT_BRIEF.md).
 
@@ -35,7 +38,8 @@ when it failed: [DECISIONS.md](DECISIONS.md) (final run: D20). The runs behind e
 | **Small local model vs the LLM** (bge-small fine-tuned on masked clauses; 217 contracts it never saw) | presence F1: small model 0.78, LLM 0.84, **cascade 0.86 with 31% of LLM calls skipped**; 0.5 s per contract on a laptop, $0, no text leaves the server. Trained on the LLM's own answers instead of lawyer labels: cascade 0.85 |
 | **Portfolio questions** (40 "which contracts…?" questions, answers from the lawyers' labels) | the planner picks the right filter **40/40**; the contract set matches the lawyers' answer at F1 **0.865** (all remaining error is extraction: a perfect plan scores the same); plain RAG on the same questions: F1 0.15 |
 | **Act this quarter** (as of 2026-11-11, all 510 contracts) | 18 non-renewal notice deadlines in the next 90 days computed from extracted terms (renewals rolled forward to the current term), 151 contracts with uncapped liability, 62 sent to a person instead of guessed |
-| **Cost / latency** | ~$0.0012 per answered question (API-equivalent), median 7.5 s on the CLI backend (target 8 s; re-measured on the API when deployed) |
+| **Cost / latency** | ~$0.0012 per answered question (API-equivalent), median 7.5 s on the CLI backend; on the deployed API (Azure, 1 vCPU) median 10.7 s |
+| **API parity** (deployed app vs the eval, 5 tasks fixed before running) | **5/5** identical outcomes (D21) |
 
 ## How it works
 
@@ -122,18 +126,20 @@ permission, audit, review and API suites).
 ## Deploy on Azure
 
 `infra/azure` (Terraform) creates everything: Container Apps for the API and the web (scale to zero), PostgreSQL
-Flexible with no public access, Key Vault read by a managed identity, Container Registry, Microsoft Entra ID sign-in
-with one security group per role, Application Insights, an immutable blob for the audit-chain anchor, and a budget
-alert. Then:
+Flexible with no public access, Key Vault read by a managed identity, Container Registry, Application Insights, an
+immutable blob for the audit-chain anchor, a budget alert, and optionally Microsoft Entra ID sign-in with one
+security group per role (`entra_sign_in = true`; needs rights to create groups in the tenant). Then:
 
 ```bash
 az login
 cp infra/azure/terraform.tfvars.example infra/azure/terraform.tfvars   # subscription id + alert email
-scripts/azure_deploy.sh          # images built in Azure, apps rolled out, data loaded inside the VNet
+scripts/azure_deploy.sh          # images built for linux/amd64 and pushed, apps rolled out, data loaded inside the VNet
+SKIP_DATA=1 scripts/azure_deploy.sh   # later: code-only redeploy
 ```
 
-The public demo runs in replay mode (recorded answers to the example questions, no model calls) with a monthly
-spend cap for live mode. Design and the reasons: DECISIONS D15–D16.
+`demo_mode` picks how questions are answered: `replay` (recorded examples only, no key needed), `hybrid` (examples
+from the recordings, anything else live; the public demo) or `live`. Live answers stop at a monthly spend cap and a
+per-user hourly limit. Design and the reasons: DECISIONS D15–D16, D21.
 
 ## Stack
 
