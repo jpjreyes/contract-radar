@@ -13,7 +13,8 @@ provider "azurerm" {
     key_vault { purge_soft_delete_on_destroy = false }
     resource_group { prevent_deletion_if_contains_resources = false }
   }
-  subscription_id = var.subscription_id
+  subscription_id     = var.subscription_id
+  storage_use_azuread = true # the audit storage account has key auth off
 }
 
 provider "azuread" {}

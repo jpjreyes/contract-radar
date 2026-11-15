@@ -120,7 +120,6 @@ resource "azurerm_postgresql_flexible_server" "pg" {
   public_network_access_enabled = false
   administrator_login           = "cradmin"
   administrator_password        = random_password.pg_admin.result
-  zone                          = "1"
   tags                          = local.tags
   depends_on                    = [azurerm_private_dns_zone_virtual_network_link.pg]
 }
