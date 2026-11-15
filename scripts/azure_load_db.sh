@@ -31,6 +31,7 @@ az storage blob upload --account-name "$ST" --container-name dbload --name data.
 echo "== restore + setup, inside the VNet"
 SQL=$($TF output -raw identity_map_sql | tr '\n' ' ')
 EXTRA=(); [ -n "${SQL// /}" ] && EXTRA=("IDENTITY_SQL=$SQL")  # Entra groups → roles (only with entra_sign_in)
+if ! az containerapp job show -g "$RG" -n job-load -o none 2>/dev/null; then
 az containerapp job create -g "$RG" -n "job-load" --environment "$ENV" --trigger-type Manual \
   --replica-timeout 3600 --replica-retry-limit 0 --cpu 1 --memory 2Gi \
   --image "$ACR/contract-radar-api:latest" --registry-server "$ACR" --registry-identity "$ID" \
@@ -41,7 +42,9 @@ az containerapp job create -g "$RG" -n "job-load" --environment "$ENV" --trigger
   --env-vars "DATABASE_URL=secretref:admin-url" "APP_DB_PASSWORD=secretref:app-pw" "APP_DATABASE_URL=secretref:app-url" \
              "AZURE_CLIENT_ID=$CLIENT" \
              "BLOB_URL=https://$ST.blob.core.windows.net/dbload/data.tar.gz" ${EXTRA[@]+"${EXTRA[@]}"} \
-  --command "uv" --args "run" "--no-sync" "python" "-m" "contract_radar.cloud_load" >/dev/null 2>&1 || \
-az containerapp job update -g "$RG" -n "job-load" --image "$ACR/contract-radar-api:latest" >/dev/null
+  --command "/app/.venv/bin/python" --args "/app/src/contract_radar/cloud_load.py" -o none  # no dashed args: newer az CLIs misparse them
+else
+  az containerapp job update -g "$RG" -n job-load --image "$ACR/contract-radar-api:latest" -o none
+fi
 az containerapp job start -g "$RG" -n "job-load" >/dev/null
 echo "started: follow it with  az containerapp job execution list -g $RG -n job-load -o table"
