@@ -128,7 +128,7 @@ resource "azurerm_postgresql_flexible_server" "pg" {
 resource "azurerm_postgresql_flexible_server_configuration" "extensions" {
   name      = "azure.extensions"
   server_id = azurerm_postgresql_flexible_server.pg.id
-  value     = "VECTOR"
+  value     = "VECTOR,PG_CRON" # pg_cron: nightly undo of demo visitors' review edits (demo_reset.py); preloaded by default
 }
 
 resource "azurerm_postgresql_flexible_server_database" "db" {

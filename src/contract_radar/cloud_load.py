@@ -84,6 +84,8 @@ def load_bytes(data: bytes) -> None:
         for table in ("contracts", "chunks"):
             admin.execute(f"SELECT setval(pg_get_serial_sequence('{table}', 'id'), (SELECT max(id) FROM {table}))")
     permissions.main()  # roles, RLS, audit, review queue, limits, sign-in
+    from contract_radar import demo_reset
+    demo_reset.setup(admin)  # snapshot of the key terms + nightly undo of visitors' review edits
     if os.environ.get("IDENTITY_SQL"):
         admin.execute(os.environ["IDENTITY_SQL"])
         print("mapped Entra groups to app roles", flush=True)
