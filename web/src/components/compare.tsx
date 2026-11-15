@@ -59,18 +59,15 @@ export function Compare() {
 
   return (
     <section>
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div className="max-w-2xl">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">Same question · two people</p>
-          <h1 className="text-3xl leading-tight sm:text-[2.6rem]">Every answer depends on who&apos;s asking.</h1>
-          <p className="mt-3 text-[15px] leading-relaxed text-muted">
-            Permissions and personal-data masking are enforced in the database, before any text reaches the model. So the
-            same question gets a different, still fully cited, answer for each person. Pick a question and a colleague.
-          </p>
-        </div>
+      <div className="max-w-2xl">
+        <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">See it</p>
+        <h2 className="text-2xl sm:text-3xl">Same question, two people.</h2>
+        <p className="mt-2 text-[15px] leading-relaxed text-muted">
+          Permissions and redaction are enforced in the database, before any text reaches the model. Pick a question and a colleague.
+        </p>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-2">
+      <div className="mt-5 flex flex-wrap items-center gap-2">
         {QUESTIONS.map((x, i) => (
           <button key={x.text} onClick={() => setQi(i)}
             className={`rounded-sm border px-3 py-1.5 text-left text-sm transition ${i === qi ? "border-foreground bg-foreground text-background" : "border-line-strong bg-surface text-muted hover:text-foreground"}`}>

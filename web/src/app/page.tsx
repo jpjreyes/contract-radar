@@ -2,49 +2,44 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Compare } from "@/components/compare";
 
-const NUMBERS = [
-  ["0", "permission leaks in 2,129 returned chunks, every retrieval path"],
-  ["0", "personal-data values shown to users without access, in 4,841 served texts"],
-  ["89%", "of lawyer-labeled clauses found in the top 8 results (415 unseen contracts)"],
-  ["97.9%", "of auto-accepted key terms correct; doubtful ones go to a person"],
-];
-
-const PLACES = [
-  { href: "/radar", title: "Act this quarter", text: "Non-renewal notice deadlines and risky terms with dates on them, each linked to its clause." },
-  { href: "/ask", title: "Ask", text: "“Which contracts…?” across the portfolio, or anything about one contract. Every claim carries a checked quote." },
-  { href: "/contracts", title: "Contracts", text: "Read any contract you're allowed to see, with masked personal data and extracted key terms." },
+const POINTS = [
+  ["Cited", "Every claim quotes the clause it comes from, and code checks the quote against the contract."],
+  ["Permissioned", "Each person sees only their contracts; personal data stays redacted unless their role allows it."],
+  ["Measured", "0 permission leaks, 89% of lawyer-labeled clauses found, 97.9% of auto-accepted terms correct."],
 ];
 
 export default function Overview() {
   return (
-    <div className="space-y-14">
-      <Compare />
-
-      <section>
-        <h2 className="text-2xl">Measured, not claimed</h2>
-        <div className="mt-4 grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-          {NUMBERS.map(([v, l]) => (
-            <div key={l} className="bg-surface p-4">
-              <p className="font-serif text-3xl">{v}</p>
-              <p className="mt-1.5 text-xs leading-relaxed text-muted">{l}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-2 text-xs text-faint">From the evals in the repository; how each number was produced is written up with it.</p>
-      </section>
-
-      <section>
-        <h2 className="text-2xl">Look around</h2>
-        <p className="mt-1 text-sm text-muted">Switch user at the top right at any time: every page re-runs as that person.</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
-          {PLACES.map((p) => (
-            <Link key={p.href} href={p.href} className="group rounded-sm border border-line bg-surface p-4 shadow-card transition hover:border-line-strong">
-              <p className="flex items-center justify-between font-serif text-lg">{p.title}<ArrowRight className="size-4 text-faint transition group-hover:translate-x-0.5 group-hover:text-accent" /></p>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.text}</p>
-            </Link>
-          ))}
+    <div>
+      <section className="mx-auto max-w-4xl py-10 text-center sm:py-16">
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">For legal operations teams</p>
+        <h1 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-[3.6rem]">Ask your contracts.<br />Get answers a lawyer can check.</h1>
+        <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-muted">
+          A working demo on 510 real commercial contracts: questions in plain English, deadlines you can act on, and
+          the same rules a legal team would set on who sees what.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Link href="/ask" className="inline-flex items-center gap-2 rounded-sm bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:opacity-90">
+            Ask a question <ArrowRight className="size-4" />
+          </Link>
+          <Link href="/radar" className="inline-flex items-center gap-2 rounded-sm border border-line-strong bg-surface px-5 py-2.5 text-sm font-medium hover:border-foreground">
+            What&apos;s due this quarter
+          </Link>
         </div>
       </section>
+
+      <section className="grid gap-px border-y border-line bg-line sm:grid-cols-3">
+        {POINTS.map(([t, d]) => (
+          <div key={t} className="bg-background px-2 py-6 sm:px-6">
+            <p className="font-serif text-xl">{t}</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-muted">{d}</p>
+          </div>
+        ))}
+      </section>
+
+      <div className="mt-16">
+        <Compare />
+      </div>
     </div>
   );
 }
