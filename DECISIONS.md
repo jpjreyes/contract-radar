@@ -519,3 +519,23 @@ API as legal_admin, compared on what the eval scores (answered, clause present, 
 The deployed API is slower than the 8 s target (C4): retrieval and reranking run on 1 vCPU in the container,
 where the laptop has a GPU-class chip; the model call itself is not the difference. Left as is for the demo; more CPU
 or a GPU-free reranker would be the fix for a client. Run file: `evals/results/parity-api.json`.
+
+**Demo changes after the first live review (2026-11-15):**
+- **Landing page:** one line on what it is and who it's for, two actions (ask, what's due this quarter), three
+  one-line proof points, then the same question answered for two users side by side (recorded answers, instant).
+  The comparison is the fastest way to show what P3 is about: permissions and redaction happen in the database, so
+  the analyst's answer has redaction bars where legal_admin's has names, and a user who can't see the contract gets
+  no answer at all (nothing reaches the model). Visual style: paper, Caslon headings, masked values drawn as
+  redaction bars. `?as=<user>` opens the demo as that user.
+- **Review in place:** key terms can be confirmed, edited or rejected from the contract viewer, not only from the
+  review queue. Same database function (`review_field`: reviewer + contract access), same audit entry.
+- **PDF export:** a contract downloads as the requesting user sees it (redaction bars, not the original file), with
+  the exporter and time on every page; each export is an audit entry.
+- **Cold starts:** the API scales to zero and takes ~30 s to start. The web app now wakes it on page load, retries
+  while it starts and says so on screen; the proxy timeout went from 30 s to 120 s (the first symptom was answers
+  that never loaded, because the proxy gave up before the API was up).
+- **Nightly reset of visitors' edits:** reviews are shared by every visitor, so at load the extracted values are
+  copied to `fields_seed`, and pg_cron (already preloaded on Azure Postgres; job created in `postgres`, run in this
+  database) calls `demo_reset_reviews()` at 11:00 UTC. It reverts changed fields and writes one audit entry; the
+  visitors' own edits stay in the audit log. Chosen over a nightly reload job (which would also have wiped the audit
+  log and taken the database down for ~2 minutes); cost $0.
