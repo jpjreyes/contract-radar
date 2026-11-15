@@ -6,7 +6,7 @@ variable "subscription_id" {
 variable "location" {
   description = "Azure region."
   type        = string
-  default     = "westus" # allowed by the Azure for Students region policy
+  default     = "canadacentral" # allowed by the Azure for Students region policy, and Postgres B1ms is offered there
 }
 
 variable "prefix" {
