@@ -381,6 +381,12 @@ resource "azurerm_storage_container_immutability_policy" "anchor" {
   protected_append_writes_all_enabled   = true # anchors are appended, never rewritten
 }
 
+resource "azurerm_role_assignment" "blob_operator" { # whoever runs terraform uploads the data dump (scripts/azure_load_db.sh)
+  scope                = azurerm_storage_account.audit.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = data.azurerm_client_config.current.object_id
+}
+
 resource "azurerm_role_assignment" "anchor_write" {
   scope                = azurerm_storage_account.audit.id
   role_definition_name = "Storage Blob Data Contributor"

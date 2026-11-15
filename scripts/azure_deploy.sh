@@ -21,7 +21,8 @@ $TF apply -input=false -auto-approve \
   -target=azurerm_postgresql_flexible_server_database.db -target=azurerm_postgresql_flexible_server_configuration.extensions \
   -target=azurerm_container_app_environment.env -target=azurerm_role_assignment.acr_pull \
   -target=azurerm_role_assignment.kv_read -target=azuread_group.role -target=azuread_application.api \
-  -target=azurerm_storage_container_immutability_policy.anchor -target=azurerm_consumption_budget_resource_group.budget
+  -target=azurerm_storage_container_immutability_policy.anchor -target=azurerm_consumption_budget_resource_group.budget \
+  -target=azurerm_role_assignment.blob_operator
 ACR=$($TF output -raw registry)
 
 # Docker login to the registry with a short-lived Entra token, in a private config (never the default ~/.docker)
@@ -43,7 +44,7 @@ build_push contract-radar-api .
 echo "== 3/4 apps"
 $TF apply -input=false -auto-approve -var "api_image_tag=$TAG" -target=azurerm_container_app.api
 API_URL=$($TF output -raw api_url)
-if [ "$($TF output -raw entra_sign_in)" = "true" ]; then
+if [ "$($TF output -raw entra_sign_in 2>/dev/null || echo false)" = "true" ]; then
   # the web app's Entra registration needs the web URL, which needs the web app: create it with a placeholder image
   # tag the first time, then build the real image with the ids it needs and roll it out
   $TF apply -input=false -auto-approve -var "api_image_tag=$TAG" -var "web_image_tag=$TAG" || true
