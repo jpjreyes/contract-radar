@@ -122,6 +122,7 @@ resource "azurerm_postgresql_flexible_server" "pg" {
   administrator_password        = random_password.pg_admin.result
   tags                          = local.tags
   depends_on                    = [azurerm_private_dns_zone_virtual_network_link.pg]
+  lifecycle { ignore_changes = [zone] } # Azure picks the zone where the region has them
 }
 
 resource "azurerm_postgresql_flexible_server_configuration" "extensions" {
