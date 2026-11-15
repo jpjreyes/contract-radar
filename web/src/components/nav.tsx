@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ShieldCheck, UserRound } from "lucide-react";
+import { UserRound } from "lucide-react";
 import { api, currentUser, DEFAULT_USER, setCurrentUser, wakeApi, type User } from "@/lib/api";
 import { AUTH_MODE, account, signOut } from "@/lib/auth";
 import { Logo } from "./ui";
@@ -76,7 +76,7 @@ export function Nav() {
             <button onClick={() => signOut()} className="rounded-full bg-surface-2 px-2 py-1 font-medium text-foreground">Sign out</button>
           </div>
         ) : (
-        <label className="ml-auto flex shrink-0 items-center gap-2 rounded-full border border-line bg-surface py-1 pl-3 pr-1 text-xs text-muted">
+        <label title={me ? `${me.description} · ${me.pii_access ? "sees personal data" : "personal data masked"} · ${me.can_review ? "can review fields" : "read-only"}` : undefined} className="ml-auto flex shrink-0 items-center gap-2 rounded-full border border-line bg-surface py-1 pl-3 pr-1 text-xs text-muted">
           <UserRound className="size-3.5" />
           <span className="hidden md:inline">Signed in as</span>
           <select value={user} onChange={(e) => setCurrentUser(e.target.value)}
@@ -93,18 +93,6 @@ export function Nav() {
           <p className="mx-auto max-w-6xl px-4 py-1.5 text-xs text-warn sm:px-6">
             Waking the server: it sleeps when nobody is using it, so the first load takes about 30 seconds.
           </p>
-        </div>
-      )}
-      {me && (
-        <div className="border-t border-line bg-surface-2/60">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-1 px-4 py-1.5 text-xs text-muted sm:px-6">
-            <span>{me.description}</span>
-            <span className="flex items-center gap-1">
-              <ShieldCheck className="size-3.5" />
-              {me.pii_access ? "sees personal data" : "personal data masked"}
-              {" · "}{me.can_review ? "can review fields" : "read-only"}
-            </span>
-          </div>
         </div>
       )}
     </header>
