@@ -20,7 +20,7 @@ export function Badge({ tone = "neutral", children, dot = false }: { tone?: Tone
 }
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-xl border border-line bg-surface shadow-card ${className}`}>{children}</div>;
+  return <div className={`rounded-sm border border-line bg-surface shadow-card ${className}`}>{children}</div>;
 }
 
 export function Stat({ label, value, note, tone }: { label: ReactNode; value: ReactNode; note?: ReactNode; tone?: Tone }) {
@@ -28,7 +28,7 @@ export function Stat({ label, value, note, tone }: { label: ReactNode; value: Re
   return (
     <Card className="p-4 sm:p-5">
       <p className="text-sm text-muted">{label}</p>
-      <p className={`tabular mt-2 text-2xl font-semibold tracking-tight sm:text-3xl ${color}`}>{value}</p>
+      <p className={`tabular mt-2 font-serif text-3xl sm:text-4xl ${color}`}>{value}</p>
       {note && <p className="mt-1.5 text-xs leading-relaxed text-faint">{note}</p>}
     </Card>
   );
@@ -40,8 +40,8 @@ export function PageHeader({ eyebrow, title, children, actions }: {
   return (
     <div className="flex flex-wrap items-end justify-between gap-4 pb-6">
       <div className="max-w-3xl">
-        {eyebrow && <p className="mb-2 text-sm font-medium text-brand">{eyebrow}</p>}
-        <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h1>
+        {eyebrow && <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">{eyebrow}</p>}
+        <h1 className="text-3xl sm:text-4xl">{title}</h1>
         {children && <div className="mt-2 text-[15px] leading-relaxed text-muted">{children}</div>}
       </div>
       {actions && <div className="flex gap-2">{actions}</div>}
@@ -59,7 +59,7 @@ export function Button({ children, variant = "primary", className = "", ...props
   }[variant];
   return (
     <button {...props}
-      className={`inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-45 ${styles} ${className}`}>
+      className={`inline-flex items-center justify-center gap-2 rounded-sm px-3.5 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-45 ${styles} ${className}`}>
       {children}
     </button>
   );
@@ -68,9 +68,12 @@ export function Button({ children, variant = "primary", className = "", ...props
 export function Logo({ className = "size-7" }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
-      <rect width="32" height="32" rx="8" className="fill-brand" />
-      <path d="M10 7h9l5 5v13a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z" className="fill-brand-ink" />
-      <path d="M12.5 15h7M12.5 18.5h7M12.5 22h4.5" strokeWidth="1.6" strokeLinecap="round" className="stroke-brand" />
+      <rect x="6" y="3.5" width="20" height="25" rx="1.5" className="fill-surface stroke-foreground" strokeWidth="1.6" />
+      <path d="M10 10h12M10 14.5h5" strokeWidth="1.6" className="stroke-foreground" />
+      <rect x="16.5" y="13" width="5.5" height="3" className="fill-foreground" />
+      <path d="M10 19h4" strokeWidth="1.6" className="stroke-foreground" />
+      <rect x="15" y="17.5" width="7" height="3" className="fill-foreground" />
+      <path d="M10 23.5h7" strokeWidth="1.6" className="stroke-accent" />
     </svg>
   );
 }

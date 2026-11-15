@@ -62,9 +62,9 @@ export function setCurrentUser(name: string) {
   window.dispatchEvent(new CustomEvent("cc-user", { detail: name }));
 }
 
-export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const token = await accessToken();  // Entra mode: a bearer token; demo mode: null → the X-User switcher
-  const identity: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : { "X-User": currentUser() };
+export async function api<T>(path: string, init: RequestInit = {}, as?: string): Promise<T> {
+  const token = as ? null : await accessToken();  // Entra mode: a bearer token; demo mode: null → the X-User switcher
+  const identity: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : { "X-User": as ?? currentUser() };
   const res = await fetch(`/api${path}`, {
     ...init,
     headers: { "Content-Type": "application/json", ...identity, ...(init.headers ?? {}) },

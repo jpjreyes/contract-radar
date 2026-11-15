@@ -9,7 +9,8 @@ import { AUTH_MODE, account, signOut } from "@/lib/auth";
 import { Logo } from "./ui";
 
 const LINKS = [
-  { href: "/", label: "Act this quarter" },
+  { href: "/", label: "Overview" },
+  { href: "/radar", label: "Act this quarter" },
   { href: "/ask", label: "Ask" },
   { href: "/contracts", label: "Contracts" },
   { href: "/review", label: "Review queue" },
@@ -43,14 +44,14 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:gap-6 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5 font-semibold tracking-tight">
+        <Link href="/" className="flex shrink-0 items-center gap-2 font-serif text-lg">
           <Logo />
           <span className="hidden sm:inline">Contract Radar</span>
         </Link>
-        <nav className="flex items-center gap-1 overflow-x-auto text-sm">
+        <nav className="flex min-w-0 items-center gap-1 overflow-x-auto text-sm [scrollbar-width:none] [mask-image:linear-gradient(to_right,black_80%,transparent)] sm:[mask-image:none]">
           {LINKS.map((l) => (
             <Link key={l.href} href={l.href}
-              className={`whitespace-nowrap rounded-md px-2.5 py-1.5 transition sm:px-3 ${active(l.href) ? "bg-surface-2 font-medium text-foreground" : "text-muted hover:text-foreground"}`}>
+              className={`whitespace-nowrap border-b-2 px-2 py-4 transition sm:px-2.5 ${active(l.href) ? "border-accent font-medium text-foreground" : "border-transparent text-muted hover:text-foreground"}`}>
               {l.label}
             </Link>
           ))}
@@ -62,7 +63,7 @@ export function Nav() {
             <button onClick={() => signOut()} className="rounded-full bg-surface-2 px-2 py-1 font-medium text-foreground">Sign out</button>
           </div>
         ) : (
-        <label className="ml-auto flex items-center gap-2 rounded-full border border-line bg-surface py-1 pl-3 pr-1 text-xs text-muted">
+        <label className="ml-auto flex shrink-0 items-center gap-2 rounded-full border border-line bg-surface py-1 pl-3 pr-1 text-xs text-muted">
           <UserRound className="size-3.5" />
           <span className="hidden md:inline">Signed in as</span>
           <select value={user} onChange={(e) => setCurrentUser(e.target.value)}

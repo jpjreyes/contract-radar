@@ -1,50 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f7f5;
+  --background: #eceef1;
   --surface: #ffffff;
-  --surface-2: #f1f1ee;
-  --foreground: #16181d;
-  --muted: #5f636b;
-  --faint: #8b8f97;
-  --line: #e3e3df;
-  --line-strong: #cfd0cb;
-  --brand: #1e3a8a;
+  --surface-2: #f4f5f7;
+  --foreground: #121417;
+  --muted: #535a65;
+  --faint: #868d97;
+  --line: #dde1e6;
+  --line-strong: #c3c9d1;
+  --brand: #121417;
   --brand-ink: #ffffff;
-  --brand-soft: #e8edf8;
-  --accent: #1d4ed8;
-  --ok: #15803d;
-  --ok-soft: #e7f5ec;
-  --warn: #b45309;
-  --warn-soft: #fdf3e3;
-  --bad: #b91c1c;
-  --bad-soft: #fcebea;
-  --shadow: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.06);
-  --shadow-lg: 0 12px 32px -8px rgb(16 24 40 / 0.18), 0 4px 8px -4px rgb(16 24 40 / 0.08);
+  --brand-soft: #e7e9ed;
+  --accent: #b3261e;
+  --ok: #1f7a4d;
+  --ok-soft: #e6f3ec;
+  --warn: #9a5a06;
+  --warn-soft: #fbf1e0;
+  --bad: #b3261e;
+  --bad-soft: #fbe9e7;
+  --redact: #121417;
+  --shadow: 0 1px 0 rgb(18 20 23 / 0.04), 0 1px 2px rgb(18 20 23 / 0.06);
+  --shadow-lg: 0 18px 40px -12px rgb(18 20 23 / 0.22), 0 4px 10px -6px rgb(18 20 23 / 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f1113;
-    --surface: #16191c;
-    --surface-2: #1d2125;
-    --foreground: #e9eaec;
-    --muted: #a2a6ad;
-    --faint: #7c818a;
-    --line: #262a2f;
-    --line-strong: #353a40;
-    --brand: #93b4ff;
-    --brand-ink: #0b1430;
-    --brand-soft: #141d33;
-    --accent: #7aa2ff;
-    --ok: #4ade80;
-    --ok-soft: #10261a;
-    --warn: #f5b04c;
-    --warn-soft: #2b2112;
-    --bad: #f87171;
-    --bad-soft: #2d1515;
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.4);
-    --shadow-lg: 0 16px 40px -8px rgb(0 0 0 / 0.6);
+    --background: #0d0e10;
+    --surface: #16181b;
+    --surface-2: #1c1f23;
+    --foreground: #ebecee;
+    --muted: #a3a9b2;
+    --faint: #79808a;
+    --line: #262a30;
+    --line-strong: #373c43;
+    --brand: #ebecee;
+    --brand-ink: #0d0e10;
+    --brand-soft: #23272c;
+    --accent: #f07167;
+    --ok: #5bc28a;
+    --ok-soft: #12261b;
+    --warn: #e9a23b;
+    --warn-soft: #2a2010;
+    --bad: #f07167;
+    --bad-soft: #2c1614;
+    --redact: #d5d8dd;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.45);
+    --shadow-lg: 0 18px 40px -10px rgb(0 0 0 / 0.65);
   }
 }
 
@@ -67,8 +69,10 @@
   --color-warn-soft: var(--warn-soft);
   --color-bad: var(--bad);
   --color-bad-soft: var(--bad-soft);
-  --font-sans: var(--font-geist-sans);
+  --color-redact: var(--redact);
+  --font-sans: var(--font-instrument);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-caslon);
   --shadow-card: var(--shadow);
   --shadow-pop: var(--shadow-lg);
 }
@@ -85,3 +89,34 @@ body {
 ::selection {
   background: var(--brand-soft);
 }
+
+h1, h2, .font-serif {
+  font-family: var(--font-caslon), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* masked personal data: a redaction bar, the way a released document shows it */
+.redact {
+  display: inline-block;
+  height: 0.95em;
+  vertical-align: -0.1em;
+  margin: 0 0.12em;
+  border-radius: 1px;
+  background: var(--redact);
+}
+
+/* a sheet of paper with a ruled margin, for answers and documents */
+.sheet {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background-image: linear-gradient(to right, transparent 2.25rem, color-mix(in srgb, var(--accent) 28%, transparent) 2.25rem, color-mix(in srgb, var(--accent) 28%, transparent) calc(2.25rem + 1px), transparent calc(2.25rem + 1px));
+}
+
+@keyframes ink-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.ink-in { animation: ink-in 0.35s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .ink-in { animation: none; } }
