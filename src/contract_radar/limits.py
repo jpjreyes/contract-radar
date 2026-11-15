@@ -6,7 +6,9 @@
 - **Rate limit:** CC_RATE_PER_HOUR live questions per user per rolling hour (default 30) → 429.
 - **Replay mode (CC_MODE=replay):** answers to the example questions are recorded once (scripts/record_replay.py)
   and served from `replay/*.json` without calling the model; anything else gets 409 "live answers are off". The
-  public demo runs at $0; live mode is for interviews.
+  demo can run at $0.
+- **Hybrid mode (CC_MODE=hybrid):** the example questions are served from the recordings (instant, no model call);
+  any other question is answered live, behind the spend cap and the rate limit. This is the public demo's setting.
 
 The ledger holds user, time, tokens and cost only (no question text), and the app role can insert and read it but not
 change or delete rows.
@@ -86,11 +88,16 @@ def replay_key(user: str, kind: str, question: str, contract_id: int | None) -> 
     return hashlib.sha256(raw.encode()).hexdigest()[:24]
 
 
-def replay_get(user: str, kind: str, question: str, contract_id: int | None) -> dict:
+def replay_find(user: str, kind: str, question: str, contract_id: int | None) -> dict | None:
     path = REPLAY_DIR / f"{replay_key(user, kind, question, contract_id)}.json"
-    if not path.exists():
+    return json.loads(path.read_text()) if path.exists() else None
+
+
+def replay_get(user: str, kind: str, question: str, contract_id: int | None) -> dict:
+    hit = replay_find(user, kind, question, contract_id)
+    if hit is None:
         raise LimitExceeded(409, "Live answers are off in this public demo: pick one of the example questions.")
-    return json.loads(path.read_text())
+    return hit
 
 
 def replay_put(user: str, kind: str, question: str, contract_id: int | None, response: dict) -> Path:

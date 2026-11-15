@@ -39,7 +39,7 @@ variable "alert_email" {
 }
 
 variable "demo_mode" {
-  description = "replay = public demo serves recorded answers only; live = model calls (spend cap applies)."
+  description = "replay = recorded example answers only ($0, no key); hybrid = examples from the recordings, any other question live; live = every question live (spend cap and rate limit apply)."
   type        = string
   default     = "replay"
 }

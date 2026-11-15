@@ -96,9 +96,10 @@ def me(who: str = Depends(user)) -> dict:
 
 @app.get("/mode")
 def demo_mode(who: str = Depends(user)) -> dict:
-    """What the UI may offer: in replay mode, only the recorded example questions and contracts."""
+    """What the UI may offer: in replay mode, only the recorded example questions and contracts; hybrid and live
+    take any question."""
     if limits.mode() != "replay":
-        return {"mode": "live"}
+        return {"mode": limits.mode()}
     idx = limits.REPLAY_DIR / "index.json"
     rec = json.loads(idx.read_text()).get(who, {}) if idx.exists() else {}
     return {"mode": "replay", **rec}
@@ -149,6 +150,8 @@ class AskIn(BaseModel):
 def ask_endpoint(body: AskIn, who: str = Depends(user), db: psycopg.Connection = Depends(conn)) -> dict:
     if limits.mode() == "replay":
         return limits.replay_get(who, "ask", body.question, body.contract_id)
+    if limits.mode() == "hybrid" and (hit := limits.replay_find(who, "ask", body.question, body.contract_id)):
+        return hit
     with as_user(db, who):
         limits.check(db, who)
     a, audit_id = ask(who, body.question, contract_id=body.contract_id, conn=db)
@@ -169,6 +172,8 @@ class PortfolioIn(BaseModel):
 def portfolio_endpoint(body: PortfolioIn, who: str = Depends(user), db: psycopg.Connection = Depends(conn)) -> dict:
     if limits.mode() == "replay":
         return limits.replay_get(who, "portfolio", body.question, None)
+    if limits.mode() == "hybrid" and (hit := limits.replay_find(who, "portfolio", body.question, None)):
+        return hit
     with as_user(db, who):
         limits.check(db, who)
     ans, audit_id = ask_portfolio(who, body.question, conn=db)

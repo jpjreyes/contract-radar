@@ -86,3 +86,19 @@ def test_replay_mode_serves_recorded_answers_only(client, monkeypatch, tmp_path)
     assert r.status_code == 200 and r.json()["replayed"] is True
     # a recording is per user: another user can't read maria's recorded answer
     assert client.post("/portfolio", headers=h("kenji"), json={"question": q}).status_code == 409
+
+
+def test_hybrid_mode_serves_recordings_and_answers_other_questions_live(client, monkeypatch, tmp_path):
+    from contract_radar import api, limits
+    monkeypatch.setenv("CC_MODE", "hybrid")
+    monkeypatch.setattr(limits, "REPLAY_DIR", tmp_path)
+    q = "Which contracts have exclusivity?"
+    limits.replay_put("maria", "portfolio", q, None, {"conditions": [], "matches": [], "unreviewed": 0})
+    calls = []
+    monkeypatch.setattr(api, "ask_portfolio", lambda *a, **k: calls.append(a) or (_ for _ in ()).throw(RuntimeError("live")))
+    r = client.post("/portfolio", headers=h("maria"), json={"question": q})
+    assert r.status_code == 200 and r.json()["replayed"] is True and not calls  # recorded: no model call
+    with pytest.raises(RuntimeError, match="live"):  # anything else goes to the live path
+        client.post("/portfolio", headers=h("maria"), json={"question": "Which contracts are governed by Texas law?"})
+    assert calls
+    assert client.get("/mode", headers=h("maria")).json() == {"mode": "hybrid"}

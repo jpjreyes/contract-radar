@@ -68,6 +68,8 @@ export default function AskPage() {
         one contract are answered from its text, and every claim carries a quote checked against the source.
         {replaying && <span className="mt-2 block text-sm text-warn">Public demo: answers to the example questions were
           recorded from the live system (same permissions and masking); free-text questions are off to keep it at $0.</span>}
+        {replay.mode === "hybrid" && <span className="mt-2 block text-sm text-muted">Ask anything, or start from an example
+          (examples were recorded from the live system and return instantly; your own questions run live, a few seconds).</span>}
       </PageHeader>
 
       <Card className="p-4 sm:p-5">
