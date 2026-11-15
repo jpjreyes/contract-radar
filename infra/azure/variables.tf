@@ -6,7 +6,7 @@ variable "subscription_id" {
 variable "location" {
   description = "Azure region."
   type        = string
-  default     = "westus2"
+  default     = "westus" # allowed by the Azure for Students region policy
 }
 
 variable "prefix" {
@@ -48,4 +48,10 @@ variable "model_budget_usd" {
   description = "Monthly cap on model spend enforced by the app (CC_MONTHLY_BUDGET_USD)."
   type        = number
   default     = 10
+}
+
+variable "entra_sign_in" {
+  description = "true = Microsoft Entra sign-in with directory groups mapped to roles (needs rights to create app registrations and security groups in the tenant); false = the public demo's user switcher."
+  type        = bool
+  default     = false
 }

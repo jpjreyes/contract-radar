@@ -1,8 +1,10 @@
 # Microsoft Entra ID: who can sign in, and which directory group gives which role.
 # The API checks the token (issuer = this tenant, audience = the API app) and maps the person's groups to an app role
 # in Postgres (identity_map → resolve_identity), so access is managed as group membership in the directory.
+# Off unless var.entra_sign_in: the public demo uses the user switcher instead.
 
 resource "azuread_application" "api" {
+  count            = var.entra_sign_in ? 1 : 0
   display_name     = "Contract Radar API (${local.name})"
   sign_in_audience = "AzureADMyOrg"
   identifier_uris  = ["api://contract-radar-${random_string.suffix.result}"]
@@ -25,17 +27,19 @@ resource "azuread_application" "api" {
 }
 
 resource "azuread_service_principal" "api" {
-  client_id = azuread_application.api.client_id
+  count     = var.entra_sign_in ? 1 : 0
+  client_id = azuread_application.api[0].client_id
 }
 
 resource "azuread_application" "web" {
+  count            = var.entra_sign_in ? 1 : 0
   display_name     = "Contract Radar (${local.name})"
   sign_in_audience = "AzureADMyOrg"
   single_page_application {
     redirect_uris = ["https://${azurerm_container_app.web.ingress[0].fqdn}/", "http://localhost:3072/"]
   }
   required_resource_access {
-    resource_app_id = azuread_application.api.client_id
+    resource_app_id = azuread_application.api[0].client_id
     resource_access {
       id   = "6f8a0e2b-6a1c-4d5e-9b3f-2c7d8e9f0a11"
       type = "Scope"
@@ -44,7 +48,8 @@ resource "azuread_application" "web" {
 }
 
 resource "azuread_service_principal" "web" {
-  client_id = azuread_application.web.client_id
+  count     = var.entra_sign_in ? 1 : 0
+  client_id = azuread_application.web[0].client_id
 }
 
 # One security group per demo role; membership in the directory decides what each person sees.
@@ -58,7 +63,7 @@ locals {
 }
 
 resource "azuread_group" "role" {
-  for_each         = local.role_groups
+  for_each         = var.entra_sign_in ? local.role_groups : {}
   display_name     = each.value
   security_enabled = true
 }

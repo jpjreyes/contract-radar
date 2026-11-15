@@ -20,7 +20,7 @@ output "key_vault" {
 
 output "web_client_id" {
   description = "For the web app's sign-in (MSAL)."
-  value       = azuread_application.web.client_id
+  value       = var.entra_sign_in ? azuread_application.web[0].client_id : ""
 }
 
 output "api_scope" {

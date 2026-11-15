@@ -292,15 +292,17 @@ resource "azurerm_container_app" "api" {
       }
       env {
         name  = "CC_AUTH"
-        value = "oidc"
+        value = var.entra_sign_in ? "oidc" : "demo"
       }
-      env {
-        name  = "CC_OIDC_ISSUER"
-        value = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
-      }
-      env {
-        name  = "CC_OIDC_AUDIENCE"
-        value = azuread_application.api.client_id
+      dynamic "env" {
+        for_each = var.entra_sign_in ? {
+          CC_OIDC_ISSUER   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"
+          CC_OIDC_AUDIENCE = azuread_application.api[0].client_id
+        } : {}
+        content {
+          name  = env.key
+          value = env.value
+        }
       }
       env {
         name  = "APPLICATIONINSIGHTS_CONNECTION_STRING"
