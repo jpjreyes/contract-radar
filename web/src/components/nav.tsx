@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ShieldCheck, UserRound } from "lucide-react";
-import { api, currentUser, setCurrentUser, type User } from "@/lib/api";
+import { api, currentUser, DEFAULT_USER, setCurrentUser, type User } from "@/lib/api";
 import { AUTH_MODE, account, signOut } from "@/lib/auth";
 import { Logo } from "./ui";
 
@@ -34,7 +34,13 @@ export function Nav() {
   const [me, setMe] = useState<User | null>(null);
   const [signedInAs, setSignedInAs] = useState("");
   useEffect(() => {
-    if (AUTH_MODE === "demo") api<User[]>("/users").then(setUsers).catch(() => setUsers([]));
+    // ?as=<user> opens the demo already switched to that user (links in the README, screenshots)
+    const as = new URLSearchParams(window.location.search).get("as");
+    if (AUTH_MODE === "demo" && as && /^[a-z_]{1,32}$/.test(as) && as !== currentUser()) setCurrentUser(as);
+    if (AUTH_MODE === "demo") api<User[]>("/users", {}, DEFAULT_USER).then((us) => {
+      setUsers(us);
+      if (!us.some((u) => u.name === currentUser())) setCurrentUser(DEFAULT_USER);  // a stale or mistyped ?as=
+    }).catch(() => setUsers([]));
     else account().then((a) => setSignedInAs(a?.username ?? ""));
   }, []);
   useEffect(() => {

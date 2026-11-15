@@ -8,17 +8,17 @@ personal data is masked unless their role allows it. "Which contracts…?" quest
 extracted from every contract, with doubtful values routed to a person. Every question and every review is written to
 a tamper-evident audit log.
 
-**Live demo:** [ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io](https://ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io): switch between the four demo users at the top right; try an
-example question or ask your own. (The API scales to zero, so the first load can take ~20 seconds.)
+**Live demo:** [ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io](https://ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io): compare two users on the same question, switch users at the top right, try an
+example question or ask your own ([open as the analyst](https://ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io/?as=analyst)). (The API scales to zero, so the first load can take ~20 seconds.)
 
 > Data: the 510 public commercial contracts of [CUAD](https://www.atticusprojectai.org/cuad) (CC BY 4.0), filed with
 > the SEC. The client, users and permissions are a demo scenario: see [CLIENT_BRIEF.md](CLIENT_BRIEF.md).
 
+![Overview: the same question answered for two people side by side; the analyst's answer shows names as redaction bars](docs/img/overview-compare.png)
+
 ![Act this quarter: non-renewal notice deadlines computed from the extracted terms, each with its clause and review status](docs/img/act-this-quarter.png)
 
-![Portfolio question: the filter the model planned, matches with the evidence behind each one](docs/img/portfolio-question.png)
-
-![Contract viewer as the analyst: personal data masked, the cited signature block highlighted, key terms with review status](docs/img/viewer-analyst.png)
+![Contract viewer as the analyst: personal data redacted, key terms with review status](docs/img/viewer-analyst.png)
 
 ## Results
 

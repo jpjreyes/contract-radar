@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import { Masked } from "@/components/masked";
 import { useUser } from "@/components/nav";
 import { Badge, Card, Empty, PageHeader } from "@/components/ui";
-import { api, FIELD_LABELS, type Chunk, type ContractDetail, type FieldRow } from "@/lib/api";
+import { api, FIELD_LABELS, prettyName, type Chunk, type ContractDetail, type FieldRow } from "@/lib/api";
 
 /** Original-text offset (relative to the chunk) -> offset in the text shown (masked chunks have placeholders). */
 function toShown(pos: number, chunk: Chunk): number {
@@ -67,7 +67,7 @@ function Viewer() {
   return (
     <div>
       <Link href="/contracts" className="mb-4 inline-flex items-center gap-1 text-sm text-muted hover:text-foreground"><ArrowLeft className="size-4" />Contracts</Link>
-      <PageHeader eyebrow={`${doc.type} · ${doc.business_unit} · ${doc.region}`} title={doc.name}>
+      <PageHeader eyebrow={`${doc.type} · ${doc.business_unit} · ${doc.region}`} title={<span className="block break-words text-xl leading-snug sm:text-2xl">{prettyName(doc.name)}</span>}>
         {masked ? "Personal data in this contract is masked for your role." : "You can see this contract's personal data."}
       </PageHeader>
       <div className="grid gap-6 lg:grid-cols-[1fr_22rem]">
