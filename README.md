@@ -14,7 +14,7 @@ example question or ask your own ([open as the analyst](https://ca-cradar-eu3h4-
 > Data: the 510 public commercial contracts of [CUAD](https://www.atticusprojectai.org/cuad) (CC BY 4.0), filed with
 > the SEC. The client, users and permissions are a demo scenario: see [CLIENT_BRIEF.md](CLIENT_BRIEF.md).
 
-![Overview: the same question answered for two people side by side; the analyst's answer shows names as redaction bars](docs/img/overview-compare.png)
+![Landing: what it is in one line, then the same question answered for two people side by side](docs/img/overview-compare.png)
 
 ![Act this quarter: non-renewal notice deadlines computed from the extracted terms, each with its clause and review status](docs/img/act-this-quarter.png)
 
