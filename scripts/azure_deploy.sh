@@ -59,7 +59,7 @@ build_push contract-radar-web web --build-arg "API_URL=$API_URL" "${AUTH_ARGS[@]
 $TF apply -input=false -auto-approve -var "api_image_tag=$TAG" -var "web_image_tag=$TAG"
 
 echo "== 4/4 data"
-scripts/azure_load_db.sh
+if [ "${SKIP_DATA:-0}" = 1 ]; then echo "skipped (SKIP_DATA=1: code-only redeploy)"; else scripts/azure_load_db.sh; fi
 
 echo
 echo "API: $API_URL/healthz"
