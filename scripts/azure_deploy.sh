@@ -43,14 +43,15 @@ build_push contract-radar-api .
 echo "== 3/4 apps"
 $TF apply -input=false -auto-approve -var "api_image_tag=$TAG" -target=azurerm_container_app.api
 API_URL=$($TF output -raw api_url)
-# the web app's Entra registration needs the web URL, which needs the web app: create it with a placeholder image
-# tag the first time, then build the real image with the ids it needs and roll it out
-$TF apply -input=false -auto-approve -var "api_image_tag=$TAG" -var "web_image_tag=$TAG" || true
-WEB_CLIENT_ID=$($TF output -raw web_client_id)
-if [ -n "$WEB_CLIENT_ID" ]; then  # entra_sign_in = true: Microsoft sign-in
+if [ "$($TF output -raw entra_sign_in)" = "true" ]; then
+  # the web app's Entra registration needs the web URL, which needs the web app: create it with a placeholder image
+  # tag the first time, then build the real image with the ids it needs and roll it out
+  $TF apply -input=false -auto-approve -var "api_image_tag=$TAG" -var "web_image_tag=$TAG" || true
+  WEB_CLIENT_ID=$($TF output -raw web_client_id)
   AUTH_ARGS=(--build-arg NEXT_PUBLIC_AUTH_MODE=entra --build-arg "NEXT_PUBLIC_ENTRA_CLIENT_ID=$WEB_CLIENT_ID"
     --build-arg "NEXT_PUBLIC_ENTRA_TENANT_ID=$($TF output -raw tenant_id)" --build-arg "NEXT_PUBLIC_API_SCOPE=$($TF output -raw api_scope)")
-else                              # public demo: the user switcher
+else  # public demo: the user switcher; the image can be built before the web app exists
+  WEB_CLIENT_ID=""
   AUTH_ARGS=(--build-arg NEXT_PUBLIC_AUTH_MODE=demo)
 fi
 build_push contract-radar-web web --build-arg "API_URL=$API_URL" "${AUTH_ARGS[@]}"

@@ -36,3 +36,7 @@ output "identity_map_sql" {
   value = join("\n", [for role, g in azuread_group.role :
   "INSERT INTO identity_map VALUES ('group', '${g.object_id}', '${role}') ON CONFLICT DO NOTHING;"])
 }
+
+output "entra_sign_in" {
+  value = var.entra_sign_in
+}
