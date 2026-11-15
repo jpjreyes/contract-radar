@@ -62,19 +62,42 @@ export function setCurrentUser(name: string) {
   window.dispatchEvent(new CustomEvent("cc-user", { detail: name }));
 }
 
+// The API scales to zero: the first request after a quiet spell waits ~30 s while it starts, and the proxy in
+// front of it can time out meanwhile. Retry server-side errors for up to 90 s and tell the page it is waking up.
+const WAKE_MS = 90_000;
+export function wakeApi() {
+  fetch("/api/healthz", { cache: "no-store" }).catch(() => {});
+}
+
 export async function api<T>(path: string, init: RequestInit = {}, as?: string): Promise<T> {
   const token = as ? null : await accessToken();  // Entra mode: a bearer token; demo mode: null → the X-User switcher
   const identity: Record<string, string> = token ? { Authorization: `Bearer ${token}` } : { "X-User": as ?? currentUser() };
-  const res = await fetch(`/api${path}`, {
-    ...init,
-    headers: { "Content-Type": "application/json", ...identity, ...(init.headers ?? {}) },
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}));
-    throw new Error(body.detail ?? `${res.status}`);
+  const started = Date.now();
+  for (let attempt = 0; ; attempt++) {
+    let res: Response | null = null;
+    try {
+      res = await fetch(`/api${path}`, {
+        ...init,
+        headers: { "Content-Type": "application/json", ...identity, ...(init.headers ?? {}) },
+        cache: "no-store",
+      });
+    } catch {
+      res = null;  // network error while the API starts
+    }
+    const waking = !res || [500, 502, 503, 504].includes(res.status);
+    if (waking && Date.now() - started < WAKE_MS) {
+      if (attempt === 0) window.dispatchEvent(new CustomEvent("cc-waking", { detail: true }));
+      await new Promise((r) => setTimeout(r, 3000));
+      continue;
+    }
+    if (attempt > 0) window.dispatchEvent(new CustomEvent("cc-waking", { detail: false }));
+    if (!res) throw new Error("The server didn't answer. Try again in a minute.");
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      throw new Error(body.detail ?? `${res.status}`);
+    }
+    return res.json() as Promise<T>;
   }
-  return res.json() as Promise<T>;
 }
 
 export const FIELD_LABELS: Record<string, string> = {

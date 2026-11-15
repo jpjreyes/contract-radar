@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ShieldCheck, UserRound } from "lucide-react";
-import { api, currentUser, DEFAULT_USER, setCurrentUser, type User } from "@/lib/api";
+import { api, currentUser, DEFAULT_USER, setCurrentUser, wakeApi, type User } from "@/lib/api";
 import { AUTH_MODE, account, signOut } from "@/lib/auth";
 import { Logo } from "./ui";
 
@@ -33,6 +33,13 @@ export function Nav() {
   const [users, setUsers] = useState<User[]>([]);
   const [me, setMe] = useState<User | null>(null);
   const [signedInAs, setSignedInAs] = useState("");
+  const [waking, setWaking] = useState(false);
+  useEffect(() => {
+    wakeApi();  // start the API as soon as anyone opens a page
+    const on = (e: Event) => setWaking((e as CustomEvent<boolean>).detail);
+    window.addEventListener("cc-waking", on);
+    return () => window.removeEventListener("cc-waking", on);
+  }, []);
   useEffect(() => {
     // ?as=<user> opens the demo already switched to that user (links in the README, screenshots)
     const as = new URLSearchParams(window.location.search).get("as");
@@ -81,6 +88,13 @@ export function Nav() {
         </label>
         )}
       </div>
+      {waking && (
+        <div className="border-t border-line bg-warn-soft">
+          <p className="mx-auto max-w-6xl px-4 py-1.5 text-xs text-warn sm:px-6">
+            Waking the server: it sleeps when nobody is using it, so the first load takes about 30 seconds.
+          </p>
+        </div>
+      )}
       {me && (
         <div className="border-t border-line bg-surface-2/60">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-1 px-4 py-1.5 text-xs text-muted sm:px-6">
