@@ -5,7 +5,8 @@
 #
 # Steps (each is idempotent; re-run the script after a failure):
 #   1. infrastructure without the apps (network, Postgres, Key Vault, registry, identity, Entra, storage, budget)
-#   2. build the API image in Azure (az acr build: nothing builds on this Mac)
+#   2. build the API image locally for linux/amd64 (Colima) and push it to the registry (Azure for Students
+#      subscriptions don't allow ACR Tasks, so `az acr build` is not an option)
 #   3. the API app, then the web image (it needs the API URL and the Entra ids), then the web app
 #   4. load the data (scripts/azure_load_db.sh) and print the URLs
 set -euo pipefail
@@ -23,8 +24,21 @@ $TF apply -input=false -auto-approve \
   -target=azurerm_storage_container_immutability_policy.anchor -target=azurerm_consumption_budget_resource_group.budget
 ACR=$($TF output -raw registry)
 
-echo "== 2/4 API image ($TAG), built in Azure"
-az acr build --registry "${ACR%%.*}" --image "contract-radar-api:$TAG" --image contract-radar-api:latest . >/dev/null
+# Docker login to the registry with a short-lived Entra token, in a private config (never the default ~/.docker)
+export DOCKER_HOST="${DOCKER_HOST:-unix://$HOME/.colima/default/docker.sock}"
+export DOCKER_CONFIG="$(mktemp -d)"
+trap 'rm -rf "$DOCKER_CONFIG"' EXIT
+[ -d "$HOME/.docker/cli-plugins" ] && ln -s "$HOME/.docker/cli-plugins" "$DOCKER_CONFIG/cli-plugins"  # keep buildx
+az acr login --name "${ACR%%.*}" --expose-token --query accessToken -o tsv |
+  docker login "$ACR" -u 00000000-0000-0000-0000-000000000000 --password-stdin >/dev/null
+build_push() {  # build_push <image> <context> [docker build args...]
+  local image=$1 ctx=$2; shift 2
+  docker buildx build --platform linux/amd64 --provenance=false --push \
+    -t "$ACR/$image:$TAG" -t "$ACR/$image:latest" "$@" "$ctx"
+}
+
+echo "== 2/4 API image ($TAG), linux/amd64"
+build_push contract-radar-api .
 
 echo "== 3/4 apps"
 $TF apply -input=false -auto-approve -var "api_image_tag=$TAG" -target=azurerm_container_app.api
@@ -39,8 +53,7 @@ if [ -n "$WEB_CLIENT_ID" ]; then  # entra_sign_in = true: Microsoft sign-in
 else                              # public demo: the user switcher
   AUTH_ARGS=(--build-arg NEXT_PUBLIC_AUTH_MODE=demo)
 fi
-az acr build --registry "${ACR%%.*}" --image "contract-radar-web:$TAG" --image contract-radar-web:latest \
-  --build-arg "API_URL=$API_URL" "${AUTH_ARGS[@]}" web >/dev/null
+build_push contract-radar-web web --build-arg "API_URL=$API_URL" "${AUTH_ARGS[@]}"
 $TF apply -input=false -auto-approve -var "api_image_tag=$TAG" -var "web_image_tag=$TAG"
 
 echo "== 4/4 data"
