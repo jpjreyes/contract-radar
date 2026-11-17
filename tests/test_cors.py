@@ -5,7 +5,7 @@ import importlib
 import pytest
 from fastapi.testclient import TestClient
 
-WEB = "https://contract-radar.vercel.app"
+WEB = "https://the-contract-radar.vercel.app"
 
 
 @pytest.fixture
