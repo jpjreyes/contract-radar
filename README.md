@@ -8,8 +8,8 @@ personal data is masked unless their role allows it. "Which contracts…?" quest
 extracted from every contract, with doubtful values routed to a person. Every question and every review is written to
 a tamper-evident audit log.
 
-**Live demo:** [ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io](https://ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io): compare two users on the same question, switch users at the top right, try an
-example question or ask your own ([open as the analyst](https://ca-cradar-eu3h4-web.redisland-f1b0e9d9.canadacentral.azurecontainerapps.io/?as=analyst)). (The API scales to zero, so the first load can take ~20 seconds.)
+**Live demo:** [the-contract-radar.vercel.app](https://the-contract-radar.vercel.app): compare two users on the same question, switch users at the top right, try an
+example question or ask your own ([open as the analyst](https://the-contract-radar.vercel.app/?as=analyst)). (The API scales to zero, so the first load can take ~20 seconds.)
 
 > Data: the 510 public commercial contracts of [CUAD](https://www.atticusprojectai.org/cuad) (CC BY 4.0), filed with
 > the SEC. The client, users and permissions are a demo scenario: see [CLIENT_BRIEF.md](CLIENT_BRIEF.md).
@@ -128,7 +128,10 @@ permission, audit, review and API suites).
 `infra/azure` (Terraform) creates everything: Container Apps for the API and the web (scale to zero), PostgreSQL
 Flexible with no public access, Key Vault read by a managed identity, Container Registry, Application Insights, an
 immutable blob for the audit-chain anchor, a budget alert, and optionally Microsoft Entra ID sign-in with one
-security group per role (`entra_sign_in = true`; needs rights to create groups in the tenant). Then:
+security group per role (`entra_sign_in = true`; needs rights to create groups in the tenant). The public demo serves
+the web app from Vercel instead (`web/`, env `NEXT_PUBLIC_API_URL` = the API URL; the API allows that origin through
+`web_origins` in `terraform.tfvars`); the web container stays available for a deployment that must run entirely in
+the customer's tenant. Then:
 
 ```bash
 az login

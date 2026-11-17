@@ -539,3 +539,23 @@ or a GPU-free reranker would be the fix for a client. Run file: `evals/results/p
   database) calls `demo_reset_reviews()` at 11:00 UTC. It reverts changed fields and writes one audit entry; the
   visitors' own edits stay in the audit log. Chosen over a nightly reload job (which would also have wiped the audit
   log and taken the database down for ~2 minutes); cost $0.
+
+## D22. Public web app on Vercel; API and data stay on Azure (2026-11-17)
+- **Why:** the other three projects serve their web app from Vercel and keep the backend on their cloud. P3 served
+  the web from a second Container App, which gave a long generated URL and two cold starts (web, then API) for the
+  first visitor. The original reason for an Azure-hosted web (the Entra sign-in redirect) went away when Entra was
+  switched off for the public demo (D21: the UW tenant forbids creating security groups).
+- **Change:** the browser now calls the API directly. `web/src/lib/api.ts` reads `NEXT_PUBLIC_API_URL` (default
+  `/api`, still forwarded by Next locally and in the container image); the API allows only the origins listed in
+  `CC_CORS_ORIGINS` (Terraform `web_origins`), with the `X-User` / `Authorization` headers and `Content-Disposition`
+  exposed for the PDF export. Identity and permissions are unchanged: Postgres still decides everything. 3 tests
+  (allowed origin, other origin refused, header on responses).
+- **Live:** https://the-contract-radar.vercel.app (Vercel project `contract-radar`, root `web`, `vercel.json` sets
+  the Next.js preset; the first deploy served 404 because a CLI-created project defaults to "Other").
+- **Checked in a browser against the live API:** landing, contracts per user (admin vs maria 50), radar, a recorded
+  portfolio example (49 matches), the PDF export, and a live question as maria (8 matches, 5.1 s). The API image and
+  data are the same as D21, so the parity check still holds.
+- **Kept:** the web container and its Terraform, for a customer who needs everything inside their own tenant (with
+  Entra sign-in). It scales to zero, so it costs nothing when nobody visits it.
+- **Also fixed:** `web/.dockerignore` now excludes `.env*` and `.vercel`, so local Vercel files never enter an image.
+
