@@ -294,6 +294,10 @@ resource "azurerm_container_app" "api" {
         name  = "CC_AUTH"
         value = var.entra_sign_in ? "oidc" : "demo"
       }
+      env {
+        name  = "CC_CORS_ORIGINS"
+        value = join(",", var.web_origins)
+      }
       dynamic "env" {
         for_each = var.entra_sign_in ? {
           CC_OIDC_ISSUER   = "https://login.microsoftonline.com/${data.azurerm_client_config.current.tenant_id}/v2.0"

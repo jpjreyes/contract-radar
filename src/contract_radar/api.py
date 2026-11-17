@@ -16,6 +16,7 @@ from datetime import date
 
 import psycopg
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 from pydantic import BaseModel
@@ -32,6 +33,19 @@ from contract_radar.serve import serve
 tracing.setup()
 app = FastAPI(title="Contract Radar", version="0.1")
 FastAPIInstrumentor.instrument_app(app, excluded_urls="healthz")
+
+# The web app on Vercel calls the API from another origin. Only the listed origins may (CC_CORS_ORIGINS, comma
+# separated); identity still comes from the X-User header or the bearer token, and Postgres decides the rest.
+_origins = [o.strip() for o in os.environ.get("CC_CORS_ORIGINS", "").split(",") if o.strip()]
+if _origins:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=_origins,
+        allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE"],
+        allow_headers=["Content-Type", "Authorization", "X-User"],
+        expose_headers=["Content-Disposition"],
+        max_age=600,
+    )
 
 
 @app.exception_handler(limits.LimitExceeded)

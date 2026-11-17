@@ -7,7 +7,7 @@ import { ArrowLeft, Check, Download, Loader2, Pencil, X } from "lucide-react";
 import { Masked } from "@/components/masked";
 import { useUser } from "@/components/nav";
 import { Badge, Card, Empty, PageHeader } from "@/components/ui";
-import { api, authHeaders, FIELD_LABELS, prettyName, type Chunk, type ContractDetail, type FieldRow, type User } from "@/lib/api";
+import { api, API_BASE, authHeaders, FIELD_LABELS, prettyName, type Chunk, type ContractDetail, type FieldRow, type User } from "@/lib/api";
 
 /** Original-text offset (relative to the chunk) -> offset in the text shown (masked chunks have placeholders). */
 function toShown(pos: number, chunk: Chunk): number {
@@ -101,7 +101,7 @@ function PdfButton({ id, masked }: { id: number; masked: boolean }) {
   async function download() {
     setBusy(true); setErr("");
     try {
-      const res = await fetch(`/api/contracts/${id}/pdf`, { headers: await authHeaders(), cache: "no-store" });
+      const res = await fetch(`${API_BASE}/contracts/${id}/pdf`, { headers: await authHeaders(), cache: "no-store" });
       if (!res.ok) throw new Error(`${res.status}`);
       const name = /filename="([^"]+)"/.exec(res.headers.get("content-disposition") ?? "")?.[1] ?? `contract-${id}.pdf`;
       const url = URL.createObjectURL(await res.blob());

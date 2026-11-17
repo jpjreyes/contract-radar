@@ -4,6 +4,10 @@ import { accessToken } from "./auth";
 
 export type Tone = "ok" | "warn" | "bad" | "neutral" | "brand" | "accent";
 
+// Where the API lives. Locally and in the container image: "/api", forwarded by Next (next.config.ts). On Vercel:
+// the API's own address (NEXT_PUBLIC_API_URL); the browser calls it directly and the API allows this origin (CORS).
+export const API_BASE = (process.env.NEXT_PUBLIC_API_URL ?? "/api").replace(/\/$/, "");
+
 export const CLIENT = "Northline Distribution";
 const KEY = "cc-user";
 export const DEFAULT_USER = "legal_admin";
@@ -66,7 +70,7 @@ export function setCurrentUser(name: string) {
 // front of it can time out meanwhile. Retry server-side errors for up to 90 s and tell the page it is waking up.
 const WAKE_MS = 90_000;
 export function wakeApi() {
-  fetch("/api/healthz", { cache: "no-store" }).catch(() => {});
+  fetch(`${API_BASE}/healthz`, { cache: "no-store" }).catch(() => {});
 }
 
 export async function authHeaders(as?: string): Promise<Record<string, string>> {
@@ -80,7 +84,7 @@ export async function api<T>(path: string, init: RequestInit = {}, as?: string):
   for (let attempt = 0; ; attempt++) {
     let res: Response | null = null;
     try {
-      res = await fetch(`/api${path}`, {
+      res = await fetch(`${API_BASE}${path}`, {
         ...init,
         headers: { "Content-Type": "application/json", ...identity, ...(init.headers ?? {}) },
         cache: "no-store",

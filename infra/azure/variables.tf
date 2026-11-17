@@ -55,3 +55,9 @@ variable "entra_sign_in" {
   type        = bool
   default     = false
 }
+
+variable "web_origins" {
+  description = "Origins of the web app hosted outside Azure (e.g. Vercel) that may call the API from the browser"
+  type        = list(string)
+  default     = []
+}
