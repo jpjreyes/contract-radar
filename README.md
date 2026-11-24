@@ -1,6 +1,6 @@
 # Contract Radar
 
-[![ci](https://github.com/jpreyesm03/contract-radar/actions/workflows/ci.yml/badge.svg)](https://github.com/jpreyesm03/contract-radar/actions/workflows/ci.yml)
+[![ci](https://github.com/jpjreyes/contract-radar/actions/workflows/ci.yml/badge.svg)](https://github.com/jpjreyes/contract-radar/actions/workflows/ci.yml)
 
 Ask questions across a portfolio of 510 real commercial contracts and get answers a lawyer can check: every claim
 carries a quote that code verified against the contract, each user sees only the contracts they're allowed to, and
